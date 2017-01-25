@@ -11,7 +11,7 @@ namespace Wallet.Models.Entities
         public string Name { get; set; }
 
         public BankAccount BankAccount { get; set; }
-        //public Currency Currency { get; set; }
+        public WCurrency Currency { get; set; }
         public Client Client { get; set; }
     }
 }

@@ -77,3 +77,4 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\Wallet\obj\Debug\Wallet.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\Wallet\obj\Debug\Wallet.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\Wallet\obj\Debug\Wallet.Migrations.v001.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\Wallet\obj\Debug\Wallet.csproj.GenerateResource.Cache
+C:\Users\vorobyev\SkyDrive\Git\wallet\Wallet\obj\Debug\Wallet.Migrations.v002.resources

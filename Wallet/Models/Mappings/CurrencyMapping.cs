@@ -7,14 +7,14 @@ using Wallet.Models.Entities;
 
 namespace Wallet.Models.Mappings
 {
-    //public class CurrencyMapping : EntityTypeConfiguration<Currency>
-    //{
-    //    public CurrencyMapping(string tableName)
-    //    {
-    //        HasKey(e => e.Id);
-    //        Property(e => e.Name).IsRequired();
-    //        Property(e => e.Name).HasMaxLength(50);
-    //        ToTable($"{tableName}");
-    //    }
-    //}
+    public class CurrencyMapping : EntityTypeConfiguration<WCurrency>
+    {
+        public CurrencyMapping(string tableName)
+        {
+            HasKey(e => e.Id);
+            Property(e => e.Name).IsRequired();
+            Property(e => e.Name).HasMaxLength(50);
+            ToTable($"{tableName}");
+        }
+    }
 }

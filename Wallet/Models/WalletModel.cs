@@ -24,7 +24,7 @@ namespace Wallet.Models
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
-        //public virtual DbSet<Currency> Currencies { get; set; }
+        public virtual DbSet<WCurrency> Currencies { get; set; }
         public virtual DbSet<ClientAccountStatusDictionary> ClientAccountStatusDictionaries { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Bank> Banks { get; set; }
@@ -35,7 +35,7 @@ namespace Wallet.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Configurations.Add(new CurrencyMapping("Currencies"));
+            modelBuilder.Configurations.Add(new CurrencyMapping("Currencies"));
         }
 
     }

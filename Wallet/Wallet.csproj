@@ -207,11 +207,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BankAccountsController.cs" />
-    <Compile Include="Controllers\BanksController.cs" />
-    <Compile Include="Controllers\ClientAccountsController.cs" />
-    <Compile Include="Controllers\ClientAccountStatusController.cs" />
-    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\WebApi\BankAccountsController.cs" />
+    <Compile Include="Controllers\WebApi\BanksController.cs" />
+    <Compile Include="Controllers\WebApi\ClientAccountsController.cs" />
+    <Compile Include="Controllers\WebApi\ClientAccountStatusController.cs" />
+    <Compile Include="Controllers\WebApi\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201701250757343_v001.cs" />
     <Compile Include="Migrations\201701250757343_v001.Designer.cs">
       <DependentUpon>201701250757343_v001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701250836084_v002.cs" />
+    <Compile Include="Migrations\201701250836084_v002.Designer.cs">
+      <DependentUpon>201701250836084_v002.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ConfigurationIdentity.cs" />
     <Compile Include="Migrations\ConfigurationEntities.cs" />
@@ -231,7 +235,7 @@
     <Compile Include="Models\Entities\ClientAccount.cs" />
     <Compile Include="Models\Entities\ClientAccountStatus.cs" />
     <Compile Include="Models\Entities\ClientAccountStatusDictionary.cs" />
-    <Compile Include="Models\Entities\Currency.cs" />
+    <Compile Include="Models\Entities\WCurrency.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Mappings\CurrencyMapping.cs" />
     <Compile Include="Models\WalletModel.cs" />
@@ -309,6 +313,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701250757343_v001.resx">
       <DependentUpon>201701250757343_v001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701250836084_v002.resx">
+      <DependentUpon>201701250836084_v002.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
