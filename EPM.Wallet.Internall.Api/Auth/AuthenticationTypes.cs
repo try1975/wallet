@@ -1,4 +1,4 @@
-namespace EPM.Wallet.Internall.Api.Auth
+namespace WalletInternalApi.Auth
 {
     public enum AuthenticationTypes
     {

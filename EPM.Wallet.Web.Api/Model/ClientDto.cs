@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using EPM.Wallet.Common.Interfaces;
 
 namespace WalletWebApi.Model
 {

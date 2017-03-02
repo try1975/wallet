@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using EPM.Wallet.Common.Interfaces;
+using EPM.Wallet.Internal;
 
 namespace EPM.Wallet.WinForms.Interfaces
 {

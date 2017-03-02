@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace EPM.Wallet.Internall.Api.Areas.HelpPage.ModelDescriptions
+namespace WalletInternalApi.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

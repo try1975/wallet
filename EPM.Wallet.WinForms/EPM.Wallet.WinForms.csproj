@@ -37,9 +37,6 @@
       <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Belitsoft.Insignia.EPM.DPA.Client">
-      <HintPath>..\Belitsoft.Insignia.EPM.DPA.Client\obj\Debug\Belitsoft.Insignia.EPM.DPA.Client.dll</HintPath>
-    </Reference>
     <Reference Include="DocX">
       <HintPath>..\DocX\DocX\bin\Debug\DocX.dll</HintPath>
     </Reference>
@@ -182,10 +179,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Belitsoft.Insignia.EPM.Common.Client\Belitsoft.Insignia.EPM.Common.Client.csproj">
-      <Project>{B83206B5-D017-4CCB-B02E-BF7EBB1C322A}</Project>
-      <Name>Belitsoft.Insignia.EPM.Common.Client</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EPM.Wallet.Common\EPM.Wallet.Common.csproj">
       <Project>{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}</Project>
       <Name>EPM.Wallet.Common</Name>

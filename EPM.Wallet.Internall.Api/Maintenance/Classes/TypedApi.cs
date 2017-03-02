@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
-using EPM.Wallet.Common.Interfaces;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using EPM.Wallet.Internal;
 
-namespace EPM.Wallet.Internall.Api.Maintenance
+namespace WalletInternalApi.Maintenance
 {
     public abstract class TypedApi<TV, D, K> : ITypedApi<TV, K> where D : class, IEntity<K> where TV : class, IDto<K>
     {

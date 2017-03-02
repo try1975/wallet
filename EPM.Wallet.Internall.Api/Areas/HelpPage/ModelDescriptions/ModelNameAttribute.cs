@@ -1,6 +1,6 @@
 using System;
 
-namespace EPM.Wallet.Internall.Api.Areas.HelpPage.ModelDescriptions
+namespace WalletInternalApi.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Use this attribute to change the name of the <see cref="ModelDescription"/> generated for a type.

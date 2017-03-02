@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using EPM.Wallet.Internal.Model;
 
-namespace EPM.Wallet.Internall.Api.Maintenance
+namespace WalletInternalApi.Maintenance
 {
     public interface IAccountRequestApi : ITypedApi<AccountRequestDto, Guid>
     {

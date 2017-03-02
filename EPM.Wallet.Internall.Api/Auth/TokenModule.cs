@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Configuration;
 using EPM.Wallet.Common;
 
-namespace EPM.Wallet.Internall.Api.Auth
+namespace WalletInternalApi.Auth
 {
     public class TokenModule : IHttpModule
     {

@@ -1,8 +1,8 @@
 using System.Web.Http;
 using System.Web.Mvc;
-using EPM.Wallet.Internall.Api.Areas.HelpPage.App_Start;
+using WalletInternalApi.Areas.HelpPage.App_Start;
 
-namespace EPM.Wallet.Internall.Api.Areas.HelpPage
+namespace WalletInternalApi.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

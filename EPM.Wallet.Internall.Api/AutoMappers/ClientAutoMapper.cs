@@ -2,7 +2,7 @@
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Internal.Model;
 
-namespace EPM.Wallet.Internall.Api.AutoMappers
+namespace WalletInternalApi.AutoMappers
 {
     public static class ClientAutoMapper
     {

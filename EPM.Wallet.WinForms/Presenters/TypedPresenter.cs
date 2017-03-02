@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using AutoMapper;
-using EPM.Wallet.Common.Interfaces;
+using EPM.Wallet.Internal;
 using EPM.Wallet.WinForms.Interfaces;
 
 namespace EPM.Wallet.WinForms.Presenters

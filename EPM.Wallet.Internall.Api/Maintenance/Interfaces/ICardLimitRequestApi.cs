@@ -1,7 +1,7 @@
 using System;
 using EPM.Wallet.Internal.Model;
 
-namespace EPM.Wallet.Internall.Api.Maintenance
+namespace WalletInternalApi.Maintenance
 {
     public interface ICardLimitRequestApi : ITypedApi<CardLimitRequestDto, Guid>
     {

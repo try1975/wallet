@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
-using EPM.Wallet.Common.Interfaces;
-using EPM.Wallet.Internall.Api.Maintenance;
+using EPM.Wallet.Internal;
+using WalletInternalApi.Maintenance;
 
-namespace EPM.Wallet.Internall.Api.Controllers
+namespace WalletInternalApi.Controllers
 {
     [Authorize]
-    public abstract class TypedController<T, K> : ApiController where T : class, IDto<K>
+    public class TypedController<T, K> : ApiController where T : class, IDto<K>
     {
         protected readonly  ITypedApi<T, K> _api;
 
-        protected TypedController(ITypedApi<T, K> api)
+        public TypedController(ITypedApi<T, K> api)
         {
             _api = api;
         }
@@ -53,7 +53,7 @@ namespace EPM.Wallet.Internall.Api.Controllers
             {
                 return BadRequest("PUT failed.");
             }
-            return CreatedAtRoute("PutBankV1Route", new { id = dto.Id }, dto);
+            return CreatedAtRoute("DefaultApi", new { id = dto.Id }, dto);
         }
 
         public IHttpActionResult Delete(K id)

@@ -6,7 +6,7 @@ using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
 using EPM.Wallet.Internal.Model;
 
-namespace EPM.Wallet.Internall.Api.Maintenance
+namespace WalletInternalApi.Maintenance
 {
     public class CardLimitRequestApi : TypedApi<CardLimitRequestDto, CardLimitRequestEntity, Guid>, ICardLimitRequestApi
     {

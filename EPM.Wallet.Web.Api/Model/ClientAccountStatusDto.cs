@@ -1,6 +1,4 @@
-﻿using EPM.Wallet.Common.Interfaces;
-
-namespace WalletWebApi.Model
+﻿namespace WalletWebApi.Model
 {
     public class ClientAccountStatusDto : IDto<string>
     {

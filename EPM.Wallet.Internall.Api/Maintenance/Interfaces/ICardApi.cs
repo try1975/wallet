@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using EPM.Wallet.Internal.Model;
 
-namespace EPM.Wallet.Internall.Api.Maintenance
+namespace WalletInternalApi.Maintenance
 {
     public interface ICardApi : ITypedApi<CardDto, Guid>
     {

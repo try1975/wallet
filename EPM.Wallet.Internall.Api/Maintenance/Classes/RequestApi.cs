@@ -7,7 +7,7 @@ using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
 using EPM.Wallet.Internal.Model;
 
-namespace EPM.Wallet.Internall.Api.Maintenance
+namespace WalletInternalApi.Maintenance
 {
 
     public class RequestApi : TypedApi<RequestDto, RequestEntity, Guid>, IRequestApi

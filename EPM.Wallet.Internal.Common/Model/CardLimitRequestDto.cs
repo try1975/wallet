@@ -1,5 +1,4 @@
 using System;
-using EPM.Wallet.Common.Interfaces;
 using Newtonsoft.Json;
 
 namespace EPM.Wallet.Internal.Model

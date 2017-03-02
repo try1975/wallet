@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using EPM.Wallet.Common.Interfaces;
+using EPM.Wallet.Internal;
 
-namespace EPM.Wallet.Internall.Api.Maintenance
+namespace WalletInternalApi.Maintenance
 {
     public interface ITypedApi<T,K> where T : class, IDto<K>
     {

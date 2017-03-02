@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDto.cs" />
     <Compile Include="Model\AccountDto.cs" />
     <Compile Include="Model\AccountNewRequestDto.cs" />
     <Compile Include="Model\AccountRequestDto.cs" />

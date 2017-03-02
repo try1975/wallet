@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using EPM.Wallet.Internall.Api.Areas.HelpPage.ModelDescriptions;
+using WalletInternalApi.Areas.HelpPage.ModelDescriptions;
 
-namespace EPM.Wallet.Internall.Api.Areas.HelpPage
+namespace WalletInternalApi.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

@@ -1,6 +1,5 @@
 ﻿using System;
 using EPM.Wallet.Common.Enums;
-using EPM.Wallet.Common.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 

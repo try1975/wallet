@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace EPM.Wallet.Internall.Api
+namespace WalletInternalApi
 {
     public static class WebApiConfig
     {

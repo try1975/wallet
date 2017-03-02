@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace EPM.Wallet.Internall.Api
+namespace WalletInternalApi
 {
     public class FilterConfig
     {

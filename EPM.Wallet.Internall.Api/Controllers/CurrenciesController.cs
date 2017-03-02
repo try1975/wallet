@@ -1,7 +1,7 @@
 ﻿using EPM.Wallet.Internal.Model;
-using EPM.Wallet.Internall.Api.Maintenance;
+using WalletInternalApi.Maintenance;
 
-namespace EPM.Wallet.Internall.Api.Controllers
+namespace WalletInternalApi.Controllers
 {
     public class CurrenciesController : TypedController<CurrencyDto, string>
     {

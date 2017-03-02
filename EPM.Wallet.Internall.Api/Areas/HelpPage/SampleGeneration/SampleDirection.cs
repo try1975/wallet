@@ -1,4 +1,4 @@
-namespace EPM.Wallet.Internall.Api.Areas.HelpPage.SampleGeneration
+namespace WalletInternalApi.Areas.HelpPage.SampleGeneration
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response
