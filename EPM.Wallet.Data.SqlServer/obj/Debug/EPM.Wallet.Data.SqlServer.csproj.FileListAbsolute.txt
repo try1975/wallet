@@ -29,12 +29,10 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\Entity
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\EPM.Wallet.Data.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\EPM.Wallet.Common.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\EPM.Wallet.Data.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\EntityFramework.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\EPM.Wallet.Common.pdb
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\bin\Debug\Newtonsoft.Json.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.csprojResolveAssemblyReference.cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V01.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V02.resources
@@ -46,3 +44,4 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wa
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.csproj.GenerateResource.Cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V7.resources

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using EPM.Wallet.Common.Enums;
-using EPM.Wallet.Common.Model;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using EPM.Wallet.Internal.Model;
 
 namespace EPM.Wallet.Internall.Api.Maintenance
 {
@@ -32,7 +32,7 @@ namespace EPM.Wallet.Internall.Api.Maintenance
 
         public IEnumerable<AccountRequestDto> RequestsByClient(string clientId)
         {
-            var list = _query.GetEntities()
+            var list = Query.GetEntities()
                .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment)
                .OrderByDescending(i => i.CreatedAt)
                .ToList()
@@ -96,7 +96,7 @@ namespace EPM.Wallet.Internall.Api.Maintenance
 
             try
             {
-                _query.InsertEntity(entity);
+                Query.InsertEntity(entity);
                 return true;
             }
             catch (Exception e)
@@ -137,7 +137,7 @@ namespace EPM.Wallet.Internall.Api.Maintenance
             };
             try
             {
-                _query.InsertEntity(entity);
+                Query.InsertEntity(entity);
                 return true;
             }
             catch (Exception e)
@@ -171,7 +171,7 @@ namespace EPM.Wallet.Internall.Api.Maintenance
             };
             try
             {
-                _query.InsertEntity(entity);
+                Query.InsertEntity(entity);
                 return true;
             }
             catch (Exception e)
@@ -205,7 +205,7 @@ namespace EPM.Wallet.Internall.Api.Maintenance
             };
             try
             {
-                _query.InsertEntity(entity);
+                Query.InsertEntity(entity);
                 return true;
             }
             catch (Exception e)

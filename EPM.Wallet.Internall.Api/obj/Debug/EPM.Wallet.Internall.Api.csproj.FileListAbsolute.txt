@@ -62,7 +62,6 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EPM.Wallet.In
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\Antlr3.Runtime.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\AutoMapper.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EntityFramework.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EntityFramework.SqlServer.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EPM.Wallet.Common.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EPM.Wallet.Data.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EPM.Wallet.Data.SqlServer.dll
@@ -88,7 +87,6 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EPM.Wallet.Da
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EPM.Wallet.Data.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\AutoMapper.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EntityFramework.xml
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EntityFramework.SqlServer.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\Newtonsoft.Json.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\Ninject.xml
@@ -107,3 +105,7 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\Antlr3.Runtim
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\obj\Debug\EPM.Wallet.Internall.Api.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\obj\Debug\EPM.Wallet.Internall.Api.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\obj\Debug\EPM.Wallet.Internall.Api.csprojResolveAssemblyReference.cache
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EntityFramework.SqlServer.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EntityFramework.SqlServer.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EPM.Wallet.Internal.Common.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\EPM.Wallet.Internal.Common.pdb

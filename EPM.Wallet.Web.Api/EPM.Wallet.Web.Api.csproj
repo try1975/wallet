@@ -248,6 +248,27 @@
     <Compile Include="Maintenance\Classes\p04\RequestApi.cs" />
     <Compile Include="Maintenance\Classes\p04\StandingOrderApi.cs" />
     <Compile Include="Maintenance\Classes\TypedApi.cs" />
+    <Compile Include="Model\AccountDto.cs" />
+    <Compile Include="Model\AccountNewRequestDto.cs" />
+    <Compile Include="Model\AccountRequestDto.cs" />
+    <Compile Include="Model\BankAccountDto.cs" />
+    <Compile Include="Model\BankDto.cs" />
+    <Compile Include="Model\CardBlockRequestDto.cs" />
+    <Compile Include="Model\CardDto.cs" />
+    <Compile Include="Model\CardLimitRequestDto.cs" />
+    <Compile Include="Model\CardNewRequestDto.cs" />
+    <Compile Include="Model\CardReissueRequestDto.cs" />
+    <Compile Include="Model\CardRequestDto.cs" />
+    <Compile Include="Model\ClientAccountStatusDto.cs" />
+    <Compile Include="Model\ClientDto.cs" />
+    <Compile Include="Model\CurrencyDto.cs" />
+    <Compile Include="Model\MessageDto.cs" />
+    <Compile Include="Model\RefillRequestDto.cs" />
+    <Compile Include="Model\RequestDto.cs" />
+    <Compile Include="Model\RequisiteDto.cs" />
+    <Compile Include="Model\StandingOrderDto.cs" />
+    <Compile Include="Model\TransferOutRequestDto.cs" />
+    <Compile Include="Model\TransferToCardRequestDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

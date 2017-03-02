@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using EPM.Wallet.Common.Enums;
-using EPM.Wallet.Common.Model;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using EPM.Wallet.Internal.Model;
 
 namespace EPM.Wallet.Internall.Api.Maintenance
 {
@@ -18,7 +18,7 @@ namespace EPM.Wallet.Internall.Api.Maintenance
 
         public IEnumerable<RequestDto> RequestsByClient(string clientId)
         {
-            var list = _query.GetEntities()
+            var list = Query.GetEntities()
                 .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment)
                 .OrderByDescending(i => i.CreatedAt)
                 .ToList()

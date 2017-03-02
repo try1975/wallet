@@ -13,11 +13,11 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
               .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(e => e.Subject)
                 .IsOptional()
-                .HasMaxLength(128)
+                .HasMaxLength(250)
                 ;
             Property(e => e.Body)
                 .IsRequired()
-                .HasMaxLength(250)
+                //.HasMaxLength(250)
                 ;
             Property(e => e.ClientId)
                 .IsRequired()

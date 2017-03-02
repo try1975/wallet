@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Web.Api", "EPM.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.WinForms", "EPM.Wallet.WinForms\EPM.Wallet.WinForms.csproj", "{7C1D49E0-5306-462F-898C-D412B86B7C92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Internal.Common", "EPM.Wallet.Internal.Common\EPM.Wallet.Internal.Common.csproj", "{EA67B2D9-8AA3-4EC3-AD1D-009B9D930077}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Internal", "EPM.Wallet.Internal.Common\EPM.Wallet.Internal.csproj", "{EA67B2D9-8AA3-4EC3-AD1D-009B9D930077}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

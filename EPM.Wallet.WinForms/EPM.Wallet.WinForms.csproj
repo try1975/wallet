@@ -190,9 +190,9 @@
       <Project>{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}</Project>
       <Name>EPM.Wallet.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EPM.Wallet.Web.Api\EPM.Wallet.Web.Api.csproj">
-      <Project>{C4772A58-9969-4B3F-ACB8-A53A68FC0401}</Project>
-      <Name>EPM.Wallet.Web.Api</Name>
+    <ProjectReference Include="..\EPM.Wallet.Internal.Common\EPM.Wallet.Internal.csproj">
+      <Project>{EA67B2D9-8AA3-4EC3-AD1D-009B9D930077}</Project>
+      <Name>EPM.Wallet.Internal</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using EPM.Wallet.Common;
-using EPM.Wallet.Common.Model;
 using WalletWebApi.Maintenance;
+using WalletWebApi.Model;
 
 namespace WalletWebApi.Controllers
 {

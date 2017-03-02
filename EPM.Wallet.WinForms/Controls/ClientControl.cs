@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using AutoMapper;
-using EPM.Wallet.Common.Model;
+using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
 

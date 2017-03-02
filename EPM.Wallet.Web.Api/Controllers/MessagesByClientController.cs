@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EPM.Wallet.Common;
-using EPM.Wallet.Common.Model;
 using WalletWebApi.Maintenance;
+using WalletWebApi.Model;
 
 namespace WalletWebApi.Controllers
 {

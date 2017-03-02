@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using EPM.Wallet.Common.Model;
+using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {

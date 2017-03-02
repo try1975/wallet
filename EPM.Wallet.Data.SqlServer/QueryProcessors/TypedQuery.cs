@@ -9,10 +9,16 @@ using EPM.Wallet.Data.QueryProcessors;
 
 namespace EPM.Wallet.Data.SqlServer.QueryProcessors
 {
-    public abstract class TypedQuery<T, K> : ITypedQuery<T, K> where T : class, IEntity<K>
+    public abstract class TypedQuery<T, TK> : ITypedQuery<T, TK> where T : class, IEntity<TK>
     {
-        protected static readonly WalletContext Db = new WalletContext();
-        protected readonly DbSet<T> _entities = Db.Set<T>();
+        protected readonly WalletContext Db;
+        private readonly DbSet<T> _entities;
+
+        protected TypedQuery()
+        {
+            Db = new WalletContext();
+            _entities = Db.Set<T>();
+        }
 
 
         public virtual IQueryable<T> GetEntities()
@@ -20,14 +26,14 @@ namespace EPM.Wallet.Data.SqlServer.QueryProcessors
             return _entities.AsNoTracking();
         }
 
-        public virtual T GetEntity(K id)
+        public virtual T GetEntity(TK id)
         {
             //return _entities.FirstOrDefault(t => t.Id.Equals(id));
             var entity = _entities.Find(id);
             return entity;
         }
 
-        public async Task<T> GetEntityAsync(K id)
+        public async Task<T> GetEntityAsync(TK id)
         {
             return await _entities.FindAsync(id);
         }
@@ -87,21 +93,24 @@ db.SaveChanges();*/
             }
         }
 
-        public bool DeleteEntity(K id)
+        public bool DeleteEntity(TK id)
         {
-            var entity = _entities.Find(id);
-            if (entity == null) return false;
-            try
+            using (var db = new WalletContext())
             {
-                _entities.Attach(entity);
-                _entities.Remove(entity);
-                Db.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-                return false;
+                var entity = db.Set<T>().Find(id);
+                if (entity == null) return false;
+                try
+                {
+                    db.Set<T>().Attach(entity);
+                    db.Set<T>().Remove(entity);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    return false;
+                }
             }
         }
     }

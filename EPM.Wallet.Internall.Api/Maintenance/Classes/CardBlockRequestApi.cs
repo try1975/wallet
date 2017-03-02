@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using EPM.Wallet.Common.Enums;
-using EPM.Wallet.Common.Model;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using EPM.Wallet.Internal.Model;
 
 namespace EPM.Wallet.Internall.Api.Maintenance
 {
@@ -31,7 +31,7 @@ namespace EPM.Wallet.Internall.Api.Maintenance
             };
             try
             {
-                _query.InsertEntity(entity);
+                Query.InsertEntity(entity);
                 return true;
             }
             catch (Exception ex)

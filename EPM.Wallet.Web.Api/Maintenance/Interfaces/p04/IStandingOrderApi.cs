@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using EPM.Wallet.Common.Model;
+using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {

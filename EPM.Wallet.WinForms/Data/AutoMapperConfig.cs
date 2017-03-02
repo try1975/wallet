@@ -1,5 +1,5 @@
 ﻿using AutoMapper.Configuration;
-using EPM.Wallet.Common.Model;
+using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 
 namespace EPM.Wallet.WinForms.Data

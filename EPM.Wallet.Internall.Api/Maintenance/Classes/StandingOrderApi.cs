@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using EPM.Wallet.Common.Model;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using EPM.Wallet.Internal.Model;
 
 namespace EPM.Wallet.Internall.Api.Maintenance
 {
@@ -17,7 +17,7 @@ namespace EPM.Wallet.Internall.Api.Maintenance
 
         public IEnumerable<StandingOrderDto> GetStandingOrdersByClient(string clientId)
         {
-            var list = _query.GetEntities()
+            var list = Query.GetEntities()
                 .Where(m => m.ClientAccount.ClientId == clientId)
                 .OrderByDescending(i => i.CreatedAt)
                 .ToList()

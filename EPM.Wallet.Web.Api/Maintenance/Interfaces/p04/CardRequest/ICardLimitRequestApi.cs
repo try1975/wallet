@@ -1,5 +1,5 @@
 using System;
-using EPM.Wallet.Common.Model;
+using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {

@@ -301,6 +301,10 @@
       <Project>{9bf8ffe8-9892-494a-858a-e87c6fa853e2}</Project>
       <Name>EPM.Wallet.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EPM.Wallet.Internal.Common\EPM.Wallet.Internal.csproj">
+      <Project>{ea67b2d9-8aa3-4ec3-ad1d-009b9d930077}</Project>
+      <Name>EPM.Wallet.Internal</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,6 +1,6 @@
 ﻿using AutoMapper.Configuration;
-using EPM.Wallet.Common.Model;
 using EPM.Wallet.Data.Entities;
+using EPM.Wallet.Internal.Model;
 
 namespace EPM.Wallet.Internall.Api.AutoMappers
 {

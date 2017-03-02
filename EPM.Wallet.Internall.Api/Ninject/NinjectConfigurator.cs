@@ -27,7 +27,7 @@ namespace EPM.Wallet.Internall.Api.Ninject
 
         private void AddBindings(IKernel container)
         {
-            ConfigureOrm(container);
+            //ConfigureOrm(container);
             ConfigureAutoMapper(container);
 
             #region Api and Query
@@ -105,9 +105,9 @@ namespace EPM.Wallet.Internall.Api.Ninject
             //    .InRequestScope/*InSingletonScope*/();
         }
 
-        private void ConfigureOrm(IKernel container)
-        {
-            container.Bind<WalletContext>().ToSelf().InRequestScope();
-        }
+        //private void ConfigureOrm(IKernel container)
+        //{
+        //    container.Bind<WalletContext>().ToSelf().InRequestScope();
+        //}
     }
 }

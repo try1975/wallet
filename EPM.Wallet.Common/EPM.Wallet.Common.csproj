@@ -52,27 +52,6 @@
     <Compile Include="Enums\RequestStatus.cs" />
     <Compile Include="Enums\RequestType.cs" />
     <Compile Include="Interfaces\IDto.cs" />
-    <Compile Include="Model\basic\ClientDto.cs" />
-    <Compile Include="Model\basic\CurrencyDto.cs" />
-    <Compile Include="Model\p01\BankDto.cs" />
-    <Compile Include="Model\p01\BankAccountDto.cs" />
-    <Compile Include="Model\p01\AccountDto.cs" />
-    <Compile Include="Model\p01\ClientAccountStatusDto.cs" />
-    <Compile Include="Model\p02\CardDto.cs" />
-    <Compile Include="Model\p03\MessageDto.cs" />
-    <Compile Include="Model\p03\RequisiteDto.cs" />
-    <Compile Include="Model\p04\AccountRequest\AccountNewRequestDto.cs" />
-    <Compile Include="Model\p04\AccountRequest\AccountRequestDto.cs" />
-    <Compile Include="Model\p04\AccountRequest\RefillRequestDto.cs" />
-    <Compile Include="Model\p04\AccountRequest\TransferOutRequestDto.cs" />
-    <Compile Include="Model\p04\AccountRequest\TransferToCardRequestDto.cs" />
-    <Compile Include="Model\p04\CardRequest\CardBlockRequestDto.cs" />
-    <Compile Include="Model\p04\CardRequest\CardLimitRequestDto.cs" />
-    <Compile Include="Model\p04\CardRequest\CardNewRequestDto.cs" />
-    <Compile Include="Model\p04\CardRequest\CardReissueRequestDto.cs" />
-    <Compile Include="Model\p04\CardRequest\CardRequestDto.cs" />
-    <Compile Include="Model\p04\RequestDto.cs" />
-    <Compile Include="Model\p04\StandingOrderDto.cs" />
     <Compile Include="WalletConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

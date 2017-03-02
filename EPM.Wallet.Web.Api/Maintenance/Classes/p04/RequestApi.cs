@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using EPM.Wallet.Common.Enums;
-using EPM.Wallet.Common.Model;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {

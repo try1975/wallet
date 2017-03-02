@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using EPM.Wallet.Common.Model;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {
@@ -60,6 +60,7 @@ namespace WalletWebApi.Maintenance
         {
             //_clientQuery
             var entity = Mapper.Map<MessageEntity>(dto);
+            entity.IsOutgoing = true;
             // ?? получать ид клиента из базы по коду
             entity.ClientId = clientId;
             return Mapper.Map<MessageDto>(_query.InsertEntity(entity));
