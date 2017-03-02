@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet", "Wallet\Wallet.csproj", "{C1A6FF30-C19B-479F-A3D8-0BF4A19055D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Common", "EPM.Wallet.Common\EPM.Wallet.Common.csproj", "{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Data", "EPM.Wallet.Data\EPM.Wallet.Data.csproj", "{9BF8FFE8-9892-494A-858A-E87C6FA853E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Data.SqlServer", "EPM.Wallet.Data.SqlServer\EPM.Wallet.Data.SqlServer.csproj", "{BEFC2076-40B9-402A-AD58-2C20FAB8EE2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Internall.Api", "EPM.Wallet.Internall.Api\EPM.Wallet.Internall.Api.csproj", "{B3872779-066F-48B9-96C4-1C9A72F5A741}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Web.Api", "EPM.Wallet.Web.Api\EPM.Wallet.Web.Api.csproj", "{C4772A58-9969-4B3F-ACB8-A53A68FC0401}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.WinForms", "EPM.Wallet.WinForms\EPM.Wallet.WinForms.csproj", "{7C1D49E0-5306-462F-898C-D412B86B7C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.Wallet.Internal.Common", "EPM.Wallet.Internal.Common\EPM.Wallet.Internal.Common.csproj", "{EA67B2D9-8AA3-4EC3-AD1D-009B9D930077}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +23,34 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C1A6FF30-C19B-479F-A3D8-0BF4A19055D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1A6FF30-C19B-479F-A3D8-0BF4A19055D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1A6FF30-C19B-479F-A3D8-0BF4A19055D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1A6FF30-C19B-479F-A3D8-0BF4A19055D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BF8FFE8-9892-494A-858A-E87C6FA853E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF8FFE8-9892-494A-858A-E87C6FA853E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF8FFE8-9892-494A-858A-E87C6FA853E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF8FFE8-9892-494A-858A-E87C6FA853E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEFC2076-40B9-402A-AD58-2C20FAB8EE2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEFC2076-40B9-402A-AD58-2C20FAB8EE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEFC2076-40B9-402A-AD58-2C20FAB8EE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEFC2076-40B9-402A-AD58-2C20FAB8EE2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3872779-066F-48B9-96C4-1C9A72F5A741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3872779-066F-48B9-96C4-1C9A72F5A741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3872779-066F-48B9-96C4-1C9A72F5A741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3872779-066F-48B9-96C4-1C9A72F5A741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4772A58-9969-4B3F-ACB8-A53A68FC0401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4772A58-9969-4B3F-ACB8-A53A68FC0401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4772A58-9969-4B3F-ACB8-A53A68FC0401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4772A58-9969-4B3F-ACB8-A53A68FC0401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1D49E0-5306-462F-898C-D412B86B7C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1D49E0-5306-462F-898C-D412B86B7C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1D49E0-5306-462F-898C-D412B86B7C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1D49E0-5306-462F-898C-D412B86B7C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA67B2D9-8AA3-4EC3-AD1D-009B9D930077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA67B2D9-8AA3-4EC3-AD1D-009B9D930077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA67B2D9-8AA3-4EC3-AD1D-009B9D930077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA67B2D9-8AA3-4EC3-AD1D-009B9D930077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

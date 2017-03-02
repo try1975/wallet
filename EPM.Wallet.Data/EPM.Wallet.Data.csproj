@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BF8FFE8-9892-494A-858A-E87C6FA853E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EPM.Wallet.Data</RootNamespace>
+    <AssemblyName>EPM.Wallet.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\p01\ClientAccountStatusEntity.cs" />
+    <Compile Include="Entities\CommonEntity.cs" />
+    <Compile Include="Entities\IMetaDataEntity.cs" />
+    <Compile Include="Entities\p01\BankEntity.cs" />
+    <Compile Include="Entities\p01\BankAccountEntity.cs" />
+    <Compile Include="Entities\basic\ClientEntity.cs" />
+    <Compile Include="Entities\p01\ClientAccountEntity.cs" />
+    <Compile Include="Entities\IVersionedEntity.cs" />
+    <Compile Include="Entities\basic\CurrencyEntity.cs" />
+    <Compile Include="Entities\p02\CardEntity.cs" />
+    <Compile Include="Entities\p03\MessageEntity.cs" />
+    <Compile Include="Entities\p03\RequisiteEntity.cs" />
+    <Compile Include="Entities\p04\CardRequest\CardBlockRequestEntity.cs" />
+    <Compile Include="Entities\p04\CardRequest\CardLimitRequestEntity.cs" />
+    <Compile Include="Entities\p04\CardRequest\CardNewRequestEntity.cs" />
+    <Compile Include="Entities\p04\CardRequest\CardReissueRequestEntity.cs" />
+    <Compile Include="Entities\p04\CardRequest\CardRequestEntity.cs" />
+    <Compile Include="Entities\p04\AccountRequest\AccountRequestEntity.cs" />
+    <Compile Include="Entities\p04\RequestEntity.cs" />
+    <Compile Include="Entities\p04\StandingOrderEntity.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryProcessors\basic\IClientQuery.cs" />
+    <Compile Include="QueryProcessors\basic\ICurrencyQuery.cs" />
+    <Compile Include="QueryProcessors\ITypedQuery.cs" />
+    <Compile Include="QueryProcessors\p01\IBankAccountQuery.cs" />
+    <Compile Include="QueryProcessors\p01\IBankQuery.cs" />
+    <Compile Include="QueryProcessors\p01\IAccountQuery.cs" />
+    <Compile Include="QueryProcessors\p01\IClientAccountStatusQuery.cs" />
+    <Compile Include="QueryProcessors\p02\ICardQuery.cs" />
+    <Compile Include="QueryProcessors\p03\IMessageQuery.cs" />
+    <Compile Include="QueryProcessors\p03\IRequisiteQuery.cs" />
+    <Compile Include="QueryProcessors\p04\CardRequest\ICardBlockRequestQuery.cs" />
+    <Compile Include="QueryProcessors\p04\CardRequest\ICardNewRequestQuery.cs" />
+    <Compile Include="QueryProcessors\p04\CardRequest\ICardReissueRequestQuery.cs" />
+    <Compile Include="QueryProcessors\p04\CardRequest\ICardRequestQuery.cs" />
+    <Compile Include="QueryProcessors\p04\IAccountRequestQuery.cs" />
+    <Compile Include="QueryProcessors\p04\CardRequest\ICardLimitRequestQuery.cs" />
+    <Compile Include="QueryProcessors\p04\IRequestQuery.cs" />
+    <Compile Include="QueryProcessors\p04\IStandingOrderQuery.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Entities\p01\_Read.me" />
+    <None Include="Entities\p02\_Read.me" />
+    <None Include="Entities\p03\_Read.me" />
+    <None Include="Entities\p04\_Read.me" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EPM.Wallet.Common\EPM.Wallet.Common.csproj">
+      <Project>{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}</Project>
+      <Name>EPM.Wallet.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_Read.me" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

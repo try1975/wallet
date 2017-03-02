@@ -17,7 +17,7 @@ namespace Wallet.Controllers.WebApi
         // GET: api/BankAccounts
         public IQueryable<BankAccount> GetBankAccounts()
         {
-            return db.BankAccounts;
+            return db.BankAccounts.Include("Bank");
         }
 
         // GET: api/BankAccounts/5
@@ -76,6 +76,12 @@ namespace Wallet.Controllers.WebApi
             {
                 return BadRequest(ModelState);
             }
+            Bank bank = await db.Banks.FindAsync(bankAccount.Bank.Id);
+            if (bank != null)
+            {
+                bankAccount.Bank = bank;
+            }
+
 
             db.BankAccounts.Add(bankAccount);
             await db.SaveChangesAsync();

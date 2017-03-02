@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C1D49E0-5306-462F-898C-D412B86B7C92}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EPM.Wallet.WinForms</RootNamespace>
+    <AssemblyName>EPM.Wallet.WinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Belitsoft.Insignia.EPM.DPA.Client">
+      <HintPath>..\Belitsoft.Insignia.EPM.DPA.Client\obj\Debug\Belitsoft.Insignia.EPM.DPA.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="DocX">
+      <HintPath>..\DocX\DocX\bin\Debug\DocX.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="TidyNet">
+      <HintPath>..\Libraries\TidyNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\BankAccountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BankAccountControl.Designer.cs">
+      <DependentUpon>BankAccountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CardControl.Designer.cs">
+      <DependentUpon>CardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClientAccountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ClientAccountControl.Designer.cs">
+      <DependentUpon>ClientAccountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ClientControl.Designer.cs">
+      <DependentUpon>ClientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BankDataMаnager.cs" />
+    <Compile Include="Data\CardDataMаnager.cs" />
+    <Compile Include="Data\ClientAccountDataManager.cs" />
+    <Compile Include="Interfaces\Data\IBankDataMаnager.cs" />
+    <Compile Include="Interfaces\Data\ICardDataMаnager.cs" />
+    <Compile Include="Data\TypedDataMаnager.cs" />
+    <Compile Include="Interfaces\Data\IClientAccountDataManager.cs" />
+    <Compile Include="Interfaces\ICardView.cs" />
+    <Compile Include="Interfaces\ITypedView.cs" />
+    <Compile Include="Interfaces\Data\ITypedDataMаnager.cs" />
+    <Compile Include="Interfaces\Common\IPresenter.cs" />
+    <Compile Include="Presenters\PresenterMode.cs" />
+    <Compile Include="Presenters\CardPresenter.cs" />
+    <Compile Include="Presenters\TypedPresenter.cs" />
+    <Compile Include="Interfaces\Common\IRefreshedView.cs" />
+    <Compile Include="Interfaces\IClientAccountView.cs" />
+    <Compile Include="Interfaces\IClientView.cs" />
+    <Compile Include="Interfaces\Common\IEnterMode.cs" />
+    <Compile Include="Presenters\BankAccountPresenter.cs" />
+    <Compile Include="Controls\BankControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BankControl.Designer.cs">
+      <DependentUpon>BankControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenters\BankPresenter.cs" />
+    <Compile Include="Interfaces\IBankAccountView.cs" />
+    <Compile Include="Interfaces\IBankView.cs" />
+    <Compile Include="Interfaces\Common\IWalletControl.cs" />
+    <Compile Include="Controls\WalletControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WalletControl.Designer.cs">
+      <DependentUpon>WalletControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AutoMapperConfig.cs" />
+    <Compile Include="Data\DataMаnager.cs" />
+    <Compile Include="Interfaces\Data\IDataMаnager.cs" />
+    <Compile Include="Data\LoggingHandler.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ninject\ApplicationModule.cs" />
+    <Compile Include="Ninject\CompositionRoot.cs" />
+    <Compile Include="Presenters\ClientAccountPresenter.cs" />
+    <Compile Include="Presenters\ClientPresenter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\BankAccountControl.resx">
+      <DependentUpon>BankAccountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BankControl.resx">
+      <DependentUpon>BankControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CardControl.resx">
+      <DependentUpon>CardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ClientAccountControl.resx">
+      <DependentUpon>ClientAccountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ClientControl.resx">
+      <DependentUpon>ClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WalletControl.resx">
+      <DependentUpon>WalletControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Belitsoft.Insignia.EPM.Common.Client\Belitsoft.Insignia.EPM.Common.Client.csproj">
+      <Project>{B83206B5-D017-4CCB-B02E-BF7EBB1C322A}</Project>
+      <Name>Belitsoft.Insignia.EPM.Common.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPM.Wallet.Common\EPM.Wallet.Common.csproj">
+      <Project>{FAD5D01B-CE0B-476B-95FA-59BD2A75047A}</Project>
+      <Name>EPM.Wallet.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPM.Wallet.Web.Api\EPM.Wallet.Web.Api.csproj">
+      <Project>{C4772A58-9969-4B3F-ACB8-A53A68FC0401}</Project>
+      <Name>EPM.Wallet.Web.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
