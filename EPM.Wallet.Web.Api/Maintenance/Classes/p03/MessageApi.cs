@@ -63,7 +63,9 @@ namespace WalletWebApi.Maintenance
             entity.IsOutgoing = true;
             // ?? получать ид клиента из базы по коду
             entity.ClientId = clientId;
-            return Mapper.Map<MessageDto>(_query.InsertEntity(entity));
+            entity = _query.InsertEntity(entity);
+            // TODO: send message (or in controller?)
+            return Mapper.Map<MessageDto>(entity);
         }
 
         public int CountUnreadMessagesByClient(string clientId)

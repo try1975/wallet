@@ -26,5 +26,6 @@ namespace EPM.Wallet.Data.Entities
         public Guid? MainCardId { get; set; }
         public CardEntity MainCard { get; set; }
         public ICollection<RequestEntity> Requests { get; set; }
+        public ICollection<StatementEntity> Statements { get; set; }
     }
 }

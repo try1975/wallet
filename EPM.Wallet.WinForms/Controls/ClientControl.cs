@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using AutoMapper;
@@ -12,14 +11,13 @@ namespace EPM.Wallet.WinForms.Controls
 {
     public partial class ClientControl : UserControl, IClientView
     {
-        private readonly ClientPresenter _presenter;
-        private BindingList<ClientDto> _bindingList;
-        private BindingSource _bindingSource;
+        private readonly IPresenter _presenter;
 
-        public ClientControl(IDataMаnager dataMаnager)
+        public ClientControl(IClientDataManager typedDataMаnager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
-            _presenter = new ClientPresenter(this, dataMаnager);
+            SetEventHandlers();
+            _presenter = new ClientPresenter(this, typedDataMаnager, dataMаnager);
         }
 
         #region IClientView implementation
@@ -44,26 +42,19 @@ namespace EPM.Wallet.WinForms.Controls
 
         public List<ClientDto> Items { get; set; }
 
-        #endregion //DetailsListsc
+        #endregion //DetailsLists
 
         #region ListOperations
 
         public void RefreshItems()
         {
-            _bindingList = new BindingList<ClientDto>(Items);
-            _bindingSource = new BindingSource(_bindingList, null);
-            dgvItems.DataSource = _bindingSource;
-        }
-
-        public void SetEventHandlers()
-        {
-            throw new NotImplementedException();
+            dgvItems.DataSource = _presenter.BindingSource;
         }
 
         public void ItemAdded(ClientDto item)
         {
             Items.Add(item);
-            _bindingSource.ResetBindings(false);
+            _presenter.BindingSource.ResetBindings(false);
         }
 
         public void ItemUpdated(ClientDto item)
@@ -72,82 +63,141 @@ namespace EPM.Wallet.WinForms.Controls
             var existItem = Items.FirstOrDefault(i => i.Id.Equals(item.Id));
             if (existItem == null) return;
             Mapper.Map(item, existItem);
-            _bindingSource.ResetBindings(false);
+            _presenter.BindingSource.ResetBindings(false);
         }
 
         public void ItemRemoved(string id)
         {
-            var existItem = Items.FirstOrDefault(i => i.Id.Equals(id, StringComparison.InvariantCultureIgnoreCase));
+            var existItem = Items.FirstOrDefault(i => i.Id == id);
             if (existItem == null) return;
             Items.Remove(existItem);
-            _bindingSource.ResetBindings(false);
+            _presenter.BindingSource.ResetBindings(false);
         }
 
         #endregion //ListOperations
 
-        #region Enter Mode
+        #endregion //IClientView implementation
+
+        #region Mode
 
         public void EnterAddNewMode()
         {
-            throw new NotImplementedException();
+            ClearInputFields();
+            EnableInput();
+
+            btnDelete.Enabled = false;
+            btnCancel.Enabled = true;
+            btnSave.Enabled = true;
+            btnEdit.Enabled = false;
+            btnAddNew.Enabled = false;
         }
 
         public void EnterEditMode()
         {
-            throw new NotImplementedException();
+            EnableInput();
+
+            btnDelete.Enabled = false;
+            btnCancel.Enabled = true;
+            btnSave.Enabled = true;
+            btnEdit.Enabled = false;
+            btnAddNew.Enabled = false;
         }
 
         public void EnterDetailsMode()
         {
-            throw new NotImplementedException();
+            DisableInput();
+
+            btnDelete.Enabled = true;
+            btnCancel.Enabled = false;
+            btnSave.Enabled = false;
+            btnEdit.Enabled = true;
+            btnAddNew.Enabled = true;
         }
 
         public void EnterReadMode()
         {
-            throw new NotImplementedException();
+            ClearInputFields();
+            DisableInput();
+
+            btnDelete.Enabled = false;
+            btnCancel.Enabled = false;
+            btnSave.Enabled = false;
+            btnEdit.Enabled = false;
+            btnAddNew.Enabled = true;
         }
 
         public void EnterMultiSelectMode()
         {
-            throw new NotImplementedException();
+            ClearInputFields();
+            DisableInput();
+
+            btnDelete.Enabled = false;
+            btnCancel.Enabled = false;
+            btnSave.Enabled = false;
+            btnEdit.Enabled = false;
+            btnAddNew.Enabled = true;
         }
 
         public void ClearInputFields()
         {
-            throw new NotImplementedException();
+            tbId.Clear();
+            tbName.Clear();
         }
 
         public void EnableInput()
         {
-            throw new NotImplementedException();
+            tbId.Enabled = true;
+            tbName.Enabled = true;
         }
 
         public void DisableInput()
         {
-            throw new NotImplementedException();
+            tbId.Enabled = false;
+            tbName.Enabled = false;
         }
 
-        #endregion //Enter Mode
-
-        #endregion //IClientView implementation
+        #endregion //Mode
 
         #region Event handlers
 
-        private void SetDetailData()
+        public void SetEventHandlers()
         {
-            var item = _bindingSource.Current;
-            Mapper.Map(item, this);
-            //EnterDetailsMode();
+            dgvItems.SelectionChanged += dgvItems_SelectionChanged;
+            btnAddNew.Click += btnAddNew_Click;
+            btnEdit.Click += btnEdit_Click;
+            btnSave.Click += btnSave_Click;
+            btnCancel.Click += btnCancel_Click;
+            btnDelete.Click += btnDelete_Click;
         }
 
         private void dgvItems_SelectionChanged(object sender, EventArgs e)
         {
-            SetDetailData();
+            _presenter.SetDetailData();
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             _presenter.AddNew();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            _presenter.Edit();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            _presenter.Save();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            _presenter.Cancel();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            _presenter.Delete();
         }
 
         #endregion //Event handlers

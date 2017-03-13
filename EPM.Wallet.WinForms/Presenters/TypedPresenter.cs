@@ -7,7 +7,7 @@ using EPM.Wallet.WinForms.Interfaces;
 
 namespace EPM.Wallet.WinForms.Presenters
 {
-    public abstract class TypedPresenter<T, TK> : IPresenter where T : class, IDto<TK> 
+    public abstract class TypedPresenter<T, TK> : IPresenter where T : class, IDto<TK>
     {
         protected readonly ITypedView<T, TK> View;
         protected readonly IDataMànager DataMànager;
@@ -25,7 +25,7 @@ namespace EPM.Wallet.WinForms.Presenters
 
             SetItems();
         }
-        
+
         public async void SetItems()
         {
             View.Items = (await _typedDataMànager.GetItems()).ToList();
@@ -86,7 +86,7 @@ namespace EPM.Wallet.WinForms.Presenters
             item = await _typedDataMànager.PostItem(item);
             Mapper.Map(item, View);
             View.EnterReadMode();
-            View.ItemAdded(item);
+            if (item != null) View.ItemAdded(item);
             _presenterMode = PresenterMode.Read;
         }
 

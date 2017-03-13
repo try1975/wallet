@@ -8,5 +8,7 @@ namespace WalletInternalApi.Maintenance
     {
         IEnumerable<AccountDto> GetAccountsByClient(string clientId);
         AccountDto GetAccountByClient(string clientId, Guid accountId);
+
+        bool WriteEpmAccountBalance(string code, decimal balance);
     }
 }

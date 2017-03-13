@@ -80,6 +80,9 @@ namespace WalletWebApi
             container.Bind<IStandingOrderApi>().To<StandingOrderApi>().InTransientScope();
             container.Bind<IStandingOrderQuery>().To<StandingOrderQuery>().InTransientScope();
 
+            container.Bind<IStatementApi>().To<StatementApi>().InTransientScope();
+            container.Bind<IStatementQuery>().To<StatementQuery>().InTransientScope();
+
             #endregion
         }
 

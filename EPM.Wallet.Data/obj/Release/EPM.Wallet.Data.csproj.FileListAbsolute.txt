@@ -1,0 +1,7 @@
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Data.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Data.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Common.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Common.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Release\EPM.Wallet.Data.csprojResolveAssemblyReference.cache
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Release\EPM.Wallet.Data.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Release\EPM.Wallet.Data.pdb

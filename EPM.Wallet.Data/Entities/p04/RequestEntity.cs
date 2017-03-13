@@ -15,5 +15,7 @@ namespace EPM.Wallet.Data.Entities
         public CardEntity Card { get; set; }
         public RequestType RequestType { get; set; }
         public RequestStatus RequestStatus { get; set; }
+
+        public string Note { get; set; }
     }
 }

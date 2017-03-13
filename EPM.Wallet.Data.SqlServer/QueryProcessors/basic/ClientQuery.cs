@@ -14,5 +14,9 @@ namespace EPM.Wallet.Data.SqlServer.QueryProcessors
             Db.Entry(client).Collection(w => w.ClientAccounts).Query().Include(d => d.Requisite).Load();
             return client;
         }
+
+        public ClientQuery(WalletContext db) : base(db)
+        {
+        }
     }
 }

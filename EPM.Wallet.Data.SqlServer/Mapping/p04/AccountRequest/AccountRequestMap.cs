@@ -9,11 +9,11 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
         {
 
             Property(e => e.AmountIn)
-                .HasPrecision(18, 3)
+                .HasPrecision(18, 2)
                 .IsOptional()
                 ;
             Property(e => e.AmountOut)
-                .HasPrecision(18, 3)
+                .HasPrecision(18, 2)
                 .IsOptional()
                 ;
             HasOptional(s => s.ClientAccount)

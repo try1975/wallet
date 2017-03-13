@@ -110,15 +110,17 @@ namespace WalletWebApi.Maintenance
         {
             if (dto.BeneficiaryAccountId == Guid.Empty) return false;
 
-            var accountTask = _accountQuery.GetEntityAsync(accountId);
-            var beneficiaryTask = _accountQuery.GetEntityAsync(dto.BeneficiaryAccountId);
-            await Task.WhenAll(accountTask, beneficiaryTask);
+            //var accountTask = _accountQuery.GetEntityAsync(accountId);
+            //var beneficiaryTask = _accountQuery.GetEntityAsync(dto.BeneficiaryAccountId);
+            //await Task.WhenAll(accountTask, beneficiaryTask);
 
-            var account = accountTask.Result;
+            //var account = accountTask.Result;
+            var account = _accountQuery.GetEntity(accountId); 
             if (account == null) return false;
             if (!account.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)) return false;
 
-            var beneficiary = beneficiaryTask.Result;
+            //var beneficiary = beneficiaryTask.Result;
+            var beneficiary = _accountQuery.GetEntity(dto.BeneficiaryAccountId);
             if (beneficiary == null) return false;
             if (!beneficiary.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)) return false;
 

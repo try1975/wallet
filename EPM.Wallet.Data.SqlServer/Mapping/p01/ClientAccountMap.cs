@@ -19,7 +19,7 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
                 .HasMaxLength(250)
                 ;
             Property(e => e.CurrentBalance)
-                .HasPrecision(18, 9)
+                .HasPrecision(18, 2)
                 .IsRequired()
                 ;
             Property(e => e.ClientId)

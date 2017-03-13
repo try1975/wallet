@@ -36,6 +36,8 @@ namespace EPM.Wallet.Data.SqlServer
         public DbSet<CardBlockRequestEntity> CardBlockRequests { get; set; }
         public DbSet<CardNewRequestEntity> CardNewRequests { get; set; }
 
+        public DbSet<StatementEntity> Statements { get; set; }
+
         #endregion
 
 
@@ -63,6 +65,7 @@ namespace EPM.Wallet.Data.SqlServer
             modelBuilder.Configurations.Add(new CardNewRequestMap($"{prefix}{nameof(Requests)}"));
 
             modelBuilder.Configurations.Add(new AccountRequestMap($"{prefix}{nameof(Requests)}"));
+            modelBuilder.Configurations.Add(new StatementsMap($"{prefix}Client{nameof(Statements)}"));
         }
     }
 

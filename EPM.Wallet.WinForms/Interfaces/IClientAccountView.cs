@@ -15,7 +15,7 @@ namespace EPM.Wallet.WinForms.Interfaces
         string ClientAccountStatusId { get; set; }
         decimal CurrentBalance { get; set; }
 
-        #endregion
+        #endregion //Details
 
         #region DetailsLists
 

@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using AutoMapper.Configuration;
 using EPM.Wallet.Data.QueryProcessors;
+using EPM.Wallet.Data.SqlServer;
 using EPM.Wallet.Data.SqlServer.QueryProcessors;
 using Ninject;
 using Ninject.Web.Common;
 using WalletInternalApi.AutoMappers;
 using WalletInternalApi.Maintenance;
+using WalletInternalApi.Maintenance.Classes;
 
 namespace WalletInternalApi
 {
@@ -26,7 +28,7 @@ namespace WalletInternalApi
 
         private void AddBindings(IKernel container)
         {
-            //ConfigureOrm(container);
+            ConfigureOrm(container);
             ConfigureAutoMapper(container);
 
             #region Api and Query
@@ -79,6 +81,9 @@ namespace WalletInternalApi
             container.Bind<IStandingOrderApi>().To<StandingOrderApi>().InTransientScope();
             container.Bind<IStandingOrderQuery>().To<StandingOrderQuery>().InTransientScope();
 
+            container.Bind<ITransferOutApi>().To<TransferOutApi>().InTransientScope();
+
+
             #endregion
         }
 
@@ -95,6 +100,7 @@ namespace WalletInternalApi
             RequisiteAutoMapper.Configure(cfg);
             RequestAutoMapper.Configure(cfg);
             StandingOrderAutoMapper.Configure(cfg);
+            StatementAutoMapper.Configure(cfg);
             Mapper.Initialize(cfg);
             //Mapper.AssertConfigurationIsValid();
 
@@ -104,9 +110,9 @@ namespace WalletInternalApi
             //    .InRequestScope/*InSingletonScope*/();
         }
 
-        //private void ConfigureOrm(IKernel container)
-        //{
-        //    container.Bind<WalletContext>().ToSelf().InRequestScope();
-        //}
+        private void ConfigureOrm(IKernel container)
+        {
+            container.Bind<WalletContext>().ToSelf().InRequestScope();
+        }
     }
 }

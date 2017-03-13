@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EPM.Wallet.Common;
+using WalletWebApi.GetFiles;
 using WalletWebApi.Maintenance;
 using WalletWebApi.Model;
 
@@ -31,7 +33,16 @@ namespace WalletWebApi.Controllers
         [Route(WalletConstants.ClientAppApi.Clients + "/{id}", Name = nameof(GetClient) + Ro.Route)]
         public IHttpActionResult GetClient(string id)
         {
-            return Ok(_clientApi.GetItem(id));
+            var item = _clientApi.GetItem(id);
+            var baseUri = $"{Request.RequestUri.Scheme}://{Request.RequestUri.Host}:{Request.RequestUri.Port}";
+            foreach (var account in item.ClientAccounts)
+            {
+                if (!account.StatementId.HasValue) continue;
+
+                var uri = $"{baseUri}/GetFiles/{nameof(GetStatementFile)}.ashx?id={account.StatementId}";
+                account.LastStatementLink = new Uri(uri);
+            }
+            return Ok(item);
         }
     }
 }

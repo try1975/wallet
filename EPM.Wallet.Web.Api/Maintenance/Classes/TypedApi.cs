@@ -6,11 +6,11 @@ using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {
-    public abstract class TypedApi<TV, D, K> : ITypedApi<TV, K> where D : class, IEntity<K> where TV : class, IDto<K>
+    public abstract class TypedApi<TV, TD, TK> : ITypedApi<TV, TK> where TD : class, IEntity<TK> where TV : class, IDto<TK>
     {
-        protected readonly ITypedQuery<D, K> _query;
+        protected readonly ITypedQuery<TD, TK> _query;
 
-        public TypedApi(ITypedQuery<D, K> query)
+        protected TypedApi(ITypedQuery<TD, TK> query)
         {
             _query = query;
         }
@@ -21,24 +21,24 @@ namespace WalletWebApi.Maintenance
             return Mapper.Map<List<TV>>(list);
         }
 
-        public TV GetItem(K id)
+        public TV GetItem(TK id)
         {
             return Mapper.Map<TV>(_query.GetEntity(id));
         }
 
         public TV AddItem(TV dto)
         {
-            var entity = Mapper.Map<D>(dto);
+            var entity = Mapper.Map<TD>(dto);
             return Mapper.Map<TV>(_query.InsertEntity(entity));
         }
 
         public TV ChangeItem(TV dto)
         {
-            var entity = Mapper.Map<D>(dto);
+            var entity = Mapper.Map<TD>(dto);
             return Mapper.Map<TV>(_query.UpdateEntity(entity));
         }
 
-        public bool RemoveItem(K id)
+        public bool RemoveItem(TK id)
         {
             return _query.DeleteEntity(id);
         }

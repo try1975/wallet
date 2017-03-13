@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace WalletWebApi.Model
 {
@@ -14,5 +15,10 @@ namespace WalletWebApi.Model
         public decimal CurrentBalance { get; set; }
 
         public RequisiteDto Requisite { get; set; }
+
+        [JsonIgnore]
+        public Guid? StatementId { get; set; }
+
+        public Uri LastStatementLink { get; set; }
     }
 }

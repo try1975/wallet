@@ -5,6 +5,8 @@
         Unknown,
         New,
         Pending,
-        Processed
+        Processed, 
+        Rejected,
+        Info
     }
 }

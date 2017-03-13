@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using WalletWebApi.GetFiles;
 using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance

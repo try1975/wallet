@@ -14,9 +14,10 @@ namespace EPM.Wallet.Data.SqlServer.QueryProcessors
         protected readonly WalletContext Db;
         private readonly DbSet<T> _entities;
 
-        protected TypedQuery()
+        protected TypedQuery(WalletContext db)
         {
-            Db = new WalletContext();
+            //Db = new WalletContext();
+            Db = db;
             _entities = Db.Set<T>();
         }
 

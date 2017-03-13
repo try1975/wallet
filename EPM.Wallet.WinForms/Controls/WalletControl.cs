@@ -44,8 +44,20 @@ namespace EPM.Wallet.WinForms.Controls
 
         private void bntCards_Click(object sender, System.EventArgs e)
         {
-             var cardControl = CompositionRoot.Resolve<ICardView>();
+            var cardControl = CompositionRoot.Resolve<ICardView>();
             AddControlToWorkArea((Control)cardControl);
+        }
+
+        private void btnRequests_Click(object sender, System.EventArgs e)
+        {
+            var transferOutInfoControl = CompositionRoot.Resolve<ITransferOutInfoView>();
+            AddControlToWorkArea((Control)transferOutInfoControl);
+        }
+
+        private void btnMessages_Click(object sender, System.EventArgs e)
+        {
+            var messageControl = CompositionRoot.Resolve<IMessageView>();
+            AddControlToWorkArea((Control)messageControl);
         }
     }
 }

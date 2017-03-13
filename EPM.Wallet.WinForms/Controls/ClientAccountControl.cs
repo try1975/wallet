@@ -20,6 +20,8 @@ namespace EPM.Wallet.WinForms.Controls
             _presenter = new ClientAccountPresenter(this, typedDataMаnager, dataMаnager);
         }
 
+        #region IClientAccountView implementation
+
         #region Details
 
         public Guid Id
@@ -41,15 +43,16 @@ namespace EPM.Wallet.WinForms.Controls
 
         public string ClientId
         {
-            get { return (string)cmbClient.SelectedValue; }
+            get { return (string) cmbClient.SelectedValue; }
             set { cmbClient.SelectedValue = value; }
         }
 
         public string CurrencyId
         {
-            get { return (string)cmbCurrency.SelectedValue; }
+            get { return (string) cmbCurrency.SelectedValue; }
             set { cmbCurrency.SelectedValue = value; }
         }
+
         public Guid BankAccountId { get; set; }
 
         public string ClientAccountStatusId
@@ -57,6 +60,7 @@ namespace EPM.Wallet.WinForms.Controls
             get { return (string) cmbClientAccountStatus.SelectedValue; }
             set { cmbClientAccountStatus.SelectedValue = value; }
         }
+
         public decimal CurrentBalance { get; set; }
 
         #endregion //Details
@@ -64,6 +68,7 @@ namespace EPM.Wallet.WinForms.Controls
         #region DetailsLists
 
         public List<AccountDto> Items { get; set; }
+
         public List<KeyValuePair<string, string>> ClientList
         {
             set
@@ -83,6 +88,7 @@ namespace EPM.Wallet.WinForms.Controls
                 cmbCurrency.DisplayMember = "Value";
             }
         }
+
         public List<KeyValuePair<Guid, string>> BankAccounList { get; set; }
 
         public List<KeyValuePair<string, string>> ClientAccountStatusList
@@ -97,22 +103,39 @@ namespace EPM.Wallet.WinForms.Controls
 
         #endregion //DetailsLists
 
-        #region interface methods
+        #region ListOperations
 
         public void RefreshItems()
         {
             dgvItems.DataSource = _presenter.BindingSource;
         }
 
-        public void SetEventHandlers()
+        public void ItemAdded(AccountDto item)
         {
-            dgvItems.SelectionChanged += dgvItems_SelectionChanged;
-            btnAddNew.Click += btnAddNew_Click;
-            btnEdit.Click += btnEdit_Click;
-            btnSave.Click += btnSave_Click;
-            btnCancel.Click += btnCancel_Click;
-            btnDelete.Click += btnDelete_Click;
+            Items.Add(item);
+            _presenter.BindingSource.ResetBindings(false);
         }
+
+        public void ItemUpdated(AccountDto item)
+        {
+            if (item == null) return;
+            var existItem = Items.FirstOrDefault(i => i.Id.Equals(item.Id));
+            if (existItem == null) return;
+            Mapper.Map(item, existItem);
+            _presenter.BindingSource.ResetBindings(false);
+        }
+
+        public void ItemRemoved(Guid id)
+        {
+            var existItem = Items.FirstOrDefault(i => i.Id == id);
+            if (existItem == null) return;
+            Items.Remove(existItem);
+            _presenter.BindingSource.ResetBindings(false);
+        }
+
+        #endregion //ListOperations
+
+        #endregion //IClientAccountView implementation
 
         #region Mode
 
@@ -201,34 +224,19 @@ namespace EPM.Wallet.WinForms.Controls
             cmbClientAccountStatus.Enabled = false;
         }
 
-        #endregion
-
-        public void ItemAdded(AccountDto item)
-        {
-            Items.Add(item);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        public void ItemUpdated(AccountDto item)
-        {
-            if (item == null) return;
-            var existItem = Items.FirstOrDefault(i => i.Id.Equals(item.Id));
-            if (existItem == null) return;
-            Mapper.Map(item, existItem);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        public void ItemRemoved(Guid id)
-        {
-            var existItem = Items.FirstOrDefault(i => i.Id == id);
-            if (existItem == null) return;
-            Items.Remove(existItem);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        #endregion //interface methods
+        #endregion //Mode
 
         #region Event handlers
+
+        public void SetEventHandlers()
+        {
+            dgvItems.SelectionChanged += dgvItems_SelectionChanged;
+            btnAddNew.Click += btnAddNew_Click;
+            btnEdit.Click += btnEdit_Click;
+            btnSave.Click += btnSave_Click;
+            btnCancel.Click += btnCancel_Click;
+            btnDelete.Click += btnDelete_Click;
+        }
 
         private void dgvItems_SelectionChanged(object sender, EventArgs e)
         {
@@ -260,6 +268,6 @@ namespace EPM.Wallet.WinForms.Controls
             _presenter.Delete();
         }
 
-        #endregion
+        #endregion //Event handlers
     }
 }

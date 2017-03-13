@@ -16,6 +16,8 @@ namespace EPM.Wallet.WinForms.Data
         private readonly string _apiBankAccounts;
         private readonly string _apiBanks;
         private readonly string _apiCards;
+        private readonly string _apiRequests;
+        private readonly string _apiMessages;
         private readonly string _apiClientAccounts;
         private readonly string _apiClientAccountStatuses;
         private readonly string _apiClients;
@@ -35,6 +37,8 @@ namespace EPM.Wallet.WinForms.Data
             _apiClients = $"{baseApi}{WalletConstants.ClientAppApi.Clients}/";
             _apiCurrencies = $"{baseApi}{WalletConstants.ClientAppApi.Currencies}/";
             _apiCards = $"{baseApi}{WalletConstants.ClientAppApi.Cards}/";
+            _apiRequests = $"{baseApi}{WalletConstants.ClientAppApi.Requests}/";
+            _apiMessages = $"{baseApi}{WalletConstants.ClientAppApi.Messages}/";
 
             #endregion
 
@@ -168,6 +172,8 @@ namespace EPM.Wallet.WinForms.Data
                 return response.IsSuccessStatusCode;
             }
         }
+
+        
 
         #endregion //Cards
 
@@ -326,5 +332,110 @@ namespace EPM.Wallet.WinForms.Data
         }
 
         #endregion //Clients
+
+        #region Requests
+
+        public async Task<IEnumerable<RequestDto>> GetRequests()
+        {
+            using (var response = await _walletHttpClient.GetAsync($"{_apiRequests}"))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<List<RequestDto>>();
+                return result.OrderBy(d => d.ClientId).ToList();
+            }
+        }
+
+        public async Task<RequestDto> GetRequest(Guid id)
+        {
+            using (var response = await _walletHttpClient.GetAsync($"{_apiRequests}{id}"))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<RequestDto>();
+                return result;
+            }
+        }
+
+        public async Task<RequestDto> PostRequest(RequestDto item)
+        {
+            using (var response = await _walletHttpClient.PostAsJsonAsync($"{_apiRequests}", item))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<RequestDto>();
+                return result;
+            }
+        }
+
+        public async Task<RequestDto> PutRequest(RequestDto item)
+        {
+            using (var response = await _walletHttpClient.PutAsJsonAsync($"{_apiRequests}", item))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<RequestDto>();
+                return result;
+            }
+        }
+
+        public async Task<bool> DeleteRequest(Guid id)
+        {
+            using (var response = await _walletHttpClient.DeleteAsync($"{_apiRequests}{id}"))
+            {
+                return response.IsSuccessStatusCode;
+            }
+        }
+
+        #endregion
+
+        #region Messages
+
+        public async Task<IEnumerable<MessageDto>> GetMessages()
+        {
+            using (var response = await _walletHttpClient.GetAsync($"{_apiMessages}"))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<List<MessageDto>>();
+                return result.OrderBy(d => d.ClientId).ToList();
+            }
+        }
+
+        public async Task<MessageDto> GetMessage(Guid id)
+        {
+            using (var response = await _walletHttpClient.GetAsync($"{_apiMessages}{id}"))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<MessageDto>();
+                return result;
+            }
+        }
+
+        public async Task<MessageDto> PostMessage(MessageDto item)
+        {
+            using (var response = await _walletHttpClient.PostAsJsonAsync($"{_apiMessages}", item))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<MessageDto>();
+                return result;
+            }
+        }
+
+        public async Task<MessageDto> PutMessage(MessageDto item)
+        {
+            using (var response = await _walletHttpClient.PutAsJsonAsync($"{_apiMessages}", item))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<MessageDto>();
+                return result;
+            }
+        }
+
+        public async Task<bool> DeleteMessage(Guid id)
+        {
+            using (var response = await _walletHttpClient.DeleteAsync($"{_apiMessages}{id}"))
+            {
+                return response.IsSuccessStatusCode;
+            }
+        }
+
+        #endregion
+
     }
 }

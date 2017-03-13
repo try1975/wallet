@@ -14,11 +14,11 @@ namespace EPM.Wallet.WinForms.Controls
     {
         private readonly IPresenter _presenter;
 
-        public BankControl(IBankDataMаnager typedDataMаnager, IDataMаnager dataMаnager)
+        public BankControl(IBankDataMаnager bankDataMаnager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
             SetEventHandlers();
-            _presenter = new BankPresenter(this, typedDataMаnager, dataMаnager);
+            _presenter = new BankPresenter(this, bankDataMаnager, dataMаnager);
         }
 
         #region Details

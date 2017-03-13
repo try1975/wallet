@@ -6,7 +6,7 @@ namespace EPM.Wallet.Data.SqlServer.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(WalletContext context)

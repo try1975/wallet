@@ -37,9 +37,9 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(54, 0);
+            this.panel1.Location = new System.Drawing.Point(13, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(875, 498);
+            this.panel1.Size = new System.Drawing.Size(916, 498);
             this.panel1.TabIndex = 3;
             // 
             // panel2
@@ -47,12 +47,12 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(51, 498);
+            this.panel2.Size = new System.Drawing.Size(10, 498);
             this.panel2.TabIndex = 4;
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(51, 0);
+            this.splitter1.Location = new System.Drawing.Point(10, 0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 498);
             this.splitter1.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "DPA";
             this.ResumeLayout(false);
 
         }

@@ -4,5 +4,9 @@ using EPM.Wallet.Data.QueryProcessors;
 
 namespace EPM.Wallet.Data.SqlServer.QueryProcessors
 {
-    public class RequisiteQuery : TypedQuery<RequisiteEntity, Guid>, IRequisiteQuery { }
+    public class RequisiteQuery : TypedQuery<RequisiteEntity, Guid>, IRequisiteQuery {
+        public RequisiteQuery(WalletContext db) : base(db)
+        {
+        }
+    }
 }

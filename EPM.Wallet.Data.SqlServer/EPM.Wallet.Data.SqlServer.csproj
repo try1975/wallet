@@ -66,6 +66,7 @@
     <Compile Include="Mapping\p02\CardMap.cs" />
     <Compile Include="Mapping\p03\MessageMap.cs" />
     <Compile Include="Mapping\p03\RequisiteMap.cs" />
+    <Compile Include="Mapping\p05\StatementsMap.cs" />
     <Compile Include="Migrations\201702221436593_V01.cs" />
     <Compile Include="Migrations\201702221436593_V01.Designer.cs">
       <DependentUpon>201702221436593_V01.cs</DependentUpon>
@@ -98,6 +99,22 @@
     <Compile Include="Migrations\201703020952526_V7.Designer.cs">
       <DependentUpon>201703020952526_V7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703091032115_V8.cs" />
+    <Compile Include="Migrations\201703091032115_V8.Designer.cs">
+      <DependentUpon>201703091032115_V8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703120906471_V9.cs" />
+    <Compile Include="Migrations\201703120906471_V9.Designer.cs">
+      <DependentUpon>201703120906471_V9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703121214163_V10.cs" />
+    <Compile Include="Migrations\201703121214163_V10.Designer.cs">
+      <DependentUpon>201703121214163_V10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703131718532_V11.cs" />
+    <Compile Include="Migrations\201703131718532_V11.Designer.cs">
+      <DependentUpon>201703131718532_V11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="QueryProcessors\basic\ClientQuery.cs" />
     <Compile Include="QueryProcessors\basic\CurrencyQuery.cs" />
@@ -116,6 +133,7 @@
     <Compile Include="QueryProcessors\p04\CardRequest\CardReissueRequestQuery.cs" />
     <Compile Include="QueryProcessors\p04\RequestQuery.cs" />
     <Compile Include="QueryProcessors\p04\StandingOrderQuery.cs" />
+    <Compile Include="QueryProcessors\p05\StatementQuery.cs" />
     <Compile Include="QueryProcessors\TypedQuery.cs" />
     <Compile Include="WalletContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -157,6 +175,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703020952526_V7.resx">
       <DependentUpon>201703020952526_V7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703091032115_V8.resx">
+      <DependentUpon>201703091032115_V8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703120906471_V9.resx">
+      <DependentUpon>201703120906471_V9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703121214163_V10.resx">
+      <DependentUpon>201703121214163_V10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703131718532_V11.resx">
+      <DependentUpon>201703131718532_V11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

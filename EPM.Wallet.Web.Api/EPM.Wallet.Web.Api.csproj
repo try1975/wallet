@@ -96,6 +96,7 @@
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
       <Private>True</Private>
@@ -204,6 +205,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\RequisitesByClientController.cs" />
+    <Compile Include="GetFiles\GetStatementFile.ashx.cs">
+      <DependentUpon>GetStatementFile.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance\Classes\p04\AccountRequest\AccountRequestApi.cs" />
     <Compile Include="Maintenance\Classes\p04\CardRequest\CardRequestApi.cs" />
     <Compile Include="Maintenance\Interfaces\p04\CardRequest\ICardRequestApi.cs" />
@@ -249,6 +253,8 @@
     <Compile Include="Maintenance\Classes\p04\RequestApi.cs" />
     <Compile Include="Maintenance\Classes\p04\StandingOrderApi.cs" />
     <Compile Include="Maintenance\Classes\TypedApi.cs" />
+    <Compile Include="Maintenance\Interfaces\p05\IStatementApi.cs" />
+    <Compile Include="Maintenance\Classes\StatementApi.cs" />
     <Compile Include="Model\AccountDto.cs" />
     <Compile Include="Model\AccountNewRequestDto.cs" />
     <Compile Include="Model\AccountRequestDto.cs" />
@@ -269,6 +275,7 @@
     <Compile Include="Model\RequestDto.cs" />
     <Compile Include="Model\RequisiteDto.cs" />
     <Compile Include="Model\StandingOrderDto.cs" />
+    <Compile Include="Model\StatementDto.cs" />
     <Compile Include="Model\TransferOutRequestDto.cs" />
     <Compile Include="Model\TransferToCardRequestDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -310,6 +317,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="GetFiles\GetStatementFile.ashx" />
     <None Include="Properties\PublishProfiles\TS99.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

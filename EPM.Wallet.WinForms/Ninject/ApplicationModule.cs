@@ -20,12 +20,22 @@ namespace EPM.Wallet.WinForms.Ninject
 
             Bind<IBankAccountView>().To<BankAccountControl>().InSingletonScope();
             Bind<IClientView>().To<ClientControl>().InSingletonScope();
+            Bind<IClientDataManager>().To<ClientDataManager>().InSingletonScope();
 
             Bind<IClientAccountView>().To<ClientAccountControl>().InSingletonScope();
             Bind<IClientAccountDataManager>().To<ClientAccountDataManager>().InSingletonScope();
 
             Bind(typeof(ICardView)).To(typeof(CardControl));
             Bind(typeof(ICardDataMаnager)).To(typeof(CardDataMаnager));
+
+            Bind(typeof(IRequestView)).To(typeof(RequestControl));
+            // Bind(typeof(IRequestDataMаnager)).To(typeof(RequestDataMаnager));
+
+            Bind(typeof(IMessageView)).To(typeof(MessageControl));
+
+
+            Bind(typeof(ITransferOutInfoView)).To(typeof(TransferOutInfoControl));
+            Bind(typeof(ITransferOutInfoDataManager)).To(typeof(TransferOutInfoDataManager));
         }
     }
 }

@@ -17,5 +17,8 @@ namespace EPM.Wallet.Data.SqlServer.QueryProcessors
         //    Db.Entry(accountEntity).Reference(w => w.Requisite).Load();
         //    return accountEntity;
         //}
+        public AccountQuery(WalletContext db) : base(db)
+        {
+        }
     }
 }

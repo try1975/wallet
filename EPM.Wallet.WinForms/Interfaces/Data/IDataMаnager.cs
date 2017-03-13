@@ -69,6 +69,26 @@ namespace EPM.Wallet.WinForms.Interfaces
 
         #endregion //Cards
 
-      
+        #region Requests
+
+        Task<IEnumerable<RequestDto>> GetRequests();
+        Task<RequestDto> GetRequest(Guid id);
+        Task<RequestDto> PostRequest(RequestDto item);
+        Task<RequestDto> PutRequest(RequestDto item);
+        Task<bool> DeleteRequest(Guid id);
+
+        #endregion
+
+        #region Messages
+
+        Task<IEnumerable<MessageDto>> GetMessages();
+        Task<MessageDto> GetMessage(Guid id);
+        Task<MessageDto> PostMessage(MessageDto item);
+        Task<MessageDto> PutMessage(MessageDto item);
+        Task<bool> DeleteMessage(Guid id);
+
+        #endregion
+
+
     }
 }
