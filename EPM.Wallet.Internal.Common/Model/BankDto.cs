@@ -5,10 +5,6 @@ namespace EPM.Wallet.Internal.Model
 {
     public class BankDto : IDto<Guid>
     {
-        public BankDto()
-        {
-            //BankAccounts = new HashSet<BankAccount>();
-        }
         public Guid Id { get; set; }
         public string Name { get; set; }
 

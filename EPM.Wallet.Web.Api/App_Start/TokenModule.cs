@@ -3,7 +3,6 @@ using System.Net;
 using System.Net.Http;
 using System.Security.Principal;
 using System.Web;
-using System.Web.Configuration;
 using EPM.Wallet.Common;
 
 namespace WalletWebApi
@@ -66,7 +65,7 @@ namespace WalletWebApi
     {
         public static IIdentity GetUserByToken(Guid token)
         {
-            if (token.Equals(new Guid(WebConfigurationManager.AppSettings[WalletConstants.TokenTypes.ExternalToken])))
+            if (token.Equals(new Guid(AppGlobal.ExternalToken)))
             {
                 return new WalletIdentity(WalletConstants.WebUsersAndRoles.AdminUser);
             }

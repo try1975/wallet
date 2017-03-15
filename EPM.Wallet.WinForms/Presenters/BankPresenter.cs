@@ -6,7 +6,8 @@ namespace EPM.Wallet.WinForms.Presenters
 {
     public class BankPresenter : TypedPresenter<BankDto, Guid>
     {
-        public BankPresenter(IBankView view, IBankDataMаnager typedDataMаnager, IDataMаnager dataMаnager) : base(view, typedDataMаnager, dataMаnager)
+        public BankPresenter(IBankView view, IBankDataMаnager typedDataMаnager, IDataMаnager dataMаnager)
+            : base(view, typedDataMаnager, dataMаnager)
         {
         }
     }

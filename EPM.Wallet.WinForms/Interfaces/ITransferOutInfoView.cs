@@ -5,9 +5,16 @@ using EPM.Wallet.Internal.Model;
 
 namespace EPM.Wallet.WinForms.Interfaces
 {
-    public interface ITransferOutInfoView:  ITypedView<TransferOutInfoDto, Guid>
+    public interface ITransferOutInfoView : ITypedView<TransferOutInfoDto, Guid>
     {
+        #region DetailsLists
+
+        List<KeyValuePair<RequestStatus, string>> RequestStatusList { set; }
+
+        #endregion //DetailsLists
+
         #region Details
+
         DateTime Date { get; set; }
         DateTime? ValueDate { get; set; }
         string ClientId { get; set; }
@@ -23,12 +30,7 @@ namespace EPM.Wallet.WinForms.Interfaces
         string BankAddress { get; set; }
         string Bic { get; set; }
         string OwnerName { get; set; }
+
         #endregion //Details
-
-        #region DetailsLists
-
-        List<KeyValuePair<RequestStatus, string>> RequestStatusList { set; }
-
-        #endregion //DetailsLists
     }
 }

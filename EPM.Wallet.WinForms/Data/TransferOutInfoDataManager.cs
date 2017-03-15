@@ -5,9 +5,10 @@ using EPM.Wallet.WinForms.Interfaces;
 
 namespace EPM.Wallet.WinForms.Data
 {
-    public class TransferOutInfoDataManager: TypedDataMаnager<TransferOutInfoDto, Guid>, ITransferOutInfoDataManager
+    public class TransferOutInfoDataManager : TypedDataMаnager<TransferOutInfoDto, Guid>, ITransferOutInfoDataManager
     {
-        public TransferOutInfoDataManager() : base(WalletConstants.ClientAppApi.ApiSegmentName + WalletConstants.AccountByClientRoutes.TransferOut)
+        public TransferOutInfoDataManager()
+            : base(WalletConstants.ClientAppApi.ApiSegmentName + WalletConstants.AccountByClientRoutes.TransferOut)
         {
         }
     }

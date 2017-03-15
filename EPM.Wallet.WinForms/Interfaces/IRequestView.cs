@@ -15,7 +15,6 @@ namespace EPM.Wallet.WinForms.Interfaces
         string SubType { get; set; }
         string Status { get; set; }
 
-
         #endregion // Details
 
         #region DetailsLists
@@ -24,8 +23,5 @@ namespace EPM.Wallet.WinForms.Interfaces
         List<KeyValuePair<string, string>> CurrencyList { set; }
 
         #endregion //DetailsLists
-
     }
-
-
 }

@@ -31,13 +31,10 @@
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
             this.pnlCurrency = new System.Windows.Forms.Panel();
-            this.cmbCurrency = new System.Windows.Forms.ComboBox();
             this.lblCurrency = new System.Windows.Forms.Label();
             this.pnlBank = new System.Windows.Forms.Panel();
-            this.cmbBank = new System.Windows.Forms.ComboBox();
             this.lblBank = new System.Windows.Forms.Label();
             this.pnlAccountName = new System.Windows.Forms.Panel();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.lblAccountName = new System.Windows.Forms.Label();
             this.pnlId = new System.Windows.Forms.Panel();
             this.lblId = new System.Windows.Forms.Label();
@@ -50,7 +47,13 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
-            this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
+            this.tbDate = new System.Windows.Forms.TextBox();
+            this.tbSubject = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tbBody = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbClient = new System.Windows.Forms.ComboBox();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.pnlCurrency.SuspendLayout();
@@ -60,6 +63,7 @@
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -74,6 +78,7 @@
             // 
             // pnlFields
             // 
+            this.pnlFields.Controls.Add(this.panel1);
             this.pnlFields.Controls.Add(this.pnlCurrency);
             this.pnlFields.Controls.Add(this.pnlBank);
             this.pnlFields.Controls.Add(this.pnlAccountName);
@@ -86,7 +91,7 @@
             // 
             // pnlCurrency
             // 
-            this.pnlCurrency.Controls.Add(this.cmbCurrency);
+            this.pnlCurrency.Controls.Add(this.tbSubject);
             this.pnlCurrency.Controls.Add(this.lblCurrency);
             this.pnlCurrency.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCurrency.Location = new System.Drawing.Point(0, 101);
@@ -94,29 +99,18 @@
             this.pnlCurrency.Size = new System.Drawing.Size(396, 34);
             this.pnlCurrency.TabIndex = 6;
             // 
-            // cmbCurrency
-            // 
-            this.cmbCurrency.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbCurrency.Enabled = false;
-            this.cmbCurrency.FormattingEnabled = true;
-            this.cmbCurrency.Location = new System.Drawing.Point(97, 6);
-            this.cmbCurrency.Name = "cmbCurrency";
-            this.cmbCurrency.Size = new System.Drawing.Size(283, 21);
-            this.cmbCurrency.TabIndex = 1;
-            // 
             // lblCurrency
             // 
             this.lblCurrency.AutoSize = true;
             this.lblCurrency.Location = new System.Drawing.Point(7, 9);
             this.lblCurrency.Name = "lblCurrency";
-            this.lblCurrency.Size = new System.Drawing.Size(49, 13);
+            this.lblCurrency.Size = new System.Drawing.Size(43, 13);
             this.lblCurrency.TabIndex = 0;
-            this.lblCurrency.Text = "Currency";
+            this.lblCurrency.Text = "Subject";
             // 
             // pnlBank
             // 
-            this.pnlBank.Controls.Add(this.cmbBank);
+            this.pnlBank.Controls.Add(this.tbDate);
             this.pnlBank.Controls.Add(this.lblBank);
             this.pnlBank.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBank.Location = new System.Drawing.Point(0, 67);
@@ -124,29 +118,18 @@
             this.pnlBank.Size = new System.Drawing.Size(396, 34);
             this.pnlBank.TabIndex = 5;
             // 
-            // cmbBank
-            // 
-            this.cmbBank.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbBank.Enabled = false;
-            this.cmbBank.FormattingEnabled = true;
-            this.cmbBank.Location = new System.Drawing.Point(97, 4);
-            this.cmbBank.Name = "cmbBank";
-            this.cmbBank.Size = new System.Drawing.Size(283, 21);
-            this.cmbBank.TabIndex = 1;
-            // 
             // lblBank
             // 
             this.lblBank.AutoSize = true;
             this.lblBank.Location = new System.Drawing.Point(7, 7);
             this.lblBank.Name = "lblBank";
-            this.lblBank.Size = new System.Drawing.Size(32, 13);
+            this.lblBank.Size = new System.Drawing.Size(30, 13);
             this.lblBank.TabIndex = 0;
-            this.lblBank.Text = "Bank";
+            this.lblBank.Text = "Date";
             // 
             // pnlAccountName
             // 
-            this.pnlAccountName.Controls.Add(this.tbName);
+            this.pnlAccountName.Controls.Add(this.cmbClient);
             this.pnlAccountName.Controls.Add(this.lblAccountName);
             this.pnlAccountName.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAccountName.Location = new System.Drawing.Point(0, 33);
@@ -154,24 +137,14 @@
             this.pnlAccountName.Size = new System.Drawing.Size(396, 34);
             this.pnlAccountName.TabIndex = 4;
             // 
-            // tbName
-            // 
-            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbName.Enabled = false;
-            this.tbName.Location = new System.Drawing.Point(97, 5);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(283, 20);
-            this.tbName.TabIndex = 1;
-            // 
             // lblAccountName
             // 
             this.lblAccountName.AutoSize = true;
             this.lblAccountName.Location = new System.Drawing.Point(7, 8);
             this.lblAccountName.Name = "lblAccountName";
-            this.lblAccountName.Size = new System.Drawing.Size(78, 13);
+            this.lblAccountName.Size = new System.Drawing.Size(33, 13);
             this.lblAccountName.TabIndex = 0;
-            this.lblAccountName.Text = "Account Name";
+            this.lblAccountName.Text = "Client";
             // 
             // pnlId
             // 
@@ -182,6 +155,7 @@
             this.pnlId.Name = "pnlId";
             this.pnlId.Size = new System.Drawing.Size(396, 33);
             this.pnlId.TabIndex = 3;
+            this.pnlId.Visible = false;
             // 
             // lblId
             // 
@@ -196,7 +170,6 @@
             // 
             this.tbId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbId.Enabled = false;
             this.tbId.Location = new System.Drawing.Point(97, 6);
             this.tbId.Name = "tbId";
             this.tbId.Size = new System.Drawing.Size(283, 20);
@@ -285,11 +258,70 @@
             this.dgvItems.AllowUserToOrderColumns = true;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvItems.FilterAndSortEnabled = true;
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
             this.dgvItems.Size = new System.Drawing.Size(304, 476);
-            this.dgvItems.TabIndex = 2;
+            this.dgvItems.TabIndex = 1;
+            // 
+            // tbDate
+            // 
+            this.tbDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDate.Location = new System.Drawing.Point(97, 6);
+            this.tbDate.Name = "tbDate";
+            this.tbDate.Size = new System.Drawing.Size(283, 20);
+            this.tbDate.TabIndex = 2;
+            // 
+            // tbSubject
+            // 
+            this.tbSubject.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSubject.Location = new System.Drawing.Point(97, 6);
+            this.tbSubject.Name = "tbSubject";
+            this.tbSubject.Size = new System.Drawing.Size(283, 20);
+            this.tbSubject.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tbBody);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 135);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(396, 102);
+            this.panel1.TabIndex = 7;
+            // 
+            // tbBody
+            // 
+            this.tbBody.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBody.Location = new System.Drawing.Point(97, 6);
+            this.tbBody.Multiline = true;
+            this.tbBody.Name = "tbBody";
+            this.tbBody.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbBody.Size = new System.Drawing.Size(283, 87);
+            this.tbBody.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Body";
+            // 
+            // cmbClient
+            // 
+            this.cmbClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbClient.FormattingEnabled = true;
+            this.cmbClient.Location = new System.Drawing.Point(97, 8);
+            this.cmbClient.Name = "cmbClient";
+            this.cmbClient.Size = new System.Drawing.Size(283, 21);
+            this.cmbClient.TabIndex = 1;
             // 
             // MessageControl
             // 
@@ -313,6 +345,8 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -322,13 +356,10 @@
         private System.Windows.Forms.Panel pnlDetails;
         private System.Windows.Forms.Panel pnlFields;
         private System.Windows.Forms.Panel pnlCurrency;
-        private System.Windows.Forms.ComboBox cmbCurrency;
         private System.Windows.Forms.Label lblCurrency;
         private System.Windows.Forms.Panel pnlBank;
-        private System.Windows.Forms.ComboBox cmbBank;
         private System.Windows.Forms.Label lblBank;
         private System.Windows.Forms.Panel pnlAccountName;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.Panel pnlId;
         private System.Windows.Forms.Label lblId;
@@ -341,6 +372,12 @@
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel pnlGrid;
-        private System.Windows.Forms.DataGridView dgvItems;
+        private Zuby.ADGV.AdvancedDataGridView dgvItems;
+        private System.Windows.Forms.TextBox tbDate;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox tbBody;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbSubject;
+        private System.Windows.Forms.ComboBox cmbClient;
     }
 }

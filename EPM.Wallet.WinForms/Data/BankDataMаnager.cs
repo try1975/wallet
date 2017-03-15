@@ -9,7 +9,6 @@ namespace EPM.Wallet.WinForms.Data
     {
         public BankDataMànager() : base(WalletConstants.ClientAppApi.Banks)
         {
-
         }
     }
 }

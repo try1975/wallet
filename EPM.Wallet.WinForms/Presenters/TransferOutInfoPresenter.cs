@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
@@ -15,11 +14,20 @@ namespace EPM.Wallet.WinForms.Presenters
             LoadLists();
         }
 
-        public sealed override void LoadLists()
+        private void LoadLists()
         {
             var names = Enum.GetNames(typeof(RequestStatus));
-            var list = (from RequestStatus status in Enum.GetValues(typeof(RequestStatus)) select new KeyValuePair<RequestStatus, string>(status, names[(int) status])).ToList();
-            ((ITransferOutInfoView)View).RequestStatusList = list;
+            //var list = (from RequestStatus status in Enum.GetValues(typeof(RequestStatus)) select new KeyValuePair<RequestStatus, string>(status, names[(int) status])).ToList();
+
+            var requestStatusesList = new List<KeyValuePair<RequestStatus, string>>
+            {
+                new KeyValuePair<RequestStatus, string>(RequestStatus.New, names[(int) RequestStatus.New]),
+                new KeyValuePair<RequestStatus, string>(RequestStatus.Pending, names[(int) RequestStatus.Pending]),
+                new KeyValuePair<RequestStatus, string>(RequestStatus.Processed, names[(int) RequestStatus.Processed]),
+                new KeyValuePair<RequestStatus, string>(RequestStatus.Rejected, names[(int) RequestStatus.Rejected])
+            };
+
+            ((ITransferOutInfoView) View).RequestStatusList = requestStatusesList;
         }
     }
 }

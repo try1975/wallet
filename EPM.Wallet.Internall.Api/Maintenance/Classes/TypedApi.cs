@@ -32,7 +32,7 @@ namespace WalletInternalApi.Maintenance
             return Mapper.Map<TV>(Query.InsertEntity(entity));
         }
 
-        public TV ChangeItem(TV dto)
+        public virtual TV ChangeItem(TV dto)
         {
             var entity = Mapper.Map<D>(dto);
             return Mapper.Map<TV>(Query.UpdateEntity(entity));

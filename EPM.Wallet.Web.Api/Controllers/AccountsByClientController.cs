@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EPM.Wallet.Common;
+using WalletWebApi.GetFiles;
 using WalletWebApi.Maintenance;
 using WalletWebApi.Model;
 
@@ -26,7 +29,21 @@ namespace WalletWebApi.Controllers
         [Route("", Name = nameof(GetAccountsByClient) + Ro.Route)]
         public IEnumerable<AccountDto> GetAccountsByClient(string clientId)
         {
-            return _accountApi.GetAccountsByClient(clientId);
+            var list = _accountApi.GetAccountsByClient(clientId);
+            var baseUri = $"{Request.RequestUri.Scheme}://{Request.RequestUri.Host}:{Request.RequestUri.Port}";
+            var accountsByClient = list as AccountDto[] ?? list.ToArray();
+            foreach (var account in accountsByClient)
+            {
+                if (!account.StatementId.HasValue) continue;
+
+                var uri = $"{baseUri}/GetFiles/{nameof(GetStatementFile)}.ashx?id={account.StatementId}";
+                account.LastStatementLink = new Uri(uri);
+            }
+
+
+            return accountsByClient;
+
+
         }
 
         [HttpGet]
@@ -35,7 +52,13 @@ namespace WalletWebApi.Controllers
             Name = nameof(GetAccountByClient) + Ro.Route)]
         public IHttpActionResult GetAccountByClient(string clientId, Guid accountId)
         {
-            return Ok(_accountApi.GetAccountByClient(clientId, accountId));
+            var dto = _accountApi.GetAccountByClient(clientId, accountId);
+            if (!dto.StatementId.HasValue) return Ok(dto);
+
+            var baseUri = $"{Request.RequestUri.Scheme}://{Request.RequestUri.Host}:{Request.RequestUri.Port}";
+            var uri = $"{baseUri}/GetFiles/{nameof(GetStatementFile)}.ashx?id={dto.StatementId}";
+            dto.LastStatementLink = new Uri(uri);
+            return Ok(dto);
         }
 
         [HttpPost]
@@ -74,13 +97,26 @@ namespace WalletWebApi.Controllers
         [HttpPost]
         [Route("{" + Ro.AccountId + ":guid}/" + WalletConstants.AccountByClientRoutes.TransferOut,
             Name = nameof(PostAccountsByClientTransferOutRequest) + Ro.Route)]
-        public IHttpActionResult PostAccountsByClientTransferOutRequest(string clientId, Guid accountId,
-            TransferOutRequestDto dto)
+        public IHttpActionResult PostAccountsByClientTransferOutRequest(string clientId, Guid accountId, TransferOutRequestDto dto)
         {
-            return
-                StatusCode(_accountRequestApi.CreateAccountTransferOutRequest(clientId, accountId, dto)
-                    ? HttpStatusCode.NoContent
-                    : HttpStatusCode.Conflict);
+            var success = _accountRequestApi.CreateAccountTransferOutRequest(clientId, accountId, dto);
+            if (!success) return StatusCode(HttpStatusCode.Conflict);
+
+            using (var message = new MailMessage())
+            {
+                message.To.Add(AppGlobal.EmailAboutTransferOut);
+                message.Body = $"ClientId: {clientId}\nAmount: {dto.Amount}";
+                message.BodyEncoding = System.Text.Encoding.UTF8;
+                message.Subject = "Account TransferOut request";
+                message.SubjectEncoding = System.Text.Encoding.UTF8;
+                try
+                {
+                    var smtpClient = new SmtpClient();
+                    smtpClient.Send(message);
+                }
+                catch (Exception) {/*ignored*/}
+            }
+            return StatusCode(HttpStatusCode.NoContent);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EPM.Wallet.Common;
@@ -95,7 +96,22 @@ namespace WalletWebApi.Controllers
             {
                 return BadRequest();
             }
-            return Ok(_api.PostMessageByClient(clientId, messageDto));
+            messageDto = _api.PostMessageByClient(clientId, messageDto);
+            using (var message = new MailMessage())
+            {
+                message.To.Add(AppGlobal.EmailAboutMessage);
+                message.Body = messageDto.Body;
+                message.BodyEncoding = System.Text.Encoding.UTF8;
+                message.Subject = messageDto.Subject;
+                message.SubjectEncoding = System.Text.Encoding.UTF8;
+                try
+                {
+                    var smtpClient = new SmtpClient();
+                    smtpClient.Send(message);
+                }
+                catch (Exception) {/*ignored*/}
+            }
+            return Ok(messageDto);
         }
 
         /// <summary>

@@ -25,8 +25,5 @@ namespace EPM.Wallet.WinForms.Interfaces
         List<KeyValuePair<string, string>> CurrencyList { set; }
 
         #endregion //DetailsLists
-
     }
-
-
 }

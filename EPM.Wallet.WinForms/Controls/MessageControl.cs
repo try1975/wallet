@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+using System.Globalization;
 using System.Windows.Forms;
-using AutoMapper;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
@@ -12,17 +10,15 @@ namespace EPM.Wallet.WinForms.Controls
 {
     public partial class MessageControl : UserControl, IMessageView
     {
-        private readonly MessagePresenter _presenter;
-        private BindingList<MessageDto> _bindingList;
-        private BindingSource _bindingSource;
+        private readonly IPresenter _presenter;
 
-        public MessageControl(IDataMаnager dataMаnager)
+        public MessageControl(IMessageDataManager messageDataManager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
-            _presenter = new MessagePresenter(this, dataMаnager);
+            _presenter = new MessagePresenter(this, messageDataManager, dataMаnager);
         }
 
-        #region IMessageView implementation
+        #region IMessageView
 
         #region Details
 
@@ -37,28 +33,33 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbId.Text = value.ToString(); }
         }
 
-        public string MessageName
+        public string Subject
         {
-            get { return tbName.Text; }
-            set { tbName.Text = value; }
+            get { return tbSubject.Text; }
+            set { tbSubject.Text = value; }
         }
-
-        public Guid BankId
+        public string Body
         {
-            get { return (Guid)cmbBank.SelectedValue; }
-            set { cmbBank.SelectedValue = value; }
+            get { return tbBody.Text; }
+            set { tbBody.Text = value; }
         }
-
-        public string CurrencyId
+        public string ClientId
         {
-            get { return (string)cmbCurrency.SelectedValue; }
-            set { cmbCurrency.SelectedValue = value; }
+            get { return (string)cmbClient.SelectedValue; }
+            set { cmbClient.SelectedValue = value; }
         }
-
-        public string Subject { get; set; }
-        public string Body { get; set; }
-        public string ClientId { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(tbDate.Text)) return DateTime.UtcNow;
+                return DateTime.Parse(tbDate.Text);
+            }
+            set
+            {
+                tbDate.Text = value.ToString(CultureInfo.CurrentCulture);
+            }
+        }
         public DateTime? ReadDate { get; set; }
         public bool IsOutgoing { get; set; }
 
@@ -66,71 +67,45 @@ namespace EPM.Wallet.WinForms.Controls
 
         #region DetailsLists
 
-        public List<MessageDto> Items { get; set; }
-
-        public List<KeyValuePair<Guid, string>> BankList
+        public List<KeyValuePair<string, string>> ClientList
         {
             set
             {
-                cmbBank.DataSource = value;
-                cmbBank.ValueMember = "Key";
-                cmbBank.DisplayMember = "Value";
+                cmbClient.DataSource = value;
+                cmbClient.ValueMember = "Key";
+                cmbClient.DisplayMember = "Value";
             }
         }
-
-        public List<KeyValuePair<string, string>> CurrencyList
-        {
-            set
-            {
-                cmbCurrency.DataSource = value;
-                cmbCurrency.ValueMember = "Key";
-                cmbCurrency.DisplayMember = "Value";
-            }
-        }
-        public List<KeyValuePair<string, string>> ClientList { get; set; }
 
         #endregion
 
-        #region ListOperations
+        #endregion //IMessageView
+
+        #region IRefreshedView
 
         public void RefreshItems()
         {
-            _bindingList = new BindingList<MessageDto>(Items);
-            _bindingSource = new BindingSource(_bindingList, null);
-            dgvItems.DataSource = _bindingSource;
+            dgvItems.DataSource = _presenter.BindingSource;
+
+            var column = dgvItems.Columns[nameof(MessageDto.Id)];
+            if (column != null) column.Visible = false;
         }
 
         public void SetEventHandlers()
         {
-            throw new NotImplementedException();
+            dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
+            dgvItems.SortStringChanged += dgvItems_SortStringChanged;
+
+            btnAddNew.Click += btnAddNew_Click;
+            btnEdit.Click += btnEdit_Click;
+            btnSave.Click += btnSave_Click;
+            btnCancel.Click += btnCancel_Click;
+            btnDelete.Click += btnDelete_Click;
         }
 
-        public void ItemAdded(MessageDto item)
-        {
-            Items.Add(item);
-            _bindingSource.ResetBindings(false);
-        }
+        #endregion //IRefreshedView
 
-        public void ItemUpdated(MessageDto item)
-        {
-            if (item == null) return;
-            var existItem = Items.FirstOrDefault(i => i.Id.Equals(item.Id));
-            if (existItem == null) return;
-            Mapper.Map(item, existItem);
-            _bindingSource.ResetBindings(false);
-        }
-
-        public void ItemRemoved(Guid id)
-        {
-            var existItem = Items.FirstOrDefault(i => i.Id == id);
-            if (existItem == null) return;
-            Items.Remove(existItem);
-            _bindingSource.ResetBindings(false);
-        }
-
-        #endregion
-
-        #region Enter mode
+        #region IEnterMode
 
         public void EnterEditMode()
         {
@@ -192,23 +167,34 @@ namespace EPM.Wallet.WinForms.Controls
             btnAddNew.Enabled = true;
         }
 
-        #endregion //Enter mode
+        public void ClearInputFields()
+        {
+            tbId.Clear();
+            cmbClient.SelectedIndex = -1;
+            tbDate.Clear();
+            tbSubject.Clear();
+            tbBody.Clear();
+        }
 
-        #endregion //IMessageView implementation
+        public void EnableInput()
+        {
+            cmbClient.Enabled = true;
+            tbSubject.Enabled = true;
+            tbBody.Enabled = true;
+        }
+
+        public void DisableInput()
+        {
+            tbId.Enabled = false;
+            cmbClient.Enabled = false;
+            tbDate.Enabled = false;
+            tbSubject.Enabled = false;
+            tbBody.Enabled = false;
+        }
+
+        #endregion //IEnterMode
 
         #region Event handlers
-
-        private void SetDetailData()
-        {
-            var item = _bindingSource.Current;
-            Mapper.Map(item, this);
-            EnterDetailsMode();
-        }
-
-        private void dgvItems_SelectionChanged(object sender, EventArgs e)
-        {
-            SetDetailData();
-        }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
@@ -235,44 +221,16 @@ namespace EPM.Wallet.WinForms.Controls
             _presenter.Delete();
         }
 
-        private void MessageControl_ParentChanged(object sender, EventArgs e)
+        private void dgvItems_FilterStringChanged(object sender, EventArgs e)
         {
-            var control = (Control)sender;
-            if (control.Parent == null) return;
-            _presenter.SetItems();
-            _presenter.LoadLists();
+            _presenter.BindingSource.Filter = dgvItems.FilterString;
+        }
+
+        private void dgvItems_SortStringChanged(object sender, EventArgs e)
+        {
+            _presenter.BindingSource.Sort = dgvItems.SortString;
         }
 
         #endregion //Event handlers
-
-        #region Private methods
-
-        public void ClearInputFields()
-        {
-            tbId.Clear();
-            tbName.Clear();
-            cmbBank.SelectedIndex = -1;
-            cmbCurrency.SelectedIndex = -1;
-        }
-
-        public void EnableInput()
-        {
-            //tbId.Enabled = true;
-            tbName.Enabled = true;
-            cmbBank.Enabled = true;
-            cmbCurrency.Enabled = true;
-        }
-
-        public void DisableInput()
-        {
-            tbId.Enabled = false;
-            tbName.Enabled = false;
-            cmbBank.Enabled = false;
-            cmbCurrency.Enabled = false;
-        }
-
-        #endregion //Private methods
-
-
     }
 }

@@ -9,21 +9,20 @@ namespace EPM.Wallet.WinForms.Data
     {
         public LoggingHandler()
             : this(new HttpClientHandler())
-        { }
+        {
+        }
 
         public LoggingHandler(HttpMessageHandler innerHandler)
             : base(innerHandler)
         {
-            
         }
 
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
+            CancellationToken cancellationToken)
         {
-
             Debug.WriteLine(request.ToString());
             if (request.Content != null)
             {
-
                 Debug.WriteLine(await request.Content
                     .ReadAsStringAsync()
                     .ConfigureAwait(false));

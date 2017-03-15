@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using AutoMapper;
-using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
 
@@ -16,9 +13,10 @@ namespace EPM.Wallet.WinForms.Controls
         public CardControl(ICardDataMаnager typedDataMаnager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
-            SetEventHandlers();
             _presenter = new CardPresenter(this, typedDataMаnager, dataMаnager);
         }
+
+        #region ICardView
 
         #region Details
 
@@ -51,20 +49,35 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbCardNumber.Text = value; }
         }
 
-        public string CardHolder {
+        public string CardHolder
+        {
             get { return tbCardHolder.Text; }
             set { tbCardHolder.Text = value; }
         }
-        public int ExpMonth { get { return (int) udExpMonth.Value; } set { udExpMonth.Text = $"{value}"; } }
-        public int ExpYear { get { return (int)udExpYear.Value; } set { udExpYear.Text = $"{value}"; } }
-        public decimal Limit { get { return udLimit.Value; } set { udLimit.Value = value; } }
+
+        public int ExpMonth
+        {
+            get { return (int) udExpMonth.Value; }
+            set { udExpMonth.Text = $"{value}"; }
+        }
+
+        public int ExpYear
+        {
+            get { return (int) udExpYear.Value; }
+            set { udExpYear.Text = $"{value}"; }
+        }
+
+        public decimal Limit
+        {
+            get { return udLimit.Value; }
+            set { udLimit.Value = value; }
+        }
+
         public string Vendor { get; set; }
 
         #endregion //Details
 
         #region DetailsLists
-
-        public List<CardDto> Items { get; set; }
 
         public List<KeyValuePair<string, string>> ClientList
         {
@@ -88,9 +101,9 @@ namespace EPM.Wallet.WinForms.Controls
 
         #endregion //DetailsLists
 
-        #region interface methods
+        #endregion //ICardView
 
-        #region Mode
+        #region IRefreshedView
 
         public void RefreshItems()
         {
@@ -100,12 +113,19 @@ namespace EPM.Wallet.WinForms.Controls
         public void SetEventHandlers()
         {
             dgvItems.SelectionChanged += dgvItems_SelectionChanged;
+            dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
+            dgvItems.SortStringChanged += dgvItems_SortStringChanged;
+
             btnAddNew.Click += btnAddNew_Click;
             btnEdit.Click += btnEdit_Click;
             btnSave.Click += btnSave_Click;
             btnCancel.Click += btnCancel_Click;
             btnDelete.Click += btnDelete_Click;
         }
+
+        #endregion //IRefreshedView
+
+        #region IEnterMode
 
         public void EnterAddNewMode()
         {
@@ -165,10 +185,6 @@ namespace EPM.Wallet.WinForms.Controls
             btnAddNew.Enabled = true;
         }
 
-        #endregion //Mode
-
-        #region Input operations
-
         public void ClearInputFields()
         {
             tbId.Clear();
@@ -205,32 +221,7 @@ namespace EPM.Wallet.WinForms.Controls
             udLimit.Enabled = false;
         }
 
-        #endregion
-
-        public void ItemAdded(CardDto item)
-        {
-            Items.Add(item);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        public void ItemUpdated(CardDto item)
-        {
-            if (item == null) return;
-            var existItem = Items.FirstOrDefault(i => i.Id.Equals(item.Id));
-            if (existItem == null) return;
-            Mapper.Map(item, existItem);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        public void ItemRemoved(Guid id)
-        {
-            var existItem = Items.FirstOrDefault(i => i.Id == id);
-            if (existItem == null) return;
-            Items.Remove(existItem);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        #endregion //interface methods
+        #endregion //IEnterMode
 
         #region Event handlers
 
@@ -262,6 +253,16 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnDelete_Click(object sender, EventArgs e)
         {
             _presenter.Delete();
+        }
+
+        private void dgvItems_FilterStringChanged(object sender, EventArgs e)
+        {
+            _presenter.BindingSource.Filter = dgvItems.FilterString;
+        }
+
+        private void dgvItems_SortStringChanged(object sender, EventArgs e)
+        {
+            _presenter.BindingSource.Sort = dgvItems.SortString;
         }
 
         #endregion

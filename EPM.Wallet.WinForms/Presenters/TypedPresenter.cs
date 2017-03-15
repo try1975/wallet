@@ -1,5 +1,8 @@
-using System.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using AutoMapper;
 using EPM.Wallet.Internal;
@@ -9,13 +12,11 @@ namespace EPM.Wallet.WinForms.Presenters
 {
     public abstract class TypedPresenter<T, TK> : IPresenter where T : class, IDto<TK>
     {
-        protected readonly ITypedView<T, TK> View;
-        protected readonly IDataMànager DataMànager;
         private readonly ITypedDataMànager<T, TK> _typedDataMànager;
+        protected readonly IDataMànager DataMànager;
+        protected readonly ITypedView<T, TK> View;
         private PresenterMode _presenterMode;
-        private BindingList<T> _bindingList;
-
-        public BindingSource BindingSource { get; set; }
+        public BindingSource BindingSource { get; }
 
         protected TypedPresenter(ITypedView<T, TK> view, ITypedDataMànager<T, TK> typedDataMànager, IDataMànager dataMànager)
         {
@@ -23,25 +24,31 @@ namespace EPM.Wallet.WinForms.Presenters
             _typedDataMànager = typedDataMànager;
             DataMànager = dataMànager;
 
+            BindingSource = new BindingSource();
+            BindingSource.CurrentChanged += BindingSourceOnCurrentChanged;
             SetItems();
         }
 
-        public async void SetItems()
+        private void BindingSourceOnCurrentChanged(object sender, EventArgs eventArgs)
         {
-            View.Items = (await _typedDataMànager.GetItems()).ToList();
-            _bindingList = new BindingList<T>(View.Items);
-            BindingSource = new BindingSource(_bindingList, null);
-
-            View.RefreshItems();
+            SetDetailData();
         }
 
-        public virtual void LoadLists()
+        private async void SetItems()
         {
+            BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
+            View.RefreshItems();
+            View.SetEventHandlers();
         }
 
         public void SetDetailData()
         {
-            var item = BindingSource.Current;
+            T item = null;
+            if (BindingSource.Current != null)
+            {
+                var current = (DataRowView)BindingSource.Current;
+                item = ToDto(current);
+            }
             Mapper.Map(item, View);
             View.EnterDetailsMode();
         }
@@ -80,22 +87,28 @@ namespace EPM.Wallet.WinForms.Presenters
             _presenterMode = PresenterMode.Read;
         }
 
-        public async void Create()
+        private async void Create()
         {
             var item = Mapper.Map<T>(View);
             item = await _typedDataMànager.PostItem(item);
             Mapper.Map(item, View);
+
+            if (item != null)
+            {
+                BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
+            }
             View.EnterReadMode();
-            if (item != null) View.ItemAdded(item);
             _presenterMode = PresenterMode.Read;
         }
 
-        public async void Update()
+        private async void Update()
         {
             var item = Mapper.Map<T>(View);
             item = await _typedDataMànager.PutItem(item);
             Mapper.Map(item, View);
-            View.ItemUpdated(item);
+
+            BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
+
             View.EnterReadMode();
             _presenterMode = PresenterMode.Read;
         }
@@ -107,7 +120,7 @@ namespace EPM.Wallet.WinForms.Presenters
             var success = await _typedDataMànager.DeleteItem(item.Id);
             if (success)
             {
-                View.ItemRemoved(item.Id);
+                BindingSource.RemoveCurrent();
             }
             else
             {
@@ -116,6 +129,55 @@ namespace EPM.Wallet.WinForms.Presenters
 
             View.EnterReadMode();
             _presenterMode = PresenterMode.Read;
+        }
+
+        private static DataTable ToDataTable(IEnumerable<T> items)
+        {
+            var dataTable = new DataTable(typeof(T).Name);
+
+            var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (var prop in props)
+            {
+                var type = prop.PropertyType.IsGenericType &&
+                           prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>)
+                    ? Nullable.GetUnderlyingType(prop.PropertyType)
+                    : prop.PropertyType;
+                dataTable.Columns.Add(prop.Name, type);
+            }
+            foreach (var item in items)
+            {
+                var values = new object[props.Length];
+                for (var i = 0; i < props.Length; i++)
+                {
+                    values[i] = props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+            return dataTable;
+        }
+
+        //private static void ToRow(DataRowView data, T item)
+        //{
+        //    var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        //    for (var i = 0; i < props.Length; i++)
+        //    {
+        //        data.Row.ItemArray[i] = props[i].GetValue(item, null);
+        //    }
+        //}
+
+        private static T ToDto(DataRowView data)
+        {
+            var result = (T)Activator.CreateInstance(typeof(T), null);
+            var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            for (var i = 0; i < props.Length; i++)
+            {
+                var value = data.Row.ItemArray[i];
+                if (value != DBNull.Value)
+                {
+                    props[i].SetValue(result, data.Row.ItemArray[i]);
+                }
+            }
+            return result;
         }
     }
 }

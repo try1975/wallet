@@ -55,7 +55,8 @@ namespace WalletWebApi.Maintenance
                         dto.BeneficiaryAccount = _accountQuery.GetEntity(accountId).Name;
                     }
                 }
-                if (accountRequestEntity.AccountRequestType == AccountRequestType.TransferOut)
+                // TODO: ??? AccountTopUp requisites?
+                if (accountRequestEntity.AccountRequestType == AccountRequestType.TransferOut || accountRequestEntity.AccountRequestType == AccountRequestType.AccountTopUp)
                 {
                     if (accountRequestEntity.RequisiteId.HasValue)
                     {

@@ -71,7 +71,7 @@ namespace WalletWebApi.Maintenance
         public int CountUnreadMessagesByClient(string clientId)
         {
             return _query.GetEntities()
-                .Count(m => m.ClientId == clientId && !m.DeletionDate.HasValue && !m.ReadDate.HasValue);
+                .Count(m => m.ClientId == clientId && !m.DeletionDate.HasValue && !m.ReadDate.HasValue && !m.IsOutgoing);
         }
 
         public MessageDto MakeMessageReaded(string clientId, Guid id)

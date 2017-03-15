@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvItems = new System.Windows.Forms.DataGridView();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
             this.pnlBankName = new System.Windows.Forms.Panel();
@@ -45,27 +44,15 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.pnlBankName.SuspendLayout();
             this.pnlId.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvItems
-            // 
-            this.dgvItems.AllowUserToAddRows = false;
-            this.dgvItems.AllowUserToDeleteRows = false;
-            this.dgvItems.AllowUserToOrderColumns = true;
-            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvItems.Location = new System.Drawing.Point(0, 0);
-            this.dgvItems.Name = "dgvItems";
-            this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(261, 428);
-            this.dgvItems.TabIndex = 2;
             // 
             // pnlDetails
             // 
@@ -221,6 +208,20 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
+            // dgvItems
+            // 
+            this.dgvItems.AllowUserToAddRows = false;
+            this.dgvItems.AllowUserToDeleteRows = false;
+            this.dgvItems.AllowUserToOrderColumns = true;
+            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvItems.FilterAndSortEnabled = true;
+            this.dgvItems.Location = new System.Drawing.Point(0, 0);
+            this.dgvItems.Name = "dgvItems";
+            this.dgvItems.ReadOnly = true;
+            this.dgvItems.Size = new System.Drawing.Size(261, 428);
+            this.dgvItems.TabIndex = 1;
+            // 
             // BankControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,7 +231,6 @@
             this.Controls.Add(this.pnlDetails);
             this.Name = "BankControl";
             this.Size = new System.Drawing.Size(660, 428);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
             this.pnlBankName.ResumeLayout(false);
@@ -239,6 +239,7 @@
             this.pnlId.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,6 +261,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.DataGridView dgvItems;
+        private Zuby.ADGV.AdvancedDataGridView dgvItems;
     }
 }

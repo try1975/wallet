@@ -1,4 +1,6 @@
-﻿namespace EPM.Wallet.WinForms.Controls
+﻿using Zuby.ADGV;
+
+namespace EPM.Wallet.WinForms.Controls
 {
     partial class ClientControl
     {
@@ -44,7 +46,7 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
-            this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.pnlClientName.SuspendLayout();
@@ -216,12 +218,12 @@
             this.dgvItems.AllowUserToOrderColumns = true;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvItems.FilterAndSortEnabled = true;
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
             this.dgvItems.Size = new System.Drawing.Size(303, 476);
-            this.dgvItems.TabIndex = 2;
-            this.dgvItems.SelectionChanged += new System.EventHandler(this.dgvItems_SelectionChanged);
+            this.dgvItems.TabIndex = 0;
             // 
             // ClientControl
             // 
@@ -263,6 +265,6 @@
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel pnlGrid;
-        private System.Windows.Forms.DataGridView dgvItems;
+        private AdvancedDataGridView dgvItems;
     }
 }

@@ -8,12 +8,12 @@ using EPM.Wallet.WinForms.Interfaces;
 
 namespace EPM.Wallet.WinForms.Data
 {
-    public abstract class TypedDataMànager<T, K> : ITypedDataMànager<T, K> where T : class, IDto<K>
+    public abstract class TypedDataMànager<T, TK> : ITypedDataMànager<T, TK> where T : class, IDto<TK>
     {
-        private readonly HttpClient _walletHttpClient;
         private readonly string _endPoint;
+        private readonly HttpClient _walletHttpClient;
 
-        public TypedDataMànager(string endPoint)
+        protected TypedDataMànager(string endPoint)
         {
             var baseApi = ConfigurationManager.AppSettings["BaseApi"];
             var token = ConfigurationManager.AppSettings["ExternalToken"];
@@ -33,7 +33,7 @@ namespace EPM.Wallet.WinForms.Data
             }
         }
 
-        public async Task<T> GetItem(K id)
+        public async Task<T> GetItem(TK id)
         {
             using (var response = await _walletHttpClient.GetAsync($"{_endPoint}{id}"))
             {
@@ -63,7 +63,7 @@ namespace EPM.Wallet.WinForms.Data
             }
         }
 
-        public async Task<bool> DeleteItem(K id)
+        public async Task<bool> DeleteItem(TK id)
         {
             using (var response = await _walletHttpClient.DeleteAsync($"{_endPoint}{id}"))
             {

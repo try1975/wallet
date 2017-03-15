@@ -5,11 +5,10 @@ using EPM.Wallet.WinForms.Interfaces;
 
 namespace EPM.Wallet.WinForms.Data
 {
-    public class CardDataMànager : TypedDataMànager<CardDto,Guid>, ICardDataMànager
+    public class CardDataMànager : TypedDataMànager<CardDto, Guid>, ICardDataMànager
     {
         public CardDataMànager() : base(WalletConstants.ClientAppApi.Cards)
         {
-
         }
     }
 }

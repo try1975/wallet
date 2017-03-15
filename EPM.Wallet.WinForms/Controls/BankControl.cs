@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using AutoMapper;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
-
 
 namespace EPM.Wallet.WinForms.Controls
 {
@@ -17,9 +13,10 @@ namespace EPM.Wallet.WinForms.Controls
         public BankControl(IBankDataMаnager bankDataMаnager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
-            SetEventHandlers();
             _presenter = new BankPresenter(this, bankDataMаnager, dataMаnager);
         }
+
+        #region IBankView
 
         #region Details
 
@@ -33,28 +30,35 @@ namespace EPM.Wallet.WinForms.Controls
             }
             set { tbId.Text = value.ToString(); }
         }
-        public string BankName { get { return tbName.Text; } set { tbName.Text = value; } }
+
+        public string BankName
+        {
+            get { return tbName.Text; }
+            set { tbName.Text = value; }
+        }
 
         #endregion //Details
 
+        #endregion IBankView
 
-        #region DetailsLists
-
-        public List<BankDto> Items { get; set; }
-
-        #endregion //DetailsLists
-
-
-        #region interface methods
+        #region IRefreshedView
 
         public void RefreshItems()
         {
             dgvItems.DataSource = _presenter.BindingSource;
+            // hide columns
+            var column = dgvItems.Columns[nameof(BankDto.Id)];
+            if (column != null) column.Visible = false;
+            column = dgvItems.Columns[nameof(BankDto.BankAccounts)];
+            if (column != null) column.Visible = false;
         }
 
         public void SetEventHandlers()
         {
             dgvItems.SelectionChanged += dgvItems_SelectionChanged;
+            dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
+            dgvItems.SortStringChanged += dgvItems_SortStringChanged;
+
             btnAddNew.Click += btnAddNew_Click;
             btnEdit.Click += btnEdit_Click;
             btnSave.Click += btnSave_Click;
@@ -62,7 +66,9 @@ namespace EPM.Wallet.WinForms.Controls
             btnDelete.Click += btnDelete_Click;
         }
 
-        #region Mode
+        #endregion //IRefreshedView
+
+        #region IEnterMode
 
         public void EnterAddNewMode()
         {
@@ -140,32 +146,7 @@ namespace EPM.Wallet.WinForms.Controls
             tbName.Enabled = false;
         }
 
-        #endregion
-
-
-        public void ItemAdded(BankDto item)
-        {
-            Items.Add(item);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        public void ItemUpdated(BankDto item)
-        {
-            if (item == null) return;
-            var existItem = Items.FirstOrDefault(i => i.Id.Equals(item.Id));
-            if (existItem == null) return;
-            Mapper.Map(item, existItem);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        public void ItemRemoved(Guid id)
-        {
-            var existItem = Items.FirstOrDefault(i => i.Id == id);
-            if (existItem == null) return;
-            Items.Remove(existItem);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-        #endregion //interface methods
+        #endregion //IEnterMode
 
         #region Event handlers
 
@@ -199,8 +180,16 @@ namespace EPM.Wallet.WinForms.Controls
             _presenter.Delete();
         }
 
-        #endregion
+        private void dgvItems_FilterStringChanged(object sender, EventArgs e)
+        {
+            _presenter.BindingSource.Filter = dgvItems.FilterString;
+        }
 
-        
+        private void dgvItems_SortStringChanged(object sender, EventArgs e)
+        {
+            _presenter.BindingSource.Sort = dgvItems.SortString;
+        }
+
+        #endregion
     }
 }

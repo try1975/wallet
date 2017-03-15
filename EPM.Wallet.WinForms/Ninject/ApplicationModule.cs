@@ -9,33 +9,33 @@ namespace EPM.Wallet.WinForms.Ninject
     {
         public override void Load()
         {
-            Bind(typeof(IDataMаnager)).To(typeof(DataMаnager));
-            
+            Bind<IDataMаnager>().To<DataMаnager>().InSingletonScope();
+            Bind<IWalletControl>().To<WalletControl>().InSingletonScope();
 
-            Bind(typeof(IWalletControl)).To(typeof(WalletControl));
-
-            Bind<IBankView>().To<BankControl>().InSingletonScope();
+            Bind<IBankView>().To<BankControl>();
             Bind<IBankDataMаnager>().To<BankDataMаnager>().InSingletonScope();
 
+            Bind<IBankAccountView>().To<BankAccountControl>();
+            Bind<IBankAccountDataManager>().To<BankAccountDataManager>().InSingletonScope();
 
-            Bind<IBankAccountView>().To<BankAccountControl>().InSingletonScope();
-            Bind<IClientView>().To<ClientControl>().InSingletonScope();
+            Bind<IClientView>().To<ClientControl>();
             Bind<IClientDataManager>().To<ClientDataManager>().InSingletonScope();
 
-            Bind<IClientAccountView>().To<ClientAccountControl>().InSingletonScope();
+            Bind<IClientAccountView>().To<ClientAccountControl>();
             Bind<IClientAccountDataManager>().To<ClientAccountDataManager>().InSingletonScope();
 
-            Bind(typeof(ICardView)).To(typeof(CardControl));
-            Bind(typeof(ICardDataMаnager)).To(typeof(CardDataMаnager));
+            Bind<ICardView>().To<CardControl>();
+            Bind<ICardDataMаnager>().To<CardDataMаnager>().InSingletonScope();
 
-            Bind(typeof(IRequestView)).To(typeof(RequestControl));
-            // Bind(typeof(IRequestDataMаnager)).To(typeof(RequestDataMаnager));
+            Bind<IRequestView>().To<RequestControl>();
+            Bind<IRequestDataManager>().To<RequestDataManager>().InSingletonScope();
 
-            Bind(typeof(IMessageView)).To(typeof(MessageControl));
+            Bind<IMessageView>().To<MessageControl>();
+            Bind<IMessageDataManager>().To<MessageDataManager>().InSingletonScope();
 
 
-            Bind(typeof(ITransferOutInfoView)).To(typeof(TransferOutInfoControl));
-            Bind(typeof(ITransferOutInfoDataManager)).To(typeof(TransferOutInfoDataManager));
+            Bind<ITransferOutInfoView>().To<TransferOutInfoControl>();
+            Bind<ITransferOutInfoDataManager>().To<TransferOutInfoDataManager>().InSingletonScope();
         }
     }
 }

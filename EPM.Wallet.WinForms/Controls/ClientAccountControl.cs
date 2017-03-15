@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using AutoMapper;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
@@ -16,7 +14,6 @@ namespace EPM.Wallet.WinForms.Controls
         public ClientAccountControl(IClientAccountDataManager typedDataMаnager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
-            SetEventHandlers();
             _presenter = new ClientAccountPresenter(this, typedDataMаnager, dataMаnager);
         }
 
@@ -49,11 +46,21 @@ namespace EPM.Wallet.WinForms.Controls
 
         public string CurrencyId
         {
-            get { return (string) cmbCurrency.SelectedValue; }
-            set { cmbCurrency.SelectedValue = value; }
+            get
+            {
+                return (string) cmbCurrency.SelectedValue;
+            }
+            set
+            {
+                cmbCurrency.SelectedValue = value;
+            }
         }
 
-        public Guid BankAccountId { get; set; }
+        public Guid BankAccountId
+        {
+            get { return (Guid)cmbBankAccount.SelectedValue; }
+            set { cmbBankAccount.SelectedValue = value; }
+        }
 
         public string ClientAccountStatusId
         {
@@ -66,8 +73,6 @@ namespace EPM.Wallet.WinForms.Controls
         #endregion //Details
 
         #region DetailsLists
-
-        public List<AccountDto> Items { get; set; }
 
         public List<KeyValuePair<string, string>> ClientList
         {
@@ -89,7 +94,14 @@ namespace EPM.Wallet.WinForms.Controls
             }
         }
 
-        public List<KeyValuePair<Guid, string>> BankAccounList { get; set; }
+        public List<KeyValuePair<Guid, string>> BankAccounList {
+            set
+            {
+                cmbBankAccount.DataSource = value;
+                cmbBankAccount.ValueMember = "Key";
+                cmbBankAccount.DisplayMember = "Value";
+            }
+        }
 
         public List<KeyValuePair<string, string>> ClientAccountStatusList
         {
@@ -103,41 +115,37 @@ namespace EPM.Wallet.WinForms.Controls
 
         #endregion //DetailsLists
 
-        #region ListOperations
+        #endregion //IClientAccountView implementation
+
+        #region IRefreshedView
 
         public void RefreshItems()
         {
             dgvItems.DataSource = _presenter.BindingSource;
+            // hide columns
+            var column = dgvItems.Columns[nameof(AccountDto.Id)];
+            if (column != null) column.Visible = false;
+            column = dgvItems.Columns[nameof(AccountDto.Requisite)];
+            if (column != null) column.Visible = false;
+            column = dgvItems.Columns[nameof(AccountDto.BankAccountId)];
+            if (column != null) column.Visible = false;
         }
 
-        public void ItemAdded(AccountDto item)
+        public void SetEventHandlers()
         {
-            Items.Add(item);
-            _presenter.BindingSource.ResetBindings(false);
+            dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
+            dgvItems.SortStringChanged += dgvItems_SortStringChanged;
+
+            btnAddNew.Click += btnAddNew_Click;
+            btnEdit.Click += btnEdit_Click;
+            btnSave.Click += btnSave_Click;
+            btnCancel.Click += btnCancel_Click;
+            btnDelete.Click += btnDelete_Click;
         }
 
-        public void ItemUpdated(AccountDto item)
-        {
-            if (item == null) return;
-            var existItem = Items.FirstOrDefault(i => i.Id.Equals(item.Id));
-            if (existItem == null) return;
-            Mapper.Map(item, existItem);
-            _presenter.BindingSource.ResetBindings(false);
-        }
+        #endregion //IRefreshedView
 
-        public void ItemRemoved(Guid id)
-        {
-            var existItem = Items.FirstOrDefault(i => i.Id == id);
-            if (existItem == null) return;
-            Items.Remove(existItem);
-            _presenter.BindingSource.ResetBindings(false);
-        }
-
-        #endregion //ListOperations
-
-        #endregion //IClientAccountView implementation
-
-        #region Mode
+        #region IEnterMode
 
         public void EnterAddNewMode()
         {
@@ -204,6 +212,7 @@ namespace EPM.Wallet.WinForms.Controls
             cmbClient.SelectedIndex = -1;
             cmbCurrency.SelectedIndex = -1;
             cmbClientAccountStatus.SelectedIndex = -1;
+            cmbBankAccount.SelectedIndex = -1;
         }
 
         public void EnableInput()
@@ -213,6 +222,7 @@ namespace EPM.Wallet.WinForms.Controls
             cmbClient.Enabled = true;
             cmbCurrency.Enabled = true;
             cmbClientAccountStatus.Enabled = true;
+            cmbBankAccount.Enabled = true;
         }
 
         public void DisableInput()
@@ -222,26 +232,12 @@ namespace EPM.Wallet.WinForms.Controls
             cmbClient.Enabled = false;
             cmbCurrency.Enabled = false;
             cmbClientAccountStatus.Enabled = false;
+            cmbBankAccount.Enabled = false;
         }
 
-        #endregion //Mode
+        #endregion //IEnterMode
 
         #region Event handlers
-
-        public void SetEventHandlers()
-        {
-            dgvItems.SelectionChanged += dgvItems_SelectionChanged;
-            btnAddNew.Click += btnAddNew_Click;
-            btnEdit.Click += btnEdit_Click;
-            btnSave.Click += btnSave_Click;
-            btnCancel.Click += btnCancel_Click;
-            btnDelete.Click += btnDelete_Click;
-        }
-
-        private void dgvItems_SelectionChanged(object sender, EventArgs e)
-        {
-            _presenter.SetDetailData();
-        }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
@@ -266,6 +262,16 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnDelete_Click(object sender, EventArgs e)
         {
             _presenter.Delete();
+        }
+
+        private void dgvItems_FilterStringChanged(object sender, EventArgs e)
+        {
+            _presenter.BindingSource.Filter = dgvItems.FilterString;
+        }
+
+        private void dgvItems_SortStringChanged(object sender, EventArgs e)
+        {
+            _presenter.BindingSource.Sort = dgvItems.SortString;
         }
 
         #endregion //Event handlers

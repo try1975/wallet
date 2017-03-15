@@ -51,5 +51,15 @@ namespace WalletInternalApi.Maintenance.Classes
                 .ToList();
             return list;
         }
+
+        public override TransferOutInfoDto ChangeItem(TransferOutInfoDto dto)
+        {
+            var entity = Query.GetEntity(dto.Id);
+            if (entity == null) return null;
+            entity.RequestStatus = dto.RequestStatus;
+            entity=Query.UpdateEntity(entity);
+            dto.RequestStatus = entity.RequestStatus;
+            return dto;
+        }
     }
 }

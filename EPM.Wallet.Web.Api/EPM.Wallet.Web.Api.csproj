@@ -154,6 +154,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AppGlobal.cs" />
     <Compile Include="App_Start\AuthenticationTypes.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\TokenModule.cs" />

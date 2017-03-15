@@ -30,6 +30,9 @@
         {
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
+            this.pnlClientAccountStatus = new System.Windows.Forms.Panel();
+            this.cmbClientAccountStatus = new System.Windows.Forms.ComboBox();
+            this.lblClientAccountStatus = new System.Windows.Forms.Label();
             this.pnlCurrency = new System.Windows.Forms.Panel();
             this.cmbCurrency = new System.Windows.Forms.ComboBox();
             this.lblCurrency = new System.Windows.Forms.Label();
@@ -50,12 +53,13 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
-            this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.pnlClientAccountStatus = new System.Windows.Forms.Panel();
-            this.cmbClientAccountStatus = new System.Windows.Forms.ComboBox();
-            this.lblClientAccountStatus = new System.Windows.Forms.Label();
+            this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbBankAccount = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
+            this.pnlClientAccountStatus.SuspendLayout();
             this.pnlCurrency.SuspendLayout();
             this.pnlClient.SuspendLayout();
             this.pnlClientAccountName.SuspendLayout();
@@ -63,7 +67,7 @@
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
-            this.pnlClientAccountStatus.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -78,6 +82,7 @@
             // 
             // pnlFields
             // 
+            this.pnlFields.Controls.Add(this.panel1);
             this.pnlFields.Controls.Add(this.pnlClientAccountStatus);
             this.pnlFields.Controls.Add(this.pnlCurrency);
             this.pnlFields.Controls.Add(this.pnlClient);
@@ -88,6 +93,35 @@
             this.pnlFields.Name = "pnlFields";
             this.pnlFields.Size = new System.Drawing.Size(396, 421);
             this.pnlFields.TabIndex = 1;
+            // 
+            // pnlClientAccountStatus
+            // 
+            this.pnlClientAccountStatus.Controls.Add(this.cmbClientAccountStatus);
+            this.pnlClientAccountStatus.Controls.Add(this.lblClientAccountStatus);
+            this.pnlClientAccountStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlClientAccountStatus.Location = new System.Drawing.Point(0, 133);
+            this.pnlClientAccountStatus.Name = "pnlClientAccountStatus";
+            this.pnlClientAccountStatus.Size = new System.Drawing.Size(396, 33);
+            this.pnlClientAccountStatus.TabIndex = 8;
+            // 
+            // cmbClientAccountStatus
+            // 
+            this.cmbClientAccountStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbClientAccountStatus.FormattingEnabled = true;
+            this.cmbClientAccountStatus.Location = new System.Drawing.Point(97, 6);
+            this.cmbClientAccountStatus.Name = "cmbClientAccountStatus";
+            this.cmbClientAccountStatus.Size = new System.Drawing.Size(283, 21);
+            this.cmbClientAccountStatus.TabIndex = 1;
+            // 
+            // lblClientAccountStatus
+            // 
+            this.lblClientAccountStatus.AutoSize = true;
+            this.lblClientAccountStatus.Location = new System.Drawing.Point(7, 9);
+            this.lblClientAccountStatus.Name = "lblClientAccountStatus";
+            this.lblClientAccountStatus.Size = new System.Drawing.Size(37, 13);
+            this.lblClientAccountStatus.TabIndex = 0;
+            this.lblClientAccountStatus.Text = "Status";
             // 
             // pnlCurrency
             // 
@@ -185,6 +219,7 @@
             this.pnlId.Name = "pnlId";
             this.pnlId.Size = new System.Drawing.Size(396, 33);
             this.pnlId.TabIndex = 3;
+            this.pnlId.Visible = false;
             // 
             // lblId
             // 
@@ -288,41 +323,41 @@
             this.dgvItems.AllowUserToOrderColumns = true;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvItems.FilterAndSortEnabled = true;
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
             this.dgvItems.Size = new System.Drawing.Size(275, 462);
-            this.dgvItems.TabIndex = 2;
-            this.dgvItems.SelectionChanged += new System.EventHandler(this.dgvItems_SelectionChanged);
+            this.dgvItems.TabIndex = 1;
             // 
-            // pnlClientAccountStatus
+            // panel1
             // 
-            this.pnlClientAccountStatus.Controls.Add(this.cmbClientAccountStatus);
-            this.pnlClientAccountStatus.Controls.Add(this.lblClientAccountStatus);
-            this.pnlClientAccountStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlClientAccountStatus.Location = new System.Drawing.Point(0, 133);
-            this.pnlClientAccountStatus.Name = "pnlClientAccountStatus";
-            this.pnlClientAccountStatus.Size = new System.Drawing.Size(396, 33);
-            this.pnlClientAccountStatus.TabIndex = 8;
+            this.panel1.Controls.Add(this.cmbBankAccount);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 166);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(396, 33);
+            this.panel1.TabIndex = 9;
             // 
-            // cmbClientAccountStatus
+            // cmbBankAccount
             // 
-            this.cmbClientAccountStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cmbBankAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbClientAccountStatus.FormattingEnabled = true;
-            this.cmbClientAccountStatus.Location = new System.Drawing.Point(97, 6);
-            this.cmbClientAccountStatus.Name = "cmbClientAccountStatus";
-            this.cmbClientAccountStatus.Size = new System.Drawing.Size(283, 21);
-            this.cmbClientAccountStatus.TabIndex = 1;
+            this.cmbBankAccount.FormattingEnabled = true;
+            this.cmbBankAccount.Location = new System.Drawing.Point(97, 6);
+            this.cmbBankAccount.Name = "cmbBankAccount";
+            this.cmbBankAccount.Size = new System.Drawing.Size(283, 21);
+            this.cmbBankAccount.TabIndex = 1;
             // 
-            // lblClientAccountStatus
+            // label1
             // 
-            this.lblClientAccountStatus.AutoSize = true;
-            this.lblClientAccountStatus.Location = new System.Drawing.Point(7, 9);
-            this.lblClientAccountStatus.Name = "lblClientAccountStatus";
-            this.lblClientAccountStatus.Size = new System.Drawing.Size(37, 13);
-            this.lblClientAccountStatus.TabIndex = 0;
-            this.lblClientAccountStatus.Text = "Status";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bank Account";
             // 
             // ClientAccountControl
             // 
@@ -335,6 +370,8 @@
             this.Size = new System.Drawing.Size(674, 462);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
+            this.pnlClientAccountStatus.ResumeLayout(false);
+            this.pnlClientAccountStatus.PerformLayout();
             this.pnlCurrency.ResumeLayout(false);
             this.pnlCurrency.PerformLayout();
             this.pnlClient.ResumeLayout(false);
@@ -346,8 +383,8 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
-            this.pnlClientAccountStatus.ResumeLayout(false);
-            this.pnlClientAccountStatus.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -370,7 +407,6 @@
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel pnlGrid;
-        private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.Panel pnlCurrency;
         private System.Windows.Forms.ComboBox cmbCurrency;
         private System.Windows.Forms.Label lblCurrency;
@@ -380,5 +416,9 @@
         private System.Windows.Forms.Panel pnlClientAccountStatus;
         private System.Windows.Forms.ComboBox cmbClientAccountStatus;
         private System.Windows.Forms.Label lblClientAccountStatus;
+        private Zuby.ADGV.AdvancedDataGridView dgvItems;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cmbBankAccount;
+        private System.Windows.Forms.Label label1;
     }
 }

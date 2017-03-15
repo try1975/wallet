@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Windows.Forms;
-using AutoMapper;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
@@ -12,14 +9,12 @@ namespace EPM.Wallet.WinForms.Controls
 {
     public partial class BankAccountControl : UserControl, IBankAccountView
     {
-        private readonly BankAccountPresenter _presenter;
-        private BindingList<BankAccountDto> _bindingList;
-        private BindingSource _bindingSource;
+        private readonly IPresenter _presenter;
 
-        public BankAccountControl(IDataMаnager dataMаnager)
+        public BankAccountControl(IBankAccountDataManager bankAccountDataManager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
-            _presenter = new BankAccountPresenter(this, dataMаnager);
+            _presenter = new BankAccountPresenter(this, bankAccountDataManager, dataMаnager);
         }
 
         #region IBankAccountView implementation
@@ -72,8 +67,6 @@ namespace EPM.Wallet.WinForms.Controls
 
         #region DetailsLists
 
-        public List<BankAccountDto> Items { get; set; }
-
         public List<KeyValuePair<Guid, string>> BankList
         {
             set
@@ -94,48 +87,37 @@ namespace EPM.Wallet.WinForms.Controls
             }
         }
 
-        #endregion
+        #endregion //DetailsLists
 
-        #region ListOperations
+        #endregion //IBankAccountView implementation
+
+        #region IRefreshedView
 
         public void RefreshItems()
         {
-            _bindingList = new BindingList<BankAccountDto>(Items);
-            _bindingSource = new BindingSource(_bindingList, null);
-            dgvItems.DataSource = _bindingSource;
+            dgvItems.DataSource = _presenter.BindingSource;
+
+            var column = dgvItems.Columns[nameof(BankAccountDto.Id)];
+            if (column != null) column.Visible = false;
+            column = dgvItems.Columns[nameof(BankAccountDto.BankId)];
+            if (column != null) column.Visible = false;
         }
 
         public void SetEventHandlers()
         {
-            throw new NotImplementedException();
+            dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
+            dgvItems.SortStringChanged += dgvItems_SortStringChanged;
+
+            btnAddNew.Click += btnAddNew_Click;
+            btnEdit.Click += btnEdit_Click;
+            btnSave.Click += btnSave_Click;
+            btnCancel.Click += btnCancel_Click;
+            btnDelete.Click += btnDelete_Click;
         }
 
-        public void ItemAdded(BankAccountDto item)
-        {
-            Items.Add(item);
-            _bindingSource.ResetBindings(false);
-        }
+        #endregion //IRefreshedView
 
-        public void ItemUpdated(BankAccountDto item)
-        {
-            if (item == null) return;
-            var existItem = Items.FirstOrDefault(i => i.Id.Equals(item.Id));
-            if (existItem == null) return;
-            Mapper.Map(item, existItem);
-            _bindingSource.ResetBindings(false);
-        }
-
-        public void ItemRemoved(Guid id)
-        {
-            var existItem = Items.FirstOrDefault(i => i.Id == id);
-            if (existItem == null) return;
-            Items.Remove(existItem);
-            _bindingSource.ResetBindings(false);
-        }
-
-        #endregion
-
-        #region Enter mode
+        #region IEnterMode
 
         public void EnterEditMode()
         {
@@ -197,23 +179,33 @@ namespace EPM.Wallet.WinForms.Controls
             btnAddNew.Enabled = true;
         }
 
-        #endregion //Enter mode
+        public void ClearInputFields()
+        {
+            tbId.Clear();
+            tbName.Clear();
+            cmbBank.SelectedIndex = -1;
+            cmbCurrency.SelectedIndex = -1;
+        }
 
-        #endregion //IBankAccountView implementation
+        public void EnableInput()
+        {
+            //tbId.Enabled = true;
+            tbName.Enabled = true;
+            cmbBank.Enabled = true;
+            cmbCurrency.Enabled = true;
+        }
+
+        public void DisableInput()
+        {
+            tbId.Enabled = false;
+            tbName.Enabled = false;
+            cmbBank.Enabled = false;
+            cmbCurrency.Enabled = false;
+        }
+
+        #endregion //IEnterMode
 
         #region Event handlers
-
-        private void SetDetailData()
-        {
-            var item = _bindingSource.Current;
-            Mapper.Map(item, this);
-            EnterDetailsMode();
-        }
-
-        private void dgvItems_SelectionChanged(object sender, EventArgs e)
-        {
-            SetDetailData();
-        }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
@@ -240,42 +232,16 @@ namespace EPM.Wallet.WinForms.Controls
             _presenter.Delete();
         }
 
-        private void BankAccountControl_ParentChanged(object sender, EventArgs e)
+        private void dgvItems_FilterStringChanged(object sender, EventArgs e)
         {
-            var control = (Control) sender;
-            if (control.Parent == null) return;
-            _presenter.SetItems();
-            _presenter.LoadLists();
+            _presenter.BindingSource.Filter = dgvItems.FilterString;
+        }
+
+        private void dgvItems_SortStringChanged(object sender, EventArgs e)
+        {
+            _presenter.BindingSource.Sort = dgvItems.SortString;
         }
 
         #endregion //Event handlers
-
-        #region Private methods
-
-        public void ClearInputFields()
-        {
-            tbId.Clear();
-            tbName.Clear();
-            cmbBank.SelectedIndex = -1;
-            cmbCurrency.SelectedIndex = -1;
-        }
-
-        public void EnableInput()
-        {
-            //tbId.Enabled = true;
-            tbName.Enabled = true;
-            cmbBank.Enabled = true;
-            cmbCurrency.Enabled = true;
-        }
-
-        public void DisableInput()
-        {
-            tbId.Enabled = false;
-            tbName.Enabled = false;
-            cmbBank.Enabled = false;
-            cmbCurrency.Enabled = false;
-        }
-
-        #endregion //Private methods
     }
 }

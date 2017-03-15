@@ -179,6 +179,7 @@
     <Compile Include="Controllers\BankAccountsController.cs" />
     <Compile Include="Controllers\BanksController.cs" />
     <Compile Include="Controllers\CardsController.cs" />
+    <Compile Include="Controllers\ClientAccountStatusesController.cs" />
     <Compile Include="Controllers\CurrenciesController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\RequestController.cs" />

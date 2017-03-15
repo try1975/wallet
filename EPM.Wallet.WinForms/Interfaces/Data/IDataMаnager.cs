@@ -14,9 +14,10 @@ namespace EPM.Wallet.WinForms.Interfaces
         #endregion //Currencies
 
         #region ClientAccountStatuses
-        Task<IEnumerable<ClientAccountStatusDto>> GetClientAccountStatuses();
-        #endregion //ClientAccountStatuses
 
+        Task<IEnumerable<ClientAccountStatusDto>> GetClientAccountStatuses();
+
+        #endregion //ClientAccountStatuses
 
         #region Banks
 
@@ -88,7 +89,5 @@ namespace EPM.Wallet.WinForms.Interfaces
         Task<bool> DeleteMessage(Guid id);
 
         #endregion
-
-
     }
 }

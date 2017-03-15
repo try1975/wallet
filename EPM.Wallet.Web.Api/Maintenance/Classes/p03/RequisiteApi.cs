@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using AutoMapper;
 using EPM.Wallet.Data.Entities;
@@ -17,7 +18,7 @@ namespace WalletWebApi.Maintenance
         public IEnumerable<RequisiteDto> GetRequisitesByClient(string clientId)
         {
             var list = _query.GetEntities()
-                .Where(x => x.ClientId == clientId)
+                .Where(x => x.ClientId == clientId && x.IsVisible)
                 .ToList()
                 ;
             return Mapper.Map<List<RequisiteDto>>(list);
@@ -54,7 +55,17 @@ namespace WalletWebApi.Maintenance
             var entity = _query.GetEntity(id);
             if (entity == null) return false;
             if (!entity.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)) return false;
-            return _query.DeleteEntity(id);
+            entity.IsVisible = false;
+            try
+            {
+                _query.UpdateEntity(entity);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            }
         }
     }
 }

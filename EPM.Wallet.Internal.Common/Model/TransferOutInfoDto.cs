@@ -11,9 +11,9 @@ namespace EPM.Wallet.Internal.Model
         public string ClientId { get; set; }
         public string CurrencyId { get; set; }
         public RequestStatus RequestStatus { get; set; }
-        public string Note { get; set; }
         public Guid? AccountId { get; set; }
         public decimal AmountOut { get; set; }
+        public string Note { get; set; }
 
         // Requisite
         public string BankName { get; set; }

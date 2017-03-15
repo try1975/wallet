@@ -7,8 +7,6 @@ namespace EPM.Wallet.Internal.Model
         private DateTime? _createdAt;
 
         public Guid Id { get; set; }
-        public string Subject { get; set; }
-        public string Body { get; set; }
         public string ClientId { get; set; }
 
         public DateTime Date
@@ -19,6 +17,9 @@ namespace EPM.Wallet.Internal.Model
             }
             set { _createdAt = value; }
         }
+
+        public string Subject { get; set; }
+        public string Body { get; set; }
 
         public DateTime? ReadDate { get; set; }
 

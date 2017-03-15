@@ -6,6 +6,12 @@ namespace EPM.Wallet.WinForms.Interfaces
 {
     public interface IMessageView : ITypedView<MessageDto, Guid>
     {
+        #region DetailsLists
+
+        List<KeyValuePair<string, string>> ClientList { set; }
+
+        #endregion //DetailsLists
+
         #region Details
 
         string Subject { get; set; }
@@ -15,15 +21,6 @@ namespace EPM.Wallet.WinForms.Interfaces
         DateTime? ReadDate { get; set; }
         bool IsOutgoing { get; set; }
 
-
         #endregion // Details
-
-        #region DetailsLists
-
-        List<KeyValuePair<string, string>> ClientList { set; }
-        #endregion //DetailsLists
-
     }
-
-
 }

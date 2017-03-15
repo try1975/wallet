@@ -9,4 +9,3 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\bin\Debug\EPM.Wallet.Com
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\bin\Debug\EPM.Wallet.Common.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\obj\Debug\EPM.Wallet.Common.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\obj\Debug\EPM.Wallet.Common.pdb
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\obj\Debug\EPM.Wallet.Common.csprojResolveAssemblyReference.cache

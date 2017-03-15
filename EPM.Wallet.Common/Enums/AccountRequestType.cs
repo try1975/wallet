@@ -6,6 +6,7 @@
         New,
         Refill,
         TransferToCard,
-        TransferOut
+        TransferOut,
+        AccountTopUp
     }
 }

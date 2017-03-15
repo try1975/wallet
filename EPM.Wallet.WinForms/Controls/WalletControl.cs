@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Ninject;
 
@@ -18,46 +19,46 @@ namespace EPM.Wallet.WinForms.Controls
             pnlWorkArea.Controls.Add(control);
         }
 
-        private void btnBanks_Click(object sender, System.EventArgs e)
+        private void btnBanks_Click(object sender, EventArgs e)
         {
             var bankControl = CompositionRoot.Resolve<IBankView>();
-            AddControlToWorkArea((Control)bankControl);
+            AddControlToWorkArea((Control) bankControl);
         }
 
-        private void btnBankAccounts_Click(object sender, System.EventArgs e)
+        private void btnBankAccounts_Click(object sender, EventArgs e)
         {
             var bankAccountControl = CompositionRoot.Resolve<IBankAccountView>();
-            AddControlToWorkArea((Control)bankAccountControl);
+            AddControlToWorkArea((Control) bankAccountControl);
         }
 
-        private void btnClients_Click(object sender, System.EventArgs e)
+        private void btnClients_Click(object sender, EventArgs e)
         {
             var clientControl = CompositionRoot.Resolve<IClientView>();
-            AddControlToWorkArea((Control)clientControl);
+            AddControlToWorkArea((Control) clientControl);
         }
 
-        private void btnClientAccounts_Click(object sender, System.EventArgs e)
+        private void btnClientAccounts_Click(object sender, EventArgs e)
         {
             var clientAccountControl = CompositionRoot.Resolve<IClientAccountView>();
-            AddControlToWorkArea((Control)clientAccountControl);
+            AddControlToWorkArea((Control) clientAccountControl);
         }
 
-        private void bntCards_Click(object sender, System.EventArgs e)
+        private void bntCards_Click(object sender, EventArgs e)
         {
             var cardControl = CompositionRoot.Resolve<ICardView>();
-            AddControlToWorkArea((Control)cardControl);
+            AddControlToWorkArea((Control) cardControl);
         }
 
-        private void btnRequests_Click(object sender, System.EventArgs e)
+        private void btnRequests_Click(object sender, EventArgs e)
         {
             var transferOutInfoControl = CompositionRoot.Resolve<ITransferOutInfoView>();
-            AddControlToWorkArea((Control)transferOutInfoControl);
+            AddControlToWorkArea((Control) transferOutInfoControl);
         }
 
-        private void btnMessages_Click(object sender, System.EventArgs e)
+        private void btnMessages_Click(object sender, EventArgs e)
         {
             var messageControl = CompositionRoot.Resolve<IMessageView>();
-            AddControlToWorkArea((Control)messageControl);
+            AddControlToWorkArea((Control) messageControl);
         }
     }
 }
