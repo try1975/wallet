@@ -1,9 +1,10 @@
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\bin\Debug\AdvancedDataGridView.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\bin\Debug\AdvancedDataGridView.pdb
-C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csprojResolveAssemblyReference.cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\Zuby.ADGV.AdvancedDataGridViewSearchToolBar.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\Zuby.Properties.Resources.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\Zuby.ADGV.FormCustomFilter.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csproj.GenerateResource.Cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\bin\Debug\AdvancedDataGridView.dll.CodeAnalysisLog.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\bin\Debug\AdvancedDataGridView.dll.lastcodeanalysissucceeded

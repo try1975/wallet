@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using EPM.Wallet.Internal.Model;
-using WalletInternalApi.LoadData;
 
 namespace WalletInternalApi.Maintenance
 {

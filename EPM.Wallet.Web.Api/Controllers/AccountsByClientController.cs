@@ -18,11 +18,13 @@ namespace WalletWebApi.Controllers
     {
         private readonly IAccountApi _accountApi;
         private readonly IAccountRequestApi _accountRequestApi;
+        private readonly ITransactionApi _transactionApi;
 
-        public AccountsByClientController(IAccountApi accountApi, IAccountRequestApi accountRequestApi)
+        public AccountsByClientController(IAccountApi accountApi, IAccountRequestApi accountRequestApi, ITransactionApi transactionApi)
         {
             _accountApi = accountApi;
             _accountRequestApi = accountRequestApi;
+            _transactionApi = transactionApi;
         }
 
         [HttpGet]
@@ -61,13 +63,21 @@ namespace WalletWebApi.Controllers
             return Ok(dto);
         }
 
+        [HttpGet]
+        [Route("{" + Ro.AccountId + ":guid}/Transactions",
+            Name = nameof(GetTransactionsByAccount) + Ro.Route)]
+        public IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId)
+        {
+            return _transactionApi.GetTransactionsByAccount(clientId, accountId);
+        }
+
         [HttpPost]
         [Route("", Name = nameof(PostAccountsByClientNewRequest) + Ro.Route)]
         public IHttpActionResult PostAccountsByClientNewRequest(string clientId, AccountNewRequestDto dto)
         {
             return
                 StatusCode(_accountRequestApi.CreateAccountNewRequest(clientId, dto)
-                    ? HttpStatusCode.NoContent
+                    ? HttpStatusCode.Created
                     : HttpStatusCode.Conflict);
         }
 
@@ -77,8 +87,8 @@ namespace WalletWebApi.Controllers
         public IHttpActionResult PostAccountsByClientRefillRequest(string clientId, Guid accountId, RefillRequestDto dto)
         {
             return
-                StatusCode(_accountRequestApi.CreateAccountRefillRequest(clientId, accountId, dto).Result
-                    ? HttpStatusCode.NoContent
+                StatusCode(_accountRequestApi.CreateAccountRefillRequest(clientId, accountId, dto)
+                    ? HttpStatusCode.Created
                     : HttpStatusCode.Conflict);
         }
 
@@ -90,7 +100,7 @@ namespace WalletWebApi.Controllers
         {
             return
                 StatusCode(_accountRequestApi.CreateAccountTransferToCardRequest(clientId, accountId, dto)
-                    ? HttpStatusCode.NoContent
+                    ? HttpStatusCode.Created
                     : HttpStatusCode.Conflict);
         }
 
@@ -116,7 +126,7 @@ namespace WalletWebApi.Controllers
                 }
                 catch (Exception) {/*ignored*/}
             }
-            return StatusCode(HttpStatusCode.NoContent);
+            return StatusCode(HttpStatusCode.Created);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 
@@ -36,7 +37,6 @@ namespace EPM.Wallet.WinForms.Presenters
                 var currencies = currencyDtos.ToList();
                 ((IClientAccountView) View).CurrencyList =
                     currencies.Select(c => new KeyValuePair<string, string>(c.Id, c.Id))
-                        .OrderBy(kv => kv.Value)
                         .ToList();
             }
             else
@@ -58,19 +58,15 @@ namespace EPM.Wallet.WinForms.Presenters
                 ((IClientAccountView) View).BankAccounList = new List<KeyValuePair<Guid, string>>();
             }
 
-            var clientAccountStatusDtos = await DataMаnager.GetClientAccountStatuses();
-            if (clientAccountStatusDtos != null)
+
+            var names = Enum.GetNames(typeof(ClientAccountStatus));
+            var clientAccountStatusList = new List<KeyValuePair<ClientAccountStatus, string>>
             {
-                var clientAccountStatuses = clientAccountStatusDtos.ToList();
-                ((IClientAccountView) View).ClientAccountStatusList =
-                    clientAccountStatuses.Select(c => new KeyValuePair<string, string>(c.Id, c.Id))
-                        .OrderBy(kv => kv.Value)
-                        .ToList();
-            }
-            else
-            {
-                ((IClientAccountView) View).ClientAccountStatusList = new List<KeyValuePair<string, string>>();
-            }
+                new KeyValuePair<ClientAccountStatus, string>(ClientAccountStatus.Active, names[(int) ClientAccountStatus.Active]),
+                new KeyValuePair<ClientAccountStatus, string>(ClientAccountStatus.Inactive, names[(int) ClientAccountStatus.Inactive]),
+            };
+
+            ((IClientAccountView)View).ClientAccountStatusList = clientAccountStatusList;
         }
     }
 }

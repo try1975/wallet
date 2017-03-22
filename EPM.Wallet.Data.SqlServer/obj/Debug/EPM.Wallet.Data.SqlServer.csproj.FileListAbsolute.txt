@@ -42,10 +42,14 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wa
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V5.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V6.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V7.resources
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.csproj.GenerateResource.Cache
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V8.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V9.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V10.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V11.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V12.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V13.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V14.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.Migrations.V15.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.csproj.GenerateResource.Cache
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Debug\EPM.Wallet.Data.SqlServer.pdb

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EPM.Wallet.Common.Enums;
 
 namespace EPM.Wallet.Data.Entities
 {
@@ -16,8 +17,7 @@ namespace EPM.Wallet.Data.Entities
         public Guid BankAccountId { get; set; }
         public BankAccountEntity BankAccount { get; set; }
 
-        public string ClientAccountStatusId { get; set; }
-        public ClientAccountStatusEntity ClientAccountStatus { get; set; }
+        public ClientAccountStatus ClientAccountStatus { get; set; }
 
         public decimal CurrentBalance { get; set; }
 
@@ -26,6 +26,8 @@ namespace EPM.Wallet.Data.Entities
 
         public ICollection<AccountRequestEntity> Requests { get; set; }
         public ICollection<StatementEntity> Statements { get; set; }
+        public ICollection<StandingOrderEntity> StandingOrders { get; set; }
+        public ICollection<TransactionEntity> Transactions { get; set; }
 
         public Guid? StatementId { get; set; }
         public StatementEntity Statement { get; set; }

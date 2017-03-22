@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
@@ -62,13 +63,19 @@ namespace EPM.Wallet.WinForms.Controls
             set { cmbBankAccount.SelectedValue = value; }
         }
 
-        public string ClientAccountStatusId
+        public ClientAccountStatus ClientAccountStatus
         {
-            get { return (string) cmbClientAccountStatus.SelectedValue; }
+            get { return (ClientAccountStatus) cmbClientAccountStatus.SelectedValue; }
             set { cmbClientAccountStatus.SelectedValue = value; }
         }
 
         public decimal CurrentBalance { get; set; }
+
+        public string Comment
+        {
+            get { return tbComment.Text; }
+            set { tbComment.Text = value; }
+        }
 
         #endregion //Details
 
@@ -103,7 +110,7 @@ namespace EPM.Wallet.WinForms.Controls
             }
         }
 
-        public List<KeyValuePair<string, string>> ClientAccountStatusList
+        public List<KeyValuePair<ClientAccountStatus, string>> ClientAccountStatusList
         {
             set
             {
@@ -217,12 +224,15 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void EnableInput()
         {
-            //tbId.Enabled = true;
             tbName.Enabled = true;
-            cmbClient.Enabled = true;
-            cmbCurrency.Enabled = true;
+            if (_presenter.PresenterMode == PresenterMode.AddNew)
+            {
+                cmbClient.Enabled = true;
+                cmbCurrency.Enabled = true;
+            }
             cmbClientAccountStatus.Enabled = true;
             cmbBankAccount.Enabled = true;
+            tbComment.Enabled = true;
         }
 
         public void DisableInput()
@@ -233,6 +243,7 @@ namespace EPM.Wallet.WinForms.Controls
             cmbCurrency.Enabled = false;
             cmbClientAccountStatus.Enabled = false;
             cmbBankAccount.Enabled = false;
+            tbComment.Enabled = false;
         }
 
         #endregion //IEnterMode

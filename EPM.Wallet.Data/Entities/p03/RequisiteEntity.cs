@@ -17,5 +17,6 @@ namespace EPM.Wallet.Data.Entities
         public string OwnerName { get; set; }
         public bool IsVisible { get; set; }
         public ICollection<AccountRequestEntity> Requests { get; set; }
+        public ICollection<StandingOrderEntity> StandingOrders { get; set; }
     }
 }

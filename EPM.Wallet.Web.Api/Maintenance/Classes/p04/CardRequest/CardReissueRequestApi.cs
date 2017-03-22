@@ -25,7 +25,7 @@ namespace WalletWebApi.Maintenance
             var entity = Mapper.Map<CardReissueRequestEntity>(dto);
             entity.ClientId = card.ClientId;
             entity.RequestType = RequestType.Card;
-            entity.RequestStatus = RequestStatus.New;
+            entity.RequestStatus = RequestStatuses.GetPendingRequestStatus();
             entity.CardRequestType = CardRequestType.Reissue;
             try
             {

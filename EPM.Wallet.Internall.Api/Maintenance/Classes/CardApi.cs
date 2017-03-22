@@ -28,5 +28,12 @@ namespace WalletInternalApi.Maintenance
                                                     .ToList();
             return Mapper.Map<List<CardDto>>(list);
         }
+
+        public override CardDto ChangeItem(CardDto dto)
+        {
+            // TODO: check card number (equal 16 digits)
+            var entity = Mapper.Map<CardEntity>(dto);
+            return Mapper.Map<CardDto>(Query.UpdateEntity(entity));
+        }
     }
 }

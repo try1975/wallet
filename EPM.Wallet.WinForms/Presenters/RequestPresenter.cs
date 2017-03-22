@@ -22,7 +22,6 @@ namespace EPM.Wallet.WinForms.Presenters
                 var currencies = currencyDtos.ToList();
                 ((IRequestView) View).CurrencyList =
                     currencies.Select(c => new KeyValuePair<string, string>(c.Id, c.Id))
-                        .OrderBy(kv => kv.Value)
                         .ToList();
             }
             else

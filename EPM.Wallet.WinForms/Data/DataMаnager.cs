@@ -17,7 +17,6 @@ namespace EPM.Wallet.WinForms.Data
         private readonly string _apiBanks;
         private readonly string _apiCards;
         private readonly string _apiClientAccounts;
-        private readonly string _apiClientAccountStatuses;
         private readonly string _apiClients;
         private readonly string _apiCurrencies;
         private readonly string _apiMessages;
@@ -33,7 +32,6 @@ namespace EPM.Wallet.WinForms.Data
             _apiBankAccounts = $"{baseApi}{WalletConstants.ClientAppApi.BankAccounts}/";
             _apiBanks = $"{baseApi}{WalletConstants.ClientAppApi.Banks}/";
             _apiClientAccounts = $"{baseApi}{WalletConstants.ClientAppApi.Accounts}/";
-            _apiClientAccountStatuses = $"{baseApi}{WalletConstants.ClientAppApi.ClientAccountStatuses}/";
             _apiClients = $"{baseApi}{WalletConstants.ClientAppApi.Clients}/";
             _apiCurrencies = $"{baseApi}{WalletConstants.ClientAppApi.Currencies}/";
             _apiCards = $"{baseApi}{WalletConstants.ClientAppApi.Cards}/";
@@ -54,20 +52,6 @@ namespace EPM.Wallet.WinForms.Data
             {
                 if (!response.IsSuccessStatusCode) return null;
                 var result = await response.Content.ReadAsAsync<List<CurrencyDto>>();
-                return result;
-            }
-        }
-
-        #endregion //Currencies
-
-        #region ClientAccountStatus
-
-        public async Task<IEnumerable<ClientAccountStatusDto>> GetClientAccountStatuses()
-        {
-            using (var response = await _walletHttpClient.GetAsync($"{_apiClientAccountStatuses}"))
-            {
-                if (!response.IsSuccessStatusCode) return null;
-                var result = await response.Content.ReadAsAsync<List<ClientAccountStatusDto>>();
                 return result;
             }
         }

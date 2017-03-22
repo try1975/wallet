@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EPM.Wallet.Common</RootNamespace>
     <AssemblyName>EPM.Wallet.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +35,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ClientAccountStatus.cs" />
+    <Compile Include="Enums\Frequency.cs" />
     <Compile Include="Ro.cs" />
     <Compile Include="Enums\AccountRequestType.cs" />
     <Compile Include="Enums\CardReissueType.cs" />

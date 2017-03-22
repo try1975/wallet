@@ -1,4 +1,5 @@
 ﻿using System;
+using EPM.Wallet.Common.Enums;
 
 namespace EPM.Wallet.Internal.Model
 {
@@ -9,7 +10,7 @@ namespace EPM.Wallet.Internal.Model
         public string ClientId { get; set; }
         public string CurrencyId { get; set; }
         public decimal CurrentBalance { get; set; }
-        public string ClientAccountStatusId { get; set; }
+        public ClientAccountStatus ClientAccountStatus { get; set; }
         public string Comment { get; set; }
 
         public Guid BankAccountId { get; set; }

@@ -1,5 +1,7 @@
 ﻿using System;
+using EPM.Wallet.Common.Enums;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace WalletWebApi.Model
 {
@@ -11,7 +13,8 @@ namespace WalletWebApi.Model
         public string CurrencyId { get; set; }
         public string ClientId { get; set; }
         //public Guid BankAccountId { get; set; }
-        public string ClientAccountStatusId { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ClientAccountStatus ClientAccountStatus { get; set; }
         public decimal CurrentBalance { get; set; }
 
         public RequisiteDto Requisite { get; set; }

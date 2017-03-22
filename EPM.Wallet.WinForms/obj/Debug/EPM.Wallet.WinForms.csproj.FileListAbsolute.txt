@@ -102,16 +102,16 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\AdvancedData
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\AutoMapper.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\EPM.Wallet.Common.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\EPM.Wallet.Internal.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\Newtonsoft.Json.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\Ninject.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\System.Net.Http.Formatting.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\Newtonsoft.Json.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\AdvancedDataGridView.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\EPM.Wallet.Common.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\EPM.Wallet.Internal.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\AutoMapper.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\Newtonsoft.Json.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\Ninject.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\Newtonsoft.Json.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.csprojResolveAssemblyReference.cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Controls.BankAccountControl.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Controls.BankControl.resources
@@ -129,3 +129,5 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.W
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.application
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.exe
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\EPM.Wallet.WinForms.exe.CodeAnalysisLog.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\EPM.Wallet.WinForms.exe.lastcodeanalysissucceeded

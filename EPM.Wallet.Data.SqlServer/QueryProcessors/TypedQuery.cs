@@ -31,6 +31,7 @@ namespace EPM.Wallet.Data.SqlServer.QueryProcessors
         {
             //return _entities.FirstOrDefault(t => t.Id.Equals(id));
             var entity = _entities.Find(id);
+            //Db.Entry(entity).State = EntityState.Detached;
             return entity;
         }
 

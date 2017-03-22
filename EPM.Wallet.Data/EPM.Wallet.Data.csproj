@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EPM.Wallet.Data</RootNamespace>
     <AssemblyName>EPM.Wallet.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\p01\ClientAccountStatusEntity.cs" />
     <Compile Include="Entities\CommonEntity.cs" />
     <Compile Include="Entities\IMetaDataEntity.cs" />
     <Compile Include="Entities\p01\BankEntity.cs" />
@@ -62,6 +62,8 @@
     <Compile Include="Entities\p04\StandingOrderEntity.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\p05\StatementEntity.cs" />
+    <Compile Include="Entities\p05\TransactionEntity.cs" />
+    <Compile Include="Entities\p05\TransactionTypeEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryProcessors\basic\IClientQuery.cs" />
     <Compile Include="QueryProcessors\basic\ICurrencyQuery.cs" />
@@ -69,7 +71,6 @@
     <Compile Include="QueryProcessors\p01\IBankAccountQuery.cs" />
     <Compile Include="QueryProcessors\p01\IBankQuery.cs" />
     <Compile Include="QueryProcessors\p01\IAccountQuery.cs" />
-    <Compile Include="QueryProcessors\p01\IClientAccountStatusQuery.cs" />
     <Compile Include="QueryProcessors\p02\ICardQuery.cs" />
     <Compile Include="QueryProcessors\p03\IMessageQuery.cs" />
     <Compile Include="QueryProcessors\p03\IRequisiteQuery.cs" />
@@ -82,6 +83,8 @@
     <Compile Include="QueryProcessors\p04\IRequestQuery.cs" />
     <Compile Include="QueryProcessors\p04\IStandingOrderQuery.cs" />
     <Compile Include="QueryProcessors\p05\IStatementQuery.cs" />
+    <Compile Include="QueryProcessors\p05\ITransactionQuery.cs" />
+    <Compile Include="QueryProcessors\p05\ITransactionTypeQuery.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

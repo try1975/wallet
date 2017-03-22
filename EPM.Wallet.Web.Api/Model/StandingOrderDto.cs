@@ -1,4 +1,7 @@
 ﻿using System;
+using EPM.Wallet.Common.Enums;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace WalletWebApi.Model
 {
@@ -7,17 +10,13 @@ namespace WalletWebApi.Model
         public Guid Id { get; set; }
         public string Name { get; set; }
         public Guid ClientAccountId { get; set; }
-        public string BeneficiaryAccount { get; set; }
-        public string BeneficiaryNumber { get; set; }
         public decimal Amount { get; set; }
         public string CurrencyId { get; set; }
         public DateTime FirstDate { get; set; }
-        public DateTime LastDate { get; set; }
-        public string Frequency { get; set; }
-        public string ReferenceNumber { get; set; }
-        public string BeneficiaryBank { get; set; }
-        public string RemitterName { get; set; }
-        public string DebitDescription { get; set; }
-        public string CreditDescription { get; set; }
+        public DateTime? LastDate { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Frequency Frequency { get; set; }
+        public string Note { get; set; }
+        public Guid RequisiteId { get; set; }
     }
 }

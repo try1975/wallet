@@ -13,10 +13,6 @@ namespace WalletInternalApi.AutoMappers
             ;
             cfg.CreateMap<AccountDto, ClientAccountEntity>() 
                 ;
-            cfg.CreateMap<ClientAccountStatusEntity, ClientAccountStatusDto>()
-                ;
-            cfg.CreateMap<ClientAccountStatusDto, ClientAccountStatusEntity>()
-                ;
         }
     }
 }

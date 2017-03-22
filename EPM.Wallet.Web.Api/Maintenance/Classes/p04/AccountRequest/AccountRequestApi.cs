@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Data.Entities;
@@ -33,7 +32,7 @@ namespace WalletWebApi.Maintenance
         public IEnumerable<AccountRequestDto> RequestsByClient(string clientId)
         {
             var list = _query.GetEntities()
-               .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment)
+               .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && RequestStatuses.VisibleForClient(m.RequestStatus))
                .OrderByDescending(i => i.CreatedAt)
                .ToList()
                ;
@@ -91,7 +90,7 @@ namespace WalletWebApi.Maintenance
                 ClientId = clientId,
                 CurrencyId = currencyId,
                 RequestType = RequestType.Account,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 AccountRequestType = AccountRequestType.New
             };
 
@@ -107,7 +106,7 @@ namespace WalletWebApi.Maintenance
             }
         }
 
-        public async Task<bool> CreateAccountRefillRequest(string clientId, Guid accountId, RefillRequestDto dto)
+        public bool CreateAccountRefillRequest(string clientId, Guid accountId, RefillRequestDto dto)
         {
             if (dto.BeneficiaryAccountId == Guid.Empty) return false;
 
@@ -130,7 +129,7 @@ namespace WalletWebApi.Maintenance
             var entity = new AccountRequestEntity()
             {
                 RequestType = RequestType.Payment,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 AccountRequestType = AccountRequestType.Refill,
                 ClientId = account.ClientId,
                 ClientAccountId = account.Id,
@@ -164,7 +163,7 @@ namespace WalletWebApi.Maintenance
             var entity = new AccountRequestEntity()
             {
                 RequestType = RequestType.Payment,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 AccountRequestType = AccountRequestType.TransferToCard,
                 ClientId = account.ClientId,
                 ClientAccountId = account.Id,
@@ -198,7 +197,7 @@ namespace WalletWebApi.Maintenance
             var entity = new AccountRequestEntity()
             {
                 RequestType = RequestType.Payment,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 AccountRequestType = AccountRequestType.TransferOut,
                 ClientId = account.ClientId,
                 ClientAccountId = account.Id,

@@ -16,9 +16,6 @@
             public const string Accounts = ApiSegmentName + nameof(Accounts);
             public const string AccountsByClient = ByClient + nameof(Accounts);
 
-
-            public const string ClientAccountStatuses = ApiSegmentName + nameof(ClientAccountStatuses);
-
             public const string Cards = ApiSegmentName + nameof(Cards);
             public const string CardsByClient = ByClient + nameof(Cards);
 
@@ -34,6 +31,9 @@
 
             public const string StandingOrders = ApiSegmentName + nameof(StandingOrders);
             public const string StandingOrdersByClient = ByClient + nameof(StandingOrders);
+
+            public const string Statements = ApiSegmentName + nameof(Statements);
+            public const string Transactions = ApiSegmentName + nameof(Transactions);
         }
 
         public static class MessagesByClientRoutes

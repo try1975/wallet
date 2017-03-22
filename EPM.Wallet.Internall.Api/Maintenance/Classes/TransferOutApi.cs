@@ -6,7 +6,7 @@ using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
 using EPM.Wallet.Internal.Model;
 
-namespace WalletInternalApi.Maintenance.Classes
+namespace WalletInternalApi.Maintenance
 {
     public class TransferOutApi : TypedApi<TransferOutInfoDto, AccountRequestEntity, Guid>, ITransferOutApi
     {
@@ -19,8 +19,6 @@ namespace WalletInternalApi.Maintenance.Classes
 
         public override IEnumerable<TransferOutInfoDto> GetItems()
         {
-
-
             var requests = Query.GetEntities()
                 .Where(z => z.AccountRequestType == AccountRequestType.TransferOut)
                 //.OrderByDescending(z=>z.CreatedAt)

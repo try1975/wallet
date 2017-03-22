@@ -26,7 +26,7 @@ namespace WalletInternalApi.Maintenance
             var entity = Mapper.Map<CardLimitRequestEntity>(dto);
             entity.ClientId = card.ClientId;
             entity.RequestType = RequestType.Card;
-            entity.RequestStatus = RequestStatus.New;
+            entity.RequestStatus = RequestStatuses.GetPendingRequestStatus();
             entity.CardRequestType = CardRequestType.SetLimit;
             try
             {

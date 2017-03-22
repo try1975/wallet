@@ -16,6 +16,7 @@ namespace EPM.Wallet.WinForms.Presenters
         protected readonly IDataMànager DataMànager;
         protected readonly ITypedView<T, TK> View;
         private PresenterMode _presenterMode;
+        public PresenterMode PresenterMode => _presenterMode;
         public BindingSource BindingSource { get; }
 
         protected TypedPresenter(ITypedView<T, TK> view, ITypedDataMànager<T, TK> typedDataMànager, IDataMànager dataMànager)
@@ -55,14 +56,14 @@ namespace EPM.Wallet.WinForms.Presenters
 
         public void AddNew()
         {
-            View.EnterAddNewMode();
             _presenterMode = PresenterMode.AddNew;
+            View.EnterAddNewMode();
         }
 
         public void Edit()
         {
-            View.EnterEditMode();
             _presenterMode = PresenterMode.Edit;
+            View.EnterEditMode();
         }
 
         public void Save()

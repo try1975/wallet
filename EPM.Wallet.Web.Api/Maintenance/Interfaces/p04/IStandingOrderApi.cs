@@ -5,6 +5,9 @@ using WalletWebApi.Model;
 namespace WalletWebApi.Maintenance
 {
     public interface IStandingOrderApi : ITypedApi<StandingOrderDto, Guid> {
-        IEnumerable<StandingOrderDto> GetStandingOrdersByClient(string clientId);
+        IEnumerable<StandingOrderInfoDto> GetStandingOrdersByClient(string clientId);
+        StandingOrderInfoDto PostStandingOrderByClient(string clientId, StandingOrderDto dto);
+        StandingOrderInfoDto PutStandingOrderByClient(string clientId, StandingOrderDto dto);
+        bool DeleteStandingOrderByClient(string clientId, Guid id);
     }
 }

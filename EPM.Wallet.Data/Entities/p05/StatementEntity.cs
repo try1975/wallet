@@ -30,5 +30,6 @@ namespace EPM.Wallet.Data.Entities
         public byte[] Content { get; set; }
         public string LoadedFrom { get; set; }
 
+
     }
 }

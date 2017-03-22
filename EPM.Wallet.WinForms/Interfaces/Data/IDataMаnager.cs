@@ -13,12 +13,6 @@ namespace EPM.Wallet.WinForms.Interfaces
 
         #endregion //Currencies
 
-        #region ClientAccountStatuses
-
-        Task<IEnumerable<ClientAccountStatusDto>> GetClientAccountStatuses();
-
-        #endregion //ClientAccountStatuses
-
         #region Banks
 
         Task<IEnumerable<BankDto>> GetBanks();

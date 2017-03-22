@@ -26,7 +26,7 @@ namespace WalletInternalApi.Maintenance
                 ClientId = card.ClientId,
                 CardId = cardId,
                 RequestType = RequestType.Card,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 CardRequestType = CardRequestType.Block
             };
             try

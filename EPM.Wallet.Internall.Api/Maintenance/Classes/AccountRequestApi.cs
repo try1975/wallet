@@ -90,7 +90,7 @@ namespace WalletInternalApi.Maintenance
                 ClientId = clientId,
                 CurrencyId = currencyId,
                 RequestType = RequestType.Account,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 AccountRequestType = AccountRequestType.New
             };
 
@@ -127,7 +127,7 @@ namespace WalletInternalApi.Maintenance
             var entity = new AccountRequestEntity()
             {
                 RequestType = RequestType.Payment,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 AccountRequestType = AccountRequestType.Refill,
                 ClientId = account.ClientId,
                 ClientAccountId = account.Id,
@@ -161,7 +161,7 @@ namespace WalletInternalApi.Maintenance
             var entity = new AccountRequestEntity()
             {
                 RequestType = RequestType.Payment,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 AccountRequestType = AccountRequestType.TransferToCard,
                 ClientId = account.ClientId,
                 ClientAccountId = account.Id,
@@ -195,7 +195,7 @@ namespace WalletInternalApi.Maintenance
             var entity = new AccountRequestEntity()
             {
                 RequestType = RequestType.Payment,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 AccountRequestType = AccountRequestType.TransferOut,
                 ClientId = account.ClientId,
                 ClientAccountId = account.Id,

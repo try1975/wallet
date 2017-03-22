@@ -7,3 +7,5 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\Newto
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\obj\Debug\EPM.Wallet.Internal.csprojResolveAssemblyReference.cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\obj\Debug\EPM.Wallet.Internal.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\obj\Debug\EPM.Wallet.Internal.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\EPM.Wallet.Internal.dll.CodeAnalysisLog.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\EPM.Wallet.Internal.dll.lastcodeanalysissucceeded

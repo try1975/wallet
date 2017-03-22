@@ -25,7 +25,7 @@ namespace WalletWebApi.Maintenance
                 ClientId = client.Id,
                 CurrencyId = "EUR",
                 RequestType = RequestType.Card,
-                RequestStatus = RequestStatus.New,
+                RequestStatus = RequestStatuses.GetPendingRequestStatus(),
                 CardRequestType = CardRequestType.New
             };
             try

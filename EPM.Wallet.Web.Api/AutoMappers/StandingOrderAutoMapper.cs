@@ -12,6 +12,10 @@ namespace WalletWebApi.AutoMappers
                ;
             cfg.CreateMap<StandingOrderDto, StandingOrderEntity>()
                 ;
+            cfg.CreateMap<StandingOrderEntity, StandingOrderInfoDto>()
+              ;
+            cfg.CreateMap<StandingOrderInfoDto, StandingOrderEntity>()
+                ;
         }
     }
 }

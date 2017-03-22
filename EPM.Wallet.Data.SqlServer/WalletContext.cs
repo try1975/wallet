@@ -19,24 +19,24 @@ namespace EPM.Wallet.Data.SqlServer
 
         #region DbSets
 
-        public DbSet<CurrencyEntity> Currencies { get; set; }
-        public DbSet<ClientEntity> Clients { get; set; }
-        public DbSet<BankEntity> Banks { get; set; }
-        public DbSet<BankAccountEntity> BankAccounts { get; set; }
-        public DbSet<ClientAccountStatusEntity> ClientAccountStatuses { get; set; }
-        public DbSet<ClientAccountEntity> ClientAccounts { get; set; }
-        public DbSet<CardEntity> Cards { get; set; }
-        public DbSet<RequisiteEntity> Requisites { get; set; }
-        public DbSet<MessageEntity> Messages { get; set; }
-        public DbSet<StandingOrderEntity> StandingOrders { get; set; }
-        public DbSet<RequestEntity> Requests { get; set; }
-        public DbSet<AccountRequestEntity> AccountRequests { get; set; }
-        public DbSet<CardLimitRequestEntity> CardLimitRequests { get; set; }
-        public DbSet<CardReissueRequestEntity> CardReissueRequests { get; set; }
-        public DbSet<CardBlockRequestEntity> CardBlockRequests { get; set; }
-        public DbSet<CardNewRequestEntity> CardNewRequests { get; set; }
-
-        public DbSet<StatementEntity> Statements { get; set; }
+        private DbSet<CurrencyEntity> Currencies { get; set; }
+        private DbSet<ClientEntity> Clients { get; set; }
+        private DbSet<BankEntity> Banks { get; set; }
+        private DbSet<BankAccountEntity> BankAccounts { get; set; }
+        private DbSet<ClientAccountEntity> ClientAccounts { get; set; }
+        private DbSet<CardEntity> Cards { get; set; }
+        private DbSet<RequisiteEntity> Requisites { get; set; }
+        private DbSet<MessageEntity> Messages { get; set; }
+        private DbSet<StandingOrderEntity> StandingOrders { get; set; }
+        private DbSet<RequestEntity> Requests { get; set; }
+        private DbSet<AccountRequestEntity> AccountRequests { get; set; }
+        private DbSet<CardLimitRequestEntity> CardLimitRequests { get; set; }
+        private DbSet<CardReissueRequestEntity> CardReissueRequests { get; set; }
+        private DbSet<CardBlockRequestEntity> CardBlockRequests { get; set; }
+        private DbSet<CardNewRequestEntity> CardNewRequests { get; set; }
+        private DbSet<StatementEntity> Statements { get; set; }
+        private DbSet<TransactionTypeEntity> TransactionTypes { get; set; }
+        private DbSet<TransactionEntity> Transactions { get; set; }
 
         #endregion
 
@@ -44,12 +44,11 @@ namespace EPM.Wallet.Data.SqlServer
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            var prefix = "";
+            const string prefix = "";
             modelBuilder.Configurations.Add(new CurrencyMap($"{prefix}{nameof(Currencies)}"));
             modelBuilder.Configurations.Add(new ClientMap($"{prefix}{nameof(Clients)}"));
             modelBuilder.Configurations.Add(new BankMap($"{prefix}{nameof(Banks)}"));
             modelBuilder.Configurations.Add(new BankAccountMap($"{prefix}{nameof(BankAccounts)}"));
-            modelBuilder.Configurations.Add(new ClientAccountStatusMap($"{prefix}{nameof(ClientAccountStatuses)}"));
             modelBuilder.Configurations.Add(new ClientAccountMap($"{prefix}{nameof(ClientAccounts)}"));
             modelBuilder.Configurations.Add(new CardMap($"{prefix}{nameof(Cards)}"));
             modelBuilder.Configurations.Add(new RequisiteMap($"{prefix}{nameof(Requisites)}"));
@@ -66,6 +65,8 @@ namespace EPM.Wallet.Data.SqlServer
 
             modelBuilder.Configurations.Add(new AccountRequestMap($"{prefix}{nameof(Requests)}"));
             modelBuilder.Configurations.Add(new StatementsMap($"{prefix}Client{nameof(Statements)}"));
+            modelBuilder.Configurations.Add(new TransactionTypesMap($"{prefix}{nameof(TransactionTypes)}"));
+            modelBuilder.Configurations.Add(new TransactionsMap($"{prefix}{nameof(Transactions)}"));
         }
     }
 

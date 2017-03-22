@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EPM.Wallet.Data.SqlServer</RootNamespace>
     <AssemblyName>EPM.Wallet.Data.SqlServer</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,24 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapping\p04\CardRequest\CardBlockRequestMap.cs" />
-    <Compile Include="Mapping\p04\CardRequest\CardLimitRequestMap.cs" />
-    <Compile Include="Mapping\p04\AccountRequest\AccountRequestMap.cs" />
-    <Compile Include="Mapping\p04\CardRequest\CardNewRequestMap.cs" />
-    <Compile Include="Mapping\p04\CardRequest\CardReissueRequestMap.cs" />
-    <Compile Include="Mapping\p04\CardRequest\CardRequestMap.cs" />
-    <Compile Include="Mapping\p04\RequestMap.cs" />
-    <Compile Include="Mapping\p04\StandingOrderMap.cs" />
-    <Compile Include="Mapping\p01\ClientAccountStatusMap.cs" />
-    <Compile Include="Mapping\basic\ClientMap.cs" />
-    <Compile Include="Mapping\basic\CurrencyMap.cs" />
-    <Compile Include="Mapping\p01\BankAccountMap.cs" />
-    <Compile Include="Mapping\p01\BankMap.cs" />
-    <Compile Include="Mapping\p01\ClientAccountMap.cs" />
-    <Compile Include="Mapping\p02\CardMap.cs" />
-    <Compile Include="Mapping\p03\MessageMap.cs" />
-    <Compile Include="Mapping\p03\RequisiteMap.cs" />
-    <Compile Include="Mapping\p05\StatementsMap.cs" />
+    <Compile Include="Mapping\CardBlockRequestMap.cs" />
+    <Compile Include="Mapping\CardLimitRequestMap.cs" />
+    <Compile Include="Mapping\AccountRequestMap.cs" />
+    <Compile Include="Mapping\CardNewRequestMap.cs" />
+    <Compile Include="Mapping\CardReissueRequestMap.cs" />
+    <Compile Include="Mapping\CardRequestMap.cs" />
+    <Compile Include="Mapping\RequestMap.cs" />
+    <Compile Include="Mapping\StandingOrderMap.cs" />
+    <Compile Include="Mapping\ClientMap.cs" />
+    <Compile Include="Mapping\CurrencyMap.cs" />
+    <Compile Include="Mapping\BankAccountMap.cs" />
+    <Compile Include="Mapping\BankMap.cs" />
+    <Compile Include="Mapping\ClientAccountMap.cs" />
+    <Compile Include="Mapping\CardMap.cs" />
+    <Compile Include="Mapping\MessageMap.cs" />
+    <Compile Include="Mapping\RequisiteMap.cs" />
+    <Compile Include="Mapping\StatementsMap.cs" />
+    <Compile Include="Mapping\TransactionsMap.cs" />
+    <Compile Include="Mapping\TransactionTypesMap.cs" />
     <Compile Include="Migrations\201702221436593_V01.cs" />
     <Compile Include="Migrations\201702221436593_V01.Designer.cs">
       <DependentUpon>201702221436593_V01.cs</DependentUpon>
@@ -115,6 +117,22 @@
     <Compile Include="Migrations\201703131718532_V11.Designer.cs">
       <DependentUpon>201703131718532_V11.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703200958562_V12.cs" />
+    <Compile Include="Migrations\201703200958562_V12.Designer.cs">
+      <DependentUpon>201703200958562_V12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703201752249_V13.cs" />
+    <Compile Include="Migrations\201703201752249_V13.Designer.cs">
+      <DependentUpon>201703201752249_V13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703201810408_V14.cs" />
+    <Compile Include="Migrations\201703201810408_V14.Designer.cs">
+      <DependentUpon>201703201810408_V14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703220908148_V15.cs" />
+    <Compile Include="Migrations\201703220908148_V15.Designer.cs">
+      <DependentUpon>201703220908148_V15.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="QueryProcessors\basic\ClientQuery.cs" />
     <Compile Include="QueryProcessors\basic\CurrencyQuery.cs" />
@@ -122,7 +140,6 @@
     <Compile Include="QueryProcessors\p01\BankQuery.cs" />
     <Compile Include="QueryProcessors\p01\AccountQuery.cs" />
     <Compile Include="QueryProcessors\p02\CardQuery.cs" />
-    <Compile Include="QueryProcessors\p02\ClientAccountStatusQuery.cs" />
     <Compile Include="QueryProcessors\p03\MessageQuery.cs" />
     <Compile Include="QueryProcessors\p03\RequisiteQuery.cs" />
     <Compile Include="QueryProcessors\p04\AccountRequestQuery.cs" />
@@ -134,6 +151,8 @@
     <Compile Include="QueryProcessors\p04\RequestQuery.cs" />
     <Compile Include="QueryProcessors\p04\StandingOrderQuery.cs" />
     <Compile Include="QueryProcessors\p05\StatementQuery.cs" />
+    <Compile Include="QueryProcessors\p05\TransactionQuery.cs" />
+    <Compile Include="QueryProcessors\p05\TransactionTypeQuery.cs" />
     <Compile Include="QueryProcessors\TypedQuery.cs" />
     <Compile Include="WalletContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +206,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703131718532_V11.resx">
       <DependentUpon>201703131718532_V11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200958562_V12.resx">
+      <DependentUpon>201703200958562_V12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201752249_V13.resx">
+      <DependentUpon>201703201752249_V13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201810408_V14.resx">
+      <DependentUpon>201703201810408_V14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703220908148_V15.resx">
+      <DependentUpon>201703220908148_V15.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

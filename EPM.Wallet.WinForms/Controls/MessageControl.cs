@@ -60,7 +60,27 @@ namespace EPM.Wallet.WinForms.Controls
                 tbDate.Text = value.ToString(CultureInfo.CurrentCulture);
             }
         }
-        public DateTime? ReadDate { get; set; }
+
+        public DateTime? ReadDate
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(tbReadDate.Text)) return null;
+                return DateTime.Parse(tbReadDate.Text);
+            }
+            set
+            {
+                if (value.HasValue)
+                {
+                    tbReadDate.Text = value.ToString();
+                }
+                else
+                {
+                    tbReadDate.Clear();
+                }
+            }
+        }
+
         public bool IsOutgoing { get; set; }
 
         #endregion //Details
@@ -174,6 +194,7 @@ namespace EPM.Wallet.WinForms.Controls
             tbDate.Clear();
             tbSubject.Clear();
             tbBody.Clear();
+            tbReadDate.Clear();
         }
 
         public void EnableInput()
@@ -181,6 +202,10 @@ namespace EPM.Wallet.WinForms.Controls
             cmbClient.Enabled = true;
             tbSubject.Enabled = true;
             tbBody.Enabled = true;
+            if (_presenter.PresenterMode == PresenterMode.Edit)
+            {
+                btnSetReaded.Enabled = true;
+            }
         }
 
         public void DisableInput()
@@ -190,6 +215,8 @@ namespace EPM.Wallet.WinForms.Controls
             tbDate.Enabled = false;
             tbSubject.Enabled = false;
             tbBody.Enabled = false;
+            tbReadDate.Enabled = false;
+            btnSetReaded.Enabled = false;
         }
 
         #endregion //IEnterMode
@@ -229,6 +256,12 @@ namespace EPM.Wallet.WinForms.Controls
         private void dgvItems_SortStringChanged(object sender, EventArgs e)
         {
             _presenter.BindingSource.Sort = dgvItems.SortString;
+        }
+
+        private void btnSetReaded_Click(object sender, EventArgs e)
+        {
+            if (_presenter.PresenterMode == PresenterMode.Edit && !ReadDate.HasValue && IsOutgoing)
+                ReadDate = DateTime.UtcNow;
         }
 
         #endregion //Event handlers
