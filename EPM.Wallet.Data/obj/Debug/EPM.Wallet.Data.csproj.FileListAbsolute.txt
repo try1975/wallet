@@ -14,5 +14,3 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EPM.Wallet.Commo
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Debug\EPM.Wallet.Data.csprojResolveAssemblyReference.cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Debug\EPM.Wallet.Data.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Debug\EPM.Wallet.Data.pdb
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EPM.Wallet.Data.dll.CodeAnalysisLog.xml
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EPM.Wallet.Data.dll.lastcodeanalysissucceeded
