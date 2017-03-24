@@ -16,7 +16,7 @@ namespace WalletWebApi.Maintenance
 
         public StandingOrderApi(IStandingOrderQuery query, IRequisiteQuery requisiteQuery, IAccountQuery accountQuery) : base(query)
         {
-            _requisiteQuery =  requisiteQuery;                                                                                                                                                                                                          
+            _requisiteQuery =  requisiteQuery;
             _accountQuery = accountQuery;
         }
 

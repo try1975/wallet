@@ -24,10 +24,16 @@ namespace WalletWebApi.Maintenance
             if (account == null) return null;
             var list = _query.GetEntities()
                 .Where(z => z.AccountId == accountId)
-                .OrderByDescending(i => i.RegisterDate)
+                .OrderBy(i => i.RegisterDate)
                 .ToList()
                 ;
-            return Mapper.Map<List<TransactionDto>>(list);
+            var balance = 0.00M;
+            foreach (var transaction in list)
+            {
+                balance += transaction.Amount;
+                transaction.Balance = balance;
+            }
+            return Mapper.Map<List<TransactionDto>>(list.OrderByDescending(z => z.RegisterDate));
         }
     }
 }

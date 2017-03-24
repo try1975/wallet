@@ -133,26 +133,30 @@
     <Compile Include="Migrations\201703220908148_V15.Designer.cs">
       <DependentUpon>201703220908148_V15.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703222150000_V16.cs" />
+    <Compile Include="Migrations\201703222150000_V16.Designer.cs">
+      <DependentUpon>201703222150000_V16.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="QueryProcessors\basic\ClientQuery.cs" />
-    <Compile Include="QueryProcessors\basic\CurrencyQuery.cs" />
-    <Compile Include="QueryProcessors\p01\BankAccountQuery.cs" />
-    <Compile Include="QueryProcessors\p01\BankQuery.cs" />
-    <Compile Include="QueryProcessors\p01\AccountQuery.cs" />
-    <Compile Include="QueryProcessors\p02\CardQuery.cs" />
-    <Compile Include="QueryProcessors\p03\MessageQuery.cs" />
-    <Compile Include="QueryProcessors\p03\RequisiteQuery.cs" />
-    <Compile Include="QueryProcessors\p04\AccountRequestQuery.cs" />
-    <Compile Include="QueryProcessors\p04\CardRequestQuery.cs" />
-    <Compile Include="QueryProcessors\p04\CardRequest\CardBlockRequestQuery.cs" />
-    <Compile Include="QueryProcessors\p04\CardRequest\CardLimitRequestQuery.cs" />
-    <Compile Include="QueryProcessors\p04\CardRequest\CardNewRequestQuery.cs" />
-    <Compile Include="QueryProcessors\p04\CardRequest\CardReissueRequestQuery.cs" />
-    <Compile Include="QueryProcessors\p04\RequestQuery.cs" />
-    <Compile Include="QueryProcessors\p04\StandingOrderQuery.cs" />
-    <Compile Include="QueryProcessors\p05\StatementQuery.cs" />
-    <Compile Include="QueryProcessors\p05\TransactionQuery.cs" />
-    <Compile Include="QueryProcessors\p05\TransactionTypeQuery.cs" />
+    <Compile Include="QueryProcessors\ClientQuery.cs" />
+    <Compile Include="QueryProcessors\CurrencyQuery.cs" />
+    <Compile Include="QueryProcessors\BankAccountQuery.cs" />
+    <Compile Include="QueryProcessors\BankQuery.cs" />
+    <Compile Include="QueryProcessors\AccountQuery.cs" />
+    <Compile Include="QueryProcessors\CardQuery.cs" />
+    <Compile Include="QueryProcessors\MessageQuery.cs" />
+    <Compile Include="QueryProcessors\RequisiteQuery.cs" />
+    <Compile Include="QueryProcessors\AccountRequestQuery.cs" />
+    <Compile Include="QueryProcessors\CardRequestQuery.cs" />
+    <Compile Include="QueryProcessors\CardBlockRequestQuery.cs" />
+    <Compile Include="QueryProcessors\CardLimitRequestQuery.cs" />
+    <Compile Include="QueryProcessors\CardNewRequestQuery.cs" />
+    <Compile Include="QueryProcessors\CardReissueRequestQuery.cs" />
+    <Compile Include="QueryProcessors\RequestQuery.cs" />
+    <Compile Include="QueryProcessors\StandingOrderQuery.cs" />
+    <Compile Include="QueryProcessors\StatementQuery.cs" />
+    <Compile Include="QueryProcessors\TransactionQuery.cs" />
+    <Compile Include="QueryProcessors\TransactionTypeQuery.cs" />
     <Compile Include="QueryProcessors\TypedQuery.cs" />
     <Compile Include="WalletContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703220908148_V15.resx">
       <DependentUpon>201703220908148_V15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703222150000_V16.resx">
+      <DependentUpon>201703222150000_V16.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

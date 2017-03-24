@@ -115,5 +115,10 @@ db.SaveChanges();*/
                 }
             }
         }
+
+        public DbContext GetDbContext()
+        {
+            return Db;
+        }
     }
 }

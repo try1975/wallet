@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using EPM.Wallet.Data.Entities;
 
@@ -12,5 +13,7 @@ namespace EPM.Wallet.Data.QueryProcessors
         T InsertEntity(T entity);
         T UpdateEntity(T entity);
         bool DeleteEntity(K id);
+
+        DbContext GetDbContext();
     }
 }

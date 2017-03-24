@@ -14,3 +14,8 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EPM.Wallet.Commo
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Debug\EPM.Wallet.Data.csprojResolveAssemblyReference.cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Debug\EPM.Wallet.Data.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\obj\Debug\EPM.Wallet.Data.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EPM.Wallet.Data.dll.config
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EntityFramework.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EntityFramework.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Debug\EntityFramework.SqlServer.xml

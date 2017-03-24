@@ -6,4 +6,3 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\Zuby.ADGV.F
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csproj.GenerateResource.Cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.pdb
-C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csprojResolveAssemblyReference.cache

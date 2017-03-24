@@ -32,7 +32,7 @@ namespace WalletWebApi.Maintenance
         public IEnumerable<AccountRequestDto> RequestsByClient(string clientId)
         {
             var list = _query.GetEntities()
-               .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && RequestStatuses.VisibleForClient(m.RequestStatus))
+               .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected)))
                .OrderByDescending(i => i.CreatedAt)
                .ToList()
                ;

@@ -36,6 +36,9 @@ namespace EPM.Wallet.WinForms.Ninject
 
             Bind<ITransferOutInfoView>().To<TransferOutInfoControl>();
             Bind<ITransferOutInfoDataManager>().To<TransferOutInfoDataManager>().InSingletonScope();
+
+            Bind<ITransactionView>().To<TransactionControl>();
+            Bind<ITransactionDataManager>().To<TransactionDataManager>().InSingletonScope();
         }
     }
 }

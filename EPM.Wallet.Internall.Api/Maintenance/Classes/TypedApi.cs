@@ -26,7 +26,7 @@ namespace WalletInternalApi.Maintenance
             return Mapper.Map<TV>(Query.GetEntity(id));
         }
 
-        public TV AddItem(TV dto)
+        public virtual TV AddItem(TV dto)
         {
             var entity = Mapper.Map<D>(dto);
             return Mapper.Map<TV>(Query.InsertEntity(entity));

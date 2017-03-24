@@ -129,3 +129,4 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.W
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.application
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.exe
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Controls.TransactionControl.resources

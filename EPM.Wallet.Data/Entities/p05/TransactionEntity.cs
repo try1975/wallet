@@ -5,7 +5,7 @@ namespace EPM.Wallet.Data.Entities
     public class TransactionEntity : CommonEntity, IEntity<Guid>
     {
         public Guid Id { get; set; }
-        public Guid? AccountId { get; set; }
+        public Guid AccountId { get; set; }
         public ClientAccountEntity ClientAccount { get; set; }
 
         public DateTimeOffset RegisterDate { get; set; }
@@ -14,7 +14,7 @@ namespace EPM.Wallet.Data.Entities
         public string CurrencyId { get; set; }
         public CurrencyEntity Currency { get; set; }
 
-        public decimal AmountCurrency { get; set; }
+        public decimal AmountInCurrency { get; set; }
 
         public decimal Balance { get; set; }
 

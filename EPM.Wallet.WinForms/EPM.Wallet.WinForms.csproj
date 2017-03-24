@@ -124,6 +124,12 @@
     <Compile Include="Controls\RequestControl.Designer.cs">
       <DependentUpon>RequestControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TransactionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TransactionControl.Designer.cs">
+      <DependentUpon>TransactionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TransferOutInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,9 +143,11 @@
     <Compile Include="Data\ClientDataManager.cs" />
     <Compile Include="Data\MessageDataManager.cs" />
     <Compile Include="Data\RequestDataManager.cs" />
+    <Compile Include="Data\TransactionDataManager.cs" />
     <Compile Include="Interfaces\Data\IBankAccountDataManager.cs" />
     <Compile Include="Interfaces\Data\IMessageDataManager.cs" />
     <Compile Include="Interfaces\Data\IRequestDataManager.cs" />
+    <Compile Include="Interfaces\Data\ITransactionDataManager.cs" />
     <Compile Include="Interfaces\Data\ITransferOutInfoDataManager.cs" />
     <Compile Include="Data\TransferOutInfoDataManager.cs" />
     <Compile Include="Interfaces\Data\IBankDataMаnager.cs" />
@@ -150,6 +158,7 @@
     <Compile Include="Interfaces\IMessageView.cs" />
     <Compile Include="Interfaces\IRequestView.cs" />
     <Compile Include="Interfaces\ICardView.cs" />
+    <Compile Include="Interfaces\ITransactionView.cs" />
     <Compile Include="Interfaces\ITransferOutInfoView.cs" />
     <Compile Include="Interfaces\Common\ITypedView.cs" />
     <Compile Include="Interfaces\Data\ITypedDataMаnager.cs" />
@@ -158,6 +167,7 @@
     <Compile Include="Presenters\RequestPresenter.cs" />
     <Compile Include="Presenters\PresenterMode.cs" />
     <Compile Include="Presenters\CardPresenter.cs" />
+    <Compile Include="Presenters\TransactionPresenter.cs" />
     <Compile Include="Presenters\TransferOutInfoPresenter.cs" />
     <Compile Include="Presenters\TypedPresenter.cs" />
     <Compile Include="Interfaces\Common\IRefreshedView.cs" />
@@ -217,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RequestControl.resx">
       <DependentUpon>RequestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TransactionControl.resx">
+      <DependentUpon>TransactionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TransferOutInfoControl.resx">
       <DependentUpon>TransferOutInfoControl.cs</DependentUpon>
@@ -278,9 +291,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

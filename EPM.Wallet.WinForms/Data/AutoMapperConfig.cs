@@ -64,6 +64,13 @@ namespace EPM.Wallet.WinForms.Data
                 ;
             cfg.CreateMap<ITransferOutInfoView, TransferOutInfoDto>()
                 ;
+
+            cfg.CreateMap<TransactionDto, TransactionDto>()
+               ;
+            cfg.CreateMap<TransactionDto, ITransactionView>()
+                ;
+            cfg.CreateMap<ITransactionView, TransactionDto>()
+                ;
         }
     }
 }
