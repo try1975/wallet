@@ -12,10 +12,6 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
             Property(e => e.Id)
               .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(e => e.Name)
-                .HasMaxLength(250)
-                .IsRequired()
-                ;
             Property(e => e.Amount)
                 .HasPrecision(18, 2)
                 .IsRequired()

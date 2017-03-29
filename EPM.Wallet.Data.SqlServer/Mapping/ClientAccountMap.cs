@@ -22,6 +22,10 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
                 .HasPrecision(18, 2)
                 .IsRequired()
                 ;
+            Property(e => e.InitialBalance)
+                .HasPrecision(18, 2)
+                .IsRequired()
+                ;
             Property(e => e.ClientId)
                 .IsRequired()
                 ;

@@ -16,7 +16,7 @@ namespace WalletInternalApi.Controllers
             _api = api;
         }
 
-        public IEnumerable<T> Get()
+        public virtual IEnumerable<T> Get()
         {
             return _api.GetItems();
         }

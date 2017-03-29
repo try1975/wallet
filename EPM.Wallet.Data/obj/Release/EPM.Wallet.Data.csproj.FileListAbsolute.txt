@@ -10,3 +10,15 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Release\EntityFramewor
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Release\EntityFramework.SqlServer.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Release\EntityFramework.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Data.dll.config
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Data.dll
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Data.pdb
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EntityFramework.dll
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Common.dll
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EPM.Wallet.Common.pdb
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EntityFramework.xml
+C:\Projects\github\wallet\EPM.Wallet.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Projects\github\wallet\EPM.Wallet.Data\obj\Release\EPM.Wallet.Data.csprojResolveAssemblyReference.cache
+C:\Projects\github\wallet\EPM.Wallet.Data\obj\Release\EPM.Wallet.Data.dll
+C:\Projects\github\wallet\EPM.Wallet.Data\obj\Release\EPM.Wallet.Data.pdb

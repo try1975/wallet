@@ -6,8 +6,8 @@ namespace EPM.Wallet.Data.Entities
     {
         public Guid Id { get; set; }
 
-        public string ClientId { get; set; }
-        public ClientEntity Client { get; set; }
+        //public string ClientId { get; set; }
+        //public ClientEntity Client { get; set; }
 
         public Guid? AccountId { get; set; }
         public ClientAccountEntity  ClientAccount { get; set; }

@@ -39,11 +39,11 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
                 .IsOptional()
                 ;
 
-            HasRequired(s => s.Client)
-              .WithMany(l => l.Statements)
-              .HasForeignKey(s => s.ClientId)
-              .WillCascadeOnDelete(false)
-              ;
+            //HasRequired(s => s.Client)
+            //  .WithMany(l => l.Statements)
+            //  .HasForeignKey(s => s.ClientId)
+            //  .WillCascadeOnDelete(false)
+            //  ;
             HasOptional(s => s.ClientAccount)
             .WithMany(l => l.Statements)
             .HasForeignKey(s => s.AccountId)

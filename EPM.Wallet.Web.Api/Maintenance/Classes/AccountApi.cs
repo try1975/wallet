@@ -10,13 +10,21 @@ namespace WalletWebApi.Maintenance
 {
     public class AccountApi : TypedApi<AccountDto, ClientAccountEntity, Guid>, IAccountApi
     {
-        public AccountApi(IAccountQuery query) : base(query)
+        private readonly ITransactionQuery _transactionQuery;
+
+        public AccountApi(IAccountQuery query, ITransactionQuery transactionQuery) : base(query)
         {
+            _transactionQuery = transactionQuery;
         }
 
         public IEnumerable<AccountDto> GetAccountsByClient(string clientId)
         {
-            var list = _query.GetEntities().Where(z=> z.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            var list = _query.GetEntities().Where(z => z.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            //foreach (var accountEntity in list)
+            //{
+            //    //var transactions = _transactionQuery.GetEntities().Where(z => z.AccountId == accountEntity.Id).Sum(z => z.Amount);
+            //    //accountEntity.CurrentBalance = balance;
+            //}
             return Mapper.Map<List<AccountDto>>(list);
         }
 

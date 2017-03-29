@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EPM.Wallet.Data.SqlServer</RootNamespace>
     <AssemblyName>EPM.Wallet.Data.SqlServer</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -137,6 +137,22 @@
     <Compile Include="Migrations\201703222150000_V16.Designer.cs">
       <DependentUpon>201703222150000_V16.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703271108371_V17.cs" />
+    <Compile Include="Migrations\201703271108371_V17.Designer.cs">
+      <DependentUpon>201703271108371_V17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271423146_V18.cs" />
+    <Compile Include="Migrations\201703271423146_V18.Designer.cs">
+      <DependentUpon>201703271423146_V18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703280851317_V19.cs" />
+    <Compile Include="Migrations\201703280851317_V19.Designer.cs">
+      <DependentUpon>201703280851317_V19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703290903437_V20.cs" />
+    <Compile Include="Migrations\201703290903437_V20.Designer.cs">
+      <DependentUpon>201703290903437_V20.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="QueryProcessors\ClientQuery.cs" />
     <Compile Include="QueryProcessors\CurrencyQuery.cs" />
@@ -225,6 +241,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703222150000_V16.resx">
       <DependentUpon>201703222150000_V16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271108371_V17.resx">
+      <DependentUpon>201703271108371_V17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271423146_V18.resx">
+      <DependentUpon>201703271423146_V18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703280851317_V19.resx">
+      <DependentUpon>201703280851317_V19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703290903437_V20.resx">
+      <DependentUpon>201703290903437_V20.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

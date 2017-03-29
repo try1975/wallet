@@ -66,5 +66,11 @@ namespace EPM.Wallet.WinForms.Controls
             var transactionControl = CompositionRoot.Resolve<ITransactionView>();
             AddControlToWorkArea((Control)transactionControl);
         }
+
+        private void btnStatements_Click(object sender, EventArgs e)
+        {
+            var statementControl = CompositionRoot.Resolve<IStatementView>();
+            AddControlToWorkArea((Control)statementControl);
+        }
     }
 }

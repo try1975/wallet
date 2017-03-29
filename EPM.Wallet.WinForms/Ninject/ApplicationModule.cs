@@ -39,6 +39,9 @@ namespace EPM.Wallet.WinForms.Ninject
 
             Bind<ITransactionView>().To<TransactionControl>();
             Bind<ITransactionDataManager>().To<TransactionDataManager>().InSingletonScope();
+
+            Bind<IStatementView>().To<StatementControl>();
+            Bind<IStatementDataManager>().To<StatementDataManager>().InSingletonScope();
         }
     }
 }

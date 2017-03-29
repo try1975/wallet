@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EPM.Wallet.WinForms</RootNamespace>
     <AssemblyName>EPM.Wallet.WinForms</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -124,6 +124,12 @@
     <Compile Include="Controls\RequestControl.Designer.cs">
       <DependentUpon>RequestControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\StatementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StatementControl.Designer.cs">
+      <DependentUpon>StatementControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TransactionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,10 +149,12 @@
     <Compile Include="Data\ClientDataManager.cs" />
     <Compile Include="Data\MessageDataManager.cs" />
     <Compile Include="Data\RequestDataManager.cs" />
+    <Compile Include="Data\StatementDataManager.cs" />
     <Compile Include="Data\TransactionDataManager.cs" />
     <Compile Include="Interfaces\Data\IBankAccountDataManager.cs" />
     <Compile Include="Interfaces\Data\IMessageDataManager.cs" />
     <Compile Include="Interfaces\Data\IRequestDataManager.cs" />
+    <Compile Include="Interfaces\Data\IStatementDataManager.cs" />
     <Compile Include="Interfaces\Data\ITransactionDataManager.cs" />
     <Compile Include="Interfaces\Data\ITransferOutInfoDataManager.cs" />
     <Compile Include="Data\TransferOutInfoDataManager.cs" />
@@ -158,6 +166,7 @@
     <Compile Include="Interfaces\IMessageView.cs" />
     <Compile Include="Interfaces\IRequestView.cs" />
     <Compile Include="Interfaces\ICardView.cs" />
+    <Compile Include="Interfaces\IStatementView.cs" />
     <Compile Include="Interfaces\ITransactionView.cs" />
     <Compile Include="Interfaces\ITransferOutInfoView.cs" />
     <Compile Include="Interfaces\Common\ITypedView.cs" />
@@ -167,6 +176,7 @@
     <Compile Include="Presenters\RequestPresenter.cs" />
     <Compile Include="Presenters\PresenterMode.cs" />
     <Compile Include="Presenters\CardPresenter.cs" />
+    <Compile Include="Presenters\StatementPresenter.cs" />
     <Compile Include="Presenters\TransactionPresenter.cs" />
     <Compile Include="Presenters\TransferOutInfoPresenter.cs" />
     <Compile Include="Presenters\TypedPresenter.cs" />
@@ -227,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RequestControl.resx">
       <DependentUpon>RequestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StatementControl.resx">
+      <DependentUpon>StatementControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TransactionControl.resx">
       <DependentUpon>TransactionControl.cs</DependentUpon>

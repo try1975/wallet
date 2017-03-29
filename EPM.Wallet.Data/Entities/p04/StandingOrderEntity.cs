@@ -6,7 +6,6 @@ namespace EPM.Wallet.Data.Entities
     public class StandingOrderEntity : CommonEntity, IEntity<Guid>
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
         public Guid ClientAccountId { get; set; }
         public ClientAccountEntity ClientAccount { get; set; }
         public decimal Amount { get; set; }

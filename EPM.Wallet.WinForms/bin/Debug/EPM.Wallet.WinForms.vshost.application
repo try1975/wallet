@@ -4,7 +4,7 @@
   <description asmv2:publisher="EPM.Wallet.WinForms" asmv2:product="EPM.Wallet.WinForms" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="EPM.Wallet.WinForms.exe.manifest" size="8225">
@@ -14,7 +14,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kvFODKWzGw/FNOjWHuA1ic+gP7jmLOlunqdyuZhYt5g=</dsig:DigestValue>
+        <dsig:DigestValue>w2stBiu5/x10LER2viKqkrsZK12+y715X6h7qki/Jio=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

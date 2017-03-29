@@ -38,7 +38,7 @@ namespace WalletInternalApi.Maintenance
             return Mapper.Map<TV>(Query.UpdateEntity(entity));
         }
 
-        public bool RemoveItem(K id)
+        public virtual bool RemoveItem(K id)
         {
             return Query.DeleteEntity(id);
         }

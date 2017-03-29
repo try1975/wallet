@@ -9,6 +9,7 @@ namespace EPM.Wallet.Data.SqlServer.QueryProcessors
         public override  ClientEntity GetEntity(string id)
         {
             var client = base.GetEntity(id);
+            if (client == null) return null;
             Db.Entry(client).Collection(w => w.Cards).Load();
             //Db.Entry(client).Collection(w => w.ClientAccounts).Query().Include(d => d.BankAccount).Include(r => r.BankAccount.Bank).Load();
             Db.Entry(client).Collection(w => w.ClientAccounts).Query().Include(d => d.Requisite).Load();

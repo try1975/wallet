@@ -6,7 +6,6 @@ DELETE FROM [Requisites]
 DELETE FROM [BankAccounts]
 DELETE FROM [Banks]
 DELETE FROM [Clients]
-DELETE FROM [ClientAccountStatuses]
 DELETE FROM [Currencies]
 GO
 
@@ -14,9 +13,6 @@ GO
 INSERT INTO [Currencies] ([Id]) VALUES ('USD')
 INSERT INTO [Currencies] ([Id]) VALUES ('EUR')
 
-/* ClientAccountStatuses */
-INSERT INTO [ClientAccountStatuses] ([Id], [Name]) VALUES ('NEW', 'new client account')
-INSERT INTO [ClientAccountStatuses] ([Id], [Name]) VALUES ('CLOSE', 'closed client account')
 
 /* Clients */
 INSERT INTO [Clients] ([Id], [Name]) VALUES ('TUSRA', 'TEST USER A')
@@ -59,7 +55,7 @@ INSERT INTO [BankAccounts]
            ,'RBS EUR'
            ,'{44074D76-09B5-49C7-A458-82121F37585C}'
            ,'EUR'
-           ,'201702004 8:30'
+           ,'20170204 8:30'
            ,'20170205 9:00'
            ,'testb'
            ,'testa')
@@ -169,7 +165,7 @@ INSERT INTO [ClientAccounts]
            ,[CurrencyId]
            ,[ClientId]
            ,[BankAccountId]
-           ,[ClientAccountStatusId]
+           ,[ClientAccountStatus]
            ,[CurrentBalance]
            ,[CreatedAt]
            ,[UpdatedAt]
@@ -181,7 +177,7 @@ INSERT INTO [ClientAccounts]
            ,'USD'
            ,'TUSRA'
            ,'{D6ECCB72-4DCF-4A2C-B224-9263C3DC6D29}'
-           ,'NEW'
+           ,0
            ,1000
            ,'20170208 12:12'
            ,'20170208 12:12'
@@ -193,7 +189,7 @@ INSERT INTO [ClientAccounts]
            ,[CurrencyId]
            ,[ClientId]
            ,[BankAccountId]
-           ,[ClientAccountStatusId]
+           ,[ClientAccountStatus]
            ,[CurrentBalance]
            ,[CreatedAt]
            ,[UpdatedAt]
@@ -205,7 +201,7 @@ INSERT INTO [ClientAccounts]
            ,'EUR'
            ,'TUSRB'
            ,'{0D3476B3-9302-49F4-89E7-47109070D6D8}'
-           ,'NEW'
+           ,0
            ,2000
            ,'20170209 12:12'
            ,'20170209 12:12'

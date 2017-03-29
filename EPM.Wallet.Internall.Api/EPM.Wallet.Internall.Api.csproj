@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WalletInternalApi</RootNamespace>
     <AssemblyName>EPM.Wallet.Internal.Api</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -158,7 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\AuthenticationTypes.cs" />
@@ -176,7 +175,11 @@
     <Compile Include="AutoMappers\StandingOrderAutoMapper.cs" />
     <Compile Include="AutoMappers\StatementAutoMapper.cs" />
     <Compile Include="AutoMappers\TransactionAutoMapper.cs" />
+    <Compile Include="Controllers\StatementsController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
+    <Compile Include="GetFiles\GetStatementFile.ashx.cs">
+      <DependentUpon>GetStatementFile.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance\Classes\TransactionApi.cs" />
     <Compile Include="Maintenance\Interfaces\ITransactionApi.cs" />
     <Compile Include="Ninject\Configurator.cs" />
@@ -312,6 +315,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="GetFiles\GetStatementFile.ashx" />
     <None Include="Properties\PublishProfiles\WalletInternal.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

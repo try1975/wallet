@@ -2,9 +2,12 @@
 {
     public enum Frequency
     {
-        Daily,
-        Weekly,
+        Weekly = 1,
         Monthly,
-        Quarterly
+        Every4Weeks,
+        Every2Month,
+        Quarterly,
+        HalfYearly,
+        Annually
     }
 }

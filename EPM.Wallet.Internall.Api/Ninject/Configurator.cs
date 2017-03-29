@@ -82,6 +82,9 @@ namespace WalletInternalApi.Ninject
             container.Bind<ITransactionApi>().To<TransactionApi>().InRequestScope();
             container.Bind<ITransactionQuery>().To<TransactionQuery>().InRequestScope();
 
+            container.Bind<IStatementApi>().To<StatementApi>().InRequestScope();
+            container.Bind<IStatementQuery>().To<StatementQuery>().InRequestScope();
+
             #endregion
         }
 

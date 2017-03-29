@@ -6,3 +6,12 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\Zuby.ADGV.F
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csproj.GenerateResource.Cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.pdb
+C:\Projects\github\wallet\AdvancedDataGridView\bin\Debug\AdvancedDataGridView.dll
+C:\Projects\github\wallet\AdvancedDataGridView\bin\Debug\AdvancedDataGridView.pdb
+C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csprojResolveAssemblyReference.cache
+C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\Zuby.ADGV.AdvancedDataGridViewSearchToolBar.resources
+C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\Zuby.Properties.Resources.resources
+C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\Zuby.ADGV.FormCustomFilter.resources
+C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csproj.GenerateResource.Cache
+C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.dll
+C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.pdb

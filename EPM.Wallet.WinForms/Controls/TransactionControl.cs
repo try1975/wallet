@@ -33,11 +33,9 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbId.Text = value.ToString(); }
         }
 
-        
-
         public Guid AccountId
         {
-            get { return (Guid)cmbAccount.SelectedValue; }
+            get { return (Guid) cmbAccount.SelectedValue; }
             set { cmbAccount.SelectedValue = value; }
         }
 
@@ -48,24 +46,21 @@ namespace EPM.Wallet.WinForms.Controls
                 if (string.IsNullOrEmpty(tbRegisterDate.Text)) return DateTime.Now;
                 return DateTime.Parse(tbRegisterDate.Text);
             }
-            set
-            {
-                tbRegisterDate.Text = value.ToString(CultureInfo.CurrentCulture);
-            }
+            set { tbRegisterDate.Text = value.ToString(CultureInfo.CurrentCulture); }
         }
 
-        public DateTimeOffset ValueDate {
+        public DateTimeOffset ValueDate
+        {
             get
             {
                 if (string.IsNullOrEmpty(tbValueDate.Text)) return DateTime.UtcNow;
                 return DateTime.Parse(tbValueDate.Text);
             }
-            set
-            {
-                tbValueDate.Text = value.ToString(CultureInfo.CurrentCulture);
-            }
+            set { tbValueDate.Text = value.ToString(CultureInfo.CurrentCulture); }
         }
-        public decimal Amount {
+
+        public decimal Amount
+        {
             get
             {
                 decimal decimalResult;
@@ -76,17 +71,15 @@ namespace EPM.Wallet.WinForms.Controls
             }
             set { tbAmount.Text = value.ToString(CultureInfo.InvariantCulture); }
         }
-        public string CurrencyId {
-            get
-            {
-                return (string)cmbCurrency.SelectedValue;
-            }
-            set
-            {
-                cmbCurrency.SelectedValue = value;
-            }
+
+        public string CurrencyId
+        {
+            get { return (string) cmbCurrency.SelectedValue; }
+            set { cmbCurrency.SelectedValue = value; }
         }
-        public decimal AmountInCurrency {
+
+        public decimal AmountInCurrency
+        {
             get
             {
                 decimal decimalResult;
@@ -97,7 +90,9 @@ namespace EPM.Wallet.WinForms.Controls
             }
             set { tbAmountInCurrency.Text = value.ToString(CultureInfo.InvariantCulture); }
         }
-        public decimal Balance {
+
+        public decimal Balance
+        {
             get { return 0; }
             set { tbBalance.Text = value.ToString(CultureInfo.InvariantCulture); }
         }
@@ -105,7 +100,7 @@ namespace EPM.Wallet.WinForms.Controls
         public string FromTo
         {
             get { return tbFromTo.Text; }
-            set { tbFromTo.Text =value; }
+            set { tbFromTo.Text = value; }
         }
 
         public string Note
@@ -113,6 +108,7 @@ namespace EPM.Wallet.WinForms.Controls
             get { return tbNote.Text; }
             set { tbNote.Text = value; }
         }
+
         public Guid? RequestId { get; set; }
         public Guid? StandingOrderId { get; set; }
 
@@ -123,10 +119,7 @@ namespace EPM.Wallet.WinForms.Controls
                 if (string.IsNullOrEmpty(tbRegisterDate.Text)) return DateTime.UtcNow;
                 return DateTime.Parse(tbRegisterDate.Text);
             }
-            set
-            {
-                tbRegisterDate.Text = value.ToString(CultureInfo.CurrentCulture);
-            }
+            set { tbRegisterDate.Text = value.ToString(CultureInfo.CurrentCulture); }
         }
 
         #endregion //Details
@@ -143,7 +136,8 @@ namespace EPM.Wallet.WinForms.Controls
             }
         }
 
-        public List<KeyValuePair<string, string>> CurrencyList {
+        public List<KeyValuePair<string, string>> CurrencyList
+        {
             set
             {
                 cmbCurrency.DataSource = value;
@@ -152,7 +146,7 @@ namespace EPM.Wallet.WinForms.Controls
             }
         }
 
-        #endregion
+        #endregion //DetailsLists
 
         #endregion //IMessageView
 
@@ -283,7 +277,6 @@ namespace EPM.Wallet.WinForms.Controls
             tbAmountInCurrency.Enabled = false;
             tbFromTo.Enabled = false;
             tbNote.Enabled = false;
-
         }
 
         #endregion //IEnterMode

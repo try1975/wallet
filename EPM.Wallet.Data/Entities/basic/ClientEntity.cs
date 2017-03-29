@@ -12,6 +12,6 @@ namespace EPM.Wallet.Data.Entities
         public ICollection<MessageEntity> ClientMessages { get; set; }
         public ICollection<RequisiteEntity> Requsites { get; set; }
         public ICollection<RequestEntity> Requests { get; set; }
-        public ICollection<StatementEntity> Statements { get; set; }
+        //public ICollection<StatementEntity> Statements { get; set; }
     }
 }

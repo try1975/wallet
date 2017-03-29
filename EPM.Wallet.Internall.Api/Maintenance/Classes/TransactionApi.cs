@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using AutoMapper;
 using EPM.Wallet.Data.Entities;
@@ -39,64 +40,158 @@ namespace WalletInternalApi.Maintenance
                     FromTo = o.FromTo,
                     Note = o.Note,
                     RequestId = o.RequestId,
-                    StandingOrderId = o.StandingOrderId
+                    StandingOrderId = o.StandingOrderId,
+                    Balance = o.Balance
                 }
                 )
                 .OrderBy(r => r.RegisterDate)
                 .ToList();
 
-            var balances = new Dictionary<Guid, decimal>();
-            foreach (var transaction in list)
-            {
-                var balance = 0.00M;
-                if (balances.ContainsKey(transaction.AccountId)) balance = balances[transaction.AccountId];
-                balance += transaction.Amount;
-                transaction.Balance = balance;
-                balances[transaction.AccountId] = balance;
-            }
+            //var balances = new Dictionary<Guid, decimal>();
+            //foreach (var transaction in list)
+            //{
+            //    var balance = 0.00M;
+            //    if (balances.ContainsKey(transaction.AccountId)) balance = balances[transaction.AccountId];
+            //    balance += transaction.Amount;
+            //    transaction.Balance = balance;
+            //    balances[transaction.AccountId] = balance;
+            //}
             return Mapper.Map<List<TransactionDto>>(list.OrderByDescending(z => z.RegisterDate));
         }
 
-        //public override TransactionDto AddItem(TransactionDto dto)
-        //{
-        //    var lastTransaction =
-        //        Query.GetEntities()
-        //            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate <= dto.RegisterDate)
-        //            .OrderByDescending(z => z.RegisterDate)
-        //            .FirstOrDefault();
-        //    var balance = 0.00M;
-        //    if (lastTransaction != null) balance = lastTransaction.Balance;
-        //    var entity = Mapper.Map<TransactionEntity>(dto);
-        //    balance = balance + entity.Amount;
-        //    entity.Balance = balance;
+        public override TransactionDto AddItem(TransactionDto dto)
+        {
+            var lastTransaction =
+                Query.GetEntities()
+                    .Where(z => z.AccountId == dto.AccountId && z.RegisterDate <= dto.RegisterDate)
+                    .OrderByDescending(z => z.RegisterDate)
+                    .FirstOrDefault();
+            var account = _accountQuery.GetEntity(dto.AccountId);
+            var balance = lastTransaction?.Balance ?? account.InitialBalance;
+            var entity = Mapper.Map<TransactionEntity>(dto);
+            balance += entity.Amount;
+            entity.Balance = balance;
 
-        //    using (var dbContextTransaction = Query.GetDbContext().Database.BeginTransaction())
-        //    {
-        //        try
-        //        {
-        //            entity = Query.InsertEntity(entity);
+            using (var dbContextTransaction = Query.GetDbContext().Database.BeginTransaction())
+            {
+                try
+                {
+                    entity = Query.InsertEntity(entity);
 
-        //            var latestTransactions =
-        //                Query.GetEntities()
-        //                    .Where(z => z.AccountId == dto.AccountId && z.RegisterDate >= dto.RegisterDate)
-        //                    .OrderBy(z => z.RegisterDate)
-        //                    .ToList();
-        //            foreach (var transaction in latestTransactions)
-        //            {
-        //                balance = balance + transaction.Amount;
-        //                transaction.Balance = balance;
-        //                Query.UpdateEntity(transaction);
-        //            }
-        //            dbContextTransaction.Commit();
-        //            return Mapper.Map<TransactionDto>(entity);
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            Debug.WriteLine(e);
-        //            dbContextTransaction.Rollback();
-        //            throw;
-        //        }
-        //    }
-        //}
+                    var latestTransactions =
+                        Query.GetEntities()
+                            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate > dto.RegisterDate)
+                            .OrderBy(z => z.RegisterDate)
+                            .ToList();
+                    foreach (var transaction in latestTransactions)
+                    {
+                        balance += transaction.Amount;
+                        transaction.Balance = balance;
+                        Query.UpdateEntity(transaction);
+                    }
+                    account.CurrentBalance = balance;
+                    _accountQuery.UpdateEntity(account);
+                    dbContextTransaction.Commit();
+                    return Mapper.Map<TransactionDto>(entity);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    dbContextTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public override TransactionDto ChangeItem(TransactionDto dto)
+        {
+            var lastTransaction =
+                Query.GetEntities()
+                    .Where(z => z.AccountId == dto.AccountId && z.RegisterDate <= dto.RegisterDate && z.Id!=dto.Id)
+                    .OrderByDescending(z => z.RegisterDate)
+                    .FirstOrDefault();
+            var account = _accountQuery.GetEntity(dto.AccountId);
+            var balance = lastTransaction?.Balance ?? account.InitialBalance;
+            var entity = Mapper.Map<TransactionEntity>(dto);
+            balance += entity.Amount;
+            entity.Balance = balance;
+
+            using (var dbContextTransaction = Query.GetDbContext().Database.BeginTransaction())
+            {
+                try
+                {
+                    entity = Query.UpdateEntity(entity);
+
+                    var latestTransactions =
+                        Query.GetEntities()
+                            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate > dto.RegisterDate)
+                            .OrderBy(z => z.RegisterDate)
+                            .ToList();
+                    foreach (var transaction in latestTransactions)
+                    {
+                        balance += transaction.Amount;
+                        transaction.Balance = balance;
+                        Query.UpdateEntity(transaction);
+                    }
+                    account.CurrentBalance = balance;
+                    _accountQuery.UpdateEntity(account);
+                    dbContextTransaction.Commit();
+                    return Mapper.Map<TransactionDto>(entity);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    dbContextTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public override bool RemoveItem(Guid id)
+        {
+            var entity = Query.GetEntity(id);
+            if (entity == null) return false;
+            var lastTransaction =
+                Query.GetEntities()
+                    .Where(z => z.AccountId == entity.AccountId && z.RegisterDate <= entity.RegisterDate && z.Id != entity.Id)
+                    .OrderByDescending(z => z.RegisterDate)
+                    .FirstOrDefault();
+            var account = _accountQuery.GetEntity(entity.AccountId);
+            var balance = lastTransaction?.Balance ?? account.InitialBalance;
+            using (var dbContextTransaction = Query.GetDbContext().Database.BeginTransaction())
+            {
+                try
+                {
+                    var result = Query.DeleteEntity(entity.Id);
+                    if (!result)
+                    {
+                        dbContextTransaction.Rollback();
+                        return false;
+                    }
+
+                    var latestTransactions =
+                        Query.GetEntities()
+                            .Where(z => z.AccountId == entity.AccountId && z.RegisterDate > entity.RegisterDate)
+                            .OrderBy(z => z.RegisterDate)
+                            .ToList();
+                    foreach (var transaction in latestTransactions)
+                    {
+                        balance += transaction.Amount;
+                        transaction.Balance = balance;
+                        Query.UpdateEntity(transaction);
+                    }
+                    account.CurrentBalance = balance;
+                    _accountQuery.UpdateEntity(account);
+                    dbContextTransaction.Commit();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    dbContextTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
     }
 }

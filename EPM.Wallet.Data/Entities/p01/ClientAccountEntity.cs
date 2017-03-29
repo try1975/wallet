@@ -20,6 +20,7 @@ namespace EPM.Wallet.Data.Entities
         public ClientAccountStatus ClientAccountStatus { get; set; }
 
         public decimal CurrentBalance { get; set; }
+        public decimal InitialBalance { get; set; }
 
         public Guid? RequisiteId { get; set; }
         public virtual RequisiteEntity Requisite { get; set; }

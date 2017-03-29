@@ -11,10 +11,10 @@ namespace WalletInternalApi.AutoMappers
             cfg.CreateMap<StatementEntity, StatementDto>()
                ;
             cfg.CreateMap<StatementDto, StatementEntity>()
-                ;
+               ;
 
             cfg.CreateMap<AccountStatementDataDto, StatementEntity>()
-                ;
+               ;
         }
     }
 }

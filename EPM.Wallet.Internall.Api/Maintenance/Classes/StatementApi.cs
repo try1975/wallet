@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using AutoMapper;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
 using EPM.Wallet.Internal.Model;
@@ -17,6 +18,23 @@ namespace WalletInternalApi.Maintenance
             _accountQuery = accountQuery;
         }
 
+        public override IEnumerable<StatementDto> GetItems()
+        {
+            return Query.GetEntities().Select(z => new StatementDto()
+            {
+                Id = z.Id,
+                AccountId = z.AccountId,
+                CardId = z.CardId,
+                ValueDate = z.ValueDate,
+                Period = z.Period,
+                PreviousBalance = z.PreviousBalance,
+                Credits = z.Credits,
+                Debits = z.Debits,
+                NewBalance = z.NewBalance,
+                LoadedFrom = z.LoadedFrom
+            }).ToList();
+        }
+
         public IEnumerable<StatementDto> GetStatementsByClient(string clientId)
         {
             throw new NotImplementedException();
@@ -28,8 +46,8 @@ namespace WalletInternalApi.Maintenance
             if (accountEntity == null) return false;
             try
             {
-                var entity = AutoMapper.Mapper.Map<StatementEntity>(dto);
-                entity.ClientId = accountEntity.ClientId;
+                var entity = Mapper.Map<StatementEntity>(dto);
+                //entity.ClientId = accountEntity.ClientId;
                 entity.AccountId = accountEntity.Id;
                 Query.InsertEntity(entity);
                 accountEntity.StatementId = entity.Id;

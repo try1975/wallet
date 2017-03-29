@@ -30,7 +30,6 @@ namespace WalletWebApi.Maintenance
                 , (o, i) => new StandingOrderInfoDto()
                 {
                     Id = o.Id,
-                    Name = o.Name,
                     AccountId = o.ClientAccountId,
                     AccountName = o.ClientAccount.Name,
                     Amount = o.Amount,
@@ -40,15 +39,18 @@ namespace WalletWebApi.Maintenance
                     Frequency = o.Frequency,
                     Note = o.Note,
                     // Requisites
-                    RequisiteId = o.RequisiteId,
-                    BankName = i.BankName,
-                    Iban = i.Iban,
-                    BankAddress = i.BankAddress,
-                    Bic = i.Bic,
-                    OwnerName = i.OwnerName
+                    Requisite = new RequisiteDto() {
+                        Id = o.RequisiteId,
+                        BankName = i.BankName,
+                        Iban = i.Iban,
+                        BankAddress = i.BankAddress,
+                        Bic = i.Bic,
+                        OwnerName = i.OwnerName
+                    }
+                    
                 }
                 )
-                .OrderByDescending(r => r.Name)
+                .OrderByDescending(r => r.FirstDate)
                 .ToList();
             return list;
         }
@@ -64,11 +66,12 @@ namespace WalletWebApi.Maintenance
             var standingOrderInfoDto = Mapper.Map<StandingOrderInfoDto>(entity);
             standingOrderInfoDto.AccountId = account.Id;
             standingOrderInfoDto.AccountName = account.Name;
-            standingOrderInfoDto.BankName = requisite.BankName;
-            standingOrderInfoDto.Iban = requisite.Iban;
-            standingOrderInfoDto.BankAddress = requisite.BankAddress;
-            standingOrderInfoDto.Bic = requisite.Bic;
-            standingOrderInfoDto.OwnerName = requisite.OwnerName;
+            standingOrderInfoDto.Requisite = Mapper.Map<RequisiteDto>(requisite);
+            //standingOrderInfoDto.BankName = requisite.BankName;
+            //standingOrderInfoDto.Iban = requisite.Iban;
+            //standingOrderInfoDto.BankAddress = requisite.BankAddress;
+            //standingOrderInfoDto.Bic = requisite.Bic;
+            //standingOrderInfoDto.OwnerName = requisite.OwnerName;
             return standingOrderInfoDto;
         }
 
@@ -83,11 +86,12 @@ namespace WalletWebApi.Maintenance
             var standingOrderInfoDto = Mapper.Map<StandingOrderInfoDto>(entity);
             standingOrderInfoDto.AccountId = account.Id;
             standingOrderInfoDto.AccountName = account.Name;
-            standingOrderInfoDto.BankName = requisite.BankName;
-            standingOrderInfoDto.Iban = requisite.Iban;
-            standingOrderInfoDto.BankAddress = requisite.BankAddress;
-            standingOrderInfoDto.Bic = requisite.Bic;
-            standingOrderInfoDto.OwnerName = requisite.OwnerName;
+            standingOrderInfoDto.Requisite = Mapper.Map<RequisiteDto>(requisite);
+            //standingOrderInfoDto.BankName = requisite.BankName;
+            //standingOrderInfoDto.Iban = requisite.Iban;
+            //standingOrderInfoDto.BankAddress = requisite.BankAddress;
+            //standingOrderInfoDto.Bic = requisite.Bic;
+            //standingOrderInfoDto.OwnerName = requisite.OwnerName;
             return standingOrderInfoDto;
         }
 

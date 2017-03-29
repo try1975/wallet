@@ -3,3 +3,8 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\bin\Release\EPM.Wallet.C
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\obj\Release\EPM.Wallet.Common.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\obj\Release\EPM.Wallet.Common.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Common\obj\Release\EPM.Wallet.Common.csprojResolveAssemblyReference.cache
+C:\Projects\github\wallet\EPM.Wallet.Common\bin\Release\EPM.Wallet.Common.dll
+C:\Projects\github\wallet\EPM.Wallet.Common\bin\Release\EPM.Wallet.Common.pdb
+C:\Projects\github\wallet\EPM.Wallet.Common\obj\Release\EPM.Wallet.Common.csprojResolveAssemblyReference.cache
+C:\Projects\github\wallet\EPM.Wallet.Common\obj\Release\EPM.Wallet.Common.dll
+C:\Projects\github\wallet\EPM.Wallet.Common\obj\Release\EPM.Wallet.Common.pdb

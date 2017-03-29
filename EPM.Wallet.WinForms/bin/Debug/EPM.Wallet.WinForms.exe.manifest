@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AdvancedDataGridView.dll" size="93696">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AdvancedDataGridView.dll" size="93184">
       <assemblyIdentity name="AdvancedDataGridView" version="1.0.20707.16" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1lzP5wJIEGlKS0n3ovHDvejWtbEX3GMWlZ0dnP+7F7E=</dsig:DigestValue>
+        <dsig:DigestValue>F3+Z8nxuVytMdXNOG9NfbYP2kP6wPMIMWzb1nE2V7+w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,31 +73,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QYgoHZhNndAuH2lsa9tdx22/8lZ/C0T5lYu+RLHDDPI=</dsig:DigestValue>
+        <dsig:DigestValue>Yye7XV2GAZcR0vwM34tdxH4Qt+BrgyfOlMqzRs8C828=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.Internal.dll" size="23552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.Internal.dll" size="24576">
       <assemblyIdentity name="EPM.Wallet.Internal" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7HA85lgug7wVU9ZtdXRWjBqgytW1MMFs+K/lDjGcYFg=</dsig:DigestValue>
+        <dsig:DigestValue>V+xbcSN1yFUX3Wt8mmtN8vkCgbqcXgweh2+Tdrwyfj8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.WinForms.exe" size="168376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.WinForms.exe" size="183224">
       <assemblyIdentity name="EPM.Wallet.WinForms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iQAsfu8IZgnfmbXjz+1vnkhjzJqr2Xv8+46pKdcS6Ic=</dsig:DigestValue>
+        <dsig:DigestValue>nlW4zSNbZdVZyYuMFEpF0LYebJ+Irfbd7PlmnHEops8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -137,13 +137,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="EPM.Wallet.WinForms.exe.config" size="3151">
+  <file name="EPM.Wallet.WinForms.exe.config" size="3123">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>3PTOqNcSo59tKROdQeE0meNEj0QIyk2Tr/JHiP1pcwY=</dsig:DigestValue>
+      <dsig:DigestValue>1Ox/ZdgHISgiKR4WMsq1+WEO3l6ncFOGNGulHyuIAKM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
