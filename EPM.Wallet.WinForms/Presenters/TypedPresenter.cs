@@ -116,6 +116,10 @@ namespace EPM.Wallet.WinForms.Presenters
 
         public async void Delete()
         {
+            const string question = @"You really want to delete this record?";
+            const string caption = @"Delete warning";
+            if (MessageBox.Show(question, caption, MessageBoxButtons.OKCancel) != DialogResult.OK) return;
+
             var item = Mapper.Map<T>(View);
 
             var success = await _typedDataMànager.DeleteItem(item.Id);
@@ -143,7 +147,7 @@ namespace EPM.Wallet.WinForms.Presenters
                            prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>)
                     ? Nullable.GetUnderlyingType(prop.PropertyType)
                     : prop.PropertyType;
-                dataTable.Columns.Add(prop.Name, type);
+                if (type != null) dataTable.Columns.Add(prop.Name, type);
             }
             foreach (var item in items)
             {

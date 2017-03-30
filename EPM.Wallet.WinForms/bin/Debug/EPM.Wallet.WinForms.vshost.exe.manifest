@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.WinForms.exe" size="183224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.WinForms.exe" size="195000">
       <assemblyIdentity name="EPM.Wallet.WinForms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nlW4zSNbZdVZyYuMFEpF0LYebJ+Irfbd7PlmnHEops8=</dsig:DigestValue>
+        <dsig:DigestValue>4mpbFuu451hXYQEd5TN3wuCvxSm71kH1zos1xHnHmzk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

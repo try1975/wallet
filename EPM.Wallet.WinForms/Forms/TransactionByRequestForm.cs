@@ -6,17 +6,18 @@ using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
 
-namespace EPM.Wallet.WinForms.Controls
+namespace EPM.Wallet.WinForms.Forms
 {
-    public partial class TransactionControl : UserControl, ITransactionView
+    public partial class TransactionByRequestForm : Form, ITransactionView
     {
         private readonly IPresenter _presenter;
-
-        public TransactionControl(ITransactionDataManager transactionDataManager, IDataMаnager dataMаnager)
+        public TransactionByRequestForm(ITransactionDataManager transactionDataManager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
             _presenter = new TransactionPresenter(this, transactionDataManager, dataMаnager);
         }
+
+        
 
         #region ITransactionView
 
@@ -35,7 +36,7 @@ namespace EPM.Wallet.WinForms.Controls
 
         public Guid AccountId
         {
-            get { return (Guid) cmbAccount.SelectedValue; }
+            get { return (Guid)cmbAccount.SelectedValue; }
             set { cmbAccount.SelectedValue = value; }
         }
 
@@ -74,7 +75,7 @@ namespace EPM.Wallet.WinForms.Controls
 
         public string CurrencyId
         {
-            get { return (string) cmbCurrency.SelectedValue; }
+            get { return (string)cmbCurrency.SelectedValue; }
             set { cmbCurrency.SelectedValue = value; }
         }
 
@@ -154,28 +155,11 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void RefreshItems()
         {
-            dgvItems.DataSource = _presenter.BindingSource;
-
-            var column = dgvItems.Columns[nameof(TransactionDto.Id)];
-            if (column != null) column.Visible = false;
-            column = dgvItems.Columns[nameof(TransactionDto.AccountId)];
-            if (column != null) column.Visible = false;
-            column = dgvItems.Columns[nameof(TransactionDto.RequestId)];
-            if (column != null) column.Visible = false;
-            column = dgvItems.Columns[nameof(TransactionDto.StandingOrderId)];
-            if (column != null) column.Visible = false;
+            _presenter.AddNew();
         }
 
         public void SetEventHandlers()
         {
-            dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
-            dgvItems.SortStringChanged += dgvItems_SortStringChanged;
-
-            btnAddNew.Click += btnAddNew_Click;
-            btnEdit.Click += btnEdit_Click;
-            btnSave.Click += btnSave_Click;
-            btnCancel.Click += btnCancel_Click;
-            btnDelete.Click += btnDelete_Click;
         }
 
         #endregion //IRefreshedView
@@ -185,23 +169,11 @@ namespace EPM.Wallet.WinForms.Controls
         public void EnterEditMode()
         {
             EnableInput();
-
-            btnDelete.Enabled = false;
-            btnCancel.Enabled = true;
-            btnSave.Enabled = true;
-            btnEdit.Enabled = false;
-            btnAddNew.Enabled = false;
         }
 
         public void EnterDetailsMode()
         {
             DisableInput();
-
-            btnDelete.Enabled = true;
-            btnCancel.Enabled = false;
-            btnSave.Enabled = false;
-            btnEdit.Enabled = true;
-            btnAddNew.Enabled = true;
         }
 
         public void EnterReadMode()
@@ -210,36 +182,18 @@ namespace EPM.Wallet.WinForms.Controls
             DisableInput();
             //ClearSelectedAccounts();
             //ClearFilter();
-
-            btnDelete.Enabled = false;
-            btnCancel.Enabled = false;
-            btnSave.Enabled = false;
-            btnEdit.Enabled = false;
-            btnAddNew.Enabled = true;
         }
 
         public void EnterAddNewMode()
         {
             ClearInputFields();
             EnableInput();
-
-            btnDelete.Enabled = false;
-            btnCancel.Enabled = true;
-            btnSave.Enabled = true;
-            btnEdit.Enabled = false;
-            btnAddNew.Enabled = false;
         }
 
         public void EnterMultiSelectMode()
         {
             ClearInputFields();
             DisableInput();
-
-            btnDelete.Enabled = false;
-            btnCancel.Enabled = false;
-            btnSave.Enabled = false;
-            btnEdit.Enabled = false;
-            btnAddNew.Enabled = true;
         }
 
         public void ClearInputFields()
@@ -283,39 +237,16 @@ namespace EPM.Wallet.WinForms.Controls
 
         #region Event handlers
 
-        private void btnAddNew_Click(object sender, EventArgs e)
-        {
-            _presenter.AddNew();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            _presenter.Edit();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
             _presenter.Save();
+            DialogResult = DialogResult.OK;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             _presenter.Cancel();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            _presenter.Delete();
-        }
-
-        private void dgvItems_FilterStringChanged(object sender, EventArgs e)
-        {
-            _presenter.BindingSource.Filter = dgvItems.FilterString;
-        }
-
-        private void dgvItems_SortStringChanged(object sender, EventArgs e)
-        {
-            _presenter.BindingSource.Sort = dgvItems.SortString;
+            DialogResult = DialogResult.Cancel;
         }
 
         #endregion //Event handlers

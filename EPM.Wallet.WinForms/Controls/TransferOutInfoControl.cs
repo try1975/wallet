@@ -4,7 +4,9 @@ using System.Globalization;
 using System.Windows.Forms;
 using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Internal.Model;
+using EPM.Wallet.WinForms.Forms;
 using EPM.Wallet.WinForms.Interfaces;
+using EPM.Wallet.WinForms.Ninject;
 using EPM.Wallet.WinForms.Presenters;
 
 namespace EPM.Wallet.WinForms.Controls
@@ -64,7 +66,11 @@ namespace EPM.Wallet.WinForms.Controls
 
         public RequestStatus RequestStatus
         {
-            get { return (RequestStatus) cmbRequestStatus.SelectedValue; }
+            get
+            {
+                if (cmbRequestStatus.SelectedValue == null) return RequestStatus.Unknown;
+                return (RequestStatus)cmbRequestStatus.SelectedValue;
+            }
             set { cmbRequestStatus.SelectedValue = value; }
         }
 
@@ -169,7 +175,13 @@ namespace EPM.Wallet.WinForms.Controls
             btnEdit.Click += btnEdit_Click;
             btnSave.Click += btnSave_Click;
             btnCancel.Click += btnCancel_Click;
+
+            btnReject.Click += btnReject_Click;
+            btnProcessed.Click += btnProcessed_Click;
+            btnPending.Click += btnPending_Click;
         }
+
+
 
         #endregion //IRefreshedView
 
@@ -292,6 +304,41 @@ namespace EPM.Wallet.WinForms.Controls
         private void dgvItems_SortStringChanged(object sender, EventArgs e)
         {
             _presenter.BindingSource.Sort = dgvItems.SortString;
+        }
+
+        private void btnReject_Click(object sender, EventArgs e)
+        {
+            if (RequestStatus != RequestStatus.Pending) return;
+            _presenter.Edit();
+            RequestStatus = RequestStatus.Rejected;
+            _presenter.Save();
+        }
+
+        private void btnProcessed_Click(object sender, EventArgs e)
+        {
+            if (RequestStatus != RequestStatus.Pending) return;
+            var transactionByRequestForm = new TransactionByRequestForm(CompositionRoot.Resolve<ITransactionDataManager>(), CompositionRoot.Resolve<IDataMаnager>());
+
+            if (AccountId.HasValue) transactionByRequestForm.AccountId = AccountId.Value;
+            if (ValueDate.HasValue) transactionByRequestForm.ValueDate = ValueDate.Value;
+            transactionByRequestForm.Amount = -AmountOut;
+            transactionByRequestForm.AmountInCurrency = -AmountOut;
+            transactionByRequestForm.CurrencyId = CurrencyId;
+
+            if (transactionByRequestForm.ShowDialog() != DialogResult.OK) return;
+            _presenter.Edit();
+            RequestStatus = RequestStatus.Processed;
+            _presenter.Save();
+        }
+
+        private void btnPending_Click(object sender, EventArgs e)
+        {
+            if (RequestStatus == RequestStatus.Rejected || RequestStatus == RequestStatus.Processed)
+            {
+                _presenter.Edit();
+                RequestStatus = RequestStatus.Pending;
+                _presenter.Save();
+            }
         }
 
         #endregion //Event handlers

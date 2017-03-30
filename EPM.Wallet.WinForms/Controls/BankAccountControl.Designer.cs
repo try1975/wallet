@@ -67,9 +67,10 @@
             this.pnlDetails.Controls.Add(this.pnlFields);
             this.pnlDetails.Controls.Add(this.pnlButtons);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetails.Location = new System.Drawing.Point(232, 0);
+            this.pnlDetails.Location = new System.Drawing.Point(348, 0);
+            this.pnlDetails.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(396, 471);
+            this.pnlDetails.Size = new System.Drawing.Size(594, 725);
             this.pnlDetails.TabIndex = 4;
             // 
             // pnlFields
@@ -79,9 +80,10 @@
             this.pnlFields.Controls.Add(this.pnlAccountName);
             this.pnlFields.Controls.Add(this.pnlId);
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFields.Location = new System.Drawing.Point(0, 41);
+            this.pnlFields.Location = new System.Drawing.Point(0, 63);
+            this.pnlFields.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlFields.Name = "pnlFields";
-            this.pnlFields.Size = new System.Drawing.Size(396, 430);
+            this.pnlFields.Size = new System.Drawing.Size(594, 662);
             this.pnlFields.TabIndex = 1;
             // 
             // pnlCurrency
@@ -89,9 +91,10 @@
             this.pnlCurrency.Controls.Add(this.cmbCurrency);
             this.pnlCurrency.Controls.Add(this.lblCurrency);
             this.pnlCurrency.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCurrency.Location = new System.Drawing.Point(0, 101);
+            this.pnlCurrency.Location = new System.Drawing.Point(0, 155);
+            this.pnlCurrency.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlCurrency.Name = "pnlCurrency";
-            this.pnlCurrency.Size = new System.Drawing.Size(396, 34);
+            this.pnlCurrency.Size = new System.Drawing.Size(594, 52);
             this.pnlCurrency.TabIndex = 6;
             // 
             // cmbCurrency
@@ -100,17 +103,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbCurrency.Enabled = false;
             this.cmbCurrency.FormattingEnabled = true;
-            this.cmbCurrency.Location = new System.Drawing.Point(97, 6);
+            this.cmbCurrency.Location = new System.Drawing.Point(146, 9);
+            this.cmbCurrency.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbCurrency.Name = "cmbCurrency";
-            this.cmbCurrency.Size = new System.Drawing.Size(283, 21);
+            this.cmbCurrency.Size = new System.Drawing.Size(422, 28);
             this.cmbCurrency.TabIndex = 1;
             // 
             // lblCurrency
             // 
             this.lblCurrency.AutoSize = true;
-            this.lblCurrency.Location = new System.Drawing.Point(7, 9);
+            this.lblCurrency.Location = new System.Drawing.Point(10, 14);
+            this.lblCurrency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrency.Name = "lblCurrency";
-            this.lblCurrency.Size = new System.Drawing.Size(49, 13);
+            this.lblCurrency.Size = new System.Drawing.Size(72, 20);
             this.lblCurrency.TabIndex = 0;
             this.lblCurrency.Text = "Currency";
             // 
@@ -119,9 +124,10 @@
             this.pnlBank.Controls.Add(this.cmbBank);
             this.pnlBank.Controls.Add(this.lblBank);
             this.pnlBank.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBank.Location = new System.Drawing.Point(0, 67);
+            this.pnlBank.Location = new System.Drawing.Point(0, 103);
+            this.pnlBank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlBank.Name = "pnlBank";
-            this.pnlBank.Size = new System.Drawing.Size(396, 34);
+            this.pnlBank.Size = new System.Drawing.Size(594, 52);
             this.pnlBank.TabIndex = 5;
             // 
             // cmbBank
@@ -130,17 +136,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbBank.Enabled = false;
             this.cmbBank.FormattingEnabled = true;
-            this.cmbBank.Location = new System.Drawing.Point(97, 4);
+            this.cmbBank.Location = new System.Drawing.Point(146, 6);
+            this.cmbBank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbBank.Name = "cmbBank";
-            this.cmbBank.Size = new System.Drawing.Size(283, 21);
+            this.cmbBank.Size = new System.Drawing.Size(422, 28);
             this.cmbBank.TabIndex = 1;
             // 
             // lblBank
             // 
             this.lblBank.AutoSize = true;
-            this.lblBank.Location = new System.Drawing.Point(7, 7);
+            this.lblBank.Location = new System.Drawing.Point(10, 11);
+            this.lblBank.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBank.Name = "lblBank";
-            this.lblBank.Size = new System.Drawing.Size(32, 13);
+            this.lblBank.Size = new System.Drawing.Size(46, 20);
             this.lblBank.TabIndex = 0;
             this.lblBank.Text = "Bank";
             // 
@@ -149,9 +157,10 @@
             this.pnlAccountName.Controls.Add(this.tbName);
             this.pnlAccountName.Controls.Add(this.lblAccountName);
             this.pnlAccountName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlAccountName.Location = new System.Drawing.Point(0, 33);
+            this.pnlAccountName.Location = new System.Drawing.Point(0, 51);
+            this.pnlAccountName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlAccountName.Name = "pnlAccountName";
-            this.pnlAccountName.Size = new System.Drawing.Size(396, 34);
+            this.pnlAccountName.Size = new System.Drawing.Size(594, 52);
             this.pnlAccountName.TabIndex = 4;
             // 
             // tbName
@@ -159,17 +168,19 @@
             this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbName.Enabled = false;
-            this.tbName.Location = new System.Drawing.Point(97, 5);
+            this.tbName.Location = new System.Drawing.Point(146, 8);
+            this.tbName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(283, 20);
+            this.tbName.Size = new System.Drawing.Size(422, 26);
             this.tbName.TabIndex = 1;
             // 
             // lblAccountName
             // 
             this.lblAccountName.AutoSize = true;
-            this.lblAccountName.Location = new System.Drawing.Point(7, 8);
+            this.lblAccountName.Location = new System.Drawing.Point(10, 12);
+            this.lblAccountName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAccountName.Name = "lblAccountName";
-            this.lblAccountName.Size = new System.Drawing.Size(78, 13);
+            this.lblAccountName.Size = new System.Drawing.Size(114, 20);
             this.lblAccountName.TabIndex = 0;
             this.lblAccountName.Text = "Account Name";
             // 
@@ -179,17 +190,19 @@
             this.pnlId.Controls.Add(this.tbId);
             this.pnlId.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlId.Location = new System.Drawing.Point(0, 0);
+            this.pnlId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlId.Name = "pnlId";
-            this.pnlId.Size = new System.Drawing.Size(396, 33);
+            this.pnlId.Size = new System.Drawing.Size(594, 51);
             this.pnlId.TabIndex = 3;
             this.pnlId.Visible = false;
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(7, 9);
+            this.lblId.Location = new System.Drawing.Point(10, 14);
+            this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(16, 13);
+            this.lblId.Size = new System.Drawing.Size(23, 20);
             this.lblId.TabIndex = 3;
             this.lblId.Text = "Id";
             // 
@@ -198,9 +211,10 @@
             this.tbId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbId.Enabled = false;
-            this.tbId.Location = new System.Drawing.Point(97, 6);
+            this.tbId.Location = new System.Drawing.Point(146, 9);
+            this.tbId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbId.Name = "tbId";
-            this.tbId.Size = new System.Drawing.Size(283, 20);
+            this.tbId.Size = new System.Drawing.Size(422, 26);
             this.tbId.TabIndex = 2;
             // 
             // pnlButtons
@@ -212,66 +226,68 @@
             this.pnlButtons.Controls.Add(this.btnAddNew);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlButtons.Location = new System.Drawing.Point(0, 0);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(396, 41);
+            this.pnlButtons.Size = new System.Drawing.Size(594, 63);
             this.pnlButtons.TabIndex = 2;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(294, 12);
+            this.btnDelete.Location = new System.Drawing.Point(441, 18);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(112, 35);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(213, 12);
+            this.btnCancel.Location = new System.Drawing.Point(320, 18);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(112, 35);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(148, 12);
+            this.btnSave.Location = new System.Drawing.Point(222, 18);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(59, 23);
+            this.btnSave.Size = new System.Drawing.Size(88, 35);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(78, 12);
+            this.btnEdit.Location = new System.Drawing.Point(117, 18);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(61, 23);
+            this.btnEdit.Size = new System.Drawing.Size(92, 35);
             this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(10, 12);
+            this.btnAddNew.Location = new System.Drawing.Point(15, 18);
+            this.btnAddNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(61, 23);
+            this.btnAddNew.Size = new System.Drawing.Size(92, 35);
             this.btnAddNew.TabIndex = 0;
             this.btnAddNew.Text = "Add new";
             this.btnAddNew.UseVisualStyleBackColor = true;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(229, 0);
+            this.splitter1.Location = new System.Drawing.Point(344, 0);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 471);
+            this.splitter1.Size = new System.Drawing.Size(4, 725);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
             // 
@@ -280,8 +296,9 @@
             this.pnlGrid.Controls.Add(this.dgvItems);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
+            this.pnlGrid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(229, 471);
+            this.pnlGrid.Size = new System.Drawing.Size(344, 725);
             this.pnlGrid.TabIndex = 7;
             // 
             // dgvItems
@@ -293,20 +310,22 @@
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItems.FilterAndSortEnabled = true;
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
+            this.dgvItems.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(229, 471);
+            this.dgvItems.Size = new System.Drawing.Size(344, 725);
             this.dgvItems.TabIndex = 1;
             // 
             // BankAccountControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BankAccountControl";
-            this.Size = new System.Drawing.Size(628, 471);
+            this.Size = new System.Drawing.Size(942, 725);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
             this.pnlCurrency.ResumeLayout(false);
