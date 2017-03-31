@@ -87,22 +87,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Common.dll">
-      <publishTime>03/27/2017 13:56:15</publishTime>
+      <publishTime>03/31/2017 11:43:35</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Common.pdb">
-      <publishTime>03/27/2017 13:56:15</publishTime>
+      <publishTime>03/31/2017 10:36:30</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Data.dll">
-      <publishTime>03/28/2017 11:51:23</publishTime>
+      <publishTime>03/31/2017 11:43:35</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Data.pdb">
-      <publishTime>03/28/2017 11:51:23</publishTime>
+      <publishTime>03/31/2017 11:26:26</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Data.SqlServer.dll">
-      <publishTime>03/28/2017 11:51:55</publishTime>
+      <publishTime>03/31/2017 11:43:36</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Data.SqlServer.pdb">
-      <publishTime>03/28/2017 11:51:55</publishTime>
+      <publishTime>03/31/2017 11:30:50</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>03/08/2012 10:20:10</publishTime>
@@ -147,10 +147,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/WalletWebApi.dll">
-      <publishTime>03/28/2017 12:21:23</publishTime>
+      <publishTime>03/31/2017 12:11:45</publishTime>
     </File>
     <File Include="bin/WalletWebApi.pdb">
-      <publishTime>03/28/2017 12:21:23</publishTime>
+      <publishTime>03/31/2017 11:30:50</publishTime>
     </File>
     <File Include="bin/WebActivatorEx.dll">
       <publishTime>10/05/2016 13:11:52</publishTime>
@@ -285,7 +285,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2017 08:53:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/27/2017 14:30:30</publishTime>
+      <publishTime>03/31/2017 12:11:46</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -27,5 +27,6 @@ namespace EPM.Wallet.Data.Entities
         public CardEntity MainCard { get; set; }
         public ICollection<RequestEntity> Requests { get; set; }
         public ICollection<StatementEntity> Statements { get; set; }
+        public ICollection<DirectDebitEntity> DirectDebits { get; set; }
     }
 }

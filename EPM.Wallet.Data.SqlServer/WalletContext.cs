@@ -37,6 +37,7 @@ namespace EPM.Wallet.Data.SqlServer
         private DbSet<StatementEntity> Statements { get; set; }
         private DbSet<TransactionTypeEntity> TransactionTypes { get; set; }
         private DbSet<TransactionEntity> Transactions { get; set; }
+        private DbSet<DirectDebitEntity> DirectDebits { get; set; }
 
         #endregion
 
@@ -67,6 +68,7 @@ namespace EPM.Wallet.Data.SqlServer
             modelBuilder.Configurations.Add(new StatementsMap($"{prefix}Client{nameof(Statements)}"));
             modelBuilder.Configurations.Add(new TransactionTypesMap($"{prefix}{nameof(TransactionTypes)}"));
             modelBuilder.Configurations.Add(new TransactionsMap($"{prefix}{nameof(Transactions)}"));
+            modelBuilder.Configurations.Add(new DirectDebitsMap($"{prefix}{nameof(DirectDebits)}"));
         }
     }
 

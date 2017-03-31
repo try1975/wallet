@@ -73,6 +73,7 @@
     <Compile Include="Entities\p05\StatementEntity.cs" />
     <Compile Include="Entities\p05\TransactionEntity.cs" />
     <Compile Include="Entities\p05\TransactionTypeEntity.cs" />
+    <Compile Include="Entities\p04\DirectDebitEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryProcessors\basic\IClientQuery.cs" />
     <Compile Include="QueryProcessors\basic\ICurrencyQuery.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="QueryProcessors\p04\CardRequest\ICardRequestQuery.cs" />
     <Compile Include="QueryProcessors\p04\IAccountRequestQuery.cs" />
     <Compile Include="QueryProcessors\p04\CardRequest\ICardLimitRequestQuery.cs" />
+    <Compile Include="QueryProcessors\p04\IDirectDebitQuery.cs" />
     <Compile Include="QueryProcessors\p04\IRequestQuery.cs" />
     <Compile Include="QueryProcessors\p04\IStandingOrderQuery.cs" />
     <Compile Include="QueryProcessors\p05\IStatementQuery.cs" />

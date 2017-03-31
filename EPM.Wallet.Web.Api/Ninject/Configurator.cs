@@ -77,6 +77,9 @@ namespace WalletWebApi.Ninject
             container.Bind<IStandingOrderApi>().To<StandingOrderApi>().InRequestScope();
             container.Bind<IStandingOrderQuery>().To<StandingOrderQuery>().InRequestScope();
 
+            container.Bind<IDirectDebitApi>().To<DirectDebitApi>().InRequestScope();
+            container.Bind<IDirectDebitQuery>().To<DirectDebitQuery>().InRequestScope();
+
             container.Bind<IStatementApi>().To<StatementApi>().InRequestScope();
             container.Bind<IStatementQuery>().To<StatementQuery>().InRequestScope();
 
@@ -100,6 +103,7 @@ namespace WalletWebApi.Ninject
             RequestAutoMapper.Configure(cfg);
             StandingOrderAutoMapper.Configure(cfg);
             TransactionAutoMapper.Configure(cfg);
+            DirectDebitAutoMapper.Configure(cfg);
             Mapper.Initialize(cfg);
             //Mapper.AssertConfigurationIsValid();
         }

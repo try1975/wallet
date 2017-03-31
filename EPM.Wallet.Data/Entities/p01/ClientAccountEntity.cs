@@ -29,6 +29,7 @@ namespace EPM.Wallet.Data.Entities
         public ICollection<StatementEntity> Statements { get; set; }
         public ICollection<StandingOrderEntity> StandingOrders { get; set; }
         public ICollection<TransactionEntity> Transactions { get; set; }
+        public ICollection<DirectDebitEntity> DirectDebits { get; set; }
 
         public Guid? StatementId { get; set; }
         public StatementEntity Statement { get; set; }

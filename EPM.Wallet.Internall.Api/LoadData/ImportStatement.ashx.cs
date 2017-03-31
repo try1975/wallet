@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -49,8 +51,8 @@ namespace WalletInternalApi.LoadData
             var bFile = Convert.FromBase64String(a[iFileBase]);
 
 
-            var aHead = sHead.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-            var spl = new[] { '=' };
+            var aHead = sHead.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
+            var spl = new[] {'='};
             var provider = new CultureInfo("en-GB");
             foreach (var t in aHead)
             {
@@ -58,9 +60,10 @@ namespace WalletInternalApi.LoadData
                 if (aPair.Length < 2) continue;
 
                 var strValue = "";
-                if (Regex.IsMatch(aPair[1], @"\s([0-9.,]+)\s*", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace))
+                if (Regex.IsMatch(aPair[1], @"\s([0-9.,]+)\s*",
+                    RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace))
                 {
-                    strValue=Regex.Match(aPair[1], @"\s([0-9.,]+)\s*",
+                    strValue = Regex.Match(aPair[1], @"\s([0-9.,]+)\s*",
                         RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace).Groups[1].Value;
                 }
                 decimal decimalResult;
@@ -108,7 +111,7 @@ namespace WalletInternalApi.LoadData
                         break;
 
                     case "LoadFrom":
-                        statementData.LoadedFrom = aPair[1];
+                        statementData.LoadedFrom = Path.ChangeExtension(aPair[1], "*.pdf");
                         break;
 
                     case "ContentType":
@@ -121,14 +124,25 @@ namespace WalletInternalApi.LoadData
             statementData.Period = $"{periodFrom}-{periodTill}";
             statementData.Content = bFile;
 
-            // write statement to database
-            IStatementApi statementApi = new StatementApi(new StatementQuery(new WalletContext()), new AccountQuery(new WalletContext()));
-            statementApi.WriteAccountStatementData(statementData);
-
-            context.Response.Write("OK");
-
+            try
+            {
+                // write statement to database
+                IStatementApi statementApi = new StatementApi(new StatementQuery(new WalletContext()),
+                    new AccountQuery(new WalletContext()));
+                if (statementApi.WriteAccountStatementData(statementData))
+                {
+                    context.Response.Write("OK");
+                }
+                else { context.Response.Write("Error"); }
+            }
+            catch (Exception exception)
+            {
+                Debug.WriteLine(exception);
+                context.Response.Write("Error");
+                context.Response.Write(exception.ToString());
+            }
         }
-
+ 
         public bool IsReusable => false;
     }
 }

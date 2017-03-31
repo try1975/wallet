@@ -33,7 +33,11 @@
             public const string StandingOrdersByClient = ByClient + nameof(StandingOrders);
 
             public const string Statements = ApiSegmentName + nameof(Statements);
+
             public const string Transactions = ApiSegmentName + nameof(Transactions);
+
+            public const string DirectDebits = ApiSegmentName + nameof(DirectDebits);
+            public const string DirectDebitsByClient = ByClient + nameof(DirectDebits);
         }
 
         public static class MessagesByClientRoutes

@@ -56,6 +56,7 @@
     <Compile Include="Mapping\CardNewRequestMap.cs" />
     <Compile Include="Mapping\CardReissueRequestMap.cs" />
     <Compile Include="Mapping\CardRequestMap.cs" />
+    <Compile Include="Mapping\DirectDebitsMap.cs" />
     <Compile Include="Mapping\RequestMap.cs" />
     <Compile Include="Mapping\StandingOrderMap.cs" />
     <Compile Include="Mapping\ClientMap.cs" />
@@ -153,6 +154,10 @@
     <Compile Include="Migrations\201703290903437_V20.Designer.cs">
       <DependentUpon>201703290903437_V20.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703310830305_V21.cs" />
+    <Compile Include="Migrations\201703310830305_V21.Designer.cs">
+      <DependentUpon>201703310830305_V21.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="QueryProcessors\ClientQuery.cs" />
     <Compile Include="QueryProcessors\CurrencyQuery.cs" />
@@ -160,6 +165,7 @@
     <Compile Include="QueryProcessors\BankQuery.cs" />
     <Compile Include="QueryProcessors\AccountQuery.cs" />
     <Compile Include="QueryProcessors\CardQuery.cs" />
+    <Compile Include="QueryProcessors\DirectDebitQuery.cs" />
     <Compile Include="QueryProcessors\MessageQuery.cs" />
     <Compile Include="QueryProcessors\RequisiteQuery.cs" />
     <Compile Include="QueryProcessors\AccountRequestQuery.cs" />
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703290903437_V20.resx">
       <DependentUpon>201703290903437_V20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703310830305_V21.resx">
+      <DependentUpon>201703310830305_V21.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

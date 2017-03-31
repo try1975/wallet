@@ -1,4 +1,6 @@
 ﻿using System.Web.Http;
+using WalletWebApi.Logging;
+
 //using Microsoft.Owin.Security.OAuth;
 
 namespace WalletWebApi
@@ -21,22 +23,10 @@ namespace WalletWebApi
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            //config.Routes.MapHttpRoute(
-            //    name: "EpmApi",
-            //    routeTemplate: "epm/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
-
-            //config.Routes.MapHttpRoute(
-            //    name: "OneLevelNested",
-            //    routeTemplate: "{controller}/{bankId:int}/{action}/{id}",
-            //    defaults: new { id = RouteParameter.Optional, bankId = RouteParameter.Optional }
-            //);
-
-
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
 
-
+            // logging
+            config.MessageHandlers.Add(new LogHandler());
         }
     }
 }
