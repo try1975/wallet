@@ -169,3 +169,5 @@ C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.exe
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.pdb
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Controls.StatementControl.resources
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.TransactionByRequestForm.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Controls.StatementControl.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.TransactionByRequestForm.resources

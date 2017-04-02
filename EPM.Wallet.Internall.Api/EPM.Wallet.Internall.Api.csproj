@@ -180,6 +180,9 @@
     <Compile Include="GetFiles\GetStatementFile.ashx.cs">
       <DependentUpon>GetStatementFile.ashx</DependentUpon>
     </Compile>
+    <Compile Include="LoadData\ImportTransactons.ashx.cs">
+      <DependentUpon>ImportTransactons.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance\Classes\TransactionApi.cs" />
     <Compile Include="Maintenance\Interfaces\ITransactionApi.cs" />
     <Compile Include="Ninject\Configurator.cs" />
@@ -316,6 +319,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="GetFiles\GetStatementFile.ashx" />
+    <Content Include="LoadData\ImportTransactons.ashx" />
     <None Include="Properties\PublishProfiles\WalletInternal.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

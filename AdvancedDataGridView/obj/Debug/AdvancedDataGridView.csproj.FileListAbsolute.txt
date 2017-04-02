@@ -15,3 +15,4 @@ C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\Zuby.ADGV.FormCustomFil
 C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csproj.GenerateResource.Cache
 C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.dll
 C:\Projects\github\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\AdvancedDataGridView\obj\Debug\AdvancedDataGridView.csprojResolveAssemblyReference.cache
