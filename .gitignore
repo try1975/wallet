@@ -240,3 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/EPM.Wallet.Web.Api/Web.AppSettings.base.config
+/EPM.Wallet.Internall.Api/Web.AppSettings.config
