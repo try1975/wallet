@@ -242,3 +242,4 @@ ModelManifest.xml
 .fake/
 /EPM.Wallet.Web.Api/Web.AppSettings.base.config
 /EPM.Wallet.Internall.Api/Web.AppSettings.config
+/EPM.Wallet.WinForms/App.AppSettings.config
