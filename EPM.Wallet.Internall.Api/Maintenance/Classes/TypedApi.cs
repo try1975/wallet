@@ -3,12 +3,14 @@ using AutoMapper;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
 using EPM.Wallet.Internal;
+using log4net;
 
 namespace WalletInternalApi.Maintenance
 {
     public abstract class TypedApi<TV, D, K> : ITypedApi<TV, K> where D : class, IEntity<K> where TV : class, IDto<K>
     {
         protected readonly ITypedQuery<D, K> Query;
+        protected static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         protected TypedApi(ITypedQuery<D, K> query)
         {

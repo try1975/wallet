@@ -15,7 +15,7 @@ namespace EPM.Wallet.Data.Entities
         public Guid? CardId { get; set; }
         public CardEntity Card { get; set; }
 
-        public DateTimeOffset ValueDate { get; set; }
+        public DateTime ValueDate { get; set; }
 
         public string Period { get; set; }
 

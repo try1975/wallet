@@ -8,6 +8,7 @@ using System.Web;
 using EPM.Wallet.Data.SqlServer;
 using EPM.Wallet.Data.SqlServer.QueryProcessors;
 using EPM.Wallet.Internal.Model;
+using log4net;
 using WalletInternalApi.Maintenance;
 
 namespace WalletInternalApi.LoadData
@@ -17,7 +18,7 @@ namespace WalletInternalApi.LoadData
     /// </summary>
     public class ImportStatement : IHttpHandler
     {
-
+        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public void ProcessRequest(HttpContext context)
         {
             //if(!context.User.Identity.IsAuthenticated) return;
@@ -30,17 +31,17 @@ namespace WalletInternalApi.LoadData
             context.Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
             var sEnc = context.Request.Params["enc"];
-            Encoding e;
+            Encoding encoding;
             if ((!string.IsNullOrEmpty(sEnc)) && sEnc.Equals("utf-8", StringComparison.InvariantCultureIgnoreCase))
-                e = Encoding.UTF8;
+                encoding = Encoding.UTF8;
             else
-                e = Encoding.GetEncoding(1251);
+                encoding = Encoding.GetEncoding(1251);
 
             var b = context.Request.BinaryRead(context.Request.TotalBytes);
-            var s = e.GetString(b);
+            var s = encoding.GetString(b);
             var a = s.Split('\n');
             var bHead = Convert.FromBase64String(a[1]);
-            var sHead = e.GetString(bHead);
+            var sHead = encoding.GetString(bHead);
 
             var iFileBase = 3;
             if (a[3].StartsWith("POINTSDATA=", StringComparison.InvariantCultureIgnoreCase))
@@ -135,11 +136,14 @@ namespace WalletInternalApi.LoadData
                 }
                 else { context.Response.Write("Error"); }
             }
-            catch (Exception exception)
+            catch (Exception e)
             {
-                Debug.WriteLine(exception);
+                Debug.WriteLine(e);
+                Log.Error(e);
                 context.Response.Write("Error");
-                context.Response.Write(exception.ToString());
+                context.Response.Write(e.ToString());
+                throw;
+                
             }
         }
  

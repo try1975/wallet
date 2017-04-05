@@ -17,6 +17,8 @@ namespace WalletWebApi
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            log4net.Config.XmlConfigurator.Configure();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

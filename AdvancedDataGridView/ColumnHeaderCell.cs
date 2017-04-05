@@ -30,14 +30,14 @@ namespace Zuby.ADGV
 
         private Image _filterImage = Properties.Resources.ColumnHeader_UnFiltered;
         private Size _filterButtonImageSize = new Size(16, 16);
-        private bool _filterButtonPressed = false;
-        private bool _filterButtonOver = false;
+        private bool _filterButtonPressed;
+        private bool _filterButtonOver;
         private Rectangle _filterButtonOffsetBounds = Rectangle.Empty;
         private Rectangle _filterButtonImageBounds = Rectangle.Empty;
         private Padding _filterButtonMargin = new Padding(3, 4, 3, 4);
-        private bool _filterEnabled = false;
+        private bool _filterEnabled;
 
-        private const bool FilterDateAndTimeDefaultEnabled = false;
+        private const bool FilterDateAndTimeDefaultEnabled = true;
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace Zuby.ADGV
             Style = oldCell.Style;
             _filterEnabled = filterEnabled;
 
-            ColumnHeaderCell oldCellt = oldCell as ColumnHeaderCell;
+            var oldCellt = oldCell as ColumnHeaderCell;
 
             if (oldCellt != null && oldCellt.MenuStrip != null)
             {
@@ -70,14 +70,14 @@ namespace Zuby.ADGV
                 _filterButtonOver = oldCellt._filterButtonOver;
                 _filterButtonOffsetBounds = oldCellt._filterButtonOffsetBounds;
                 _filterButtonImageBounds = oldCellt._filterButtonImageBounds;
-                MenuStrip.FilterChanged += new EventHandler(menuStrip_FilterChanged);
-                MenuStrip.SortChanged += new EventHandler(menuStrip_SortChanged);
+                MenuStrip.FilterChanged += menuStrip_FilterChanged;
+                MenuStrip.SortChanged += menuStrip_SortChanged;
             }
             else
             {
                 MenuStrip = new MenuStrip(oldCell.OwningColumn.ValueType);
-                MenuStrip.FilterChanged += new EventHandler(menuStrip_FilterChanged);
-                MenuStrip.SortChanged += new EventHandler(menuStrip_SortChanged);
+                MenuStrip.FilterChanged += menuStrip_FilterChanged;
+                MenuStrip.SortChanged += menuStrip_SortChanged;
             }
 
             IsFilterDateAndTimeEnabled = FilterDateAndTimeDefaultEnabled;
@@ -132,7 +132,7 @@ namespace Zuby.ADGV
                 if (value != _filterEnabled)
                 {
                     _filterEnabled = value;
-                    bool refreshed = false;
+                    var refreshed = false;
                     if (MenuStrip.FilterString.Length > 0)
                     {
                         menuStrip_FilterChanged(this, new EventArgs());
@@ -479,14 +479,14 @@ namespace Zuby.ADGV
                 errorText, cellStyle, advancedBorderStyle, paintParts);
 
             // Don't display a dropdown for Image columns
-            if (this.OwningColumn.ValueType == typeof(System.Drawing.Bitmap))
+            if (OwningColumn.ValueType == typeof(Bitmap))
                 return;
 
             if (FilterAndSortEnabled && paintParts.HasFlag(DataGridViewPaintParts.ContentBackground))
             {
                 _filterButtonOffsetBounds = GetFilterBounds(true);
                 _filterButtonImageBounds = GetFilterBounds(false);
-                Rectangle buttonBounds = _filterButtonOffsetBounds;
+                var buttonBounds = _filterButtonOffsetBounds;
                 if (buttonBounds != null && clipBounds.IntersectsWith(buttonBounds))
                 {
                     ControlPaint.DrawBorder(graphics, buttonBounds, Color.Gray, ButtonBorderStyle.Solid);
@@ -505,9 +505,9 @@ namespace Zuby.ADGV
         /// <returns></returns>
         private Rectangle GetFilterBounds(bool withOffset = true)
         {
-            Rectangle cell = DataGridView.GetCellDisplayRectangle(ColumnIndex, -1, false);
+            var cell = DataGridView.GetCellDisplayRectangle(ColumnIndex, -1, false);
 
-            Point p = new Point(
+            var p = new Point(
                 (withOffset ? cell.Right : cell.Width) - _filterButtonImageSize.Width - _filterButtonMargin.Right,
                 (withOffset ? cell.Bottom : cell.Height) - _filterButtonImageSize.Height - _filterButtonMargin.Bottom);
 

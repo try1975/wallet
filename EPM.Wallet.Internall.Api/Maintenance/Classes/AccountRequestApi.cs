@@ -102,6 +102,7 @@ namespace WalletInternalApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
         }
@@ -143,6 +144,7 @@ namespace WalletInternalApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
         }
@@ -177,6 +179,7 @@ namespace WalletInternalApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
         }
@@ -211,6 +214,7 @@ namespace WalletInternalApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
         }

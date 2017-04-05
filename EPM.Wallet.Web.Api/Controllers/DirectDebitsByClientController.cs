@@ -40,6 +40,19 @@ namespace WalletWebApi.Controllers
             return StatusCode(HttpStatusCode.Conflict);
         }
 
+        [HttpPut]
+        [ResponseType(typeof(DirectDebitDto))]
+        [Route("", Name = nameof(PutDirectDebitByClient) + Ro.Route)]
+        public IHttpActionResult PutDirectDebitByClient(string clientId, DirectDebitDto directDebitDto)
+        {
+            var dto = _directDebitApi.PutDirectDebitByClient(clientId, directDebitDto);
+            if (dto != null)
+            {
+                return Content(HttpStatusCode.OK, dto);
+            }
+            return StatusCode(HttpStatusCode.Conflict);
+        }
+
         [HttpDelete]
         [Route("{id:guid}", Name = nameof(DeleteDirectDebitByClient) + Ro.Route)]
         public IHttpActionResult DeleteDirectDebitByClient(string clientId, Guid id)

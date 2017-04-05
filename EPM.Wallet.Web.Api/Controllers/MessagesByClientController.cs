@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Mail;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EPM.Wallet.Common;
@@ -13,11 +12,13 @@ namespace WalletWebApi.Controllers
     [Authorize]
     public class MessagesByClientController : ApiController
     {
-        private readonly IMessageApi _api;
+        private readonly IMessageApi _messageApi;
+        private readonly ExchangeServiceMailSender _mailSender;
 
-        public MessagesByClientController(IMessageApi api)
+        public MessagesByClientController(IMessageApi messageApi, ExchangeServiceMailSender mailSender)
         {
-            _api = api;
+            _messageApi = messageApi;
+            _mailSender = mailSender;
         }
 
         /// <summary>
@@ -30,32 +31,36 @@ namespace WalletWebApi.Controllers
         [Route(WalletConstants.MessagesByClientRoutes.UnreadCount, Name = nameof(GetMessagesByClientUnreadCount) + Ro.Route)]
         public IHttpActionResult GetMessagesByClientUnreadCount(string clientId)
         {
-            return Ok(_api.CountUnreadMessagesByClient(clientId));
+            return Ok(_messageApi.CountUnreadMessagesByClient(clientId));
         }
 
         /// <summary>
         ///     Client message list
         /// </summary>
         /// <param name="clientId"></param>
+        /// <param name="from"></param>
+        /// <param name="count"></param>
         /// <returns></returns>
         [HttpGet]
         [ResponseType(typeof(int))]
         [Route("", Name = nameof(GetMessagesByClient) + Ro.Route)]
-        public IEnumerable<MessageDto> GetMessagesByClient(string clientId)
+        public IEnumerable<MessageDto> GetMessagesByClient(string clientId, int from = 0, int count = 0)
         {
-            return _api.GetMessagesByClient(clientId);
+            return _messageApi.GetMessagesByClient(clientId, from, count);
         }
 
         /// <summary>
         ///     Client outgoing message list
         /// </summary>
         /// <param name="clientId"></param>
+        /// <param name="from"></param>
+        /// <param name="count"></param>
         /// <returns></returns>
         [HttpGet]
         [Route(WalletConstants.MessagesByClientRoutes.Outgoing, Name = nameof(GetMessagesByClientOutgoing) + Ro.Route)]
-        public IEnumerable<MessageDto> GetMessagesByClientOutgoing(string clientId)
+        public IEnumerable<MessageDto> GetMessagesByClientOutgoing(string clientId, int from = 0, int count = 0)
         {
-            return _api.GetOutgoingMessagesByClient(clientId);
+            return _messageApi.GetOutgoingMessagesByClient(clientId, from, count);
         }
 
         /// <summary>
@@ -63,12 +68,14 @@ namespace WalletWebApi.Controllers
         /// </summary>
         /// <param name="clientId"></param>
         /// <param name="fromDate"></param>
+        /// <param name="from"></param>
+        /// <param name="count"></param>
         /// <returns></returns>
         [HttpGet]
         [Route(WalletConstants.MessagesByClientRoutes.Incomming, Name = nameof(GetMessagesByClientIncoming) + Ro.Route)]
-        public IEnumerable<MessageDto> GetMessagesByClientIncoming(string clientId, DateTime fromDate)
+        public IEnumerable<MessageDto> GetMessagesByClientIncoming(string clientId, DateTime fromDate, int from=0, int count=0)
         {
-            return _api.GetIncomingMessagesByClient(clientId, fromDate);
+            return _messageApi.GetIncomingMessagesByClient(clientId, fromDate, from, count);
         }
 
 
@@ -77,7 +84,7 @@ namespace WalletWebApi.Controllers
         [Route("{id:guid}", Name = nameof(GetMessageByClient) + Ro.Route)]
         public IHttpActionResult GetMessageByClient(string clientId, Guid id)
         {
-            var messageDto = _api.GetMessageByClient(clientId, id);
+            var messageDto = _messageApi.GetMessageByClient(clientId, id);
             return Ok(messageDto);
         }
 
@@ -96,21 +103,11 @@ namespace WalletWebApi.Controllers
             {
                 return BadRequest();
             }
-            messageDto = _api.PostMessageByClient(clientId, messageDto);
-            using (var message = new MailMessage())
-            {
-                message.To.Add(AppGlobal.EmailAboutMessage);
-                message.Body = messageDto.Body;
-                message.BodyEncoding = System.Text.Encoding.UTF8;
-                message.Subject = messageDto.Subject;
-                message.SubjectEncoding = System.Text.Encoding.UTF8;
-                try
-                {
-                    var smtpClient = new SmtpClient();
-                    smtpClient.Send(message);
-                }
-                catch (Exception) {/*ignored*/}
-            }
+            messageDto = _messageApi.PostMessageByClient(clientId, messageDto);
+            // send email
+            var subject = $"[{clientId}] {messageDto.Subject}";
+            var body = messageDto.Body;
+            _mailSender.SendMail(subject, body, AppGlobal.EmailMessage);
             return Ok(messageDto);
         }
 
@@ -125,7 +122,7 @@ namespace WalletWebApi.Controllers
         [Route("{id:guid}", Name = nameof(PutMakeMessageReaded) + Ro.Route)]
         public IHttpActionResult PutMakeMessageReaded(string clientId, Guid id)
         {
-            var messageDto = _api.MakeMessageReaded(clientId, id);
+            var messageDto = _messageApi.MakeMessageReaded(clientId, id);
             return Ok(messageDto);
         }
     }

@@ -7,7 +7,6 @@
 // Please refer to LICENSE file for licensing information.
 #endregion
 
-using System;
 using System.Windows.Forms;
 
 namespace Zuby.ADGV
@@ -46,7 +45,7 @@ namespace Zuby.ADGV
         /// <param name="value"></param>
         /// <param name="state"></param>
         /// <param name="nodeType"></param>
-        private TreeNodeItemSelector(String text, object value, CheckState state, CustomNodeType nodeType)
+        private TreeNodeItemSelector(string text, object value, CheckState state, CustomNodeType nodeType)
             : base(text)
         {
             CheckState = state;
@@ -65,15 +64,12 @@ namespace Zuby.ADGV
         /// <returns></returns>
         public new TreeNodeItemSelector Clone()
         {
-            TreeNodeItemSelector n = new TreeNodeItemSelector(Text, Value, _checkState, NodeType);
+            var n = new TreeNodeItemSelector(Text, Value, _checkState, NodeType) {NodeFont = NodeFont};
 
-            n.NodeFont = NodeFont;
 
-            if (GetNodeCount(false) > 0)
-            {
-                foreach (TreeNodeItemSelector child in Nodes)
-                    n.AddChild(child.Clone());
-            }
+            if (GetNodeCount(false) <= 0) return n;
+            foreach (TreeNodeItemSelector child in Nodes)
+                n.AddChild(child.Clone());
 
             return n;
         }
@@ -96,7 +92,7 @@ namespace Zuby.ADGV
         /// <summary>
         /// Get Node parent
         /// </summary>
-        new public TreeNodeItemSelector Parent
+        public new TreeNodeItemSelector Parent
         {
             get
             {
@@ -114,7 +110,7 @@ namespace Zuby.ADGV
         /// <summary>
         /// Node is Checked
         /// </summary>
-        new public bool Checked
+        public new bool Checked
         {
             get
             {
@@ -122,7 +118,7 @@ namespace Zuby.ADGV
             }
             set
             {
-                CheckState = (value == true ? CheckState.Checked : CheckState.Unchecked);
+                CheckState = (value ? CheckState.Checked : CheckState.Unchecked);
             }
         }
 

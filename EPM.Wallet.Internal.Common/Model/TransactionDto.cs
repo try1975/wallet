@@ -9,8 +9,8 @@ namespace EPM.Wallet.Internal.Model
         public string AccountName { get; set; }
         public string ClientId { get; set; }
         public string AccountCurrency { get; set; }
-        public DateTimeOffset RegisterDate { get; set; }
-        public DateTimeOffset ValueDate { get; set; }
+        public DateTime RegisterDate { get; set; }
+        public DateTime ValueDate { get; set; }
         public decimal Amount { get; set; }
         public string CurrencyId { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using EPM.Wallet.Common.Enums;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Ninject;
 
@@ -10,6 +11,7 @@ namespace EPM.Wallet.WinForms.Controls
         public WalletControl()
         {
             InitializeComponent();
+            if (AppGlobal.ClientAppVariant == ClientAppVariant.Wallet) btnRequests.Text = @"Requests";
         }
 
         private void AddControlToWorkArea(Control control)

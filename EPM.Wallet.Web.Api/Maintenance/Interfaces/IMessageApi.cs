@@ -6,9 +6,9 @@ namespace WalletWebApi.Maintenance
 {
 
     public interface IMessageApi : ITypedApi<MessageDto, Guid> {
-        IEnumerable<MessageDto> GetMessagesByClient(string clientId);
-        IEnumerable<MessageDto> GetOutgoingMessagesByClient(string clientId);
-        IEnumerable<MessageDto> GetIncomingMessagesByClient(string clientId, DateTime fromDate);
+        IEnumerable<MessageDto> GetMessagesByClient(string clientId, int from, int count);
+        IEnumerable<MessageDto> GetOutgoingMessagesByClient(string clientId, int from, int count);
+        IEnumerable<MessageDto> GetIncomingMessagesByClient(string clientId, DateTime fromDate, int from, int count);
         MessageDto GetMessageByClient(string clientId, Guid id);
         MessageDto PostMessageByClient(string clientId, MessageDto dto);
 

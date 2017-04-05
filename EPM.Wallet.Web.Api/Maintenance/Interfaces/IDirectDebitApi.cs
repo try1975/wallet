@@ -8,6 +8,7 @@ namespace WalletWebApi.Maintenance
     {
         IEnumerable<DirectDebitDto> GetDirectDebitsByClient(string clientId);
         DirectDebitDto PostDirectDebitByClient(string clientId, DirectDebitDto dto);
+        DirectDebitDto PutDirectDebitByClient(string clientId, DirectDebitDto dto);
         bool DeleteDirectDebitByClient(string clientId, Guid id);
     }
 }

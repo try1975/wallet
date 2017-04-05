@@ -71,17 +71,17 @@ namespace WalletInternalApi.LoadData
         {
             var dRegisterDate = DateTime.ParseExact(transactionData.RegisterDate, "yyyyMMdd HH:mm:ss",
                 CultureInfo.InvariantCulture);
-            var registerDate = new DateTimeOffset(dRegisterDate, TimeSpan.Zero);
+            //var registerDate = new DateTimeOffset(dRegisterDate, TimeSpan.Zero);
             var dValueDate = DateTime.ParseExact(transactionData.ValueDate, "yyyyMMdd", CultureInfo.InvariantCulture);
-            var valueDate = new DateTimeOffset(dValueDate, TimeSpan.Zero);
+            //var valueDate = new DateTimeOffset(dValueDate, TimeSpan.Zero);
             var amount = int.Parse(transactionData.Amount)/100;
             var amountInCurrency = int.Parse(transactionData.AmountInCurrency)/100;
 
             var transactionDto = new TransactionDto
             {
                 AccountId = accountEntity.Id,
-                RegisterDate = registerDate,
-                ValueDate = valueDate,
+                RegisterDate = dRegisterDate,
+                ValueDate = dValueDate,
                 CurrencyId = transactionData.CurrencyId,
                 Amount = amount,
                 AmountInCurrency = amountInCurrency,

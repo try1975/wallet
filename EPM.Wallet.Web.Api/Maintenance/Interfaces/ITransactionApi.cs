@@ -6,6 +6,6 @@ namespace WalletWebApi.Maintenance
 {
     public interface ITransactionApi : ITypedApi<TransactionDto, Guid>
     {
-        IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId);
+        IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId, int from, int count);
     }
 }

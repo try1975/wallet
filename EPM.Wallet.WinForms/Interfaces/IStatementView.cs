@@ -16,7 +16,7 @@ namespace EPM.Wallet.WinForms.Interfaces
         #region Details
 
         Guid AccountId { get; set; }
-        DateTimeOffset ValueDate { get; set; }
+        DateTime ValueDate { get; set; }
 
         string Period { get; set; }
 

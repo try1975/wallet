@@ -17,18 +17,22 @@ namespace WalletWebApi.Controllers
         private readonly ICardNewRequestApi _apiCardNew;
         private readonly ICardBlockRequestApi _apiCardBlock;
         private readonly ICardApi _apiCard;
+        private readonly ExchangeServiceMailSender _mailSender;
+        private const string MailBodySuffix = "card request";
 
         public CardsByClientController(ICardApi apiCard,
                                     ICardLimitRequestApi apiCardLimit,
                                     ICardReissueRequestApi apiCardReissue,
                                     ICardNewRequestApi apiCardNew,
-                                    ICardBlockRequestApi apiCardBlock)
+                                    ICardBlockRequestApi apiCardBlock,
+                                    ExchangeServiceMailSender mailSender)
         {
             _apiCard = apiCard;
             _apiCardLimit = apiCardLimit;
             _apiCardReissue = apiCardReissue;
             _apiCardNew = apiCardNew;
             _apiCardBlock = apiCardBlock;
+            _mailSender = mailSender;
         }
 
         [HttpGet]
@@ -43,7 +47,13 @@ namespace WalletWebApi.Controllers
         [Route(WalletConstants.CardsByClientRoutes.SetLimit, Name = nameof(PostCardsByClientSetLimit) + Ro.Route)]
         public IHttpActionResult PostCardsByClientSetLimit(string clientId, CardLimitRequestDto dto)
         {
-            return StatusCode(_apiCardLimit.CreateCardLimitRequest(clientId, dto) ? HttpStatusCode.NoContent : HttpStatusCode.Conflict);
+            var success = _apiCardLimit.CreateCardLimitRequest(clientId, dto);
+            if (!success) return StatusCode(HttpStatusCode.Conflict);
+            // send email
+            var subject = $"[{clientId}]";
+            var body = $"{WalletConstants.CardsByClientRoutes.SetLimit} {MailBodySuffix}";
+            _mailSender.SendMail(subject, body, AppGlobal.EmailCardSetLimit);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         /// <summary>
@@ -56,21 +66,39 @@ namespace WalletWebApi.Controllers
         [Route(WalletConstants.CardsByClientRoutes.Reissue, Name = nameof(PostCardsByClientReissue) + Ro.Route)]
         public IHttpActionResult PostCardsByClientReissue(string clientId, CardReissueRequestDto dto)
         {
-            return StatusCode(_apiCardReissue.CreateCardReissueRequest(clientId, dto) ? HttpStatusCode.NoContent : HttpStatusCode.Conflict);
+            var success = _apiCardReissue.CreateCardReissueRequest(clientId, dto);
+            if (!success) return StatusCode(HttpStatusCode.Conflict);
+            // send email
+            var subject = $"[{clientId}]";
+            var body = $"{WalletConstants.CardsByClientRoutes.Reissue} {MailBodySuffix}";
+            _mailSender.SendMail(subject, body, AppGlobal.EmailCardReissue);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         [HttpPost]
         [Route(WalletConstants.CardsByClientRoutes.New, Name = nameof(PostCardsByClientNew) + Ro.Route)]
         public IHttpActionResult PostCardsByClientNew(string clientId)
         {
-            return StatusCode(_apiCardNew.CreateCardNewRequest(clientId) ? HttpStatusCode.NoContent : HttpStatusCode.Conflict);
+            var success = _apiCardNew.CreateCardNewRequest(clientId);
+            if (!success) return StatusCode(HttpStatusCode.Conflict);
+            // send email
+            var subject = $"[{clientId}]";
+            var body = $"{WalletConstants.CardsByClientRoutes.New} {MailBodySuffix}";
+            _mailSender.SendMail(subject, body, AppGlobal.EmailCardNew);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         [HttpPost]
         [Route(WalletConstants.CardsByClientRoutes.Block + "/{" + Ro.CardId + ":guid}", Name = nameof(PostCardsByClientBlock) + Ro.Route)]
         public IHttpActionResult PostCardsByClientBlock(string clientId, Guid cardId)
         {
-            return StatusCode(_apiCardBlock.CreateCardBlockRequest(clientId, cardId) ? HttpStatusCode.NoContent : HttpStatusCode.Conflict);
+            var success = _apiCardBlock.CreateCardBlockRequest(clientId, cardId);
+            if (!success) return StatusCode(HttpStatusCode.Conflict);
+            // send email
+            var subject = $"[{clientId}]";
+            var body = $"{WalletConstants.CardsByClientRoutes.Block} {MailBodySuffix}";
+            _mailSender.SendMail(subject, body, AppGlobal.EmailCardBlock);
+            return StatusCode(HttpStatusCode.Created);
         }
     }
 }

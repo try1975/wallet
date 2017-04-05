@@ -8,8 +8,8 @@ namespace EPM.Wallet.Data.Entities
         public Guid AccountId { get; set; }
         public ClientAccountEntity ClientAccount { get; set; }
 
-        public DateTimeOffset RegisterDate { get; set; }
-        public DateTimeOffset ValueDate { get; set; }
+        public DateTime RegisterDate { get; set; }
+        public DateTime ValueDate { get; set; }
         public decimal Amount { get; set; }
         public string CurrencyId { get; set; }
         public CurrencyEntity Currency { get; set; }

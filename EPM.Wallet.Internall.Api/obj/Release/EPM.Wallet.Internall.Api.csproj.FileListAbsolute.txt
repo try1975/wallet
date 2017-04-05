@@ -208,3 +208,5 @@ C:\Projects\github\wallet\EPM.Wallet.Internall.Api\bin\System.Web.WebPages.Razor
 C:\Projects\github\wallet\EPM.Wallet.Internall.Api\obj\Release\EPM.Wallet.Internall.Api.csprojResolveAssemblyReference.cache
 C:\Projects\github\wallet\EPM.Wallet.Internall.Api\obj\Release\EPM.Wallet.Internal.Api.dll
 C:\Projects\github\wallet\EPM.Wallet.Internall.Api\obj\Release\EPM.Wallet.Internal.Api.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\log4net.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\log4net.xml

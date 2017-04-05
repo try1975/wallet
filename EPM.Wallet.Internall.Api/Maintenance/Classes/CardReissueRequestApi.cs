@@ -32,9 +32,10 @@ namespace WalletInternalApi.Maintenance
                 Query.InsertEntity(entity);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
             

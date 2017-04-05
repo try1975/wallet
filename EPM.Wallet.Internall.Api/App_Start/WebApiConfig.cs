@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using WalletInternalApi.Logging;
 
 namespace WalletInternalApi
 {
@@ -7,6 +8,7 @@ namespace WalletInternalApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            log4net.Config.XmlConfigurator.Configure();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -17,6 +19,9 @@ namespace WalletInternalApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // logging
+            config.MessageHandlers.Add(new LogHandler());
         }
     }
 }

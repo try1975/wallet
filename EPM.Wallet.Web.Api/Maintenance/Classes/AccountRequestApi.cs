@@ -29,11 +29,13 @@ namespace WalletWebApi.Maintenance
             _clientQuery = clientQuery;
         }
 
-        public IEnumerable<AccountRequestDto> RequestsByClient(string clientId)
+        public IEnumerable<AccountRequestDto> RequestsByClient(string clientId, int from, int count)
         {
             var list = _query.GetEntities()
                .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected)))
                .OrderByDescending(i => i.CreatedAt)
+               .Skip(from)
+               .Take(count > 0 ? count : 1000)
                .ToList()
                ;
             var dtoList = new List<AccountRequestDto>();
@@ -102,6 +104,7 @@ namespace WalletWebApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
         }
@@ -145,6 +148,7 @@ namespace WalletWebApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
         }
@@ -179,6 +183,7 @@ namespace WalletWebApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
         }
@@ -213,6 +218,7 @@ namespace WalletWebApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
         }

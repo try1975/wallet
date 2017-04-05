@@ -43,9 +43,9 @@ namespace WalletWebApi.Maintenance
 
         public DirectDebitDto PostDirectDebitByClient(string clientId, DirectDebitDto dto)
         {
-            var account = _accountQuery.GetEntities().FirstOrDefault(z => z.Id == dto.SourceAccountId && z.ClientId == clientId);
+            var account = _accountQuery.GetEntities().FirstOrDefault(z => z.Id == dto.SourceAccountId && z.ClientId.Equals(clientId));
             if (account == null) return null;
-            var card = _cardQuery.GetEntities().FirstOrDefault(z => z.Id == dto.CardId && z.ClientId == clientId);
+            var card = _cardQuery.GetEntities().FirstOrDefault(z => z.Id == dto.CardId && z.ClientId.Equals(clientId));
             if (card == null) return null;
             var entity = Mapper.Map<DirectDebitEntity>(dto);
             entity = _query.InsertEntity(entity);
@@ -54,6 +54,20 @@ namespace WalletWebApi.Maintenance
             directDebitDto.CardNumber = card.CardNumber;
             //directDebitDto.SourceAccount = Mapper.Map<AccountDto>(account); 
             //directDebitDto.Card = Mapper.Map<CardDto>(card);
+            return directDebitDto;
+        }
+
+        public DirectDebitDto PutDirectDebitByClient(string clientId, DirectDebitDto dto)
+        {
+            var account = _accountQuery.GetEntities().FirstOrDefault(z => z.Id == dto.SourceAccountId && z.ClientId.Equals(clientId));
+            if (account == null) return null;
+            var card = _cardQuery.GetEntities().FirstOrDefault(z => z.Id == dto.CardId && z.ClientId.Equals(clientId));
+            if (card == null) return null;
+            var entity = Mapper.Map<DirectDebitEntity>(dto);
+            entity = _query.UpdateEntity(entity);
+            var directDebitDto = Mapper.Map<DirectDebitDto>(entity);
+            directDebitDto.SourceAccountName = account.Name;
+            directDebitDto.CardNumber = card.CardNumber;
             return directDebitDto;
         }
 

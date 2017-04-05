@@ -113,6 +113,7 @@ namespace WalletWebApi.Ninject
             //container.Bind<WalletContext>().ToSelf().InRequestScope();
             container.Bind<WalletContext>().ToSelf().InThreadScope();
             //container.Bind<WalletContext>().ToSelf().InTransientScope();
+            container.Bind<ExchangeServiceMailSender>().ToSelf().InSingletonScope();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace EPM.Wallet.Internal.Model
         public Guid? AccountId { get; set; }
         public Guid? CardId { get; set; }
 
-        public DateTimeOffset ValueDate { get; set; }
+        public DateTime ValueDate { get; set; }
 
         public string Period { get; set; }
 

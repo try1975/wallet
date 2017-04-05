@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppGlobal.cs" />
     <Compile Include="Controls\BankAccountControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -285,7 +286,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AdvancedDataGridView\AdvancedDataGridView.csproj">

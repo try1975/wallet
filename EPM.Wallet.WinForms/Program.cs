@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using AutoMapper;
 using AutoMapper.Configuration;
+using EPM.Wallet.Common.Enums;
 using EPM.Wallet.WinForms.Data;
 using EPM.Wallet.WinForms.Ninject;
 
@@ -22,7 +23,10 @@ namespace EPM.Wallet.WinForms
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(CompositionRoot.Resolve<Form1>());
+            var form = CompositionRoot.Resolve<Form1>();
+            var names = Enum.GetNames(typeof(ClientAppVariant));
+            form.Text = names[(int)AppGlobal.ClientAppVariant];
+            Application.Run(form);
         }
     }
 }

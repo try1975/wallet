@@ -312,3 +312,14 @@ C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\EntityFramework.xml
 C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\EntityFramework.SqlServer.xml
 C:\Projects\github\wallet\EPM.Wallet.Web.Api\obj\Debug\WalletWebApi.dll
 C:\Projects\github\wallet\EPM.Wallet.Web.Api\obj\Debug\WalletWebApi.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\log4net.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.IdentityModel.Extensions.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.IdentityModel.dll
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\log4net.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.pdb
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\ru\Microsoft.IdentityModel.resources.dll

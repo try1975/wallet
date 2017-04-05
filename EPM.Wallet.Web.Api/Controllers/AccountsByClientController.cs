@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Mail;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EPM.Wallet.Common;
@@ -19,12 +18,18 @@ namespace WalletWebApi.Controllers
         private readonly IAccountApi _accountApi;
         private readonly IAccountRequestApi _accountRequestApi;
         private readonly ITransactionApi _transactionApi;
+        private readonly ExchangeServiceMailSender _mailSender;
+        private const string MailBodySuffix = "account request";
 
-        public AccountsByClientController(IAccountApi accountApi, IAccountRequestApi accountRequestApi, ITransactionApi transactionApi)
+        public AccountsByClientController(IAccountApi accountApi, 
+                                        IAccountRequestApi accountRequestApi, 
+                                        ITransactionApi transactionApi,
+                                        ExchangeServiceMailSender mailSender)
         {
             _accountApi = accountApi;
             _accountRequestApi = accountRequestApi;
             _transactionApi = transactionApi;
+            _mailSender = mailSender;
         }
 
         [HttpGet]
@@ -41,11 +46,7 @@ namespace WalletWebApi.Controllers
                 var uri = $"{baseUri}/GetFiles/{nameof(GetStatementFile)}.ashx?id={account.StatementId}";
                 account.LastStatementLink = new Uri(uri);
             }
-
-
             return accountsByClient;
-
-
         }
 
         [HttpGet]
@@ -66,19 +67,22 @@ namespace WalletWebApi.Controllers
         [HttpGet]
         [Route("{" + Ro.AccountId + ":guid}/Transactions",
             Name = nameof(GetTransactionsByAccount) + Ro.Route)]
-        public IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId)
+        public IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId, int from = 0, int count = 0)
         {
-            return _transactionApi.GetTransactionsByAccount(clientId, accountId);
+            return _transactionApi.GetTransactionsByAccount(clientId, accountId, from, count);
         }
 
         [HttpPost]
         [Route("", Name = nameof(PostAccountsByClientNewRequest) + Ro.Route)]
         public IHttpActionResult PostAccountsByClientNewRequest(string clientId, AccountNewRequestDto dto)
         {
-            return
-                StatusCode(_accountRequestApi.CreateAccountNewRequest(clientId, dto)
-                    ? HttpStatusCode.Created
-                    : HttpStatusCode.Conflict);
+            var success = _accountRequestApi.CreateAccountNewRequest(clientId, dto);
+            if (!success) return StatusCode(HttpStatusCode.Conflict);
+            // send email
+            var subject = $"[{clientId}]";
+            var body = $"{WalletConstants.AccountByClientRoutes.New} {MailBodySuffix}";
+            _mailSender.SendMail(subject, body, AppGlobal.EmailAccountNew);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         [HttpPost]
@@ -86,22 +90,27 @@ namespace WalletWebApi.Controllers
             Name = nameof(PostAccountsByClientRefillRequest) + Ro.Route)]
         public IHttpActionResult PostAccountsByClientRefillRequest(string clientId, Guid accountId, RefillRequestDto dto)
         {
-            return
-                StatusCode(_accountRequestApi.CreateAccountRefillRequest(clientId, accountId, dto)
-                    ? HttpStatusCode.Created
-                    : HttpStatusCode.Conflict);
+            var success = _accountRequestApi.CreateAccountRefillRequest(clientId, accountId, dto);
+            if (!success) return StatusCode(HttpStatusCode.Conflict);
+            // send email
+            var subject = $"[{clientId}]";
+            var body = $"{WalletConstants.AccountByClientRoutes.Refill} {MailBodySuffix}";
+            _mailSender.SendMail(subject, body, AppGlobal.EmailAccountRefill);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         [HttpPost]
         [Route("{" + Ro.AccountId + ":guid}/" + WalletConstants.AccountByClientRoutes.TransferToCard,
             Name = nameof(PostAccountsByClientTransferToCardRequest) + Ro.Route)]
-        public IHttpActionResult PostAccountsByClientTransferToCardRequest(string clientId, Guid accountId,
-            TransferToCardRequestDto dto)
+        public IHttpActionResult PostAccountsByClientTransferToCardRequest(string clientId, Guid accountId, TransferToCardRequestDto dto)
         {
-            return
-                StatusCode(_accountRequestApi.CreateAccountTransferToCardRequest(clientId, accountId, dto)
-                    ? HttpStatusCode.Created
-                    : HttpStatusCode.Conflict);
+            var success = _accountRequestApi.CreateAccountTransferToCardRequest(clientId, accountId, dto);
+            if (!success) return StatusCode(HttpStatusCode.Conflict);
+            // send email
+            var subject = $"[{clientId}]";
+            var body = $"{WalletConstants.AccountByClientRoutes.TransferToCard} {MailBodySuffix}";
+            _mailSender.SendMail(subject, body, AppGlobal.EmailAccountTransferToCard);
+            return StatusCode(HttpStatusCode.Created);
         }
 
         [HttpPost]
@@ -111,21 +120,10 @@ namespace WalletWebApi.Controllers
         {
             var success = _accountRequestApi.CreateAccountTransferOutRequest(clientId, accountId, dto);
             if (!success) return StatusCode(HttpStatusCode.Conflict);
-
-            using (var message = new MailMessage())
-            {
-                message.To.Add(AppGlobal.EmailAboutTransferOut);
-                message.Body = $"ClientId: {clientId}\nAmount: {dto.Amount}";
-                message.BodyEncoding = System.Text.Encoding.UTF8;
-                message.Subject = "Account TransferOut request";
-                message.SubjectEncoding = System.Text.Encoding.UTF8;
-                try
-                {
-                    var smtpClient = new SmtpClient();
-                    smtpClient.Send(message);
-                }
-                catch (Exception) {/*ignored*/}
-            }
+            // send email
+            var subject = $"[{clientId}]";
+            var body = $"{WalletConstants.AccountByClientRoutes.TransferOut} {MailBodySuffix}";
+            _mailSender.SendMail(subject, body, AppGlobal.EmailAccountTransferOut);
             return StatusCode(HttpStatusCode.Created);
         }
     }

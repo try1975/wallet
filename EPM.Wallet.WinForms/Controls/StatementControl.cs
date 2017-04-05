@@ -41,7 +41,7 @@ namespace EPM.Wallet.WinForms.Controls
             set { cmbAccount.SelectedValue = value; }
         }
 
-        public DateTimeOffset ValueDate
+        public DateTime ValueDate
         {
             get
             {

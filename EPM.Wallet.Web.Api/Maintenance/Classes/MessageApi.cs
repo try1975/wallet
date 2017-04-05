@@ -18,33 +18,39 @@ namespace WalletWebApi.Maintenance
             _clientQuery = clientQuery;
         }
 
-        public IEnumerable<MessageDto> GetMessagesByClient(string clientId)
+        public IEnumerable<MessageDto> GetMessagesByClient(string clientId, int from = 0, int count = 0)
         {
             var list = _query.GetEntities()
                 .Where(m => m.ClientId == clientId && !m.DeletionDate.HasValue)
                 .OrderByDescending(i => i.CreatedAt)
+                .Skip(from)
+                .Take(count > 0 ? count : 1000)
                 .ToList()
                 ;
             return Mapper.Map<List<MessageDto>>(list);
         }
 
-        public IEnumerable<MessageDto> GetOutgoingMessagesByClient(string clientId)
+        public IEnumerable<MessageDto> GetOutgoingMessagesByClient(string clientId, int from = 0, int count = 0)
         {
             var list = _query.GetEntities()
                 .Where(m => m.ClientId == clientId && !m.DeletionDate.HasValue && m.IsOutgoing)
                 .OrderByDescending(i => i.CreatedAt)
+                .Skip(from)
+                .Take(count > 0 ? count : 1000)
                 .ToList()
                 ;
             return Mapper.Map<List<MessageDto>>(list);
         }
 
-        public IEnumerable<MessageDto> GetIncomingMessagesByClient(string clientId, DateTime fromDate)
+        public IEnumerable<MessageDto> GetIncomingMessagesByClient(string clientId, DateTime fromDate, int from = 0, int count = 0)
         {
-            var list = _query.GetEntities()
+            var query = _query.GetEntities()
                    .Where(m => m.ClientId == clientId && !m.DeletionDate.HasValue && !m.IsOutgoing && m.CreatedAt >= fromDate)
                    .OrderByDescending(i => i.CreatedAt)
-                   .ToList()
+                   .Skip(from)
+                   .Take(count > 0 ? count : 1000)
                    ;
+            var list = query.ToList();
             return Mapper.Map<List<MessageDto>>(list);
         }
 

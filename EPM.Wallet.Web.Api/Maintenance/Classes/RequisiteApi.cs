@@ -64,6 +64,7 @@ namespace WalletWebApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 return false;
             }
         }

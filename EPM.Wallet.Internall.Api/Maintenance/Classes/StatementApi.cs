@@ -57,6 +57,7 @@ namespace WalletInternalApi.Maintenance
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+                Log.Error(e);
                 throw;
             }
 

@@ -2,6 +2,7 @@
 using AutoMapper;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
+using log4net;
 using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
@@ -9,6 +10,7 @@ namespace WalletWebApi.Maintenance
     public abstract class TypedApi<TV, TD, TK> : ITypedApi<TV, TK> where TD : class, IEntity<TK> where TV : class, IDto<TK>
     {
         protected readonly ITypedQuery<TD, TK> _query;
+        protected static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         protected TypedApi(ITypedQuery<TD, TK> query)
         {

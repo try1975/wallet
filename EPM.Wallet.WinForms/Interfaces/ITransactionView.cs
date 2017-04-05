@@ -18,8 +18,8 @@ namespace EPM.Wallet.WinForms.Interfaces
         Guid AccountId { get; set; }
 
 
-        DateTimeOffset RegisterDate { get; set; }
-        DateTimeOffset ValueDate { get; set; }
+        DateTime RegisterDate { get; set; }
+        DateTime ValueDate { get; set; }
         decimal Amount { get; set; }
         string CurrencyId { get; set; }
         decimal AmountInCurrency { get; set; }

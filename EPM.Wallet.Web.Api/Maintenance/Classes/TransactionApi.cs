@@ -18,13 +18,15 @@ namespace WalletWebApi.Maintenance
         }
 
 
-        public IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId)
+        public IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId, int from, int count)
         {
             var account = _accountQuery.GetEntities().FirstOrDefault(z => z.ClientId == clientId && z.Id == accountId);
             if (account == null) return null;
             var list = _query.GetEntities()
                 .Where(z => z.AccountId == accountId)
                 .OrderByDescending(i => i.RegisterDate)
+                .Skip(from)
+                .Take(count > 0 ? count : 1000)
                 .ToList()
                 ;
             return Mapper.Map<List<TransactionDto>>(list);

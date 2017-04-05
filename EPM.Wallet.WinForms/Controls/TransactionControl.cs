@@ -39,17 +39,17 @@ namespace EPM.Wallet.WinForms.Controls
             set { cmbAccount.SelectedValue = value; }
         }
 
-        public DateTimeOffset RegisterDate
+        public DateTime RegisterDate
         {
             get
             {
-                if (string.IsNullOrEmpty(tbRegisterDate.Text)) return DateTime.Now;
+                if (string.IsNullOrEmpty(tbRegisterDate.Text)) return DateTime.UtcNow;
                 return DateTime.Parse(tbRegisterDate.Text);
             }
             set { tbRegisterDate.Text = value.ToString(CultureInfo.CurrentCulture); }
         }
 
-        public DateTimeOffset ValueDate
+        public DateTime ValueDate
         {
             get
             {

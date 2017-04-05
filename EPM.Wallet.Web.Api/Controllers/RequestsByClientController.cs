@@ -10,18 +10,18 @@ namespace WalletWebApi.Controllers
     [Authorize]
     public class RequestsByClientController : ApiController
     {
-        private readonly IAccountRequestApi _api;
+        private readonly IAccountRequestApi _accountRequestApi;
 
-        public RequestsByClientController(IAccountRequestApi api)
+        public RequestsByClientController(IAccountRequestApi accountRequestApi)
         {
-            _api = api;
+            _accountRequestApi = accountRequestApi;
         }
 
         [HttpGet]
         [Route("", Name = nameof(GetRequestsByClient)+  Ro.Route)]
-        public IEnumerable<AccountRequestDto> GetRequestsByClient(string clientId)
+        public IEnumerable<AccountRequestDto> GetRequestsByClient(string clientId, int from = 0, int count = 0)
         {
-            return _api.RequestsByClient(clientId);
+            return _accountRequestApi.RequestsByClient(clientId, from, count);
         }
     }
 }
