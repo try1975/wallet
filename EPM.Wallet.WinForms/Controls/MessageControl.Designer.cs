@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -36,6 +37,10 @@
             this.pnlSubject = new System.Windows.Forms.Panel();
             this.tbSubject = new System.Windows.Forms.TextBox();
             this.lblCurrency = new System.Windows.Forms.Label();
+            this.pnlReadDate = new System.Windows.Forms.Panel();
+            this.tbReadDate = new System.Windows.Forms.TextBox();
+            this.btnSetReaded = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlBank = new System.Windows.Forms.Panel();
             this.tbDate = new System.Windows.Forms.TextBox();
             this.lblBank = new System.Windows.Forms.Label();
@@ -54,21 +59,17 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
-            this.pnlReadDate = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSetReaded = new System.Windows.Forms.Button();
-            this.tbReadDate = new System.Windows.Forms.TextBox();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlSubject.SuspendLayout();
+            this.pnlReadDate.SuspendLayout();
             this.pnlBank.SuspendLayout();
             this.pnlAccountName.SuspendLayout();
             this.pnlId.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
-            this.pnlReadDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -152,6 +153,45 @@
             this.lblCurrency.Size = new System.Drawing.Size(43, 13);
             this.lblCurrency.TabIndex = 0;
             this.lblCurrency.Text = "Subject";
+            // 
+            // pnlReadDate
+            // 
+            this.pnlReadDate.Controls.Add(this.tbReadDate);
+            this.pnlReadDate.Controls.Add(this.btnSetReaded);
+            this.pnlReadDate.Controls.Add(this.label2);
+            this.pnlReadDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlReadDate.Location = new System.Drawing.Point(0, 101);
+            this.pnlReadDate.Name = "pnlReadDate";
+            this.pnlReadDate.Size = new System.Drawing.Size(396, 34);
+            this.pnlReadDate.TabIndex = 8;
+            // 
+            // tbReadDate
+            // 
+            this.tbReadDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReadDate.Location = new System.Drawing.Point(97, 7);
+            this.tbReadDate.Name = "tbReadDate";
+            this.tbReadDate.Size = new System.Drawing.Size(176, 20);
+            this.tbReadDate.TabIndex = 5;
+            // 
+            // btnSetReaded
+            // 
+            this.btnSetReaded.Location = new System.Drawing.Point(279, 5);
+            this.btnSetReaded.Name = "btnSetReaded";
+            this.btnSetReaded.Size = new System.Drawing.Size(75, 23);
+            this.btnSetReaded.TabIndex = 4;
+            this.btnSetReaded.Text = "Set readed";
+            this.btnSetReaded.UseVisualStyleBackColor = true;
+            this.btnSetReaded.Click += new System.EventHandler(this.btnSetReaded_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "ReadDate";
             // 
             // pnlBank
             // 
@@ -320,6 +360,8 @@
             this.dgvItems.AllowUserToAddRows = false;
             this.dgvItems.AllowUserToDeleteRows = false;
             this.dgvItems.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItems.FilterAndSortEnabled = true;
@@ -328,45 +370,6 @@
             this.dgvItems.ReadOnly = true;
             this.dgvItems.Size = new System.Drawing.Size(304, 476);
             this.dgvItems.TabIndex = 1;
-            // 
-            // pnlReadDate
-            // 
-            this.pnlReadDate.Controls.Add(this.tbReadDate);
-            this.pnlReadDate.Controls.Add(this.btnSetReaded);
-            this.pnlReadDate.Controls.Add(this.label2);
-            this.pnlReadDate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlReadDate.Location = new System.Drawing.Point(0, 101);
-            this.pnlReadDate.Name = "pnlReadDate";
-            this.pnlReadDate.Size = new System.Drawing.Size(396, 34);
-            this.pnlReadDate.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "ReadDate";
-            // 
-            // btnSetReaded
-            // 
-            this.btnSetReaded.Location = new System.Drawing.Point(279, 5);
-            this.btnSetReaded.Name = "btnSetReaded";
-            this.btnSetReaded.Size = new System.Drawing.Size(75, 23);
-            this.btnSetReaded.TabIndex = 4;
-            this.btnSetReaded.Text = "Set readed";
-            this.btnSetReaded.UseVisualStyleBackColor = true;
-            this.btnSetReaded.Click += new System.EventHandler(this.btnSetReaded_Click);
-            // 
-            // tbReadDate
-            // 
-            this.tbReadDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbReadDate.Location = new System.Drawing.Point(97, 7);
-            this.tbReadDate.Name = "tbReadDate";
-            this.tbReadDate.Size = new System.Drawing.Size(176, 20);
-            this.tbReadDate.TabIndex = 5;
             // 
             // MessageControl
             // 
@@ -383,6 +386,8 @@
             this.panel1.PerformLayout();
             this.pnlSubject.ResumeLayout(false);
             this.pnlSubject.PerformLayout();
+            this.pnlReadDate.ResumeLayout(false);
+            this.pnlReadDate.PerformLayout();
             this.pnlBank.ResumeLayout(false);
             this.pnlBank.PerformLayout();
             this.pnlAccountName.ResumeLayout(false);
@@ -392,8 +397,6 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
-            this.pnlReadDate.ResumeLayout(false);
-            this.pnlReadDate.PerformLayout();
             this.ResumeLayout(false);
 
         }

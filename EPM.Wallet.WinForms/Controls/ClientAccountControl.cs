@@ -136,6 +136,12 @@ namespace EPM.Wallet.WinForms.Controls
             if (column != null) column.Visible = false;
             column = dgvItems.Columns[nameof(AccountDto.BankAccountId)];
             if (column != null) column.Visible = false;
+
+            column = dgvItems.Columns[nameof(AccountDto.CurrentBalance)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+            }
         }
 
         public void SetEventHandlers()

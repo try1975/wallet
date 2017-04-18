@@ -69,7 +69,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbAmount.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbAmount.Text = value.ToString("N2"); }
         }
 
         public string CurrencyId
@@ -88,13 +88,13 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbAmountInCurrency.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbAmountInCurrency.Text = value.ToString("N2"); }
         }
 
         public decimal Balance
         {
             get { return 0; }
-            set { tbBalance.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbBalance.Text = value.ToString("N2"); }
         }
 
         public string FromTo
@@ -164,6 +164,22 @@ namespace EPM.Wallet.WinForms.Controls
             if (column != null) column.Visible = false;
             column = dgvItems.Columns[nameof(TransactionDto.StandingOrderId)];
             if (column != null) column.Visible = false;
+
+            column = dgvItems.Columns[nameof(TransactionDto.Amount)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+            }
+            column = dgvItems.Columns[nameof(TransactionDto.AmountInCurrency)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+            }
+            column = dgvItems.Columns[nameof(TransactionDto.Balance)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+            }
         }
 
         public void SetEventHandlers()

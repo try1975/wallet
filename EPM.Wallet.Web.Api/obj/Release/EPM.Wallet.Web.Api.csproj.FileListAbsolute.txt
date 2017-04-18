@@ -109,4 +109,3 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\ru\Microsoft.IdentityModel.resources.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\Web.AppSettings.config

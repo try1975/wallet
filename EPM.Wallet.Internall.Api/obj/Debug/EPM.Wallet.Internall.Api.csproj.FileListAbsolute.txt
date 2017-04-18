@@ -256,3 +256,4 @@ C:\Projects\github\wallet\EPM.Wallet.Internall.Api\obj\Debug\EPM.Wallet.Internal
 C:\Projects\github\wallet\EPM.Wallet.Internall.Api\obj\Debug\EPM.Wallet.Internal.Api.pdb
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\log4net.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\log4net.xml
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internall.Api\bin\Web.AppSettings.config

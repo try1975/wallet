@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
             this.pnlBankName = new System.Windows.Forms.Panel();
@@ -43,8 +44,8 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.pnlGrid = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.pnlBankName.SuspendLayout();
@@ -199,20 +200,13 @@
             this.pnlGrid.Size = new System.Drawing.Size(261, 428);
             this.pnlGrid.TabIndex = 4;
             // 
-            // splitter1
-            // 
-            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(261, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 428);
-            this.splitter1.TabIndex = 5;
-            this.splitter1.TabStop = false;
-            // 
             // dgvItems
             // 
             this.dgvItems.AllowUserToAddRows = false;
             this.dgvItems.AllowUserToDeleteRows = false;
             this.dgvItems.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItems.FilterAndSortEnabled = true;
@@ -221,6 +215,15 @@
             this.dgvItems.ReadOnly = true;
             this.dgvItems.Size = new System.Drawing.Size(261, 428);
             this.dgvItems.TabIndex = 1;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter1.Location = new System.Drawing.Point(261, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 428);
+            this.splitter1.TabIndex = 5;
+            this.splitter1.TabStop = false;
             // 
             // BankControl
             // 

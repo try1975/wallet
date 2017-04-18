@@ -41,7 +41,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnClients = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnlCards = new System.Windows.Forms.Panel();
             this.bntCards = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnMessages = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.pnlCards.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -88,7 +88,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.pnlCards);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel4);
@@ -191,15 +191,15 @@
             this.panel8.Size = new System.Drawing.Size(89, 32);
             this.panel8.TabIndex = 13;
             // 
-            // panel6
+            // pnlCards
             // 
-            this.panel6.Controls.Add(this.bntCards);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(274, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(89, 32);
-            this.panel6.TabIndex = 11;
-            this.panel6.Visible = false;
+            this.pnlCards.Controls.Add(this.bntCards);
+            this.pnlCards.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlCards.Location = new System.Drawing.Point(274, 0);
+            this.pnlCards.Name = "pnlCards";
+            this.pnlCards.Size = new System.Drawing.Size(89, 32);
+            this.pnlCards.TabIndex = 11;
+            this.pnlCards.Visible = false;
             // 
             // bntCards
             // 
@@ -282,7 +282,7 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
+            this.pnlCards.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -303,7 +303,7 @@
         private System.Windows.Forms.Button btnMessages;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel pnlCards;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;

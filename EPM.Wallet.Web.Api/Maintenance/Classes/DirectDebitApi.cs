@@ -23,7 +23,7 @@ namespace WalletWebApi.Maintenance
         public IEnumerable<DirectDebitDto> GetDirectDebitsByClient(string clientId)
         {
             var directDebits = _query.GetEntities()
-                .Where(m => m.SourceAccount.ClientId == clientId && m.Card.ClientId == clientId)
+                .Where(m => m.SourceAccount.ClientId.Equals(clientId) && m.Card.ClientId.Equals(clientId))
                 .Include(nameof(DirectDebitEntity.SourceAccount))
                 .Include(nameof(DirectDebitEntity.Card))
                 ;

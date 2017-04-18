@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tbNote = new System.Windows.Forms.TextBox();
+            this.lblNote = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tbFromTo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tbBalance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,14 +68,10 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tbFromTo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tbNote = new System.Windows.Forms.TextBox();
-            this.lblNote = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,8 +82,6 @@
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -109,6 +110,62 @@
             this.pnlFields.Name = "pnlFields";
             this.pnlFields.Size = new System.Drawing.Size(396, 442);
             this.pnlFields.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.tbNote);
+            this.panel6.Controls.Add(this.lblNote);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 271);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(396, 34);
+            this.panel6.TabIndex = 12;
+            // 
+            // tbNote
+            // 
+            this.tbNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbNote.Location = new System.Drawing.Point(97, 6);
+            this.tbNote.Name = "tbNote";
+            this.tbNote.Size = new System.Drawing.Size(283, 20);
+            this.tbNote.TabIndex = 2;
+            // 
+            // lblNote
+            // 
+            this.lblNote.AutoSize = true;
+            this.lblNote.Location = new System.Drawing.Point(7, 7);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(30, 13);
+            this.lblNote.TabIndex = 0;
+            this.lblNote.Text = "Note";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tbFromTo);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 237);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(396, 34);
+            this.panel3.TabIndex = 11;
+            // 
+            // tbFromTo
+            // 
+            this.tbFromTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbFromTo.Location = new System.Drawing.Point(97, 6);
+            this.tbFromTo.Name = "tbFromTo";
+            this.tbFromTo.Size = new System.Drawing.Size(283, 20);
+            this.tbFromTo.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "FromTo";
             // 
             // panel5
             // 
@@ -399,6 +456,8 @@
             this.dgvItems.AllowUserToAddRows = false;
             this.dgvItems.AllowUserToDeleteRows = false;
             this.dgvItems.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItems.FilterAndSortEnabled = true;
@@ -407,62 +466,6 @@
             this.dgvItems.ReadOnly = true;
             this.dgvItems.Size = new System.Drawing.Size(362, 483);
             this.dgvItems.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.tbFromTo);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 237);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(396, 34);
-            this.panel3.TabIndex = 11;
-            // 
-            // tbFromTo
-            // 
-            this.tbFromTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbFromTo.Location = new System.Drawing.Point(97, 6);
-            this.tbFromTo.Name = "tbFromTo";
-            this.tbFromTo.Size = new System.Drawing.Size(283, 20);
-            this.tbFromTo.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "FromTo";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.tbNote);
-            this.panel6.Controls.Add(this.lblNote);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 271);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(396, 34);
-            this.panel6.TabIndex = 12;
-            // 
-            // tbNote
-            // 
-            this.tbNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNote.Location = new System.Drawing.Point(97, 6);
-            this.tbNote.Name = "tbNote";
-            this.tbNote.Size = new System.Drawing.Size(283, 20);
-            this.tbNote.TabIndex = 2;
-            // 
-            // lblNote
-            // 
-            this.lblNote.AutoSize = true;
-            this.lblNote.Location = new System.Drawing.Point(7, 7);
-            this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(30, 13);
-            this.lblNote.TabIndex = 0;
-            this.lblNote.Text = "Note";
             // 
             // TransactionControl
             // 
@@ -475,6 +478,10 @@
             this.Size = new System.Drawing.Size(761, 483);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -492,10 +499,6 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }

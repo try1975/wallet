@@ -6,7 +6,7 @@ namespace EPM.Wallet.Internal.Model
     {
         public string AccountName { get; set; }
 
-        public DateTimeOffset ValueDate { get; set; }
+        public DateTime ValueDate { get; set; }
 
         public string Period { get; set; }
 

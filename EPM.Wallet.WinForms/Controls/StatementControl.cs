@@ -66,7 +66,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbPreviosBalance.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbPreviosBalance.Text = value.ToString("N2"); }
         }
 
         public decimal Credits {
@@ -78,7 +78,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbCredits.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbCredits.Text = value.ToString("N2"); }
         }
 
         public decimal Debits {
@@ -90,7 +90,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbDebits.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbDebits.Text = value.ToString("N2"); }
         }
 
         public decimal NewBalance {
@@ -102,7 +102,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbNewBalance.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbNewBalance.Text = value.ToString("N2"); }
         }
 
         public byte[] Content { get; set; }
@@ -151,6 +151,27 @@ namespace EPM.Wallet.WinForms.Controls
             if (column != null) column.Visible = false;
             column = dgvItems.Columns[nameof(StatementDto.Content)];
             if (column != null) column.Visible = false;
+
+            column = dgvItems.Columns[nameof(StatementDto.PreviousBalance)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+            }
+            column = dgvItems.Columns[nameof(StatementDto.Debits)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+            }
+            column = dgvItems.Columns[nameof(StatementDto.Credits)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+            }
+            column = dgvItems.Columns[nameof(StatementDto.NewBalance)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+            }
         }
 
         public void SetEventHandlers()

@@ -23,7 +23,6 @@ namespace WalletInternalApi.Maintenance
 
             //var list = Query.GetEntities().OrderBy(z => z.RegisterDate).ToList();
             var transactions = Query.GetEntities();
-
             var list = transactions.Join(_accountQuery.GetEntities(), o => o.AccountId, i => i.Id
                 , (o, i) => new TransactionDto()
                 {
@@ -44,8 +43,36 @@ namespace WalletInternalApi.Maintenance
                     Balance = o.Balance
                 }
                 )
-                .OrderBy(r => r.RegisterDate)
+                .OrderByDescending(r => r.RegisterDate)
+                .ThenBy(z=>z.AccountId)
+                .ThenByDescending(z=>z.Id)
                 .ToList();
+
+            return Mapper.Map<List<TransactionDto>>(list);
+
+
+            //var list = transactions.Join(_accountQuery.GetEntities(), o => o.AccountId, i => i.Id
+            //    , (o, i) => new TransactionDto()
+            //    {
+            //        Id = o.Id,
+            //        AccountId = o.AccountId,
+            //        AccountName = i.Name,
+            //        ClientId = i.ClientId,
+            //        AccountCurrency = i.CurrencyId,
+            //        RegisterDate = o.RegisterDate,
+            //        ValueDate = o.ValueDate,
+            //        Amount = o.Amount,
+            //        CurrencyId = o.CurrencyId,
+            //        AmountInCurrency = o.AmountInCurrency,
+            //        FromTo = o.FromTo,
+            //        Note = o.Note,
+            //        RequestId = o.RequestId,
+            //        StandingOrderId = o.StandingOrderId,
+            //        Balance = o.Balance
+            //    }
+            //    )
+            //    .OrderBy(r => r.RegisterDate)
+            //    .ToList();
 
             //var balances = new Dictionary<Guid, decimal>();
             //foreach (var transaction in list)
@@ -56,7 +83,7 @@ namespace WalletInternalApi.Maintenance
             //    transaction.Balance = balance;
             //    balances[transaction.AccountId] = balance;
             //}
-            return Mapper.Map<List<TransactionDto>>(list.OrderByDescending(z => z.RegisterDate));
+            //return Mapper.Map<List<TransactionDto>>(list.OrderByDescending(z => z.RegisterDate));
         }
 
         public override TransactionDto AddItem(TransactionDto dto)
@@ -65,6 +92,7 @@ namespace WalletInternalApi.Maintenance
                 Query.GetEntities()
                     .Where(z => z.AccountId == dto.AccountId && z.RegisterDate <= dto.RegisterDate)
                     .OrderByDescending(z => z.RegisterDate)
+                    .ThenByDescending(z=>z.Id)
                     .FirstOrDefault();
             var account = _accountQuery.GetEntity(dto.AccountId);
             var balance = lastTransaction?.Balance ?? account.InitialBalance;
@@ -82,6 +110,7 @@ namespace WalletInternalApi.Maintenance
                         Query.GetEntities()
                             .Where(z => z.AccountId == dto.AccountId && z.RegisterDate > dto.RegisterDate)
                             .OrderBy(z => z.RegisterDate)
+                            .ThenBy(z=>z.Id)
                             .ToList();
                     foreach (var transaction in latestTransactions)
                     {
@@ -106,16 +135,28 @@ namespace WalletInternalApi.Maintenance
 
         public override TransactionDto ChangeItem(TransactionDto dto)
         {
+            var entity = Query.GetEntity(dto.Id);
+            if (entity == null) return null;
+            // if not need recalc balances
+            if (entity.AccountId == dto.AccountId && entity.RegisterDate == dto.RegisterDate &&
+                entity.Amount == dto.Amount)
+            {
+                entity = Mapper.Map<TransactionEntity>(dto);
+                entity = Query.UpdateEntity(entity);
+                return Mapper.Map<TransactionDto>(entity);
+            }
+
             var lastTransaction =
                 Query.GetEntities()
-                    .Where(z => z.AccountId == dto.AccountId && z.RegisterDate <= dto.RegisterDate && z.Id!=dto.Id)
+                    .Where(z => z.AccountId == dto.AccountId && z.RegisterDate < dto.RegisterDate)
                     .OrderByDescending(z => z.RegisterDate)
+                    .ThenByDescending(z => z.Id)
                     .FirstOrDefault();
             var account = _accountQuery.GetEntity(dto.AccountId);
             var balance = lastTransaction?.Balance ?? account.InitialBalance;
-            var entity = Mapper.Map<TransactionEntity>(dto);
-            balance += entity.Amount;
-            entity.Balance = balance;
+            entity = Mapper.Map<TransactionEntity>(dto);
+            //balance += entity.Amount;
+            //entity.Balance = balance;
 
             using (var dbContextTransaction = Query.GetDbContext().Database.BeginTransaction())
             {
@@ -125,8 +166,9 @@ namespace WalletInternalApi.Maintenance
 
                     var latestTransactions =
                         Query.GetEntities()
-                            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate > dto.RegisterDate)
+                            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate >= dto.RegisterDate)
                             .OrderBy(z => z.RegisterDate)
+                            .ThenBy(z => z.Id)
                             .ToList();
                     foreach (var transaction in latestTransactions)
                     {
@@ -153,10 +195,12 @@ namespace WalletInternalApi.Maintenance
         {
             var entity = Query.GetEntity(id);
             if (entity == null) return false;
+            //var startDate = entity.RegisterDate.Date;
             var lastTransaction =
                 Query.GetEntities()
-                    .Where(z => z.AccountId == entity.AccountId && z.RegisterDate <= entity.RegisterDate && z.Id != entity.Id)
+                    .Where(z => z.AccountId == entity.AccountId && z.RegisterDate < entity.RegisterDate)
                     .OrderByDescending(z => z.RegisterDate)
+                    .ThenByDescending(z => z.Id)
                     .FirstOrDefault();
             var account = _accountQuery.GetEntity(entity.AccountId);
             var balance = lastTransaction?.Balance ?? account.InitialBalance;
@@ -173,8 +217,9 @@ namespace WalletInternalApi.Maintenance
 
                     var latestTransactions =
                         Query.GetEntities()
-                            .Where(z => z.AccountId == entity.AccountId && z.RegisterDate > entity.RegisterDate)
+                            .Where(z => z.AccountId == entity.AccountId && z.RegisterDate >= entity.RegisterDate)
                             .OrderBy(z => z.RegisterDate)
+                            .ThenBy(z => z.Id)
                             .ToList();
                     foreach (var transaction in latestTransactions)
                     {

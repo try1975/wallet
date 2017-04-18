@@ -11,7 +11,14 @@ namespace EPM.Wallet.WinForms.Controls
         public WalletControl()
         {
             InitializeComponent();
-            if (AppGlobal.ClientAppVariant == ClientAppVariant.Wallet) btnRequests.Text = @"Requests";
+            if (AppGlobal.ClientAppVariant == ClientAppVariant.Wallet)
+            {
+                btnRequests.Text = @"Requests";
+                pnlCards.Visible = true;
+            }
+            if (AppGlobal.ClientAppVariant != ClientAppVariant.Dpa) return;
+            btnRequests.Text = @"Transfer Outs";
+            pnlCards.Visible = false;
         }
 
         private void AddControlToWorkArea(Control control)

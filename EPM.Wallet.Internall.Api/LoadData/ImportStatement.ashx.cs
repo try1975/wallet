@@ -128,13 +128,19 @@ namespace WalletInternalApi.LoadData
             try
             {
                 // write statement to database
-                IStatementApi statementApi = new StatementApi(new StatementQuery(new WalletContext()),
-                    new AccountQuery(new WalletContext()));
-                if (statementApi.WriteAccountStatementData(statementData))
+                using (var walletContext = new WalletContext())
                 {
-                    context.Response.Write("OK");
+                    IStatementApi statementApi = new StatementApi(new StatementQuery(walletContext),
+                        new AccountQuery(walletContext));
+                    if (statementApi.WriteAccountStatementData(statementData))
+                    {
+                        context.Response.Write($"OK [{statementData.AccountName}]");
+                    }
+                    else
+                    {
+                        context.Response.Write("Error");
+                    }
                 }
-                else { context.Response.Write("Error"); }
             }
             catch (Exception e)
             {
@@ -142,7 +148,7 @@ namespace WalletInternalApi.LoadData
                 Log.Error(e);
                 context.Response.Write("Error");
                 context.Response.Write(e.ToString());
-                throw;
+                //throw;
                 
             }
         }

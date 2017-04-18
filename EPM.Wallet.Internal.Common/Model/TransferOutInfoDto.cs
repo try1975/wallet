@@ -16,12 +16,12 @@ namespace EPM.Wallet.Internal.Model
         public string Note { get; set; }
 
         // Requisite
+        public string AccountName { get; set; }
+        public string AccountCurrency { get; set; }
         public string BankName { get; set; }
         public string Iban { get; set; }
         public string BankAddress { get; set; }
         public string Bic { get; set; }
         public string OwnerName { get; set; }
-        public string AccountName { get; set; }
-        public string AccountCurrency { get; set; }
     }
 }

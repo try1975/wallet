@@ -4,9 +4,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Internal.Model;
-using EPM.Wallet.WinForms.Forms;
 using EPM.Wallet.WinForms.Interfaces;
-using EPM.Wallet.WinForms.Ninject;
 using EPM.Wallet.WinForms.Presenters;
 
 namespace EPM.Wallet.WinForms.Controls
@@ -101,7 +99,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbAmountOut.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbAmountOut.Text = value.ToString("N2"); }
         }
 
         public string BankName
@@ -162,6 +160,12 @@ namespace EPM.Wallet.WinForms.Controls
             if (column != null) column.Visible = false;
             column = dgvItems.Columns[nameof(TransferOutInfoDto.AccountId)];
             if (column != null) column.Visible = false;
+            column = dgvItems.Columns[nameof(TransferOutInfoDto.AmountOut)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format="N2";
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
             // sort mode
             //column = dgvItems.Columns[nameof(TransferOutInfoDto.Date)];
             //if (column != null) column.SortMode=DataGridViewColumnSortMode.Automatic;
@@ -264,17 +268,17 @@ namespace EPM.Wallet.WinForms.Controls
         public void DisableInput()
         {
             tbId.Enabled = false;
-            tbAccount.Enabled = false;
-            tbClientId.Enabled = false;
-            tbAmountOut.Enabled = false;
-            tbCurrencyId.Enabled = false;
-            cmbRequestStatus.Enabled = false;
-            tbValueDate.Enabled = false;
-            tbBankName.Enabled = false;
-            tbIban.Enabled = false;
-            tbBankAddress.Enabled = false;
-            tbBic.Enabled = false;
-            tbOwnerName.Enabled = false;
+            //tbAccount.Enabled = false;
+            //tbClientId.Enabled = false;
+            //tbAmountOut.Enabled = false;
+            //tbCurrencyId.Enabled = false;
+            //cmbRequestStatus.Enabled = false;
+            //tbValueDate.Enabled = false;
+            //tbBankName.Enabled = false;
+            //tbIban.Enabled = false;
+            //tbBankAddress.Enabled = false;
+            //tbBic.Enabled = false;
+            //tbOwnerName.Enabled = false;
         }
 
         #endregion //IEnterMode
@@ -317,15 +321,15 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnProcessed_Click(object sender, EventArgs e)
         {
             if (RequestStatus != RequestStatus.Pending) return;
-            var transactionByRequestForm = new TransactionByRequestForm(CompositionRoot.Resolve<ITransactionDataManager>(), CompositionRoot.Resolve<IDataMаnager>());
+            //var transactionByRequestForm = new TransactionByRequestForm(CompositionRoot.Resolve<ITransactionDataManager>(), CompositionRoot.Resolve<IDataMаnager>());
 
-            if (AccountId.HasValue) transactionByRequestForm.AccountId = AccountId.Value;
-            if (ValueDate.HasValue) transactionByRequestForm.ValueDate = ValueDate.Value;
-            transactionByRequestForm.Amount = -AmountOut;
-            transactionByRequestForm.AmountInCurrency = -AmountOut;
-            transactionByRequestForm.CurrencyId = CurrencyId;
+            //if (AccountId.HasValue) transactionByRequestForm.AccountId = AccountId.Value;
+            //if (ValueDate.HasValue) transactionByRequestForm.ValueDate = ValueDate.Value;
+            //transactionByRequestForm.Amount = -AmountOut;
+            //transactionByRequestForm.AmountInCurrency = -AmountOut;
+            //transactionByRequestForm.CurrencyId = CurrencyId;
 
-            if (transactionByRequestForm.ShowDialog() != DialogResult.OK) return;
+            //if (transactionByRequestForm.ShowDialog() != DialogResult.OK) return;
             _presenter.Edit();
             RequestStatus = RequestStatus.Processed;
             _presenter.Save();

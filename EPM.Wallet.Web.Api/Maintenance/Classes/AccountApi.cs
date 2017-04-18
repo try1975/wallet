@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using EPM.Wallet.Data.Entities;
@@ -19,12 +20,27 @@ namespace WalletWebApi.Maintenance
 
         public IEnumerable<AccountDto> GetAccountsByClient(string clientId)
         {
-            var list = _query.GetEntities().Where(z => z.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)).ToList();
-            //foreach (var accountEntity in list)
-            //{
-            //    //var transactions = _transactionQuery.GetEntities().Where(z => z.AccountId == accountEntity.Id).Sum(z => z.Amount);
-            //    //accountEntity.CurrentBalance = balance;
-            //}
+            var list = _query.GetEntities()
+                .Where(z => z.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase))
+                .Include(z=>z.BankAccount)
+                .Include(z=>z.BankAccount.Bank)
+                .ToList()
+                ;
+            foreach (var accountEntity in list)
+            {
+                //var transactions = _transactionQuery.GetEntities().Where(z => z.AccountId == accountEntity.Id).Sum(z => z.Amount);
+                //accountEntity.CurrentBalance = balance;
+                var requisiteEntity = new RequisiteEntity()
+                {
+                    Name = accountEntity.Name,
+                    BankName = accountEntity.BankAccount.Bank.Name,
+                    BankAddress = "",
+                    Bic = "",
+                    Iban = accountEntity.BankAccount.Name,
+                    OwnerName = accountEntity.Name
+                };
+                accountEntity.Requisite = requisiteEntity;
+            }
             return Mapper.Map<List<AccountDto>>(list);
         }
 

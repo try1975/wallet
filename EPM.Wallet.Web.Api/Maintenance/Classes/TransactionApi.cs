@@ -20,27 +20,28 @@ namespace WalletWebApi.Maintenance
 
         public IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId, int from, int count)
         {
-            var account = _accountQuery.GetEntities().FirstOrDefault(z => z.ClientId == clientId && z.Id == accountId);
+            var account = _accountQuery.GetEntities().FirstOrDefault(z => z.ClientId.Equals(clientId) && z.Id == accountId);
             if (account == null) return null;
             var list = _query.GetEntities()
                 .Where(z => z.AccountId == accountId)
                 .OrderByDescending(i => i.RegisterDate)
-                .Skip(from)
-                .Take(count > 0 ? count : 1000)
+                .ThenByDescending(z => z.Id)
                 .ToList()
                 ;
-            return Mapper.Map<List<TransactionDto>>(list);
-            //var list = _query.GetEntities()
-            //    .Where(z => z.AccountId == accountId)
-            //    .OrderBy(i => i.RegisterDate)
-            //    .ToList()
-            //    ;
-            //var balance = 0.00M;
-            //foreach (var transaction in list)
-            //{
-            //    balance += transaction.Amount;
-            //    transaction.Balance = balance;
-            //}
+            if (!list.Any()) return null;
+            var firstTransaction = list.FirstOrDefault();
+            var balance = 0.00M;
+            if (firstTransaction != null)
+            {
+                balance = firstTransaction.Balance;
+            }
+            var byValueDateTransactions = list.OrderByDescending(z => z.ValueDate).ThenByDescending(z => z.Id).ToList();
+            foreach (var transaction in byValueDateTransactions)
+            {
+                transaction.Balance = balance;
+                balance -= transaction.Amount;
+            }
+            return Mapper.Map<List<TransactionDto>>(byValueDateTransactions.Skip(from).Take(count > 0 ? count : 1000).ToList());
             //return Mapper.Map<List<TransactionDto>>(list.OrderByDescending(z => z.RegisterDate));
         }
     }

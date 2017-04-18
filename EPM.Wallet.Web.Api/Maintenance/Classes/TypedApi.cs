@@ -23,7 +23,7 @@ namespace WalletWebApi.Maintenance
             return Mapper.Map<List<TV>>(list);
         }
 
-        public TV GetItem(TK id)
+        public virtual TV GetItem(TK id)
         {
             return Mapper.Map<TV>(_query.GetEntity(id));
         }
