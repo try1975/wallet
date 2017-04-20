@@ -27,6 +27,7 @@
 
             public const string Requests = ApiSegmentName + nameof(Requests);
             public const string RequestsByClient = ByClient + nameof(Requests);
+            
 
 
             public const string StandingOrders = ApiSegmentName + nameof(StandingOrders);

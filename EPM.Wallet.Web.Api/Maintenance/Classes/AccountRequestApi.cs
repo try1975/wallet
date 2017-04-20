@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using AutoMapper;
@@ -27,6 +28,58 @@ namespace WalletWebApi.Maintenance
             _cardQuery = cardQuery;
             _requisiteQuery = requisiteQuery;
             _clientQuery = clientQuery;
+        }
+
+        public IEnumerable<AccountRequestTransferOutDto> GetTransferOutRequestsByClient(string clientId, int @from, int count)
+        {
+            var list = _query.GetEntities()
+                .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected)))
+                .Include(nameof(AccountRequestTransferOutDto.Requisite))
+                .OrderByDescending(i => i.CreatedAt)
+                .Skip(from)
+                .Take(count > 0 ? count : 1000)
+                .ToList()
+                ;
+            var dtoList = new List<AccountRequestTransferOutDto>();
+            foreach (var accountRequestEntity in list)
+            {
+                var dto = Mapper.Map<AccountRequestTransferOutDto>(accountRequestEntity);
+                if (accountRequestEntity.ClientAccountId.HasValue)
+                {
+                    var accountId = accountRequestEntity.ClientAccountId.Value;
+                    dto.AccountName = _accountQuery.GetEntity(accountId).Name;
+                }
+
+                if (accountRequestEntity.AccountRequestType == AccountRequestType.Refill)
+                {
+                    if (accountRequestEntity.BeneficiaryAccountId.HasValue)
+                    {
+                        var accountId = accountRequestEntity.BeneficiaryAccountId.Value;
+                        dto.BeneficiaryAccount = _accountQuery.GetEntity(accountId).Name;
+                    }
+                }
+                // TODO: ??? AccountTopUp requisites?
+                if (accountRequestEntity.AccountRequestType == AccountRequestType.TransferOut || accountRequestEntity.AccountRequestType == AccountRequestType.AccountTopUp)
+                {
+                    if (accountRequestEntity.RequisiteId.HasValue)
+                    {
+                        var requisiteId = accountRequestEntity.RequisiteId.Value;
+                        dto.BeneficiaryAccount = _requisiteQuery.GetEntity(requisiteId).Name;
+                    }
+                }
+                if (accountRequestEntity.AccountRequestType == AccountRequestType.TransferToCard)
+                {
+                    if (accountRequestEntity.CardId.HasValue)
+                    {
+                        var cardId = accountRequestEntity.CardId.Value;
+                        dto.BeneficiaryCard = _cardQuery.GetEntity(cardId).CardNumber;
+                    }
+                }
+                dtoList.Add(dto);
+            }
+
+            //return Mapper.Map<List<AccountRequestDto>>(list);
+            return dtoList;
         }
 
         public IEnumerable<AccountRequestDto> RequestsByClient(string clientId, int from, int count)
@@ -65,7 +118,7 @@ namespace WalletWebApi.Maintenance
                         dto.BeneficiaryAccount = _requisiteQuery.GetEntity(requisiteId).Name;
                     }
                 }
-                if(accountRequestEntity.AccountRequestType == AccountRequestType.TransferToCard)
+                if (accountRequestEntity.AccountRequestType == AccountRequestType.TransferToCard)
                 {
                     if (accountRequestEntity.CardId.HasValue)
                     {
@@ -118,7 +171,7 @@ namespace WalletWebApi.Maintenance
             //await Task.WhenAll(accountTask, beneficiaryTask);
 
             //var account = accountTask.Result;
-            var account = _accountQuery.GetEntity(accountId); 
+            var account = _accountQuery.GetEntity(accountId);
             if (account == null) return false;
             if (!account.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)) return false;
 

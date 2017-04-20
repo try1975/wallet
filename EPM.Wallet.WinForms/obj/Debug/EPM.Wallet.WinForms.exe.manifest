@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iOECsWiFdmqqu0PJFLUWRRyEry5rkbCufXYGZTxlxBk=</dsig:DigestValue>
+        <dsig:DigestValue>6RQGWXlW4KA0WkIAFqFGtq9R7/A6K5fN0XW5bXc698Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CMvBQ5j7mHYR93eKZ99WJ39yMoeyNTBYfhNYjVhTXME=</dsig:DigestValue>
+        <dsig:DigestValue>1hlgo7uZhpeNk5KFAWwWUPFElOXLmivSs3tdTuXKfYE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,13 +146,13 @@
       <dsig:DigestValue>dLMoFvYy4erT4akDbrd37Qnt9+5JM2minr3sTpVCgWk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="EPM.Wallet.WinForms.exe.config" size="3129">
+  <file name="EPM.Wallet.WinForms.exe.config" size="3070">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6k/Ny+UVUiOzwX3QEh0xcLx+7Wtbszns/KotpVVUuoI=</dsig:DigestValue>
+      <dsig:DigestValue>IatYLdoCciDBwBPeprGsdJFFrE5m97wLNyeHpgi+BMA=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

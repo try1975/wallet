@@ -72,6 +72,14 @@ namespace WalletWebApi.Controllers
             return _transactionApi.GetTransactionsByAccount(clientId, accountId, from, count);
         }
 
+        //[HttpGet]
+        //[Route("{" + Ro.AccountId + ":guid}/TransferOuts",
+        //    Name = nameof(GetTransferOutsByAccount) + Ro.Route)]
+        //public IEnumerable<TransactionDto> GetTransferOutsByAccount(string clientId, Guid accountId, int from = 0, int count = 0)
+        //{
+        //    return _transactionApi.GetTransactionsByAccount(clientId, accountId, from, count);
+        //}
+
         [HttpPost]
         [Route("", Name = nameof(PostAccountsByClientNewRequest) + Ro.Route)]
         public IHttpActionResult PostAccountsByClientNewRequest(string clientId, AccountNewRequestDto dto)

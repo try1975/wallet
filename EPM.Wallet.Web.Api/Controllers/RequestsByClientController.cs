@@ -23,5 +23,12 @@ namespace WalletWebApi.Controllers
         {
             return _accountRequestApi.RequestsByClient(clientId, from, count);
         }
+
+        [HttpGet]
+        [Route("TransferOuts/", Name = nameof(GetTransferOutRequestsByClient) + Ro.Route)]
+        public IEnumerable<AccountRequestTransferOutDto> GetTransferOutRequestsByClient(string clientId, int from = 0, int count = 0)
+        {
+            return _accountRequestApi.GetTransferOutRequestsByClient(clientId, from, count);
+        }
     }
 }

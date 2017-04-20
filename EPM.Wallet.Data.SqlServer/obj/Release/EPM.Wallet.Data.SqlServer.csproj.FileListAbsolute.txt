@@ -74,3 +74,5 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Release\EPM.
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Release\EPM.Wallet.Data.SqlServer.Migrations.V21.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Release\EPM.Wallet.Data.SqlServer.Migrations.V22.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Data.SqlServer\obj\Release\EPM.Wallet.Data.SqlServer.Migrations.V23.resources
+C:\Projects\github\wallet\EPM.Wallet.Data.SqlServer\obj\Release\EPM.Wallet.Data.SqlServer.Migrations.V22.resources
+C:\Projects\github\wallet\EPM.Wallet.Data.SqlServer\obj\Release\EPM.Wallet.Data.SqlServer.Migrations.V23.resources

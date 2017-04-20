@@ -169,16 +169,19 @@ namespace EPM.Wallet.WinForms.Controls
             if (column != null)
             {
                 column.DefaultCellStyle.Format = "N2";
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             column = dgvItems.Columns[nameof(TransactionDto.AmountInCurrency)];
             if (column != null)
             {
                 column.DefaultCellStyle.Format = "N2";
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             column = dgvItems.Columns[nameof(TransactionDto.Balance)];
             if (column != null)
             {
                 column.DefaultCellStyle.Format = "N2";
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
         }
 

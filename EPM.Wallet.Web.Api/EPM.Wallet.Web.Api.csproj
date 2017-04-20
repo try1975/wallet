@@ -171,6 +171,7 @@
     <Compile Include="Maintenance\Classes\TransactionApi.cs" />
     <Compile Include="Maintenance\Interfaces\IDirectDebitApi.cs" />
     <Compile Include="Maintenance\Interfaces\ITransactionApi.cs" />
+    <Compile Include="Model\AccountRequestTransferOutDto.cs" />
     <Compile Include="Model\DirectDebitDto.cs" />
     <Compile Include="Model\TransactionDto.cs" />
     <Compile Include="Ninject\Configurator.cs" />

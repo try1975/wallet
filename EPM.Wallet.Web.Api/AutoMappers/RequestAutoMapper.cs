@@ -28,6 +28,13 @@ namespace WalletWebApi.AutoMappers
                 .ForMember(dest => dest.AccountRequestType, opt => opt.MapFrom(src => src.SubType))
                 ;
 
+            cfg.CreateMap<AccountRequestEntity, AccountRequestTransferOutDto>()
+                .ForMember(dest => dest.SubType, opt => opt.MapFrom(src => src.AccountRequestType))
+               ;
+            cfg.CreateMap<AccountRequestTransferOutDto, AccountRequestEntity>()
+                .ForMember(dest => dest.AccountRequestType, opt => opt.MapFrom(src => src.SubType))
+                ;
+
             cfg.CreateMap<AccountRequestEntity, AccountNewRequestDto>()
                ;
             cfg.CreateMap<AccountNewRequestDto, AccountRequestEntity>()
@@ -63,7 +70,6 @@ namespace WalletWebApi.AutoMappers
                 ;
             cfg.CreateMap<CardBlockRequestDto, CardBlockRequestEntity>()
                 ;
-
         }
     }
 }

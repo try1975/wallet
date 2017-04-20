@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using EPM.Wallet.Data.Entities;
@@ -24,6 +25,7 @@ namespace WalletWebApi.Maintenance
             if (account == null) return null;
             var list = _query.GetEntities()
                 .Where(z => z.AccountId == accountId)
+                /*.Include(nameof(ClientAccountEntity.Requisite))*/
                 .OrderByDescending(i => i.RegisterDate)
                 .ThenByDescending(z => z.Id)
                 .ToList()

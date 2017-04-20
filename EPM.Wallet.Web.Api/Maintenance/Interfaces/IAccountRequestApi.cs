@@ -6,6 +6,7 @@ namespace WalletWebApi.Maintenance
 {
     public interface IAccountRequestApi : ITypedApi<AccountRequestDto, Guid>
     {
+        IEnumerable<AccountRequestTransferOutDto> GetTransferOutRequestsByClient(string clientId, int @from, int count);
         IEnumerable<AccountRequestDto> RequestsByClient(string clientId, int from, int count);
 
         bool CreateAccountNewRequest(string clientId, AccountNewRequestDto dto);
