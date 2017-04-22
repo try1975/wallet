@@ -12,8 +12,8 @@ namespace EPM.Wallet.Data.Entities
         public decimal AmountIn { get; set; }
         public decimal AmountOut { get; set; }
         public Guid? BeneficiaryAccountId { get; set; }
-        public Guid? RequisiteId { get; set; }
-        public RequisiteEntity Requisite { get; set; }
+        //public Guid? RequisiteId { get; set; }
+        //public RequisiteEntity Requisite { get; set; }
 
         public DateTime? ValueDate { get; set; }
     }

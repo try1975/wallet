@@ -6,9 +6,12 @@ namespace EPM.Wallet.Internal.Model
     public class TransferOutInfoDto : IDto<Guid>
     {
         public Guid Id { get; set; }
+        public string ClientId { get; set; }
+        public string ClientName { get; set; }
+        public string AccountCurrency { get; set; }
+        public string AccountName { get; set; }
         public DateTime Date { get; set; }
         public DateTime? ValueDate { get; set; }
-        public string ClientId { get; set; }
         public string CurrencyId { get; set; }
         public RequestStatus RequestStatus { get; set; }
         public Guid? AccountId { get; set; }
@@ -16,8 +19,6 @@ namespace EPM.Wallet.Internal.Model
         public string Note { get; set; }
 
         // Requisite
-        public string AccountName { get; set; }
-        public string AccountCurrency { get; set; }
         public string BankName { get; set; }
         public string Iban { get; set; }
         public string BankAddress { get; set; }

@@ -19,17 +19,20 @@ namespace WalletWebApi.Controllers
         private readonly IAccountRequestApi _accountRequestApi;
         private readonly ITransactionApi _transactionApi;
         private readonly ExchangeServiceMailSender _mailSender;
+        private readonly IClientApi _clientApi;
         private const string MailBodySuffix = "account request";
 
         public AccountsByClientController(IAccountApi accountApi, 
                                         IAccountRequestApi accountRequestApi, 
                                         ITransactionApi transactionApi,
+                                        IClientApi clientApi,
                                         ExchangeServiceMailSender mailSender)
         {
             _accountApi = accountApi;
             _accountRequestApi = accountRequestApi;
             _transactionApi = transactionApi;
             _mailSender = mailSender;
+            _clientApi = clientApi;
         }
 
         [HttpGet]
@@ -115,6 +118,7 @@ namespace WalletWebApi.Controllers
             var success = _accountRequestApi.CreateAccountTransferToCardRequest(clientId, accountId, dto);
             if (!success) return StatusCode(HttpStatusCode.Conflict);
             // send email
+            
             var subject = $"[{clientId}]";
             var body = $"{WalletConstants.AccountByClientRoutes.TransferToCard} {MailBodySuffix}";
             _mailSender.SendMail(subject, body, AppGlobal.EmailAccountTransferToCard);
@@ -129,7 +133,7 @@ namespace WalletWebApi.Controllers
             var success = _accountRequestApi.CreateAccountTransferOutRequest(clientId, accountId, dto);
             if (!success) return StatusCode(HttpStatusCode.Conflict);
             // send email
-            var subject = $"[{clientId}]";
+            var subject = $"[{_clientApi.GetItem(clientId).Name}]  [{_accountApi.GetItem(accountId).CurrencyId} account]";
             var body = $"{WalletConstants.AccountByClientRoutes.TransferOut} {MailBodySuffix}";
             _mailSender.SendMail(subject, body, AppGlobal.EmailAccountTransferOut);
             return StatusCode(HttpStatusCode.Created);

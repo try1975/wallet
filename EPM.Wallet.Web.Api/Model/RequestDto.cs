@@ -24,5 +24,6 @@ namespace WalletWebApi.Model
         public string SubType { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public RequestStatus Status { get; set; }
+        //public RequisiteDto Requisite { get; set; }
     }
 }

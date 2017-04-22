@@ -17,5 +17,8 @@ namespace EPM.Wallet.Data.Entities
         public RequestStatus RequestStatus { get; set; }
 
         public string Note { get; set; }
+
+        public Guid? RequisiteId { get; set; }
+        public RequisiteEntity Requisite { get; set; }
     }
 }

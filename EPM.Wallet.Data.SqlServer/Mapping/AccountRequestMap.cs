@@ -28,11 +28,11 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
             // .WillCascadeOnDelete(false)
             // ;
 
-            HasOptional(s => s.Requisite)
-             .WithMany(l => l.Requests)
-             .HasForeignKey(s => s.RequisiteId)
-             .WillCascadeOnDelete(false)
-             ;
+            //HasOptional(s => s.Requisite)
+            // .WithMany(l => l.Requests)
+            // .HasForeignKey(s => s.RequisiteId)
+            // .WillCascadeOnDelete(false)
+            // ;
             ToTable($"{tableName}");
         }
     }

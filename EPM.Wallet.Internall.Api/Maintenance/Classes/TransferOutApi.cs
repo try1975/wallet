@@ -12,11 +12,16 @@ namespace WalletInternalApi.Maintenance
     {
         private readonly IRequisiteQuery _requisiteQuery;
         private readonly IAccountQuery _accountQuery;
+        private readonly IClientQuery _clientQuery;
 
-        public TransferOutApi(IAccountRequestQuery query, IRequisiteQuery requisiteQuery, IAccountQuery accountQuery) : base(query)
+        public TransferOutApi(IAccountRequestQuery query, 
+            IRequisiteQuery requisiteQuery, 
+            IAccountQuery accountQuery,
+            IClientQuery clientQuery) : base(query)
         {
             _requisiteQuery = requisiteQuery;
             _accountQuery = accountQuery;
+            _clientQuery = clientQuery;
         }
 
         public override IEnumerable<TransferOutInfoDto> GetItems()
@@ -27,7 +32,7 @@ namespace WalletInternalApi.Maintenance
             var list = requests.Join(_requisiteQuery.GetEntities(), o => o.RequisiteId, i => i.Id,
                         (request, requisite) => new { request, requisite })
                         .Join(_accountQuery.GetEntities(), o => o.request.ClientAccountId, i => i.Id,
-                            (rr, account) => new TransferOutInfoDto()
+                        (rr, account) => new TransferOutInfoDto()
                             {
                                 Id = rr.request.Id,
                                 Date = rr.request.CreatedAt,
@@ -46,10 +51,38 @@ namespace WalletInternalApi.Maintenance
                                 OwnerName = rr.requisite.OwnerName,
                                 // Accounts
                                 AccountName = account.Name,
-                                AccountCurrency = account.CurrencyId
+                                AccountCurrency = account.CurrencyId,
+                                // Client
+                                ClientName = rr.request.Client.Name
                             })
                 .OrderByDescending(r => r.Date)
                 .ToList();
+            //var list = requests.Join(_requisiteQuery.GetEntities(), o => o.RequisiteId, i => i.Id,
+            //            (request, requisite) => new { request, requisite })
+            //            .Join(_accountQuery.GetEntities(), o => o.request.ClientAccountId, i => i.Id,
+            //                (rr, account) => new TransferOutInfoDto()
+            //                {
+            //                    Id = rr.request.Id,
+            //                    Date = rr.request.CreatedAt,
+            //                    ValueDate = rr.request.ValueDate,
+            //                    ClientId = rr.request.ClientId,
+            //                    CurrencyId = rr.request.CurrencyId,
+            //                    RequestStatus = rr.request.RequestStatus,
+            //                    Note = rr.request.Note,
+            //                    AccountId = rr.request.ClientAccountId,
+            //                    AmountOut = rr.request.AmountOut,
+            //                    // Requisites
+            //                    BankName = rr.requisite.BankName,
+            //                    Iban = rr.requisite.Iban,
+            //                    BankAddress = rr.requisite.BankAddress,
+            //                    Bic = rr.requisite.Bic,
+            //                    OwnerName = rr.requisite.OwnerName,
+            //                    // Accounts
+            //                    AccountName = account.Name,
+            //                    AccountCurrency = account.CurrencyId
+            //                })
+            //    .OrderByDescending(r => r.Date)
+            //    .ToList();
             return list;
         }
 

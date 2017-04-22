@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using EPM.Wallet.Data.Entities;
@@ -11,7 +12,7 @@ namespace WalletWebApi.Maintenance
 
     public class CardApi : TypedApi<CardDto, CardEntity, Guid>, ICardApi
     {
-        public CardApi(ICardQuery query) : base(query)
+        public CardApi(ICardQuery query, IStatementQuery statementQuery) : base(query)
         {
         }
 
@@ -25,8 +26,25 @@ namespace WalletWebApi.Maintenance
         {
             var list = _query.GetEntities().Where(z => z.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)
                                                     && !z.IsInactive)
+                                                    .Include(z=>z.Statements)
                                                     .ToList();
-            return Mapper.Map<List<CardDto>>(list);
+            var cardDtoList = new List<CardDto>();
+            foreach (var cardEntity in list)
+            {
+                var cardDto = Mapper.Map<CardDto>(cardEntity);
+                if (cardEntity.Statements.Any())
+                {
+                    var firstOrDefault = cardEntity.Statements
+                        .OrderByDescending(z=>z.ValueDate)
+                        .FirstOrDefault();
+                    if (firstOrDefault != null)
+                        cardDto.StatementId=firstOrDefault.Id;
+                }
+                cardDtoList.Add(cardDto);
+            }
+            
+
+            return cardDtoList;
         }
     }
 }

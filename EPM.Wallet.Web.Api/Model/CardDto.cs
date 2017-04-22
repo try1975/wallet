@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace WalletWebApi.Model
 {
@@ -14,6 +15,8 @@ namespace WalletWebApi.Model
         public int ExpYear { get; set; }
         public decimal Limit { get; set; }
         public string Vendor { get; set; }
+        [JsonIgnore]
+        public Guid? StatementId { get; set; }
         public Uri LastStatementLink { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace WalletWebApi.Maintenance
         {
             var list = _query.GetEntities()
                 .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected)))
-                .Include(nameof(AccountRequestTransferOutDto.Requisite))
+                .Include(nameof(AccountRequestDto.Requisite))
                 .OrderByDescending(i => i.CreatedAt)
                 .Skip(from)
                 .Take(count > 0 ? count : 1000)
@@ -86,6 +86,7 @@ namespace WalletWebApi.Maintenance
         {
             var list = _query.GetEntities()
                .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected)))
+               .Include(nameof(AccountRequestDto.Requisite))
                .OrderByDescending(i => i.CreatedAt)
                .Skip(from)
                .Take(count > 0 ? count : 1000)
@@ -261,7 +262,9 @@ namespace WalletWebApi.Maintenance
                 ClientAccountId = account.Id,
                 RequisiteId = requisite.Id,
                 CurrencyId = currencyId,
-                AmountOut = dto.Amount
+                AmountOut = dto.Amount,
+                ValueDate = dto.ValueDate,
+                Note = dto.Note
             };
             try
             {

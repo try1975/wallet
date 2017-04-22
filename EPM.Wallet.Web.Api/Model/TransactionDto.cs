@@ -11,5 +11,7 @@ namespace WalletWebApi.Model
 
         public string FromTo { get; set; }
         public string Note { get; set; }
+        public RequisiteDto Requisite { get; set; }
+        //public AccountRequestDto Request { get; set; }
     }
 }

@@ -93,13 +93,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/31/2017 10:36:30</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Data.dll">
-      <publishTime>04/20/2017 09:50:45</publishTime>
+      <publishTime>04/20/2017 19:04:28</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Data.pdb">
       <publishTime>03/31/2017 11:26:26</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Data.SqlServer.dll">
-      <publishTime>04/20/2017 09:50:46</publishTime>
+      <publishTime>04/20/2017 19:04:30</publishTime>
     </File>
     <File Include="bin/EPM.Wallet.Data.SqlServer.pdb">
       <publishTime>03/31/2017 11:30:50</publishTime>
@@ -165,7 +165,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/WalletWebApi.dll">
-      <publishTime>04/20/2017 09:50:46</publishTime>
+      <publishTime>04/21/2017 18:31:13</publishTime>
     </File>
     <File Include="bin/WalletWebApi.pdb">
       <publishTime>03/31/2017 11:30:50</publishTime>

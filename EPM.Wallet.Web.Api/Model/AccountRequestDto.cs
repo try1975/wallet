@@ -8,5 +8,6 @@
         public string BeneficiaryAccount { get; set; }
         public string BeneficiaryCard { get; set; }
         public string CurrencyId { get; set; }
+        public RequisiteDto Requisite { get; set; }
     }
 }

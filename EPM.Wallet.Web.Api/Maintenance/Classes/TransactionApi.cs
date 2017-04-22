@@ -25,7 +25,7 @@ namespace WalletWebApi.Maintenance
             if (account == null) return null;
             var list = _query.GetEntities()
                 .Where(z => z.AccountId == accountId)
-                /*.Include(nameof(ClientAccountEntity.Requisite))*/
+                .Include(r=>r.Request.Requisite)
                 .OrderByDescending(i => i.RegisterDate)
                 .ThenByDescending(z => z.Id)
                 .ToList()
@@ -43,8 +43,20 @@ namespace WalletWebApi.Maintenance
                 transaction.Balance = balance;
                 balance -= transaction.Amount;
             }
-            return Mapper.Map<List<TransactionDto>>(byValueDateTransactions.Skip(from).Take(count > 0 ? count : 1000).ToList());
-            //return Mapper.Map<List<TransactionDto>>(list.OrderByDescending(z => z.RegisterDate));
+            var transactionEntitiyList = byValueDateTransactions.Skip(from).Take(count > 0 ? count : 1000).ToList();
+            var transactionDtoList = new List<TransactionDto>();
+            foreach (var transactionEntity in transactionEntitiyList)
+            {
+                var transactionDto = Mapper.Map<TransactionDto>(transactionEntity);
+                if (transactionEntity.Request?.Requisite != null)
+                {
+                    var requisiteDto = Mapper.Map<RequisiteDto>(transactionEntity.Request.Requisite);
+                    transactionDto.Requisite = requisiteDto;
+                }
+                transactionDtoList.Add(transactionDto);
+            }
+            return transactionDtoList;
+            //return Mapper.Map<List<TransactionDto>>(entityList);
         }
     }
 }

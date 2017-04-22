@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using EPM.Wallet.Common.Enums;
@@ -23,6 +24,10 @@ namespace WalletWebApi.Maintenance
                 .OrderByDescending(i => i.CreatedAt)
                 .ToList()
                 ;
+            //foreach (var requestEntity in list)
+            //{
+            //    if
+            //}
             return Mapper.Map<List<RequestDto>>(list);
         }
     }
