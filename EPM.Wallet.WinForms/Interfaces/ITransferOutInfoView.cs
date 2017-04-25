@@ -18,6 +18,8 @@ namespace EPM.Wallet.WinForms.Interfaces
         DateTime Date { get; set; }
         DateTime? ValueDate { get; set; }
         string ClientId { get; set; }
+        string ClientName { get; set; }
+        string AccountCurrency { get; set; }
         string CurrencyId { get; set; }
         RequestStatus RequestStatus { get; set; }
         string Note { get; set; }

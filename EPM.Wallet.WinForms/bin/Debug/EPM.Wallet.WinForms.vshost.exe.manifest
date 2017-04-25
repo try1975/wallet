@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GC9Mmt0D2CpWg7AB9DWkRMEd3RL+6xdBwaJq8UNnxFs=</dsig:DigestValue>
+        <dsig:DigestValue>oLIGb4xwCt04BSpW3MBm41ASUjei8ts8xhXNM6iJ4Zo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,19 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZHOYQxBkVnNWcQIlnZwBxbkr9GN/ow118fq2EjoIfTM=</dsig:DigestValue>
+        <dsig:DigestValue>cdgYnmKyh6Bsp7SJfQdb11TyUSMWUbofI+/bSaiSi6g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.WinForms.exe" size="193464">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.WinForms.exe" size="193976">
       <assemblyIdentity name="EPM.Wallet.WinForms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KUd8t/fVM7SY9mDjgy3glXzihCy3c3ADz80fHGpjwtY=</dsig:DigestValue>
+        <dsig:DigestValue>vXmAMnSFO4HBoIlp90laBLXy6VgUeo2IFVyvEEc6k8I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,13 +146,13 @@
       <dsig:DigestValue>dLMoFvYy4erT4akDbrd37Qnt9+5JM2minr3sTpVCgWk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="EPM.Wallet.WinForms.exe.config" size="3070">
+  <file name="EPM.Wallet.WinForms.exe.config" size="3129">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>IatYLdoCciDBwBPeprGsdJFFrE5m97wLNyeHpgi+BMA=</dsig:DigestValue>
+      <dsig:DigestValue>6k/Ny+UVUiOzwX3QEh0xcLx+7Wtbszns/KotpVVUuoI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

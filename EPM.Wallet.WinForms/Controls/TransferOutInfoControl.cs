@@ -53,7 +53,16 @@ namespace EPM.Wallet.WinForms.Controls
         public string ClientId
         {
             get { return tbClientId.Text; }
-            set { tbClientId.Text = value; }
+            set { tbClientId.Text = $"{value} [{ClientName}]"; }
+        }
+
+        public string ClientName { get; set; }
+
+        public string AccountCurrency
+        {
+           
+            get { return tbAccountCurrency.Text; }
+            set { tbAccountCurrency.Text = value; }
         }
 
         public string CurrencyId

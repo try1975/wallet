@@ -81,6 +81,7 @@ namespace EPM.Wallet.WinForms.Controls
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
+            this.tbAccountCurrency = new System.Windows.Forms.TextBox();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -395,6 +396,7 @@ namespace EPM.Wallet.WinForms.Controls
             // 
             // pnlClient
             // 
+            this.pnlClient.Controls.Add(this.tbAccountCurrency);
             this.pnlClient.Controls.Add(this.tbClientId);
             this.pnlClient.Controls.Add(this.lblClient);
             this.pnlClient.Dock = System.Windows.Forms.DockStyle.Top;
@@ -405,11 +407,9 @@ namespace EPM.Wallet.WinForms.Controls
             // 
             // tbClientId
             // 
-            this.tbClientId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbClientId.Location = new System.Drawing.Point(97, 7);
             this.tbClientId.Name = "tbClientId";
-            this.tbClientId.Size = new System.Drawing.Size(283, 20);
+            this.tbClientId.Size = new System.Drawing.Size(191, 20);
             this.tbClientId.TabIndex = 1;
             // 
             // lblClient
@@ -597,6 +597,15 @@ namespace EPM.Wallet.WinForms.Controls
             this.dgvItems.Size = new System.Drawing.Size(238, 525);
             this.dgvItems.TabIndex = 0;
             // 
+            // tbAccountCurrency
+            // 
+            this.tbAccountCurrency.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbAccountCurrency.Location = new System.Drawing.Point(294, 7);
+            this.tbAccountCurrency.Name = "tbAccountCurrency";
+            this.tbAccountCurrency.Size = new System.Drawing.Size(86, 20);
+            this.tbAccountCurrency.TabIndex = 2;
+            // 
             // TransferOutInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -692,5 +701,6 @@ namespace EPM.Wallet.WinForms.Controls
         private System.Windows.Forms.Button btnReject;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnPending;
+        private System.Windows.Forms.TextBox tbAccountCurrency;
     }
 }
