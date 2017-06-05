@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6RQGWXlW4KA0WkIAFqFGtq9R7/A6K5fN0XW5bXc698Q=</dsig:DigestValue>
+        <dsig:DigestValue>lO5DE7zb7OWzhDXjBLprUO26IWLNQScxtUMfJHdpFuo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,38 +66,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.Common.dll" size="7680">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.Common.dll" size="8192">
       <assemblyIdentity name="EPM.Wallet.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>oLIGb4xwCt04BSpW3MBm41ASUjei8ts8xhXNM6iJ4Zo=</dsig:DigestValue>
+        <dsig:DigestValue>syeJf8qArNFmMe+Xz86VDNU60D6gMJ0xELi8+YDzU5k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.Internal.dll" size="24576">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.Internal.dll" size="29184">
       <assemblyIdentity name="EPM.Wallet.Internal" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cdgYnmKyh6Bsp7SJfQdb11TyUSMWUbofI+/bSaiSi6g=</dsig:DigestValue>
+        <dsig:DigestValue>OxT+iRBplp2vBwGW5uXPU4IkDMKbauYbazFs+47NVOc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.WinForms.exe" size="193976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EPM.Wallet.WinForms.exe" size="212408">
       <assemblyIdentity name="EPM.Wallet.WinForms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vXmAMnSFO4HBoIlp90laBLXy6VgUeo2IFVyvEEc6k8I=</dsig:DigestValue>
+        <dsig:DigestValue>Xn1DQCVRlPXMyCa1JUuKts1lylGEWPVKas89cbPIjUs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -137,22 +137,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="App.AppSettings.config" size="107">
+  <file name="App.AppSettings.config" size="108">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>dLMoFvYy4erT4akDbrd37Qnt9+5JM2minr3sTpVCgWk=</dsig:DigestValue>
+      <dsig:DigestValue>VrYJXJQgQmzoXuuBRb9nrJuNpAk8nExhzYmBvSJUvaA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="EPM.Wallet.WinForms.exe.config" size="3129">
+  <file name="EPM.Wallet.WinForms.exe.config" size="3160">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6k/Ny+UVUiOzwX3QEh0xcLx+7Wtbszns/KotpVVUuoI=</dsig:DigestValue>
+      <dsig:DigestValue>8kqtt18w/P+5dAd6X0NFp5zGlQyvXq1pbPScM/9aQww=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -61,11 +61,7 @@
     <Compile Include="Entities\p02\CardEntity.cs" />
     <Compile Include="Entities\p03\MessageEntity.cs" />
     <Compile Include="Entities\p03\RequisiteEntity.cs" />
-    <Compile Include="Entities\p04\CardRequest\CardBlockRequestEntity.cs" />
-    <Compile Include="Entities\p04\CardRequest\CardLimitRequestEntity.cs" />
-    <Compile Include="Entities\p04\CardRequest\CardNewRequestEntity.cs" />
-    <Compile Include="Entities\p04\CardRequest\CardReissueRequestEntity.cs" />
-    <Compile Include="Entities\p04\CardRequest\CardRequestEntity.cs" />
+    <Compile Include="Entities\p04\CardRequestEntity.cs" />
     <Compile Include="Entities\p04\AccountRequestEntity.cs" />
     <Compile Include="Entities\p04\RequestEntity.cs" />
     <Compile Include="Entities\p04\StandingOrderEntity.cs" />

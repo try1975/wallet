@@ -132,6 +132,7 @@ C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.exe
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.pdb
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Controls.StatementControl.resources
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.TransactionByRequestForm.resources
+C:\Projects\github\wallet\EPM.Wallet.WinForms\bin\Debug\App.AppSettings.config
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\App.AppSettings.config
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\EPM.Wallet.WinForms.exe.config
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\bin\Debug\EPM.Wallet.WinForms.exe.manifest
@@ -165,6 +166,9 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.W
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Controls.TransferOutInfoControl.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Controls.WalletControl.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Form1.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.CardByRequestForm.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.ChildForm.resources
+C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.MessageByRequestForm.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.TransactionByRequestForm.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Properties.Resources.resources
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.csproj.GenerateResource.Cache
@@ -172,4 +176,3 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.W
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.application
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.exe
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.pdb
-C:\Projects\github\wallet\EPM.Wallet.WinForms\bin\Debug\App.AppSettings.config

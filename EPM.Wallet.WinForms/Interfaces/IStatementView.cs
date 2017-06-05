@@ -4,7 +4,7 @@ using EPM.Wallet.Internal.Model;
 
 namespace EPM.Wallet.WinForms.Interfaces
 {
-    public interface IStatementView: ITypedView<StatementDto, Guid>
+    public interface IStatementView : ITypedView<StatementDto, Guid>
     {
         #region DetailsList
 

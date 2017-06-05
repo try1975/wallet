@@ -8,7 +8,8 @@ namespace EPM.Wallet.WinForms.Presenters
 {
     public class StatementPresenter : TypedPresenter<StatementDto, Guid>
     {
-        public StatementPresenter(IStatementView view, IStatementDataManager typedDataMаnager, IDataMаnager dataMаnager) : base(view, typedDataMаnager, dataMаnager)
+        public StatementPresenter(IStatementView view, IStatementDataManager typedDataMаnager, IDataMаnager dataMаnager)
+            : base(view, typedDataMаnager, dataMаnager)
         {
             LoadLists();
         }
@@ -19,14 +20,15 @@ namespace EPM.Wallet.WinForms.Presenters
             if (accountDtos != null)
             {
                 var currencies = accountDtos.ToList();
-                ((IStatementView)View).AccountList =
-                    currencies.Select(c => new KeyValuePair<Guid, string>(c.Id, $"{c.Name} [{c.ClientId} {c.CurrencyId}]"))
+                ((IStatementView) View).AccountList =
+                    currencies.Select(
+                        c => new KeyValuePair<Guid, string>(c.Id, $"{c.Name} [{c.ClientId} {c.CurrencyId}]"))
                         .OrderBy(kv => kv.Value)
                         .ToList();
             }
             else
             {
-                ((IStatementView)View).AccountList = new List<KeyValuePair<Guid, string>>();
+                ((IStatementView) View).AccountList = new List<KeyValuePair<Guid, string>>();
             }
         }
     }

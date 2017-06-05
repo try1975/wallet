@@ -22,11 +22,11 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
              .WillCascadeOnDelete(false)
              ;
 
-            //HasOptional(s => s.BeneficiaryAccount)
-            // .WithMany(l => l.Requests)
-            // .HasForeignKey(s => s.BeneficiaryAccountId)
-            // .WillCascadeOnDelete(false)
-            // ;
+            HasOptional(s => s.BeneficiaryAccount)
+             .WithMany(l => l.BeneficiaryRequests)
+             .HasForeignKey(s => s.BeneficiaryAccountId)
+             .WillCascadeOnDelete(false)
+             ;
 
             //HasOptional(s => s.Requisite)
             // .WithMany(l => l.Requests)

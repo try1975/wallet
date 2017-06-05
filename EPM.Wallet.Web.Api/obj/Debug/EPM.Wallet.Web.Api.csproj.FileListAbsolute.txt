@@ -262,6 +262,14 @@ C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\EntityFramework.xml
 C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\EntityFramework.SqlServer.xml
 C:\Projects\github\wallet\EPM.Wallet.Web.Api\obj\Debug\WalletWebApi.dll
 C:\Projects\github\wallet\EPM.Wallet.Web.Api\obj\Debug\WalletWebApi.pdb
+C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\log4net.dll
+C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.dll
+C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.dll
+C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\log4net.xml
+C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.pdb
+C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.xml
+C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.pdb
+C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.xml
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\WalletWebApi.dll.config
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\WalletWebApi.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\WalletWebApi.pdb
@@ -323,11 +331,3 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\bin\ru\Microsoft.Identi
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\obj\Debug\EPM.Wallet.Web.Api.csprojResolveAssemblyReference.cache
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\obj\Debug\WalletWebApi.dll
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Web.Api\obj\Debug\WalletWebApi.pdb
-C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\log4net.dll
-C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.dll
-C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.dll
-C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\log4net.xml
-C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.pdb
-C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.xml
-C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.pdb
-C:\Projects\github\wallet\EPM.Wallet.Web.Api\bin\Microsoft.Exchange.WebServices.Auth.xml

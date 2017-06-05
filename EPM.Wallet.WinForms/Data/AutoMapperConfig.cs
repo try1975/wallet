@@ -66,17 +66,31 @@ namespace EPM.Wallet.WinForms.Data
                 ;
 
             cfg.CreateMap<TransactionDto, TransactionDto>()
-               ;
+                ;
             cfg.CreateMap<TransactionDto, ITransactionView>()
                 ;
             cfg.CreateMap<ITransactionView, TransactionDto>()
                 ;
 
             cfg.CreateMap<StatementDto, StatementDto>()
-               ;
+                ;
             cfg.CreateMap<StatementDto, IStatementView>()
                 ;
             cfg.CreateMap<IStatementView, StatementDto>()
+                ;
+
+            cfg.CreateMap<RequestDto, RequestDto>()
+                ;
+            cfg.CreateMap<RequestDto, IRequestView>()
+                ;
+            cfg.CreateMap<IRequestView, RequestDto>()
+                ;
+
+            cfg.CreateMap<RequestInfoDto, RequestInfoDto>()
+                ;
+            cfg.CreateMap<RequestInfoDto, IRequestView>()
+                ;
+            cfg.CreateMap<IRequestView, RequestInfoDto>()
                 ;
         }
     }

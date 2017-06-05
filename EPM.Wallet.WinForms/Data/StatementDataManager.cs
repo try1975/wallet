@@ -5,7 +5,7 @@ using EPM.Wallet.WinForms.Interfaces;
 
 namespace EPM.Wallet.WinForms.Data
 {
-    class StatementDataManager : TypedDataMаnager<StatementDto, Guid>, IStatementDataManager
+    internal class StatementDataManager : TypedDataMаnager<StatementDto, Guid>, IStatementDataManager
     {
         public StatementDataManager() : base(WalletConstants.ClientAppApi.Statements)
         {

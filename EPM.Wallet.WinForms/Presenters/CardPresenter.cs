@@ -8,8 +8,9 @@ namespace EPM.Wallet.WinForms.Presenters
 {
     public sealed class CardPresenter : TypedPresenter<CardDto, Guid>
     {
-        public CardPresenter(ICardView view, ICardDataMаnager typedDataMаnager, IDataMаnager dataMаnager)
-            : base(view, typedDataMаnager, dataMаnager)
+        public CardPresenter(ICardView view, ICardDataMаnager typedDataMаnager, IDataMаnager dataMаnager,
+            PresenterMode presenterMode = PresenterMode.Read)
+            : base(view, typedDataMаnager, dataMаnager, presenterMode)
         {
             LoadLists();
         }

@@ -14,20 +14,21 @@ namespace WalletWebApi.Controllers
     [Authorize]
     public class CardsByClientController : ApiController
     {
-        private readonly ICardLimitRequestApi _apiCardLimit;
-        private readonly ICardReissueRequestApi _apiCardReissue;
-        private readonly ICardNewRequestApi _apiCardNew;
-        private readonly ICardBlockRequestApi _apiCardBlock;
-        private readonly ICardApi _apiCard;
-        private readonly ExchangeServiceMailSender _mailSender;
         private const string MailBodySuffix = "card request";
+        private readonly ICardApi _apiCard;
+        private readonly ICardBlockRequestApi _apiCardBlock;
+        private readonly ICardLimitRequestApi _apiCardLimit;
+        private readonly ICardNewRequestApi _apiCardNew;
+        private readonly ICardReissueRequestApi _apiCardReissue;
+        private readonly ExchangeServiceMailSender _mailSender;
 
-        public CardsByClientController(ICardApi apiCard,
-                                    ICardLimitRequestApi apiCardLimit,
-                                    ICardReissueRequestApi apiCardReissue,
-                                    ICardNewRequestApi apiCardNew,
-                                    ICardBlockRequestApi apiCardBlock,
-                                    ExchangeServiceMailSender mailSender)
+        public CardsByClientController(ICardApi apiCard
+            , ICardLimitRequestApi apiCardLimit
+            , ICardReissueRequestApi apiCardReissue
+            , ICardNewRequestApi apiCardNew
+            , ICardBlockRequestApi apiCardBlock
+            , ExchangeServiceMailSender mailSender
+            )
         {
             _apiCard = apiCard;
             _apiCardLimit = apiCardLimit;
@@ -41,7 +42,7 @@ namespace WalletWebApi.Controllers
         [Route("", Name = nameof(GetCardByClient) + Ro.Route)]
         public IEnumerable<CardDto> GetCardByClient(string clientId)
         {
-            var list= _apiCard.GetCardsByClient(clientId);
+            var list = _apiCard.GetCardsByClient(clientId);
             var baseUri = $"{Request.RequestUri.Scheme}://{Request.RequestUri.Host}:{Request.RequestUri.Port}";
             var cardsByClient = list as CardDto[] ?? list.ToArray();
             foreach (var cardDto in cardsByClient)
@@ -69,7 +70,7 @@ namespace WalletWebApi.Controllers
         }
 
         /// <summary>
-        ///  Card reissue request. ReissueType in (Other, Lost, Stolen, Damaged)
+        ///     Card reissue request. ReissueType in (Other, Lost, Stolen, Damaged)
         /// </summary>
         /// <param name="clientId"></param>
         /// <param name="dto"></param>
@@ -101,7 +102,8 @@ namespace WalletWebApi.Controllers
         }
 
         [HttpPost]
-        [Route(WalletConstants.CardsByClientRoutes.Block + "/{" + Ro.CardId + ":guid}", Name = nameof(PostCardsByClientBlock) + Ro.Route)]
+        [Route(WalletConstants.CardsByClientRoutes.Block + "/{" + Ro.CardId + ":guid}",
+            Name = nameof(PostCardsByClientBlock) + Ro.Route)]
         public IHttpActionResult PostCardsByClientBlock(string clientId, Guid cardId)
         {
             var success = _apiCardBlock.CreateCardBlockRequest(clientId, cardId);

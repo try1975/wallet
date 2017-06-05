@@ -21,7 +21,20 @@ namespace WalletWebApi.Model
 
         [JsonConverter(typeof(StringEnumConverter))]
         public RequestType Type { get; set; }
-        public string SubType { get; set; }
+        [JsonIgnore]
+        public string SubTypeOld { get; set; }
+
+        public string SubType
+        {
+            get
+            {
+                if (SubTypeOld.Equals(nameof(AccountRequestType.TransferOut))) return "Transfer Out";
+                if (SubTypeOld.Equals(nameof(AccountRequestType.TransferToCard))) return "Transfer To Card";
+                if (SubTypeOld.Equals(nameof(AccountRequestType.AccountTopUp))) return "Account TopUp";
+                return SubTypeOld;
+            }
+        }
+
         [JsonConverter(typeof(StringEnumConverter))]
         public RequestStatus Status { get; set; }
         //public RequisiteDto Requisite { get; set; }

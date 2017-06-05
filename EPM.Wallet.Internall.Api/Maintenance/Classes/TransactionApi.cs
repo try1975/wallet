@@ -108,7 +108,7 @@ namespace WalletInternalApi.Maintenance
 
                     var latestTransactions =
                         Query.GetEntities()
-                            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate > dto.RegisterDate)
+                            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate > entity.RegisterDate)
                             .OrderBy(z => z.RegisterDate)
                             .ThenBy(z=>z.Id)
                             .ToList();

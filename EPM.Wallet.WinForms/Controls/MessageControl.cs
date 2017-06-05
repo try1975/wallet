@@ -11,6 +11,7 @@ namespace EPM.Wallet.WinForms.Controls
     public partial class MessageControl : UserControl, IMessageView
     {
         private readonly IPresenter _presenter;
+        private bool _isEventHandlerSets;
 
         public MessageControl(IMessageDataManager messageDataManager, IDataMаnager dataMаnager)
         {
@@ -38,16 +39,19 @@ namespace EPM.Wallet.WinForms.Controls
             get { return tbSubject.Text; }
             set { tbSubject.Text = value; }
         }
+
         public string Body
         {
             get { return tbBody.Text; }
             set { tbBody.Text = value; }
         }
+
         public string ClientId
         {
-            get { return (string)cmbClient.SelectedValue; }
+            get { return (string) cmbClient.SelectedValue; }
             set { cmbClient.SelectedValue = value; }
         }
+
         public DateTime Date
         {
             get
@@ -55,10 +59,7 @@ namespace EPM.Wallet.WinForms.Controls
                 if (string.IsNullOrEmpty(tbDate.Text)) return DateTime.UtcNow;
                 return DateTime.Parse(tbDate.Text);
             }
-            set
-            {
-                tbDate.Text = value.ToString(CultureInfo.CurrentCulture);
-            }
+            set { tbDate.Text = value.ToString(CultureInfo.CurrentCulture); }
         }
 
         public DateTime? ReadDate
@@ -113,6 +114,9 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void SetEventHandlers()
         {
+            if (_isEventHandlerSets) return;
+            _isEventHandlerSets = true;
+
             dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
             dgvItems.SortStringChanged += dgvItems_SortStringChanged;
 

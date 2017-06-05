@@ -12,6 +12,7 @@ namespace EPM.Wallet.WinForms.Controls
     public partial class TransferOutInfoControl : UserControl, ITransferOutInfoView
     {
         private readonly IPresenter _presenter;
+        private bool _isEventHandlerSets;
 
         public TransferOutInfoControl(ITransferOutInfoDataManager typedDataMаnager, IDataMаnager dataMаnager)
         {
@@ -53,14 +54,17 @@ namespace EPM.Wallet.WinForms.Controls
         public string ClientId
         {
             get { return tbClientId.Text; }
-            set { tbClientId.Text = $"{value} [{ClientName}]"; }
+            set { tbClientId.Text = value; }
         }
 
-        public string ClientName { get; set; }
+        public string ClientName
+        {
+            get { return tbClientName.Text; }
+            set { tbClientName.Text = value; }
+        }
 
         public string AccountCurrency
         {
-           
             get { return tbAccountCurrency.Text; }
             set { tbAccountCurrency.Text = value; }
         }
@@ -76,7 +80,7 @@ namespace EPM.Wallet.WinForms.Controls
             get
             {
                 if (cmbRequestStatus.SelectedValue == null) return RequestStatus.Unknown;
-                return (RequestStatus)cmbRequestStatus.SelectedValue;
+                return (RequestStatus) cmbRequestStatus.SelectedValue;
             }
             set { cmbRequestStatus.SelectedValue = value; }
         }
@@ -172,7 +176,7 @@ namespace EPM.Wallet.WinForms.Controls
             column = dgvItems.Columns[nameof(TransferOutInfoDto.AmountOut)];
             if (column != null)
             {
-                column.DefaultCellStyle.Format="N2";
+                column.DefaultCellStyle.Format = "N2";
                 column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             // sort mode
@@ -182,6 +186,9 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void SetEventHandlers()
         {
+            if (_isEventHandlerSets) return;
+            _isEventHandlerSets = true;
+
             dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
             dgvItems.SortStringChanged += dgvItems_SortStringChanged;
 
@@ -193,8 +200,6 @@ namespace EPM.Wallet.WinForms.Controls
             btnProcessed.Click += btnProcessed_Click;
             btnPending.Click += btnPending_Click;
         }
-
-
 
         #endregion //IRefreshedView
 

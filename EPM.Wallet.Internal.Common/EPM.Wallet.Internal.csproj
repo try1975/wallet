@@ -62,6 +62,7 @@
     <Compile Include="Model\MessageDto.cs" />
     <Compile Include="Model\MessageInternalDto.cs" />
     <Compile Include="Model\AccountStatementDataDto.cs" />
+    <Compile Include="Model\RequestInfoDto.cs" />
     <Compile Include="Model\StatementDto.cs" />
     <Compile Include="Model\TransactionDto.cs" />
     <Compile Include="Model\TransferOutInfoDto.cs" />

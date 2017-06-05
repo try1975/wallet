@@ -21,9 +21,12 @@ namespace EPM.Wallet.WinForms.Presenters
 
             var requestStatusesList = new List<KeyValuePair<RequestStatus, string>>
             {
-                new KeyValuePair<RequestStatus, string>(RequestStatuses.GetPendingRequestStatus(), names[(int) RequestStatuses.GetPendingRequestStatus()]),
-                new KeyValuePair<RequestStatus, string>(RequestStatuses.GetProcessedRequestStatus(), names[(int) RequestStatuses.GetProcessedRequestStatus()]),
-                new KeyValuePair<RequestStatus, string>(RequestStatuses.GetRejectedRequestStatus(), names[(int) RequestStatuses.GetRejectedRequestStatus()])
+                new KeyValuePair<RequestStatus, string>(RequestStatuses.GetPendingRequestStatus(),
+                    names[(int) RequestStatuses.GetPendingRequestStatus()]),
+                new KeyValuePair<RequestStatus, string>(RequestStatuses.GetProcessedRequestStatus(),
+                    names[(int) RequestStatuses.GetProcessedRequestStatus()]),
+                new KeyValuePair<RequestStatus, string>(RequestStatuses.GetRejectedRequestStatus(),
+                    names[(int) RequestStatuses.GetRejectedRequestStatus()])
             };
 
             ((ITransferOutInfoView) View).RequestStatusList = requestStatusesList;

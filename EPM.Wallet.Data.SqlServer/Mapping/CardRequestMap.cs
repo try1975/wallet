@@ -7,7 +7,11 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
     {
         public CardRequestMap(string tableName)
         {
-            
+
+            Property(e => e.CardReissueReason)
+               .IsOptional()
+               .HasMaxLength(128)
+               ;
             ToTable($"{tableName}");
         }
     }

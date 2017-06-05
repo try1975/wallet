@@ -5,7 +5,7 @@ using EPM.Wallet.WinForms.Interfaces;
 
 namespace EPM.Wallet.WinForms.Data
 {
-    internal class RequestDataManager : TypedDataMаnager<RequestDto, Guid>, IRequestDataManager
+    internal class RequestDataManager : TypedDataMаnager<RequestInfoDto, Guid>, IRequestDataManager
     {
         public RequestDataManager() : base(WalletConstants.ClientAppApi.Requests)
         {

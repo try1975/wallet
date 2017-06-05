@@ -9,6 +9,7 @@ namespace EPM.Wallet.WinForms.Controls
     public partial class CardControl : UserControl, ICardView
     {
         private readonly IPresenter _presenter;
+        private bool _isEventHandlerSets;
 
         public CardControl(ICardDataMаnager typedDataMаnager, IDataMаnager dataMаnager)
         {
@@ -112,6 +113,9 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void SetEventHandlers()
         {
+            if (_isEventHandlerSets) return;
+            _isEventHandlerSets = true;
+
             dgvItems.SelectionChanged += dgvItems_SelectionChanged;
             dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
             dgvItems.SortStringChanged += dgvItems_SortStringChanged;

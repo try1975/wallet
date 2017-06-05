@@ -35,6 +35,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\CardStatus.cs" />
     <Compile Include="Enums\ClientAccountStatus.cs" />
     <Compile Include="Enums\ClientAppVariant.cs" />
     <Compile Include="Enums\Frequency.cs" />
@@ -47,7 +48,9 @@
     <Compile Include="WalletConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -8,6 +8,8 @@ namespace EPM.Wallet.WinForms.Interfaces
         BindingSource BindingSource { get; }
         PresenterMode PresenterMode { get; }
         void SetDetailData();
+
+        void Reopen();
         void AddNew();
         void Edit();
         void Save();

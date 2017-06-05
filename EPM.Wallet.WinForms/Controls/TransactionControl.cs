@@ -11,6 +11,7 @@ namespace EPM.Wallet.WinForms.Controls
     public partial class TransactionControl : UserControl, ITransactionView
     {
         private readonly IPresenter _presenter;
+        private bool _isEventHandlerSets;
 
         public TransactionControl(ITransactionDataManager transactionDataManager, IDataMаnager dataMаnager)
         {
@@ -69,7 +70,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbAmount.Text = value.ToString("N2"); }
+            set { tbAmount.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
         public string CurrencyId
@@ -88,7 +89,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbAmountInCurrency.Text = value.ToString("N2"); }
+            set { tbAmountInCurrency.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
         public decimal Balance
@@ -187,6 +188,10 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void SetEventHandlers()
         {
+            if (_isEventHandlerSets) return;
+            _isEventHandlerSets = true;
+
+            btnRefresh.Click += btnRefresh_Click;
             dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
             dgvItems.SortStringChanged += dgvItems_SortStringChanged;
 
@@ -335,6 +340,11 @@ namespace EPM.Wallet.WinForms.Controls
         private void dgvItems_SortStringChanged(object sender, EventArgs e)
         {
             _presenter.BindingSource.Sort = dgvItems.SortString;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            _presenter.Reopen();
         }
 
         #endregion //Event handlers

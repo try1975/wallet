@@ -5,9 +5,6 @@ namespace EPM.Wallet.WinForms
 {
     public static class AppGlobal
     {
-        private static string StoredClientAppVariant { get; }
-        public static ClientAppVariant ClientAppVariant { get; }
-
         static AppGlobal()
         {
             ClientAppVariant = ClientAppVariant.Wallet;
@@ -18,5 +15,8 @@ namespace EPM.Wallet.WinForms
                     ClientAppVariant = ClientAppVariant.Dpa;
             }
         }
+
+        private static string StoredClientAppVariant { get; }
+        public static ClientAppVariant ClientAppVariant { get; }
     }
 }

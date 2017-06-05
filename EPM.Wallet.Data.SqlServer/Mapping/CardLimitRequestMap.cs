@@ -3,11 +3,11 @@ using EPM.Wallet.Data.Entities;
 
 namespace EPM.Wallet.Data.SqlServer.Mapping
 {
-    public class CardLimitRequestMap : EntityTypeConfiguration<CardLimitRequestEntity>
-    {
-        public CardLimitRequestMap(string tableName)
-        {
-            ToTable($"{tableName}");
-        }
-    }
+    //public class CardLimitRequestMap : EntityTypeConfiguration<CardLimitRequestEntity>
+    //{
+    //    public CardLimitRequestMap(string tableName)
+    //    {
+    //        ToTable($"{tableName}");
+    //    }
+    //}
 }

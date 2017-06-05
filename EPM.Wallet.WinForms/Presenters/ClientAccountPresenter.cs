@@ -62,11 +62,13 @@ namespace EPM.Wallet.WinForms.Presenters
             var names = Enum.GetNames(typeof(ClientAccountStatus));
             var clientAccountStatusList = new List<KeyValuePair<ClientAccountStatus, string>>
             {
-                new KeyValuePair<ClientAccountStatus, string>(ClientAccountStatus.Active, names[(int) ClientAccountStatus.Active]),
-                new KeyValuePair<ClientAccountStatus, string>(ClientAccountStatus.Inactive, names[(int) ClientAccountStatus.Inactive]),
+                new KeyValuePair<ClientAccountStatus, string>(ClientAccountStatus.Active,
+                    names[(int) ClientAccountStatus.Active]),
+                new KeyValuePair<ClientAccountStatus, string>(ClientAccountStatus.Inactive,
+                    names[(int) ClientAccountStatus.Inactive])
             };
 
-            ((IClientAccountView)View).ClientAccountStatusList = clientAccountStatusList;
+            ((IClientAccountView) View).ClientAccountStatusList = clientAccountStatusList;
         }
     }
 }

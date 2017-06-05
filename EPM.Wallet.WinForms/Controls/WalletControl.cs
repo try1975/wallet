@@ -8,24 +8,57 @@ namespace EPM.Wallet.WinForms.Controls
 {
     public partial class WalletControl : UserControl, IWalletControl
     {
+        private ClientAppVariant _clientAppVariant;
+
         public WalletControl()
         {
             InitializeComponent();
-            if (AppGlobal.ClientAppVariant == ClientAppVariant.Wallet)
-            {
-                btnRequests.Text = @"Requests";
-                pnlCards.Visible = true;
-            }
-            if (AppGlobal.ClientAppVariant != ClientAppVariant.Dpa) return;
-            btnRequests.Text = @"Transfer Outs";
-            pnlCards.Visible = false;
+            ClientAppVariant = AppGlobal.ClientAppVariant;
         }
 
-        private void AddControlToWorkArea(Control control)
+        private ClientAppVariant ClientAppVariant
         {
+            get { return _clientAppVariant; }
+            set
+            {
+                _clientAppVariant = value;
+                if (_clientAppVariant == ClientAppVariant.Wallet)
+                {
+                    btnRequests.Text = @"Requests";
+                    pnlCards.Visible = true;
+                }
+                if (_clientAppVariant == ClientAppVariant.Dpa)
+                {
+                    btnRequests.Text = @"Transfer Outs";
+                    pnlCards.Visible = false;
+                }
+            }
+        }
+
+        private void AddControlToWorkArea(Control control, bool ctrlPressed = false)
+        {
+            if (ctrlPressed)
+            {
+                var childForm = new ChildForm {Text = control.Name};
+                childForm.AddControlToWorkArea(control);
+                childForm.Show();
+                return;
+            }
             control.Dock = DockStyle.Fill;
             pnlWorkArea.Controls.Clear();
             pnlWorkArea.Controls.Add(control);
+        }
+
+        private void btnRequests_Click(object sender, EventArgs e)
+        {
+            if (ClientAppVariant == ClientAppVariant.Dpa)
+            {
+                var transferOutInfoControl = CompositionRoot.Resolve<ITransferOutInfoView>();
+                AddControlToWorkArea((Control) transferOutInfoControl, ModifierKeys.HasFlag(Keys.Control));
+                return;
+            }
+            var requestControl = CompositionRoot.Resolve<IRequestView>();
+            AddControlToWorkArea((Control) requestControl, ModifierKeys.HasFlag(Keys.Control));
         }
 
         private void btnBanks_Click(object sender, EventArgs e)
@@ -43,25 +76,19 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnClients_Click(object sender, EventArgs e)
         {
             var clientControl = CompositionRoot.Resolve<IClientView>();
-            AddControlToWorkArea((Control) clientControl);
+            AddControlToWorkArea((Control) clientControl, ModifierKeys.HasFlag(Keys.Control));
         }
 
         private void btnClientAccounts_Click(object sender, EventArgs e)
         {
             var clientAccountControl = CompositionRoot.Resolve<IClientAccountView>();
-            AddControlToWorkArea((Control) clientAccountControl);
+            AddControlToWorkArea((Control) clientAccountControl, ModifierKeys.HasFlag(Keys.Control));
         }
 
         private void bntCards_Click(object sender, EventArgs e)
         {
             var cardControl = CompositionRoot.Resolve<ICardView>();
-            AddControlToWorkArea((Control) cardControl);
-        }
-
-        private void btnRequests_Click(object sender, EventArgs e)
-        {
-            var transferOutInfoControl = CompositionRoot.Resolve<ITransferOutInfoView>();
-            AddControlToWorkArea((Control) transferOutInfoControl);
+            AddControlToWorkArea((Control) cardControl, ModifierKeys.HasFlag(Keys.Control));
         }
 
         private void btnMessages_Click(object sender, EventArgs e)
@@ -73,13 +100,13 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnTransactions_Click(object sender, EventArgs e)
         {
             var transactionControl = CompositionRoot.Resolve<ITransactionView>();
-            AddControlToWorkArea((Control)transactionControl);
+            AddControlToWorkArea((Control) transactionControl, ModifierKeys.HasFlag(Keys.Control));
         }
 
         private void btnStatements_Click(object sender, EventArgs e)
         {
             var statementControl = CompositionRoot.Resolve<IStatementView>();
-            AddControlToWorkArea((Control)statementControl);
+            AddControlToWorkArea((Control) statementControl);
         }
     }
 }

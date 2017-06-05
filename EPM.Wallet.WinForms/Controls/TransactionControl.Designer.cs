@@ -68,6 +68,8 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -82,6 +84,7 @@
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -445,6 +448,7 @@
             // pnlGrid
             // 
             this.pnlGrid.Controls.Add(this.dgvItems);
+            this.pnlGrid.Controls.Add(this.panel7);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
@@ -461,11 +465,29 @@
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItems.FilterAndSortEnabled = true;
-            this.dgvItems.Location = new System.Drawing.Point(0, 0);
+            this.dgvItems.Location = new System.Drawing.Point(0, 41);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(362, 483);
+            this.dgvItems.Size = new System.Drawing.Size(362, 442);
             this.dgvItems.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnRefresh);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(362, 41);
+            this.panel7.TabIndex = 2;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(17, 12);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 0;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // TransactionControl
             // 
@@ -499,6 +521,7 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -544,5 +567,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox tbNote;
         private System.Windows.Forms.Label lblNote;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

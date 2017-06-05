@@ -9,5 +9,5 @@ namespace EPM.Wallet.WinForms.Interfaces
         TK Id { get; set; }
 
         #endregion
- }
+    }
 }

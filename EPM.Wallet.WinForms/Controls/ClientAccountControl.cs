@@ -11,6 +11,7 @@ namespace EPM.Wallet.WinForms.Controls
     public partial class ClientAccountControl : UserControl, IClientAccountView
     {
         private readonly IPresenter _presenter;
+        private bool _isEventHandlerSets;
 
         public ClientAccountControl(IClientAccountDataManager typedDataMаnager, IDataMаnager dataMаnager)
         {
@@ -47,19 +48,13 @@ namespace EPM.Wallet.WinForms.Controls
 
         public string CurrencyId
         {
-            get
-            {
-                return (string) cmbCurrency.SelectedValue;
-            }
-            set
-            {
-                cmbCurrency.SelectedValue = value;
-            }
+            get { return (string) cmbCurrency.SelectedValue; }
+            set { cmbCurrency.SelectedValue = value; }
         }
 
         public Guid BankAccountId
         {
-            get { return (Guid)cmbBankAccount.SelectedValue; }
+            get { return (Guid) cmbBankAccount.SelectedValue; }
             set { cmbBankAccount.SelectedValue = value; }
         }
 
@@ -101,7 +96,8 @@ namespace EPM.Wallet.WinForms.Controls
             }
         }
 
-        public List<KeyValuePair<Guid, string>> BankAccounList {
+        public List<KeyValuePair<Guid, string>> BankAccounList
+        {
             set
             {
                 cmbBankAccount.DataSource = value;
@@ -146,6 +142,9 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void SetEventHandlers()
         {
+            if (_isEventHandlerSets) return;
+            _isEventHandlerSets = true;
+
             dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
             dgvItems.SortStringChanged += dgvItems_SortStringChanged;
 

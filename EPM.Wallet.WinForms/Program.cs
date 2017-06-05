@@ -25,7 +25,7 @@ namespace EPM.Wallet.WinForms
             Application.SetCompatibleTextRenderingDefault(false);
             var form = CompositionRoot.Resolve<Form1>();
             var names = Enum.GetNames(typeof(ClientAppVariant));
-            form.Text = names[(int)AppGlobal.ClientAppVariant];
+            form.Text = names[(int) AppGlobal.ClientAppVariant];
             Application.Run(form);
         }
     }

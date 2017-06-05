@@ -15,11 +15,10 @@ namespace EPM.Wallet.WinForms.Presenters
         private readonly ITypedDataMànager<T, TK> _typedDataMànager;
         protected readonly IDataMànager DataMànager;
         protected readonly ITypedView<T, TK> View;
-        private PresenterMode _presenterMode;
-        public PresenterMode PresenterMode => _presenterMode;
-        public BindingSource BindingSource { get; }
+        
 
-        protected TypedPresenter(ITypedView<T, TK> view, ITypedDataMànager<T, TK> typedDataMànager, IDataMànager dataMànager)
+        protected TypedPresenter(ITypedView<T, TK> view, ITypedDataMànager<T, TK> typedDataMànager,
+            IDataMànager dataMànager, PresenterMode presenterMode = PresenterMode.Read)
         {
             View = view;
             _typedDataMànager = typedDataMànager;
@@ -27,48 +26,45 @@ namespace EPM.Wallet.WinForms.Presenters
 
             BindingSource = new BindingSource();
             BindingSource.CurrentChanged += BindingSourceOnCurrentChanged;
-            SetItems();
+            if (presenterMode == PresenterMode.Read) SetItems();
         }
 
-        private void BindingSourceOnCurrentChanged(object sender, EventArgs eventArgs)
-        {
-            SetDetailData();
-        }
+        public PresenterMode PresenterMode { get; private set; }
 
-        private async void SetItems()
-        {
-            BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
-            View.RefreshItems();
-            View.SetEventHandlers();
-        }
+        public BindingSource BindingSource { get; }
 
         public void SetDetailData()
         {
             T item = null;
             if (BindingSource.Current != null)
             {
-                var current = (DataRowView)BindingSource.Current;
+                var current = (DataRowView) BindingSource.Current;
                 item = ToDto(current);
             }
             Mapper.Map(item, View);
             View.EnterDetailsMode();
         }
 
+        public void Reopen()
+        {
+            SetItems();
+        }
+
         public void AddNew()
         {
-            _presenterMode = PresenterMode.AddNew;
+            PresenterMode = PresenterMode.AddNew;
             View.EnterAddNewMode();
         }
 
         public void Edit()
         {
-            _presenterMode = PresenterMode.Edit;
+            PresenterMode = PresenterMode.Edit;
             View.EnterEditMode();
         }
 
         public void Save()
         {
-            switch (_presenterMode)
+            switch (PresenterMode)
             {
                 case PresenterMode.AddNew:
                     Create();
@@ -85,33 +81,7 @@ namespace EPM.Wallet.WinForms.Presenters
         public void Cancel()
         {
             View.EnterReadMode();
-            _presenterMode = PresenterMode.Read;
-        }
-
-        private async void Create()
-        {
-            var item = Mapper.Map<T>(View);
-            item = await _typedDataMànager.PostItem(item);
-            Mapper.Map(item, View);
-
-            if (item != null)
-            {
-                BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
-            }
-            View.EnterReadMode();
-            _presenterMode = PresenterMode.Read;
-        }
-
-        private async void Update()
-        {
-            var item = Mapper.Map<T>(View);
-            item = await _typedDataMànager.PutItem(item);
-            Mapper.Map(item, View);
-
-            BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
-
-            View.EnterReadMode();
-            _presenterMode = PresenterMode.Read;
+            PresenterMode = PresenterMode.Read;
         }
 
         public async void Delete()
@@ -133,7 +103,45 @@ namespace EPM.Wallet.WinForms.Presenters
             }
 
             View.EnterReadMode();
-            _presenterMode = PresenterMode.Read;
+            PresenterMode = PresenterMode.Read;
+        }
+
+        private void BindingSourceOnCurrentChanged(object sender, EventArgs eventArgs)
+        {
+            SetDetailData();
+        }
+
+        private async void SetItems()
+        {
+            BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
+            View.RefreshItems();
+            View.SetEventHandlers();
+        }
+
+        private async void Create()
+        {
+            var item = Mapper.Map<T>(View);
+            item = await _typedDataMànager.PostItem(item);
+            Mapper.Map(item, View);
+
+            if (item != null)
+            {
+                BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
+            }
+            View.EnterReadMode();
+            PresenterMode = PresenterMode.Read;
+        }
+
+        private async void Update()
+        {
+            var item = Mapper.Map<T>(View);
+            item = await _typedDataMànager.PutItem(item);
+            Mapper.Map(item, View);
+
+            BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
+
+            View.EnterReadMode();
+            PresenterMode = PresenterMode.Read;
         }
 
         private static DataTable ToDataTable(IEnumerable<T> items)
@@ -172,7 +180,7 @@ namespace EPM.Wallet.WinForms.Presenters
 
         private static T ToDto(DataRowView data)
         {
-            var result = (T)Activator.CreateInstance(typeof(T), null);
+            var result = (T) Activator.CreateInstance(typeof(T), null);
             var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
             for (var i = 0; i < props.Length; i++)
             {

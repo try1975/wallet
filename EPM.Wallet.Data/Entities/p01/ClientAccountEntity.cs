@@ -26,6 +26,7 @@ namespace EPM.Wallet.Data.Entities
         public virtual RequisiteEntity Requisite { get; set; }
 
         public ICollection<AccountRequestEntity> Requests { get; set; }
+        public ICollection<AccountRequestEntity> BeneficiaryRequests { get; set; }
         public ICollection<StatementEntity> Statements { get; set; }
         public ICollection<StandingOrderEntity> StandingOrders { get; set; }
         public ICollection<TransactionEntity> Transactions { get; set; }

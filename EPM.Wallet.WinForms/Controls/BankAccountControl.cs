@@ -10,6 +10,7 @@ namespace EPM.Wallet.WinForms.Controls
     public partial class BankAccountControl : UserControl, IBankAccountView
     {
         private readonly IPresenter _presenter;
+        private bool _isEventHandlerSets;
 
         public BankAccountControl(IBankAccountDataManager bankAccountDataManager, IDataMаnager dataMаnager)
         {
@@ -105,6 +106,9 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void SetEventHandlers()
         {
+            if (_isEventHandlerSets) return;
+            _isEventHandlerSets = true;
+
             dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
             dgvItems.SortStringChanged += dgvItems_SortStringChanged;
 

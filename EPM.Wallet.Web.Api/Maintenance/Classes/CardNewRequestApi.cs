@@ -7,11 +7,13 @@ using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {
-    public class CardNewRequestApi : TypedApi<CardNewRequestDto, CardNewRequestEntity, Guid>, ICardNewRequestApi
+    //public class CardNewRequestApi : TypedApi<CardNewRequestDto, CardNewRequestEntity, Guid>, ICardNewRequestApi
+    public class CardNewRequestApi : TypedApi<CardNewRequestDto, CardRequestEntity, Guid>, ICardNewRequestApi
     {
         private readonly IClientQuery _clientQuery;
 
-        public CardNewRequestApi(ICardNewRequestQuery query, IClientQuery clientQuery) : base(query)
+        //public CardNewRequestApi(ICardNewRequestQuery query, IClientQuery clientQuery) : base(query)
+        public CardNewRequestApi(ICardRequestQuery query, IClientQuery clientQuery) : base(query)
         {
             _clientQuery = clientQuery;
         }
@@ -20,7 +22,8 @@ namespace WalletWebApi.Maintenance
         {
             var client = _clientQuery.GetEntity(clientId);
             if (client == null) return false;
-            var entity = new CardNewRequestEntity
+            //var entity = new CardNewRequestEntity
+            var entity = new CardRequestEntity
             {
                 ClientId = client.Id,
                 CurrencyId = "EUR",

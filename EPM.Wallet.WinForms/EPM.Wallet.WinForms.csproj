@@ -89,6 +89,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppGlobal.cs" />
+    <Compile Include="Forms\AccountByRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountByRequestForm.Designer.cs">
+      <DependentUpon>AccountByRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardByRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardByRequestForm.Designer.cs">
+      <DependentUpon>CardByRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChildForm.Designer.cs">
+      <DependentUpon>ChildForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BankAccountControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,6 +170,12 @@
     <Compile Include="Data\RequestDataManager.cs" />
     <Compile Include="Data\StatementDataManager.cs" />
     <Compile Include="Data\TransactionDataManager.cs" />
+    <Compile Include="Forms\MessageByRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MessageByRequestForm.Designer.cs">
+      <DependentUpon>MessageByRequestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TransactionByRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +283,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardByRequestForm.resx">
+      <DependentUpon>CardByRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChildForm.resx">
+      <DependentUpon>ChildForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MessageByRequestForm.resx">
+      <DependentUpon>MessageByRequestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TransactionByRequestForm.resx">
       <DependentUpon>TransactionByRequestForm.cs</DependentUpon>

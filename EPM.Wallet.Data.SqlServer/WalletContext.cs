@@ -30,10 +30,10 @@ namespace EPM.Wallet.Data.SqlServer
         private DbSet<StandingOrderEntity> StandingOrders { get; set; }
         private DbSet<RequestEntity> Requests { get; set; }
         private DbSet<AccountRequestEntity> AccountRequests { get; set; }
-        private DbSet<CardLimitRequestEntity> CardLimitRequests { get; set; }
-        private DbSet<CardReissueRequestEntity> CardReissueRequests { get; set; }
-        private DbSet<CardBlockRequestEntity> CardBlockRequests { get; set; }
-        private DbSet<CardNewRequestEntity> CardNewRequests { get; set; }
+        //private DbSet<CardLimitRequestEntity> CardLimitRequests { get; set; }
+        //private DbSet<CardReissueRequestEntity> CardReissueRequests { get; set; }
+        //private DbSet<CardBlockRequestEntity> CardBlockRequests { get; set; }
+        //private DbSet<CardNewRequestEntity> CardNewRequests { get; set; }
         private DbSet<StatementEntity> Statements { get; set; }
         private DbSet<TransactionTypeEntity> TransactionTypes { get; set; }
         private DbSet<TransactionEntity> Transactions { get; set; }
@@ -59,10 +59,10 @@ namespace EPM.Wallet.Data.SqlServer
             modelBuilder.Configurations.Add(new RequestMap($"{prefix}{nameof(Requests)}"));
 
             modelBuilder.Configurations.Add(new CardRequestMap($"{prefix}{nameof(Requests)}"));
-            modelBuilder.Configurations.Add(new CardLimitRequestMap($"{prefix}{nameof(Requests)}"));
-            modelBuilder.Configurations.Add(new CardReissueRequestMap($"{prefix}{nameof(Requests)}"));
-            modelBuilder.Configurations.Add(new CardBlockRequestMap($"{prefix}{nameof(Requests)}"));
-            modelBuilder.Configurations.Add(new CardNewRequestMap($"{prefix}{nameof(Requests)}"));
+            //modelBuilder.Configurations.Add(new CardLimitRequestMap($"{prefix}{nameof(Requests)}"));
+            //modelBuilder.Configurations.Add(new CardReissueRequestMap($"{prefix}{nameof(Requests)}"));
+            //modelBuilder.Configurations.Add(new CardBlockRequestMap($"{prefix}{nameof(Requests)}"));
+            //modelBuilder.Configurations.Add(new CardNewRequestMap($"{prefix}{nameof(Requests)}"));
 
             modelBuilder.Configurations.Add(new AccountRequestMap($"{prefix}{nameof(Requests)}"));
             modelBuilder.Configurations.Add(new StatementsMap($"{prefix}Client{nameof(Statements)}"));

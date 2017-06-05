@@ -5,6 +5,5 @@ namespace EPM.Wallet.WinForms.Interfaces
 {
     public interface ITransactionDataManager : ITypedDataMаnager<TransactionDto, Guid>
     {
-        
     }
 }

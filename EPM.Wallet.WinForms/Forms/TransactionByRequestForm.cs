@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
-using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
 
@@ -10,14 +9,15 @@ namespace EPM.Wallet.WinForms.Forms
 {
     public partial class TransactionByRequestForm : Form, ITransactionView
     {
-        private readonly IPresenter _presenter;
+        private readonly IPresenter _transactionPresenter;
+        private bool _isEventHandlerSets;
+
         public TransactionByRequestForm(ITransactionDataManager transactionDataManager, IDataMаnager dataMаnager)
         {
             InitializeComponent();
-            _presenter = new TransactionPresenter(this, transactionDataManager, dataMаnager);
+            _transactionPresenter = new TransactionPresenter(this, transactionDataManager, dataMаnager,
+                PresenterMode.AddNew);
         }
-
-        
 
         #region ITransactionView
 
@@ -34,10 +34,12 @@ namespace EPM.Wallet.WinForms.Forms
             set { tbId.Text = value.ToString(); }
         }
 
-        public Guid AccountId
+        public Guid AccountId { get; set; }
+
+        public string AccountName
         {
-            get { return (Guid)cmbAccount.SelectedValue; }
-            set { cmbAccount.SelectedValue = value; }
+            get { return tbAccountName.Text; }
+            set { tbAccountName.Text = value; }
         }
 
         public DateTime RegisterDate
@@ -70,12 +72,16 @@ namespace EPM.Wallet.WinForms.Forms
                     ? decimalResult
                     : 0;
             }
-            set { tbAmount.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set
+            {
+                tbAmount.Text = value.ToString("N2", new CultureInfo("en-GB"));
+                ;
+            }
         }
 
         public string CurrencyId
         {
-            get { return (string)cmbCurrency.SelectedValue; }
+            get { return (string) cmbCurrency.SelectedValue; }
             set { cmbCurrency.SelectedValue = value; }
         }
 
@@ -89,7 +95,7 @@ namespace EPM.Wallet.WinForms.Forms
                     ? decimalResult
                     : 0;
             }
-            set { tbAmountInCurrency.Text = value.ToString(CultureInfo.InvariantCulture); }
+            set { tbAmountInCurrency.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
         public decimal Balance
@@ -127,15 +133,7 @@ namespace EPM.Wallet.WinForms.Forms
 
         #region DetailsLists
 
-        public List<KeyValuePair<Guid, string>> AccountList
-        {
-            set
-            {
-                cmbAccount.DataSource = value;
-                cmbAccount.ValueMember = "Key";
-                cmbAccount.DisplayMember = "Value";
-            }
-        }
+        public List<KeyValuePair<Guid, string>> AccountList { get; set; }
 
         public List<KeyValuePair<string, string>> CurrencyList
         {
@@ -155,11 +153,13 @@ namespace EPM.Wallet.WinForms.Forms
 
         public void RefreshItems()
         {
-            _presenter.AddNew();
+            _transactionPresenter.AddNew();
         }
 
         public void SetEventHandlers()
         {
+            if (_isEventHandlerSets) return;
+            _isEventHandlerSets = true;
         }
 
         #endregion //IRefreshedView
@@ -198,39 +198,14 @@ namespace EPM.Wallet.WinForms.Forms
 
         public void ClearInputFields()
         {
-            tbId.Clear();
-            cmbAccount.SelectedIndex = -1;
-            tbRegisterDate.Clear();
-            tbValueDate.Clear();
-            tbAmount.Clear();
-            tbAmountInCurrency.Clear();
-            cmbCurrency.SelectedIndex = -1;
-            tbFromTo.Clear();
-            tbNote.Clear();
         }
 
         public void EnableInput()
         {
-            cmbAccount.Enabled = true;
-            tbRegisterDate.Enabled = true;
-            tbAmount.Enabled = true;
-            tbAmountInCurrency.Enabled = true;
-            cmbCurrency.Enabled = true;
-            tbFromTo.Enabled = true;
-            tbNote.Enabled = true;
         }
 
         public void DisableInput()
         {
-            tbId.Enabled = false;
-            cmbAccount.Enabled = false;
-            tbRegisterDate.Enabled = false;
-            tbValueDate.Enabled = false;
-            tbAmount.Enabled = false;
-            cmbCurrency.Enabled = false;
-            tbAmountInCurrency.Enabled = false;
-            tbFromTo.Enabled = false;
-            tbNote.Enabled = false;
         }
 
         #endregion //IEnterMode
@@ -239,13 +214,13 @@ namespace EPM.Wallet.WinForms.Forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            _presenter.Save();
+            _transactionPresenter.Save();
             DialogResult = DialogResult.OK;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            _presenter.Cancel();
+            _transactionPresenter.Cancel();
             DialogResult = DialogResult.Cancel;
         }
 

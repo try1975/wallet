@@ -9,7 +9,8 @@ namespace EPM.Wallet.WinForms.Presenters
     public class MessagePresenter : TypedPresenter<MessageDto, Guid>
     {
         public MessagePresenter(IMessageView view, IMessageDataManager typedDataManager
-            , IDataMаnager dataMаnager) : base(view, typedDataManager, dataMаnager)
+            , IDataMаnager dataMаnager, PresenterMode presenterMode = PresenterMode.Read)
+            : base(view, typedDataManager, dataMаnager, presenterMode)
         {
             LoadLists();
         }

@@ -22,17 +22,17 @@ namespace WalletWebApi.AutoMappers
                 ;
 
             cfg.CreateMap<AccountRequestEntity, AccountRequestDto>()
-                .ForMember(dest => dest.SubType, opt => opt.MapFrom(src => src.AccountRequestType))
+                .ForMember(dest => dest.SubTypeOld, opt => opt.MapFrom(src => src.AccountRequestType))
                ;
             cfg.CreateMap<AccountRequestDto, AccountRequestEntity>()
-                .ForMember(dest => dest.AccountRequestType, opt => opt.MapFrom(src => src.SubType))
+                .ForMember(dest => dest.AccountRequestType, opt => opt.MapFrom(src => src.SubTypeOld))
                 ;
 
             cfg.CreateMap<AccountRequestEntity, AccountRequestTransferOutDto>()
-                .ForMember(dest => dest.SubType, opt => opt.MapFrom(src => src.AccountRequestType))
+                .ForMember(dest => dest.SubTypeOld, opt => opt.MapFrom(src => src.AccountRequestType))
                ;
             cfg.CreateMap<AccountRequestTransferOutDto, AccountRequestEntity>()
-                .ForMember(dest => dest.AccountRequestType, opt => opt.MapFrom(src => src.SubType))
+                .ForMember(dest => dest.AccountRequestType, opt => opt.MapFrom(src => src.SubTypeOld))
                 ;
 
             cfg.CreateMap<AccountRequestEntity, AccountNewRequestDto>()
@@ -41,34 +41,55 @@ namespace WalletWebApi.AutoMappers
                 ;
 
             cfg.CreateMap<CardRequestEntity, CardRequestDto>()
-                .ForMember(dest => dest.SubType, opt => opt.MapFrom(src => src.CardRequestType))
+                .ForMember(dest => dest.SubTypeOld, opt => opt.MapFrom(src => src.CardRequestType))
                ;
             cfg.CreateMap<CardRequestDto, CardRequestEntity>()
-                .ForMember(dest => dest.CardRequestType, opt => opt.MapFrom(src => src.SubType))
+                .ForMember(dest => dest.CardRequestType, opt => opt.MapFrom(src => src.SubTypeOld))
                 ;
 
-            cfg.CreateMap<CardLimitRequestEntity, CardLimitRequestDto>()
+            //cfg.CreateMap<CardLimitRequestEntity, CardLimitRequestDto>()
+            //    ;
+            //cfg.CreateMap<CardLimitRequestDto, CardLimitRequestEntity>()
+            //    ;
+
+            cfg.CreateMap<CardRequestEntity, CardLimitRequestDto>()
                 ;
-            cfg.CreateMap<CardLimitRequestDto, CardLimitRequestEntity>()
+            cfg.CreateMap<CardLimitRequestDto, CardRequestEntity>()
                 ;
 
-            cfg.CreateMap<CardReissueRequestEntity, CardReissueRequestDto>()
+            //cfg.CreateMap<CardReissueRequestEntity, CardReissueRequestDto>()
+            //    .ForMember(dest => dest.ReissueType, opt => opt.MapFrom(src => src.CardReissueType))
+            //    .ForMember(dest => dest.Reason, opt => opt.MapFrom(src => src.CardReissueReason))
+            //    ;
+            //cfg.CreateMap<CardReissueRequestDto, CardReissueRequestEntity>()
+            //    .ForMember(dest => dest.CardReissueType, opt => opt.MapFrom(src => src.ReissueType))
+            //    .ForMember(dest => dest.CardReissueReason, opt => opt.MapFrom(src => src.Reason))
+            //    ;
+            cfg.CreateMap<CardRequestEntity, CardReissueRequestDto>()
                 .ForMember(dest => dest.ReissueType, opt => opt.MapFrom(src => src.CardReissueType))
                 .ForMember(dest => dest.Reason, opt => opt.MapFrom(src => src.CardReissueReason))
                 ;
-            cfg.CreateMap<CardReissueRequestDto, CardReissueRequestEntity>()
+            cfg.CreateMap<CardReissueRequestDto, CardRequestEntity>()
                 .ForMember(dest => dest.CardReissueType, opt => opt.MapFrom(src => src.ReissueType))
                 .ForMember(dest => dest.CardReissueReason, opt => opt.MapFrom(src => src.Reason))
                 ;
 
-            cfg.CreateMap<CardNewRequestEntity, CardNewRequestDto>()
+            //cfg.CreateMap<CardNewRequestEntity, CardNewRequestDto>()
+            //    ;
+            //cfg.CreateMap<CardNewRequestDto, CardNewRequestEntity>()
+            //    ;
+            cfg.CreateMap<CardRequestEntity, CardNewRequestDto>()
                 ;
-            cfg.CreateMap<CardNewRequestDto, CardNewRequestEntity>()
+            cfg.CreateMap<CardNewRequestDto, CardRequestEntity>()
                 ;
 
-            cfg.CreateMap<CardBlockRequestEntity, CardBlockRequestDto>()
+            //cfg.CreateMap<CardBlockRequestEntity, CardBlockRequestDto>()
+            //   ;
+            //cfg.CreateMap<CardBlockRequestDto, CardBlockRequestEntity>()
+            //    ;
+            cfg.CreateMap<CardRequestEntity, CardBlockRequestDto>()
                 ;
-            cfg.CreateMap<CardBlockRequestDto, CardBlockRequestEntity>()
+            cfg.CreateMap<CardBlockRequestDto, CardRequestEntity>()
                 ;
         }
     }

@@ -4,7 +4,7 @@ using EPM.Wallet.Internal.Model;
 
 namespace WalletInternalApi.Maintenance
 {
-    public interface IRequestApi : ITypedApi<RequestDto, Guid>
+    public interface IRequestApi : ITypedApi<RequestInfoDto, Guid>
     {
         IEnumerable<RequestDto> RequestsByClient(string clientId);
     }

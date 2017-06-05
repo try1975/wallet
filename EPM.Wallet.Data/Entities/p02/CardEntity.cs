@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EPM.Wallet.Common.Enums;
 
 namespace EPM.Wallet.Data.Entities
 {
@@ -21,7 +22,8 @@ namespace EPM.Wallet.Data.Entities
         public string Cvc { get; set; }
         public string Pin { get; set; }
         public string Vendor { get; set; }
-        public bool IsInactive { get; set; }
+        //public bool IsInactive { get; set; }
+        public CardStatus CardStatus { get; set; }
 
         public Guid? MainCardId { get; set; }
         public CardEntity MainCard { get; set; }

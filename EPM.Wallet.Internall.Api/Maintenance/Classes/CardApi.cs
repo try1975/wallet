@@ -17,14 +17,14 @@ namespace WalletInternalApi.Maintenance
 
         public override IEnumerable<CardDto> GetItems()
         {
-            var list = Query.GetEntities().Where(z => !z.IsInactive).ToList();
+            var list = Query.GetEntities()/*.Where(z => !z.IsInactive)*/.ToList();
             return Mapper.Map<List<CardDto>>(list);
         }
 
         public IEnumerable<CardDto> GetCardsByClient(string clientId)
         {
             var list = Query.GetEntities().Where(z => z.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)
-                                                    && !z.IsInactive)
+                                                    /*&& !z.IsInactive*/)
                                                     .ToList();
             return Mapper.Map<List<CardDto>>(list);
         }

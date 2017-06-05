@@ -13,6 +13,10 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
               .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
               ;
 
+            Property(e => e.RegisterDate)
+                .HasColumnType("datetime2")
+                ;
+
             Property(e => e.FromTo)
                 .HasMaxLength(512)
                 .IsRequired()

@@ -3,5 +3,5 @@ using EPM.Wallet.Data.Entities;
 
 namespace EPM.Wallet.Data.QueryProcessors
 {
-    public interface ICardReissueRequestQuery : ITypedQuery<CardReissueRequestEntity, Guid> { }
+    //public interface ICardReissueRequestQuery : ITypedQuery<CardReissueRequestEntity, Guid> { }
 }

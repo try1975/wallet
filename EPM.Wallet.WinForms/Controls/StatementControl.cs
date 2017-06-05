@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace EPM.Wallet.WinForms.Controls
     {
         private readonly IPresenter _presenter;
         private Uri _statementLink;
+        private bool _isEventHandlerSets;
 
         public StatementControl(IStatementDataManager statementDataManager, IDataMаnager dataMаnager)
         {
@@ -37,7 +39,7 @@ namespace EPM.Wallet.WinForms.Controls
 
         public Guid AccountId
         {
-            get { return (Guid)cmbAccount.SelectedValue; }
+            get { return (Guid) cmbAccount.SelectedValue; }
             set { cmbAccount.SelectedValue = value; }
         }
 
@@ -51,7 +53,8 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbValueDate.Text = value.ToString(CultureInfo.CurrentCulture); }
         }
 
-        public string Period {
+        public string Period
+        {
             get { return tbPeriod.Text; }
             set { tbPeriod.Text = value; }
         }
@@ -66,10 +69,11 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbPreviosBalance.Text = value.ToString("N2"); }
+            set { tbPreviosBalance.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
-        public decimal Credits {
+        public decimal Credits
+        {
             get
             {
                 decimal decimalResult;
@@ -78,10 +82,11 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbCredits.Text = value.ToString("N2"); }
+            set { tbCredits.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
-        public decimal Debits {
+        public decimal Debits
+        {
             get
             {
                 decimal decimalResult;
@@ -90,10 +95,11 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbDebits.Text = value.ToString("N2"); }
+            set { tbDebits.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
-        public decimal NewBalance {
+        public decimal NewBalance
+        {
             get
             {
                 decimal decimalResult;
@@ -102,7 +108,7 @@ namespace EPM.Wallet.WinForms.Controls
                     ? decimalResult
                     : 0;
             }
-            set { tbNewBalance.Text = value.ToString("N2"); }
+            set { tbNewBalance.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
         public byte[] Content { get; set; }
@@ -120,7 +126,7 @@ namespace EPM.Wallet.WinForms.Controls
             {
                 _statementLink = value;
                 linkStatement.Text = LoadedFrom;
-            }  
+            }
         }
 
         #endregion //Details
@@ -176,6 +182,9 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void SetEventHandlers()
         {
+            if (_isEventHandlerSets) return;
+            _isEventHandlerSets = true;
+
             dgvItems.FilterStringChanged += dgvItems_FilterStringChanged;
             dgvItems.SortStringChanged += dgvItems_SortStringChanged;
 
@@ -338,7 +347,7 @@ namespace EPM.Wallet.WinForms.Controls
 
         private void linkStatement_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(StatementLink.AbsoluteUri);
+            Process.Start(StatementLink.AbsoluteUri);
         }
 
         #endregion //Event handlers

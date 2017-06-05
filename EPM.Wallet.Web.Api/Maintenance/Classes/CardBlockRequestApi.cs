@@ -7,10 +7,12 @@ using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {
-    public class CardBlockRequestApi : TypedApi<CardBlockRequestDto, CardBlockRequestEntity, Guid>, ICardBlockRequestApi
+    //public class CardBlockRequestApi : TypedApi<CardBlockRequestDto, CardBlockRequestEntity, Guid>, ICardBlockRequestApi
+    public class CardBlockRequestApi : TypedApi<CardBlockRequestDto, CardRequestEntity, Guid>, ICardBlockRequestApi
     {
         private readonly ICardQuery _cardQuery;
-        public CardBlockRequestApi(ICardBlockRequestQuery query, ICardQuery cardQuery) : base(query)
+        //public CardBlockRequestApi(ICardBlockRequestQuery query, ICardQuery cardQuery) : base(query)
+        public CardBlockRequestApi(ICardRequestQuery query, ICardQuery cardQuery) : base(query)
         {
             _cardQuery = cardQuery;
         }
@@ -21,7 +23,8 @@ namespace WalletWebApi.Maintenance
             var card = _cardQuery.GetEntity(cardId);
             if (card == null) return false;
             if (!card.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)) return false;
-            var entity = new CardBlockRequestEntity
+            //var entity = new CardBlockRequestEntity
+            var entity = new CardRequestEntity
             {
                 ClientId = card.ClientId,
                 CardId = cardId,

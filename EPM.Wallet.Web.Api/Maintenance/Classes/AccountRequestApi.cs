@@ -32,8 +32,11 @@ namespace WalletWebApi.Maintenance
 
         public IEnumerable<AccountRequestTransferOutDto> GetTransferOutRequestsByClient(string clientId, int @from, int count)
         {
+            var expireProcessed = DateTime.UtcNow.AddDays(-2);
             var list = _query.GetEntities()
-                .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected)))
+                .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment
+                        && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected)
+                        || (m.RequestStatus == RequestStatus.Processed && m.ValueDate >= expireProcessed)))
                 .Include(nameof(AccountRequestDto.Requisite))
                 .OrderByDescending(i => i.CreatedAt)
                 .Skip(from)
@@ -84,8 +87,11 @@ namespace WalletWebApi.Maintenance
 
         public IEnumerable<AccountRequestDto> RequestsByClient(string clientId, int from, int count)
         {
+            var expireProcessed = DateTime.UtcNow.AddDays(-2);
             var list = _query.GetEntities()
-               .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected)))
+               .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment 
+                        && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected) 
+                        || (m.RequestStatus == RequestStatus.Processed && m.ValueDate >= expireProcessed) ))
                .Include(nameof(AccountRequestDto.Requisite))
                .OrderByDescending(i => i.CreatedAt)
                .Skip(from)

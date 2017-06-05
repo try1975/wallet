@@ -20,5 +20,8 @@ namespace EPM.Wallet.Data.Entities
 
         public Guid? RequisiteId { get; set; }
         public RequisiteEntity Requisite { get; set; }
+
+        public Guid? StandingOrderId { get; set; }
+        public StandingOrderEntity StandingOrder { get; set; }
     }
 }

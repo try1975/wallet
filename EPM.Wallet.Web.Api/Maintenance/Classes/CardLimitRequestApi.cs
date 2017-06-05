@@ -8,11 +8,13 @@ using WalletWebApi.Model;
 
 namespace WalletWebApi.Maintenance
 {
-    public class CardLimitRequestApi : TypedApi<CardLimitRequestDto, CardLimitRequestEntity, Guid>, ICardLimitRequestApi
+    //public class CardLimitRequestApi : TypedApi<CardLimitRequestDto, CardLimitRequestEntity, Guid>, ICardLimitRequestApi
+    public class CardLimitRequestApi : TypedApi<CardLimitRequestDto, CardRequestEntity, Guid>, ICardLimitRequestApi
     {
         private readonly ICardQuery _cardQuery;
 
-        public CardLimitRequestApi(ICardLimitRequestQuery query, ICardQuery cardQuery) : base(query)
+        //public CardLimitRequestApi(ICardLimitRequestQuery query, ICardQuery cardQuery) : base(query)
+        public CardLimitRequestApi(ICardRequestQuery query, ICardQuery cardQuery) : base(query)
         {
             _cardQuery = cardQuery;
         }
@@ -23,7 +25,8 @@ namespace WalletWebApi.Maintenance
             var card = _cardQuery.GetEntity(dto.CardId);
             if (card == null) return false;
             if (!card.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)) return false;
-            var entity = Mapper.Map<CardLimitRequestEntity>(dto);
+            //var entity = Mapper.Map<CardLimitRequestEntity>(dto);
+            var entity = Mapper.Map<CardRequestEntity>(dto);
             entity.ClientId = card.ClientId;
             entity.RequestType = RequestType.Card;
             entity.RequestStatus = RequestStatuses.GetPendingRequestStatus();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
+using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.QueryProcessors;
 using WalletWebApi.Model;
@@ -18,14 +19,14 @@ namespace WalletWebApi.Maintenance
 
         public override IEnumerable<CardDto> GetItems()
         {
-            var list = _query.GetEntities().Where(z => !z.IsInactive).ToList();
+            var list = _query.GetEntities().Where(z => z.CardStatus==CardStatus.Active).ToList();
             return Mapper.Map<List<CardDto>>(list);
         }
 
         public IEnumerable<CardDto> GetCardsByClient(string clientId)
         {
             var list = _query.GetEntities().Where(z => z.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase)
-                                                    && !z.IsInactive)
+                                                    && z.CardStatus == CardStatus.Active)
                                                     .Include(z=>z.Statements)
                                                     .ToList();
             var cardDtoList = new List<CardDto>();
@@ -46,5 +47,7 @@ namespace WalletWebApi.Maintenance
 
             return cardDtoList;
         }
+
+       
     }
 }

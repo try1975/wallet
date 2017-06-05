@@ -62,17 +62,19 @@ namespace WalletWebApi.Ninject
             container.Bind<IAccountRequestApi>().To<AccountRequestApi>().InRequestScope();
             container.Bind<IAccountRequestQuery>().To<AccountRequestQuery>().InRequestScope();
 
+            container.Bind<ICardRequestQuery>().To<CardRequestQuery>().InRequestScope();
+
             container.Bind<ICardLimitRequestApi>().To<CardLimitRequestApi>().InRequestScope();
-            container.Bind<ICardLimitRequestQuery>().To<CardLimitRequestQuery>().InRequestScope();
+            //container.Bind<ICardLimitRequestQuery>().To<CardLimitRequestQuery>().InRequestScope();
 
             container.Bind<ICardReissueRequestApi>().To<CardReissueRequestApi>().InRequestScope();
-            container.Bind<ICardReissueRequestQuery>().To<CardReissueRequestQuery>().InRequestScope();
+            //container.Bind<ICardReissueRequestQuery>().To<CardReissueRequestQuery>().InRequestScope();
 
             container.Bind<ICardBlockRequestApi>().To<CardBlockRequestApi>().InRequestScope();
-            container.Bind<ICardBlockRequestQuery>().To<CardBlockRequestQuery>().InRequestScope();
+            //container.Bind<ICardBlockRequestQuery>().To<CardBlockRequestQuery>().InRequestScope();
 
             container.Bind<ICardNewRequestApi>().To<CardNewRequestApi>().InRequestScope();
-            container.Bind<ICardNewRequestQuery>().To<CardNewRequestQuery>().InRequestScope();
+            //container.Bind<ICardNewRequestQuery>().To<CardNewRequestQuery>().InRequestScope();
 
             container.Bind<IStandingOrderApi>().To<StandingOrderApi>().InRequestScope();
             container.Bind<IStandingOrderQuery>().To<StandingOrderQuery>().InRequestScope();
