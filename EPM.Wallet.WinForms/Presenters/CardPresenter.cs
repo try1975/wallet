@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 
@@ -43,6 +44,10 @@ namespace EPM.Wallet.WinForms.Presenters
             {
                 ((ICardView) View).CurrencyList = new List<KeyValuePair<string, string>>();
             }
+
+            var names = Enum.GetNames(typeof(CardStatus));
+            var cardStatusList = (from CardStatus status in Enum.GetValues(typeof(CardStatus)) select new KeyValuePair<CardStatus, string>(status, names[(int) status])).ToList();
+            ((ICardView)View).CardStatusList = cardStatusList;
         }
     }
 }

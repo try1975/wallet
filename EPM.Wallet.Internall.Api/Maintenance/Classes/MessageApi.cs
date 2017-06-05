@@ -18,6 +18,12 @@ namespace WalletInternalApi.Maintenance
             _clientQuery = clientQuery;
         }
 
+        public override IEnumerable<MessageDto> GetItems()
+        {
+            var list = Query.GetEntities().OrderByDescending(z => z.CreatedAt).ToList();
+            return Mapper.Map<List<MessageDto>>(list);
+        }
+
         public IEnumerable<MessageDto> GetMessagesByClient(string clientId)
         {
             var list = Query.GetEntities()

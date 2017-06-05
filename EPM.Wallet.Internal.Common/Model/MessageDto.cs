@@ -22,6 +22,7 @@ namespace EPM.Wallet.Internal.Model
         public string Body { get; set; }
 
         public DateTime? ReadDate { get; set; }
+        public DateTime? DeletionDate { get; set; }
 
         public bool IsOutgoing { get; set; }
     }

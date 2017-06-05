@@ -8,20 +8,20 @@ namespace EPM.Wallet.Internal.Model
     public class CardDto : IDto<Guid>
     {
         public Guid Id { get; set; }
-        public string Comment { get; set; }
         public string ClientId { get; set; }
         public string CurrencyId { get; set; }
         public string CardNumber { get; set; }
         public string CardHolder { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public CardStatus CardStatus { get; set; }
         public int ExpMonth { get; set; }
         public int ExpYear { get; set; }
         public decimal Limit { get; set; }
         public string Cvc { get; set; }
         public string Pin { get; set; }
         public string Vendor { get; set; }
-        //public bool IsInactive { get; set; }
-        [JsonConverter(typeof(StringEnumConverter))]
-        public CardStatus CardStatus { get; set; }
+        public string Comment { get; set; }
+
         public Uri LastStatementLink { get; set; }
     }
 }

@@ -144,6 +144,18 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbAmountOut.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
+        public int Limit {
+            get
+            {
+                int intResult;
+                return int.TryParse(tbLimit.Text, NumberStyles.Number, new CultureInfo("en-GB"),
+                    out intResult)
+                    ? intResult
+                    : 0;
+            }
+            set { tbLimit.Text = value.ToString("N2", new CultureInfo("en-GB")); }
+        }
+
         #endregion //Details
 
         #region DetailsLists
@@ -203,6 +215,9 @@ namespace EPM.Wallet.WinForms.Controls
 
             var card = CardId.HasValue;
             //pnlCardNumber.Visible = card;
+
+            var cardSetLimit = RequestType == RequestType.Card &&
+                                     SubType.Equals(nameof(CardRequestType.SetLimit));
 
             var payment = RequestType == RequestType.Payment;
             pnlAccountName.Visible = payment;
@@ -285,9 +300,14 @@ namespace EPM.Wallet.WinForms.Controls
             if (RequestStatus != RequestStatus.Pending) return;
 
 
-            var form = new MessageByRequestForm();
+            var form = new MessageByRequestForm(CompositionRoot.Resolve<IMessageDataManager>(),
+                CompositionRoot.Resolve<IDataMаnager>())
+            {
+                ClientId = ClientId,
+                Date = DateTime.UtcNow,
+                Subject = "Reject message"
+            };
             if (form.ShowDialog() != DialogResult.OK) return;
-
 
             _presenter.Edit();
             RequestStatus = RequestStatus.Rejected;
@@ -301,7 +321,15 @@ namespace EPM.Wallet.WinForms.Controls
             if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.New)))
             {
                 var form = new CardByRequestForm(CompositionRoot.Resolve<ICardDataMаnager>(),
-                    CompositionRoot.Resolve<IMessageDataManager>(), CompositionRoot.Resolve<IDataMаnager>());
+                    CompositionRoot.Resolve<IMessageDataManager>(), CompositionRoot.Resolve<IDataMаnager>())
+                {
+                    ClientId = ClientId,
+                    CurrencyId = CurrencyId,
+                    CardHolder = ClientName,
+                    Limit = 5000,
+                    Date = DateTime.UtcNow,
+                    Subject = "New card request processed"
+                };
                 if (form.ShowDialog() != DialogResult.OK) return;
             }
             if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.SetLimit)))
@@ -378,5 +406,10 @@ namespace EPM.Wallet.WinForms.Controls
         }
 
         #endregion //Event handlers
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

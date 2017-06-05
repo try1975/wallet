@@ -40,6 +40,8 @@ namespace EPM.Wallet.WinForms.Interfaces
         decimal AmountIn { get; set; }
         decimal AmountOut { get; set; }
 
+        int Limit { get; set; }
+
         #endregion // Details
 
         #region DetailsLists

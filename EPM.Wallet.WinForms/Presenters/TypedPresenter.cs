@@ -80,8 +80,8 @@ namespace EPM.Wallet.WinForms.Presenters
 
         public void Cancel()
         {
-            View.EnterReadMode();
             PresenterMode = PresenterMode.Read;
+            View.EnterReadMode();
         }
 
         public async void Delete()
@@ -128,8 +128,8 @@ namespace EPM.Wallet.WinForms.Presenters
             {
                 BindingSource.DataSource = ToDataTable((await _typedDataMànager.GetItems()).ToList());
             }
-            View.EnterReadMode();
             PresenterMode = PresenterMode.Read;
+            View.EnterReadMode();
         }
 
         private async void Update()

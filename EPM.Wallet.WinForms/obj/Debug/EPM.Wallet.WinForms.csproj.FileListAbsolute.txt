@@ -176,3 +176,6 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.W
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.application
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.exe
 C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.pdb
+C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.CardByRequestForm.resources
+C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.ChildForm.resources
+C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.MessageByRequestForm.resources

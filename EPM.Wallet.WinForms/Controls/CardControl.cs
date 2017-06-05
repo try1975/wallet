@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using EPM.Wallet.Common.Enums;
+using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
 
@@ -21,15 +23,11 @@ namespace EPM.Wallet.WinForms.Controls
 
         #region Details
 
-        public Guid Id
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(tbId.Text)) return Guid.Empty;
-                Guid id;
-                return Guid.TryParse(tbId.Text, out id) ? id : Guid.Empty;
-            }
-            set { tbId.Text = value.ToString(); }
+        public Guid Id { get; set; }
+
+        public CardStatus CardStatus {
+            get { return (CardStatus)cmbCardStatus.SelectedValue; }
+            set { cmbCardStatus.SelectedValue = value; }
         }
 
         public string ClientId
@@ -74,7 +72,24 @@ namespace EPM.Wallet.WinForms.Controls
             set { udLimit.Value = value; }
         }
 
-        public string Vendor { get; set; }
+        public string Cvc {
+            get { return tbCvc.Text; }
+            set { tbCvc.Text = value; }
+        }
+        public string Pin {
+            get { return tbPin.Text; }
+            set { tbPin.Text = value; }
+        }
+
+        public string Vendor {
+            get { return tbVendor.Text; }
+            set { tbVendor.Text = value; }
+        }
+
+        public string Comment {
+            get { return tbComment.Text; }
+            set { tbComment.Text = value; }
+        }
 
         #endregion //Details
 
@@ -100,6 +115,15 @@ namespace EPM.Wallet.WinForms.Controls
             }
         }
 
+        public List<KeyValuePair<CardStatus, string>> CardStatusList {
+            set
+            {
+                cmbCardStatus.DataSource = value;
+                cmbCardStatus.ValueMember = "Key";
+                cmbCardStatus.DisplayMember = "Value";
+            }
+        }
+
         #endregion //DetailsLists
 
         #endregion //ICardView
@@ -109,6 +133,9 @@ namespace EPM.Wallet.WinForms.Controls
         public void RefreshItems()
         {
             dgvItems.DataSource = _presenter.BindingSource;
+
+            var hidedColumn = dgvItems.Columns[nameof(CardDto.Id)];
+            if (hidedColumn != null) hidedColumn.Visible = false;
         }
 
         public void SetEventHandlers()
@@ -191,7 +218,7 @@ namespace EPM.Wallet.WinForms.Controls
 
         public void ClearInputFields()
         {
-            tbId.Clear();
+            cmbCardStatus.SelectedIndex = -1;
             cmbClient.SelectedIndex = -1;
             cmbCurrency.SelectedIndex = -1;
             tbCardNumber.Clear();
@@ -199,11 +226,15 @@ namespace EPM.Wallet.WinForms.Controls
             udExpMonth.Value = udExpMonth.Minimum;
             udExpYear.Value = udExpYear.Minimum;
             udLimit.Value = udLimit.Minimum;
+            tbCvc.Clear();
+            tbPin.Clear();
+            tbVendor.Clear();
+            tbComment.Clear();
         }
 
         public void EnableInput()
         {
-            //tbId.Enabled = true;
+            cmbCardStatus.Enabled = true;
             cmbClient.Enabled = true;
             cmbCurrency.Enabled = true;
             tbCardNumber.Enabled = true;
@@ -211,11 +242,15 @@ namespace EPM.Wallet.WinForms.Controls
             udExpMonth.Enabled = true;
             udExpYear.Enabled = true;
             udLimit.Enabled = true;
+            tbCvc.Enabled = true;
+            tbPin.Enabled = true;
+            tbVendor.Enabled = true;
+            tbComment.Enabled = true;
         }
 
         public void DisableInput()
         {
-            tbId.Enabled = false;
+            cmbCardStatus.Enabled = false;
             cmbClient.Enabled = false;
             cmbCurrency.Enabled = false;
             tbCardNumber.Enabled = false;
@@ -223,6 +258,10 @@ namespace EPM.Wallet.WinForms.Controls
             udExpMonth.Enabled = false;
             udExpYear.Enabled = false;
             udLimit.Enabled = false;
+            tbCvc.Enabled = false;
+            tbPin.Enabled = false;
+            tbVendor.Enabled = false;
+            tbComment.Enabled = false;
         }
 
         #endregion //IEnterMode
