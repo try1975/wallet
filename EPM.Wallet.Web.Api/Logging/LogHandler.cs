@@ -8,6 +8,7 @@ namespace WalletWebApi.Logging
     public class LogHandler : DelegatingHandler
     {
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         protected override async Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request, CancellationToken cancellationToken)
         {

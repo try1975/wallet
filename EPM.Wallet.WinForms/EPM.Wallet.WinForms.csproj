@@ -101,6 +101,18 @@
     <Compile Include="Forms\CardByRequestForm.Designer.cs">
       <DependentUpon>CardByRequestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CardRequestBlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardRequestBlockForm.Designer.cs">
+      <DependentUpon>CardRequestBlockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardRequestSetLimitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardRequestSetLimitForm.Designer.cs">
+      <DependentUpon>CardRequestSetLimitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChildForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +298,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CardByRequestForm.resx">
       <DependentUpon>CardByRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardRequestBlockForm.resx">
+      <DependentUpon>CardRequestBlockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardRequestSetLimitForm.resx">
+      <DependentUpon>CardRequestSetLimitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChildForm.resx">
       <DependentUpon>ChildForm.cs</DependentUpon>

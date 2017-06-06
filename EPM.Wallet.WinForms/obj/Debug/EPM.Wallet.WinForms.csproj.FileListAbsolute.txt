@@ -179,3 +179,5 @@ C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.W
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.CardByRequestForm.resources
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.ChildForm.resources
 C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.MessageByRequestForm.resources
+C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.CardRequestSetLimitForm.resources
+C:\Projects\github\wallet\EPM.Wallet.WinForms\obj\Debug\EPM.Wallet.WinForms.Forms.CardRequestBlockForm.resources

@@ -213,11 +213,19 @@ namespace EPM.Wallet.WinForms.Controls
 
             VisibleAccountName = $"{AccountName} [{ClientName}][{AccountCurrencyId}]";
 
+            pnlCurrency.Visible = !string.IsNullOrEmpty(CurrencyId);
+
             var card = CardId.HasValue;
             //pnlCardNumber.Visible = card;
 
             var cardSetLimit = RequestType == RequestType.Card &&
                                      SubType.Equals(nameof(CardRequestType.SetLimit));
+            if (cardSetLimit) pnlCurrency.Visible = false;
+            pnlLimit.Visible = cardSetLimit;
+
+
+            var cardNew = RequestType == RequestType.Card &&
+                                     SubType.Equals(nameof(CardRequestType.New));
 
             var payment = RequestType == RequestType.Payment;
             pnlAccountName.Visible = payment;
@@ -334,15 +342,35 @@ namespace EPM.Wallet.WinForms.Controls
             }
             if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.SetLimit)))
             {
-                var form = new CardByRequestForm(CompositionRoot.Resolve<ICardDataMаnager>(),
-                    CompositionRoot.Resolve<IMessageDataManager>(), CompositionRoot.Resolve<IDataMаnager>());
-                if (form.ShowDialog() != DialogResult.OK) return;
+                if (CardId != null)
+                {
+                    var form = new CardRequestSetLimitForm(CompositionRoot.Resolve<IDataMаnager>())
+                    {
+                        CardId = CardId.Value,
+                        Limit = Limit,
+                        ClientId = ClientId,
+                        Date = DateTime.UtcNow,
+                        Subject = "Card Set Limit request processed",
+                        Body = $"Card #{CardNumber} limit set to {Limit}"
+                    };
+                    if (form.ShowDialog() != DialogResult.OK) return;
+                }
             }
             if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.Block)))
             {
-                var form = new CardByRequestForm(CompositionRoot.Resolve<ICardDataMаnager>(),
-                    CompositionRoot.Resolve<IMessageDataManager>(), CompositionRoot.Resolve<IDataMаnager>());
-                if (form.ShowDialog() != DialogResult.OK) return;
+                if (CardId != null)
+                {
+                    var form = new CardRequestBlockForm(CompositionRoot.Resolve<IDataMаnager>())
+                    {
+                        CardId = CardId.Value,
+                        Comment = $"Blocked {DateTime.UtcNow}",
+                        ClientId = ClientId,
+                        Date = DateTime.UtcNow,
+                        Subject = "Card Block request processed",
+                        Body = $"Card #{CardNumber} blocked"
+                    };
+                    if (form.ShowDialog() != DialogResult.OK) return;
+                }
             }
             if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.Reissue)))
             {

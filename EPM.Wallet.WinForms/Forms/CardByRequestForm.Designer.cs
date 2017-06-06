@@ -31,6 +31,18 @@
             this.pnlFields = new System.Windows.Forms.Panel();
             this.gbMessage = new System.Windows.Forms.GroupBox();
             this.tbMessageBody = new System.Windows.Forms.TextBox();
+            this.pnlComment = new System.Windows.Forms.Panel();
+            this.tbComment = new System.Windows.Forms.TextBox();
+            this.lblComment = new System.Windows.Forms.Label();
+            this.pnlVendor = new System.Windows.Forms.Panel();
+            this.tbVendor = new System.Windows.Forms.TextBox();
+            this.lblVendor = new System.Windows.Forms.Label();
+            this.pnlPin = new System.Windows.Forms.Panel();
+            this.tbPin = new System.Windows.Forms.TextBox();
+            this.lblPin = new System.Windows.Forms.Label();
+            this.pnlCvc = new System.Windows.Forms.Panel();
+            this.tbCvc = new System.Windows.Forms.TextBox();
+            this.lblCvc = new System.Windows.Forms.Label();
             this.pnlLimit = new System.Windows.Forms.Panel();
             this.udLimit = new System.Windows.Forms.NumericUpDown();
             this.lblLimit = new System.Windows.Forms.Label();
@@ -55,20 +67,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.pnlComment = new System.Windows.Forms.Panel();
-            this.tbComment = new System.Windows.Forms.TextBox();
-            this.lblComment = new System.Windows.Forms.Label();
-            this.pnlVendor = new System.Windows.Forms.Panel();
-            this.tbVendor = new System.Windows.Forms.TextBox();
-            this.lblVendor = new System.Windows.Forms.Label();
-            this.pnlPin = new System.Windows.Forms.Panel();
-            this.tbPin = new System.Windows.Forms.TextBox();
-            this.lblPin = new System.Windows.Forms.Label();
-            this.pnlCvc = new System.Windows.Forms.Panel();
-            this.tbCvc = new System.Windows.Forms.TextBox();
-            this.lblCvc = new System.Windows.Forms.Label();
             this.pnlFields.SuspendLayout();
             this.gbMessage.SuspendLayout();
+            this.pnlComment.SuspendLayout();
+            this.pnlVendor.SuspendLayout();
+            this.pnlPin.SuspendLayout();
+            this.pnlCvc.SuspendLayout();
             this.pnlLimit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udLimit)).BeginInit();
             this.pnlExpYear.SuspendLayout();
@@ -80,10 +84,6 @@
             this.pnlCurrency.SuspendLayout();
             this.pnlClient.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.pnlComment.SuspendLayout();
-            this.pnlVendor.SuspendLayout();
-            this.pnlPin.SuspendLayout();
-            this.pnlCvc.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFields
@@ -130,6 +130,130 @@
             this.tbMessageBody.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbMessageBody.Size = new System.Drawing.Size(832, 125);
             this.tbMessageBody.TabIndex = 0;
+            // 
+            // pnlComment
+            // 
+            this.pnlComment.Controls.Add(this.tbComment);
+            this.pnlComment.Controls.Add(this.lblComment);
+            this.pnlComment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlComment.Location = new System.Drawing.Point(0, 510);
+            this.pnlComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlComment.Name = "pnlComment";
+            this.pnlComment.Size = new System.Drawing.Size(840, 51);
+            this.pnlComment.TabIndex = 23;
+            // 
+            // tbComment
+            // 
+            this.tbComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbComment.Location = new System.Drawing.Point(146, 9);
+            this.tbComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbComment.Name = "tbComment";
+            this.tbComment.Size = new System.Drawing.Size(668, 26);
+            this.tbComment.TabIndex = 3;
+            // 
+            // lblComment
+            // 
+            this.lblComment.AutoSize = true;
+            this.lblComment.Location = new System.Drawing.Point(10, 14);
+            this.lblComment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(78, 20);
+            this.lblComment.TabIndex = 0;
+            this.lblComment.Text = "Comment";
+            // 
+            // pnlVendor
+            // 
+            this.pnlVendor.Controls.Add(this.tbVendor);
+            this.pnlVendor.Controls.Add(this.lblVendor);
+            this.pnlVendor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlVendor.Location = new System.Drawing.Point(0, 459);
+            this.pnlVendor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlVendor.Name = "pnlVendor";
+            this.pnlVendor.Size = new System.Drawing.Size(840, 51);
+            this.pnlVendor.TabIndex = 22;
+            // 
+            // tbVendor
+            // 
+            this.tbVendor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbVendor.Location = new System.Drawing.Point(146, 9);
+            this.tbVendor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbVendor.Name = "tbVendor";
+            this.tbVendor.Size = new System.Drawing.Size(668, 26);
+            this.tbVendor.TabIndex = 3;
+            // 
+            // lblVendor
+            // 
+            this.lblVendor.AutoSize = true;
+            this.lblVendor.Location = new System.Drawing.Point(10, 14);
+            this.lblVendor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVendor.Name = "lblVendor";
+            this.lblVendor.Size = new System.Drawing.Size(61, 20);
+            this.lblVendor.TabIndex = 0;
+            this.lblVendor.Text = "Vendor";
+            // 
+            // pnlPin
+            // 
+            this.pnlPin.Controls.Add(this.tbPin);
+            this.pnlPin.Controls.Add(this.lblPin);
+            this.pnlPin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlPin.Location = new System.Drawing.Point(0, 408);
+            this.pnlPin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlPin.Name = "pnlPin";
+            this.pnlPin.Size = new System.Drawing.Size(840, 51);
+            this.pnlPin.TabIndex = 21;
+            // 
+            // tbPin
+            // 
+            this.tbPin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPin.Location = new System.Drawing.Point(146, 9);
+            this.tbPin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbPin.Name = "tbPin";
+            this.tbPin.Size = new System.Drawing.Size(668, 26);
+            this.tbPin.TabIndex = 3;
+            // 
+            // lblPin
+            // 
+            this.lblPin.AutoSize = true;
+            this.lblPin.Location = new System.Drawing.Point(10, 14);
+            this.lblPin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPin.Name = "lblPin";
+            this.lblPin.Size = new System.Drawing.Size(31, 20);
+            this.lblPin.TabIndex = 0;
+            this.lblPin.Text = "Pin";
+            // 
+            // pnlCvc
+            // 
+            this.pnlCvc.Controls.Add(this.tbCvc);
+            this.pnlCvc.Controls.Add(this.lblCvc);
+            this.pnlCvc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCvc.Location = new System.Drawing.Point(0, 357);
+            this.pnlCvc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlCvc.Name = "pnlCvc";
+            this.pnlCvc.Size = new System.Drawing.Size(840, 51);
+            this.pnlCvc.TabIndex = 20;
+            // 
+            // tbCvc
+            // 
+            this.tbCvc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCvc.Location = new System.Drawing.Point(146, 9);
+            this.tbCvc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbCvc.Name = "tbCvc";
+            this.tbCvc.Size = new System.Drawing.Size(668, 26);
+            this.tbCvc.TabIndex = 3;
+            // 
+            // lblCvc
+            // 
+            this.lblCvc.AutoSize = true;
+            this.lblCvc.Location = new System.Drawing.Point(10, 14);
+            this.lblCvc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCvc.Name = "lblCvc";
+            this.lblCvc.Size = new System.Drawing.Size(35, 20);
+            this.lblCvc.TabIndex = 0;
+            this.lblCvc.Text = "Cvc";
             // 
             // pnlLimit
             // 
@@ -424,134 +548,6 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // pnlComment
-            // 
-            this.pnlComment.Controls.Add(this.tbComment);
-            this.pnlComment.Controls.Add(this.lblComment);
-            this.pnlComment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlComment.Location = new System.Drawing.Point(0, 510);
-            this.pnlComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlComment.Name = "pnlComment";
-            this.pnlComment.Size = new System.Drawing.Size(840, 51);
-            this.pnlComment.TabIndex = 23;
-            // 
-            // tbComment
-            // 
-            this.tbComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbComment.Enabled = false;
-            this.tbComment.Location = new System.Drawing.Point(146, 9);
-            this.tbComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbComment.Name = "tbComment";
-            this.tbComment.Size = new System.Drawing.Size(668, 26);
-            this.tbComment.TabIndex = 3;
-            // 
-            // lblComment
-            // 
-            this.lblComment.AutoSize = true;
-            this.lblComment.Location = new System.Drawing.Point(10, 14);
-            this.lblComment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(78, 20);
-            this.lblComment.TabIndex = 0;
-            this.lblComment.Text = "Comment";
-            // 
-            // pnlVendor
-            // 
-            this.pnlVendor.Controls.Add(this.tbVendor);
-            this.pnlVendor.Controls.Add(this.lblVendor);
-            this.pnlVendor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlVendor.Location = new System.Drawing.Point(0, 459);
-            this.pnlVendor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlVendor.Name = "pnlVendor";
-            this.pnlVendor.Size = new System.Drawing.Size(840, 51);
-            this.pnlVendor.TabIndex = 22;
-            // 
-            // tbVendor
-            // 
-            this.tbVendor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbVendor.Enabled = false;
-            this.tbVendor.Location = new System.Drawing.Point(146, 9);
-            this.tbVendor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbVendor.Name = "tbVendor";
-            this.tbVendor.Size = new System.Drawing.Size(668, 26);
-            this.tbVendor.TabIndex = 3;
-            // 
-            // lblVendor
-            // 
-            this.lblVendor.AutoSize = true;
-            this.lblVendor.Location = new System.Drawing.Point(10, 14);
-            this.lblVendor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendor.Name = "lblVendor";
-            this.lblVendor.Size = new System.Drawing.Size(61, 20);
-            this.lblVendor.TabIndex = 0;
-            this.lblVendor.Text = "Vendor";
-            // 
-            // pnlPin
-            // 
-            this.pnlPin.Controls.Add(this.tbPin);
-            this.pnlPin.Controls.Add(this.lblPin);
-            this.pnlPin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlPin.Location = new System.Drawing.Point(0, 408);
-            this.pnlPin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlPin.Name = "pnlPin";
-            this.pnlPin.Size = new System.Drawing.Size(840, 51);
-            this.pnlPin.TabIndex = 21;
-            // 
-            // tbPin
-            // 
-            this.tbPin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPin.Enabled = false;
-            this.tbPin.Location = new System.Drawing.Point(146, 9);
-            this.tbPin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbPin.Name = "tbPin";
-            this.tbPin.Size = new System.Drawing.Size(668, 26);
-            this.tbPin.TabIndex = 3;
-            // 
-            // lblPin
-            // 
-            this.lblPin.AutoSize = true;
-            this.lblPin.Location = new System.Drawing.Point(10, 14);
-            this.lblPin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPin.Name = "lblPin";
-            this.lblPin.Size = new System.Drawing.Size(31, 20);
-            this.lblPin.TabIndex = 0;
-            this.lblPin.Text = "Pin";
-            // 
-            // pnlCvc
-            // 
-            this.pnlCvc.Controls.Add(this.tbCvc);
-            this.pnlCvc.Controls.Add(this.lblCvc);
-            this.pnlCvc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCvc.Location = new System.Drawing.Point(0, 357);
-            this.pnlCvc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlCvc.Name = "pnlCvc";
-            this.pnlCvc.Size = new System.Drawing.Size(840, 51);
-            this.pnlCvc.TabIndex = 20;
-            // 
-            // tbCvc
-            // 
-            this.tbCvc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCvc.Enabled = false;
-            this.tbCvc.Location = new System.Drawing.Point(146, 9);
-            this.tbCvc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbCvc.Name = "tbCvc";
-            this.tbCvc.Size = new System.Drawing.Size(668, 26);
-            this.tbCvc.TabIndex = 3;
-            // 
-            // lblCvc
-            // 
-            this.lblCvc.AutoSize = true;
-            this.lblCvc.Location = new System.Drawing.Point(10, 14);
-            this.lblCvc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCvc.Name = "lblCvc";
-            this.lblCvc.Size = new System.Drawing.Size(35, 20);
-            this.lblCvc.TabIndex = 0;
-            this.lblCvc.Text = "Cvc";
-            // 
             // CardByRequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -565,6 +561,14 @@
             this.pnlFields.ResumeLayout(false);
             this.gbMessage.ResumeLayout(false);
             this.gbMessage.PerformLayout();
+            this.pnlComment.ResumeLayout(false);
+            this.pnlComment.PerformLayout();
+            this.pnlVendor.ResumeLayout(false);
+            this.pnlVendor.PerformLayout();
+            this.pnlPin.ResumeLayout(false);
+            this.pnlPin.PerformLayout();
+            this.pnlCvc.ResumeLayout(false);
+            this.pnlCvc.PerformLayout();
             this.pnlLimit.ResumeLayout(false);
             this.pnlLimit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udLimit)).EndInit();
@@ -583,14 +587,6 @@
             this.pnlClient.ResumeLayout(false);
             this.pnlClient.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.pnlComment.ResumeLayout(false);
-            this.pnlComment.PerformLayout();
-            this.pnlVendor.ResumeLayout(false);
-            this.pnlVendor.PerformLayout();
-            this.pnlPin.ResumeLayout(false);
-            this.pnlPin.PerformLayout();
-            this.pnlCvc.ResumeLayout(false);
-            this.pnlCvc.PerformLayout();
             this.ResumeLayout(false);
 
         }

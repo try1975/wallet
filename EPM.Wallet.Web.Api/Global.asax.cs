@@ -24,6 +24,8 @@ namespace WalletWebApi
             //
             //config.Formatters.JsonFormatter
             //            .SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All;
+
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

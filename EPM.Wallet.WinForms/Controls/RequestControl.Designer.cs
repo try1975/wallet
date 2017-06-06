@@ -31,6 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
+            this.pnlLimit = new System.Windows.Forms.Panel();
+            this.tbLimit = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.pnlCardNumber = new System.Windows.Forms.Panel();
             this.tbCardNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -76,11 +79,9 @@
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.pnlLimit = new System.Windows.Forms.Panel();
-            this.tbLimit = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
+            this.pnlLimit.SuspendLayout();
             this.pnlCardNumber.SuspendLayout();
             this.pnlOwnerName.SuspendLayout();
             this.pnlBic.SuspendLayout();
@@ -97,7 +98,6 @@
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.panel7.SuspendLayout();
-            this.pnlLimit.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -133,6 +133,38 @@
             this.pnlFields.Size = new System.Drawing.Size(594, 829);
             this.pnlFields.TabIndex = 1;
             // 
+            // pnlLimit
+            // 
+            this.pnlLimit.Controls.Add(this.tbLimit);
+            this.pnlLimit.Controls.Add(this.label11);
+            this.pnlLimit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLimit.Location = new System.Drawing.Point(0, 666);
+            this.pnlLimit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlLimit.Name = "pnlLimit";
+            this.pnlLimit.Size = new System.Drawing.Size(594, 52);
+            this.pnlLimit.TabIndex = 20;
+            // 
+            // tbLimit
+            // 
+            this.tbLimit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbLimit.Location = new System.Drawing.Point(146, 9);
+            this.tbLimit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbLimit.Name = "tbLimit";
+            this.tbLimit.ReadOnly = true;
+            this.tbLimit.Size = new System.Drawing.Size(422, 26);
+            this.tbLimit.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 14);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Limit";
+            // 
             // pnlCardNumber
             // 
             this.pnlCardNumber.Controls.Add(this.tbCardNumber);
@@ -151,6 +183,7 @@
             this.tbCardNumber.Location = new System.Drawing.Point(146, 9);
             this.tbCardNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbCardNumber.Name = "tbCardNumber";
+            this.tbCardNumber.ReadOnly = true;
             this.tbCardNumber.Size = new System.Drawing.Size(422, 26);
             this.tbCardNumber.TabIndex = 2;
             // 
@@ -182,6 +215,7 @@
             this.tbOwnerName.Location = new System.Drawing.Point(146, 18);
             this.tbOwnerName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbOwnerName.Name = "tbOwnerName";
+            this.tbOwnerName.ReadOnly = true;
             this.tbOwnerName.Size = new System.Drawing.Size(422, 26);
             this.tbOwnerName.TabIndex = 1;
             // 
@@ -213,6 +247,7 @@
             this.tbBic.Location = new System.Drawing.Point(146, 18);
             this.tbBic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbBic.Name = "tbBic";
+            this.tbBic.ReadOnly = true;
             this.tbBic.Size = new System.Drawing.Size(422, 26);
             this.tbBic.TabIndex = 1;
             // 
@@ -244,6 +279,7 @@
             this.tbBankAddress.Location = new System.Drawing.Point(146, 18);
             this.tbBankAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbBankAddress.Name = "tbBankAddress";
+            this.tbBankAddress.ReadOnly = true;
             this.tbBankAddress.Size = new System.Drawing.Size(422, 26);
             this.tbBankAddress.TabIndex = 1;
             // 
@@ -275,6 +311,7 @@
             this.tbIban.Location = new System.Drawing.Point(146, 18);
             this.tbIban.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbIban.Name = "tbIban";
+            this.tbIban.ReadOnly = true;
             this.tbIban.Size = new System.Drawing.Size(422, 26);
             this.tbIban.TabIndex = 1;
             // 
@@ -306,6 +343,7 @@
             this.tbBankName.Location = new System.Drawing.Point(146, 18);
             this.tbBankName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbBankName.Name = "tbBankName";
+            this.tbBankName.ReadOnly = true;
             this.tbBankName.Size = new System.Drawing.Size(422, 26);
             this.tbBankName.TabIndex = 1;
             // 
@@ -337,6 +375,7 @@
             this.tbBeneficiaryAccountName.Location = new System.Drawing.Point(146, 18);
             this.tbBeneficiaryAccountName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbBeneficiaryAccountName.Name = "tbBeneficiaryAccountName";
+            this.tbBeneficiaryAccountName.ReadOnly = true;
             this.tbBeneficiaryAccountName.Size = new System.Drawing.Size(422, 26);
             this.tbBeneficiaryAccountName.TabIndex = 1;
             // 
@@ -368,6 +407,7 @@
             this.tbAmountOut.Location = new System.Drawing.Point(146, 9);
             this.tbAmountOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbAmountOut.Name = "tbAmountOut";
+            this.tbAmountOut.ReadOnly = true;
             this.tbAmountOut.Size = new System.Drawing.Size(422, 26);
             this.tbAmountOut.TabIndex = 2;
             // 
@@ -400,6 +440,7 @@
             this.tbAmountIn.Location = new System.Drawing.Point(146, 9);
             this.tbAmountIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbAmountIn.Name = "tbAmountIn";
+            this.tbAmountIn.ReadOnly = true;
             this.tbAmountIn.Size = new System.Drawing.Size(422, 26);
             this.tbAmountIn.TabIndex = 2;
             // 
@@ -431,6 +472,7 @@
             this.tbCurrencyId.Location = new System.Drawing.Point(146, 9);
             this.tbCurrencyId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbCurrencyId.Name = "tbCurrencyId";
+            this.tbCurrencyId.ReadOnly = true;
             this.tbCurrencyId.Size = new System.Drawing.Size(422, 26);
             this.tbCurrencyId.TabIndex = 2;
             // 
@@ -462,6 +504,7 @@
             this.tbValueDate.Location = new System.Drawing.Point(146, 9);
             this.tbValueDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbValueDate.Name = "tbValueDate";
+            this.tbValueDate.ReadOnly = true;
             this.tbValueDate.Size = new System.Drawing.Size(422, 26);
             this.tbValueDate.TabIndex = 2;
             // 
@@ -493,6 +536,7 @@
             this.tbAccountName.Location = new System.Drawing.Point(146, 18);
             this.tbAccountName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbAccountName.Name = "tbAccountName";
+            this.tbAccountName.ReadOnly = true;
             this.tbAccountName.Size = new System.Drawing.Size(422, 26);
             this.tbAccountName.TabIndex = 1;
             // 
@@ -603,37 +647,6 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
-            // pnlLimit
-            // 
-            this.pnlLimit.Controls.Add(this.tbLimit);
-            this.pnlLimit.Controls.Add(this.label11);
-            this.pnlLimit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLimit.Location = new System.Drawing.Point(0, 666);
-            this.pnlLimit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlLimit.Name = "pnlLimit";
-            this.pnlLimit.Size = new System.Drawing.Size(594, 52);
-            this.pnlLimit.TabIndex = 20;
-            // 
-            // tbLimit
-            // 
-            this.tbLimit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbLimit.Location = new System.Drawing.Point(146, 9);
-            this.tbLimit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbLimit.Name = "tbLimit";
-            this.tbLimit.Size = new System.Drawing.Size(422, 26);
-            this.tbLimit.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 14);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 20);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Limit";
-            // 
             // RequestControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -646,6 +659,8 @@
             this.Size = new System.Drawing.Size(1408, 889);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
+            this.pnlLimit.ResumeLayout(false);
+            this.pnlLimit.PerformLayout();
             this.pnlCardNumber.ResumeLayout(false);
             this.pnlCardNumber.PerformLayout();
             this.pnlOwnerName.ResumeLayout(false);
@@ -674,8 +689,6 @@
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.panel7.ResumeLayout(false);
-            this.pnlLimit.ResumeLayout(false);
-            this.pnlLimit.PerformLayout();
             this.ResumeLayout(false);
 
         }
