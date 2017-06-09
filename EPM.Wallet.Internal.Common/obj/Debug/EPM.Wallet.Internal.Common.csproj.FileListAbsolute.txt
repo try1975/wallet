@@ -1,9 +1,0 @@
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\EPM.Wallet.Internal.Common.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\EPM.Wallet.Internal.Common.pdb
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\obj\Debug\EPM.Wallet.Internal.Common.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\obj\Debug\EPM.Wallet.Internal.Common.pdb
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\obj\Debug\EPM.Wallet.Internal.Common.csprojResolveAssemblyReference.cache
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\EPM.Wallet.Common.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\Newtonsoft.Json.dll
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\EPM.Wallet.Common.pdb
-C:\Users\vorobyev\SkyDrive\Git\wallet\EPM.Wallet.Internal.Common\bin\Debug\Newtonsoft.Json.xml
