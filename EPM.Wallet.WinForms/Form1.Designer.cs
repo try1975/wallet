@@ -67,6 +67,7 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel2);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DPA";
             this.ResumeLayout(false);
 

@@ -78,8 +78,7 @@ namespace EPM.Wallet.WinForms.Controls
         {
             get
             {
-                if (string.IsNullOrEmpty(tbValueDate.Text)) return DateTime.UtcNow;
-                return DateTime.Parse(tbValueDate.Text);
+                return string.IsNullOrEmpty(tbValueDate.Text) ? DateTime.UtcNow : DateTime.Parse(tbValueDate.Text);
             }
             set
             {
@@ -144,7 +143,8 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbAmountOut.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
-        public int Limit {
+        public int Limit
+        {
             get
             {
                 int intResult;
@@ -307,7 +307,6 @@ namespace EPM.Wallet.WinForms.Controls
         {
             if (RequestStatus != RequestStatus.Pending) return;
 
-
             var form = new MessageByRequestForm(CompositionRoot.Resolve<IMessageDataManager>(),
                 CompositionRoot.Resolve<IDataMаnager>())
             {
@@ -325,14 +324,14 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnProcessed_Click(object sender, EventArgs e)
         {
             if (RequestStatus != RequestStatus.Pending) return;
-
+            // Card requests
             if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.New)))
             {
-                var form = new CardByRequestForm(CompositionRoot.Resolve<ICardDataMаnager>(),
-                    CompositionRoot.Resolve<IMessageDataManager>(), CompositionRoot.Resolve<IDataMаnager>())
+                var form = new CardRequestNewForm(CompositionRoot.Resolve<IDataMаnager>())
                 {
                     ClientId = ClientId,
                     CurrencyId = CurrencyId,
+                    ClientName = $"{ClientId} [{ClientName}]",
                     CardHolder = ClientName,
                     Limit = 5000,
                     Date = DateTime.UtcNow,
@@ -340,45 +339,59 @@ namespace EPM.Wallet.WinForms.Controls
                 };
                 if (form.ShowDialog() != DialogResult.OK) return;
             }
-            if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.SetLimit)))
-            {
-                if (CardId != null)
-                {
-                    var form = new CardRequestSetLimitForm(CompositionRoot.Resolve<IDataMаnager>())
-                    {
-                        CardId = CardId.Value,
-                        Limit = Limit,
-                        ClientId = ClientId,
-                        Date = DateTime.UtcNow,
-                        Subject = "Card Set Limit request processed",
-                        Body = $"Card #{CardNumber} limit set to {Limit}"
-                    };
-                    if (form.ShowDialog() != DialogResult.OK) return;
-                }
-            }
-            if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.Block)))
-            {
-                if (CardId != null)
-                {
-                    var form = new CardRequestBlockForm(CompositionRoot.Resolve<IDataMаnager>())
-                    {
-                        CardId = CardId.Value,
-                        Comment = $"Blocked {DateTime.UtcNow}",
-                        ClientId = ClientId,
-                        Date = DateTime.UtcNow,
-                        Subject = "Card Block request processed",
-                        Body = $"Card #{CardNumber} blocked"
-                    };
-                    if (form.ShowDialog() != DialogResult.OK) return;
-                }
-            }
+
             if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.Reissue)))
             {
-                var form = new CardByRequestForm(CompositionRoot.Resolve<ICardDataMаnager>(),
-                    CompositionRoot.Resolve<IMessageDataManager>(), CompositionRoot.Resolve<IDataMаnager>());
+                var form = new CardRequestReissueForm(CompositionRoot.Resolve<IDataMаnager>())
+                {
+                    
+                };
                 if (form.ShowDialog() != DialogResult.OK) return;
             }
 
+            if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.SetLimit)))
+            {
+                if (CardId == null) return;
+                var form = new CardRequestSetLimitForm(CompositionRoot.Resolve<IDataMаnager>())
+                {
+                    CardId = CardId.Value,
+                    Limit = Limit,
+                    ClientId = ClientId,
+                    Date = DateTime.UtcNow,
+                    Subject = "Card Set Limit request processed",
+                    Body = $"Card #{CardNumber} limit set to {Limit}"
+                };
+                if (form.ShowDialog() != DialogResult.OK) return;
+            }
+
+            if (RequestType == RequestType.Card && SubType.Equals(nameof(CardRequestType.Block)))
+            {
+                if (CardId == null) return;
+                var form = new CardRequestBlockForm(CompositionRoot.Resolve<IDataMаnager>())
+                {
+                    CardId = CardId.Value,
+                    Comment = $"Blocked {DateTime.UtcNow}",
+                    ClientId = ClientId,
+                    Date = DateTime.UtcNow,
+                    Subject = "Card Block request processed",
+                    Body = $"Card #{CardNumber} blocked"
+                };
+                if (form.ShowDialog() != DialogResult.OK) return;
+            }
+            // Account requests
+            if (RequestType == RequestType.Account && SubType.Equals(nameof(AccountRequestType.New)))
+            {
+                var form = new AccountRequestNewForm(CompositionRoot.Resolve<IDataMаnager>())
+                {
+                    ClientId = ClientId,
+                    ClientName = $"{ClientId} [{ClientName}]",
+                    CurrencyId = CurrencyId,
+                    Date = DateTime.UtcNow,
+                    Subject = "Account New request processed"
+                };
+                if (form.ShowDialog() != DialogResult.OK) return;
+            }
+            // Payment requests
             if (RequestType == RequestType.Payment && SubType.Equals(nameof(AccountRequestType.TransferOut)))
             {
                 var form = new TransactionByRequestForm(CompositionRoot.Resolve<ITransactionDataManager>(),
@@ -396,6 +409,7 @@ namespace EPM.Wallet.WinForms.Controls
 
                 if (form.ShowDialog() != DialogResult.OK) return;
             }
+
             if (RequestType == RequestType.Payment && SubType.Equals(nameof(AccountRequestType.TransferToCard)))
             {
                 var form = new TransactionByRequestForm(CompositionRoot.Resolve<ITransactionDataManager>(),
@@ -413,6 +427,13 @@ namespace EPM.Wallet.WinForms.Controls
 
                 if (form.ShowDialog() != DialogResult.OK) return;
             }
+
+            if (RequestType == RequestType.Payment && SubType.Equals(nameof(AccountRequestType.Refill)))
+            {
+                return;
+            }
+
+
             _presenter.Edit();
             RequestStatus = RequestStatus.Processed;
             _presenter.Save();
@@ -420,12 +441,10 @@ namespace EPM.Wallet.WinForms.Controls
 
         private void btnPending_Click(object sender, EventArgs e)
         {
-            if (RequestStatus == RequestStatus.Rejected || RequestStatus == RequestStatus.Processed)
-            {
-                _presenter.Edit();
-                RequestStatus = RequestStatus.Pending;
-                _presenter.Save();
-            }
+            if (RequestStatus != RequestStatus.Rejected && RequestStatus != RequestStatus.Processed) return;
+            _presenter.Edit();
+            RequestStatus = RequestStatus.Pending;
+            _presenter.Save();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -434,10 +453,5 @@ namespace EPM.Wallet.WinForms.Controls
         }
 
         #endregion //Event handlers
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

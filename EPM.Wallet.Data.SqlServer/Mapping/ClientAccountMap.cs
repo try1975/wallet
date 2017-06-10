@@ -17,6 +17,7 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
                 .IsRequired()
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName, new IndexAnnotation(new IndexAttribute("IX_Name", 1) { IsUnique = true }))
                 ;
+            
             Property(e => e.Comment)
                 .HasMaxLength(250)
                 ;

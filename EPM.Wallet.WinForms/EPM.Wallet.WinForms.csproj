@@ -89,17 +89,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppGlobal.cs" />
-    <Compile Include="Forms\AccountByRequestForm.cs">
+    <Compile Include="Forms\AccountRequestNewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AccountByRequestForm.Designer.cs">
-      <DependentUpon>AccountByRequestForm.cs</DependentUpon>
+    <Compile Include="Forms\AccountRequestNewForm.Designer.cs">
+      <DependentUpon>AccountRequestNewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CardByRequestForm.cs">
+    <Compile Include="Forms\CardRequestReissueForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CardByRequestForm.Designer.cs">
-      <DependentUpon>CardByRequestForm.cs</DependentUpon>
+    <Compile Include="Forms\CardRequestReissueForm.Designer.cs">
+      <DependentUpon>CardRequestReissueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardRequestNewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardRequestNewForm.Designer.cs">
+      <DependentUpon>CardRequestNewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CardRequestBlockForm.cs">
       <SubType>Form</SubType>
@@ -296,8 +302,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CardByRequestForm.resx">
-      <DependentUpon>CardByRequestForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AccountRequestNewForm.resx">
+      <DependentUpon>AccountRequestNewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardRequestReissueForm.resx">
+      <DependentUpon>CardRequestReissueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardRequestNewForm.resx">
+      <DependentUpon>CardRequestNewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CardRequestBlockForm.resx">
       <DependentUpon>CardRequestBlockForm.cs</DependentUpon>

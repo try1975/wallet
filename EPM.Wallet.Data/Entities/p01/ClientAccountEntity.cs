@@ -8,6 +8,8 @@ namespace EPM.Wallet.Data.Entities
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        
+
         public string Comment { get; set; }
         public string CurrencyId { get; set; }
         public CurrencyEntity Currency { get; set; }

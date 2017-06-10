@@ -46,6 +46,12 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.pnlBankAddress = new System.Windows.Forms.Panel();
+            this.tbBankAddress = new System.Windows.Forms.TextBox();
+            this.lblBankAddress = new System.Windows.Forms.Label();
+            this.pnlBic = new System.Windows.Forms.Panel();
+            this.tbBic = new System.Windows.Forms.TextBox();
+            this.lblBic = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.pnlBankName.SuspendLayout();
@@ -53,6 +59,8 @@
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            this.pnlBankAddress.SuspendLayout();
+            this.pnlBic.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -67,6 +75,8 @@
             // 
             // pnlFields
             // 
+            this.pnlFields.Controls.Add(this.pnlBic);
+            this.pnlFields.Controls.Add(this.pnlBankAddress);
             this.pnlFields.Controls.Add(this.pnlBankName);
             this.pnlFields.Controls.Add(this.pnlId);
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -225,6 +235,64 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
+            // pnlBankAddress
+            // 
+            this.pnlBankAddress.Controls.Add(this.tbBankAddress);
+            this.pnlBankAddress.Controls.Add(this.lblBankAddress);
+            this.pnlBankAddress.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBankAddress.Location = new System.Drawing.Point(0, 67);
+            this.pnlBankAddress.Name = "pnlBankAddress";
+            this.pnlBankAddress.Size = new System.Drawing.Size(396, 34);
+            this.pnlBankAddress.TabIndex = 5;
+            // 
+            // tbBankAddress
+            // 
+            this.tbBankAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBankAddress.Enabled = false;
+            this.tbBankAddress.Location = new System.Drawing.Point(97, 5);
+            this.tbBankAddress.Name = "tbBankAddress";
+            this.tbBankAddress.Size = new System.Drawing.Size(283, 20);
+            this.tbBankAddress.TabIndex = 1;
+            // 
+            // lblBankAddress
+            // 
+            this.lblBankAddress.AutoSize = true;
+            this.lblBankAddress.Location = new System.Drawing.Point(6, 8);
+            this.lblBankAddress.Name = "lblBankAddress";
+            this.lblBankAddress.Size = new System.Drawing.Size(72, 13);
+            this.lblBankAddress.TabIndex = 0;
+            this.lblBankAddress.Text = "Bank address";
+            // 
+            // pnlBic
+            // 
+            this.pnlBic.Controls.Add(this.tbBic);
+            this.pnlBic.Controls.Add(this.lblBic);
+            this.pnlBic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBic.Location = new System.Drawing.Point(0, 101);
+            this.pnlBic.Name = "pnlBic";
+            this.pnlBic.Size = new System.Drawing.Size(396, 34);
+            this.pnlBic.TabIndex = 6;
+            // 
+            // tbBic
+            // 
+            this.tbBic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBic.Enabled = false;
+            this.tbBic.Location = new System.Drawing.Point(97, 5);
+            this.tbBic.Name = "tbBic";
+            this.tbBic.Size = new System.Drawing.Size(283, 20);
+            this.tbBic.TabIndex = 1;
+            // 
+            // lblBic
+            // 
+            this.lblBic.AutoSize = true;
+            this.lblBic.Location = new System.Drawing.Point(6, 8);
+            this.lblBic.Name = "lblBic";
+            this.lblBic.Size = new System.Drawing.Size(22, 13);
+            this.lblBic.TabIndex = 0;
+            this.lblBic.Text = "Bic";
+            // 
             // BankControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +311,10 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            this.pnlBankAddress.ResumeLayout(false);
+            this.pnlBankAddress.PerformLayout();
+            this.pnlBic.ResumeLayout(false);
+            this.pnlBic.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +337,11 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label lblId;
         private Zuby.ADGV.AdvancedDataGridView dgvItems;
+        private System.Windows.Forms.Panel pnlBic;
+        private System.Windows.Forms.TextBox tbBic;
+        private System.Windows.Forms.Label lblBic;
+        private System.Windows.Forms.Panel pnlBankAddress;
+        private System.Windows.Forms.TextBox tbBankAddress;
+        private System.Windows.Forms.Label lblBankAddress;
     }
 }

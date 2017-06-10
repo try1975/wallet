@@ -15,6 +15,7 @@ namespace EPM.Wallet.Data.Entities
         public string BankAddress { get; set; }
         public string Bic { get; set; }
         public string OwnerName { get; set; }
+        public string BeneficiaryAddress { get; set; }
         public bool IsVisible { get; set; }
         public ICollection<RequestEntity> Requests { get; set; }
         public ICollection<StandingOrderEntity> StandingOrders { get; set; }

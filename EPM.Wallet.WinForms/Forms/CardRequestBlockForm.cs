@@ -9,7 +9,6 @@ namespace EPM.Wallet.WinForms.Forms
     public partial class CardRequestBlockForm : Form
     {
         private readonly IDataMаnager _dataManager;
-
         public CardRequestBlockForm(IDataMаnager dataMаnager)
         {
             InitializeComponent();

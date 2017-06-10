@@ -182,6 +182,14 @@
     <Compile Include="Migrations\201706011005227_V27.Designer.cs">
       <DependentUpon>201706011005227_V27.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706091053304_V028.cs" />
+    <Compile Include="Migrations\201706091053304_V028.Designer.cs">
+      <DependentUpon>201706091053304_V028.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706091102415_V029.cs" />
+    <Compile Include="Migrations\201706091102415_V029.Designer.cs">
+      <DependentUpon>201706091102415_V029.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="QueryProcessors\ClientQuery.cs" />
     <Compile Include="QueryProcessors\CurrencyQuery.cs" />
@@ -304,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706011005227_V27.resx">
       <DependentUpon>201706011005227_V27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706091053304_V028.resx">
+      <DependentUpon>201706091053304_V028.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706091102415_V029.resx">
+      <DependentUpon>201706091102415_V029.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

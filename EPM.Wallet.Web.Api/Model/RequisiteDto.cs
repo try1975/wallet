@@ -13,5 +13,7 @@ namespace WalletWebApi.Model
         public string BankAddress { get; set; }
         public string Bic { get; set; }
         public string OwnerName { get; set; }
+
+        public string BeneficiaryAddress { get; set; }
     }
 }

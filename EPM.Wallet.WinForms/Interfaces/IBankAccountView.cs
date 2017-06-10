@@ -11,6 +11,7 @@ namespace EPM.Wallet.WinForms.Interfaces
         string BankAccountName { get; set; }
         Guid BankId { get; set; }
         string CurrencyId { get; set; }
+        string BeneficiaryAddress { get; set; }
 
         #endregion
 

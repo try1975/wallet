@@ -38,6 +38,17 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbName.Text = value; }
         }
 
+        public string BankAddress
+        {
+            get { return tbBankAddress.Text; }
+            set { tbBankAddress.Text = value; }
+        }
+        public string Bic
+        {
+            get { return tbBic.Text; }
+            set { tbBic.Text = value; }
+        }
+
         #endregion //Details
 
         #endregion IBankView
@@ -136,18 +147,24 @@ namespace EPM.Wallet.WinForms.Controls
         {
             tbId.Clear();
             tbName.Clear();
+            tbBankAddress.Clear();
+            tbBic.Clear();
         }
 
         public void EnableInput()
         {
             //tbId.Enabled = true;
             tbName.Enabled = true;
+            tbBankAddress.Enabled = true;
+            tbBic.Enabled = true;
         }
 
         public void DisableInput()
         {
             tbId.Enabled = false;
             tbName.Enabled = false;
+            tbBankAddress.Enabled = false;
+            tbBic.Enabled = false;
         }
 
         #endregion //IEnterMode

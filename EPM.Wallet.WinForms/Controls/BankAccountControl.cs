@@ -41,14 +41,20 @@ namespace EPM.Wallet.WinForms.Controls
 
         public Guid BankId
         {
-            get { return (Guid) cmbBank.SelectedValue; }
+            get { return (Guid)cmbBank.SelectedValue; }
             set { cmbBank.SelectedValue = value; }
         }
 
         public string CurrencyId
         {
-            get { return (string) cmbCurrency.SelectedValue; }
+            get { return (string)cmbCurrency.SelectedValue; }
             set { cmbCurrency.SelectedValue = value; }
+        }
+
+        public string BeneficiaryAddress
+        {
+            get { return tbBeneficiaryAddress.Text; }
+            set { tbBeneficiaryAddress.Text = value; }
         }
 
         //public decimal CurrentBalance
@@ -189,6 +195,7 @@ namespace EPM.Wallet.WinForms.Controls
             tbName.Clear();
             cmbBank.SelectedIndex = -1;
             cmbCurrency.SelectedIndex = -1;
+            tbBeneficiaryAddress.Clear();
         }
 
         public void EnableInput()
@@ -197,6 +204,7 @@ namespace EPM.Wallet.WinForms.Controls
             tbName.Enabled = true;
             cmbBank.Enabled = true;
             cmbCurrency.Enabled = true;
+            tbBeneficiaryAddress.Enabled = true;
         }
 
         public void DisableInput()
@@ -205,6 +213,7 @@ namespace EPM.Wallet.WinForms.Controls
             tbName.Enabled = false;
             cmbBank.Enabled = false;
             cmbCurrency.Enabled = false;
+            tbBeneficiaryAddress.Enabled = false;
         }
 
         #endregion //IEnterMode

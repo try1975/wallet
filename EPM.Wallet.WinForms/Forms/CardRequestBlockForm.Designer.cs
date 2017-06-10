@@ -42,10 +42,8 @@
             this.gbMessage.Controls.Add(this.tbMessageBody);
             this.gbMessage.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbMessage.Location = new System.Drawing.Point(0, 0);
-            this.gbMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbMessage.Name = "gbMessage";
-            this.gbMessage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbMessage.Size = new System.Drawing.Size(669, 154);
+            this.gbMessage.Size = new System.Drawing.Size(506, 100);
             this.gbMessage.TabIndex = 22;
             this.gbMessage.TabStop = false;
             this.gbMessage.Text = "Enter message text if necessary";
@@ -53,12 +51,11 @@
             // tbMessageBody
             // 
             this.tbMessageBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbMessageBody.Location = new System.Drawing.Point(4, 24);
-            this.tbMessageBody.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbMessageBody.Location = new System.Drawing.Point(3, 16);
             this.tbMessageBody.Multiline = true;
             this.tbMessageBody.Name = "tbMessageBody";
             this.tbMessageBody.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbMessageBody.Size = new System.Drawing.Size(661, 125);
+            this.tbMessageBody.Size = new System.Drawing.Size(500, 81);
             this.tbMessageBody.TabIndex = 0;
             // 
             // panel2
@@ -66,26 +63,29 @@
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnOk);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 342);
+            this.panel2.Location = new System.Drawing.Point(0, 337);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(669, 100);
+            this.panel2.Size = new System.Drawing.Size(506, 65);
             this.panel2.TabIndex = 21;
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(513, 32);
+            this.btnCancel.Location = new System.Drawing.Point(342, 21);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(116, 42);
+            this.btnCancel.Size = new System.Drawing.Size(77, 27);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(381, 32);
+            this.btnOk.Location = new System.Drawing.Point(254, 21);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(116, 42);
+            this.btnOk.Size = new System.Drawing.Size(77, 27);
             this.btnOk.TabIndex = 0;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -93,12 +93,15 @@
             // 
             // CardRequestBlockForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 442);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(506, 402);
             this.Controls.Add(this.gbMessage);
             this.Controls.Add(this.panel2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CardRequestBlockForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CardRequestBlockForm";
             this.gbMessage.ResumeLayout(false);
             this.gbMessage.PerformLayout();

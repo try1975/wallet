@@ -34,9 +34,10 @@ namespace WalletWebApi.Maintenance
                 {
                     Name = accountEntity.Name,
                     BankName = accountEntity.BankAccount.Bank.Name,
-                    BankAddress = "",
-                    Bic = "",
+                    BankAddress = accountEntity.BankAccount.Bank.BankAddress,
+                    Bic = accountEntity.BankAccount.Bank.Bic,
                     Iban = accountEntity.BankAccount.Name,
+                    BeneficiaryAddress = accountEntity.BankAccount.BeneficiaryAddress,
                     OwnerName = accountEntity.Name
                 };
                 accountEntity.Requisite = requisiteEntity;

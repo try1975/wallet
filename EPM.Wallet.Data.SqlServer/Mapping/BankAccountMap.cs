@@ -15,6 +15,9 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
                 .HasMaxLength(250)
                 .IsRequired()
                 ;
+            Property(e => e.BeneficiaryAddress)
+                .HasMaxLength(128)
+                ;
             Property(e => e.CurrencyId)
                 .IsRequired()
                 ;

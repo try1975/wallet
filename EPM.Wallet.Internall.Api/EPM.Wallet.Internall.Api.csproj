@@ -359,6 +359,7 @@
     <Content Include="Web.AppSettings.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Web.Connections.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EPM.Wallet.Common\EPM.Wallet.Common.csproj">

@@ -244,3 +244,5 @@ ModelManifest.xml
 /EPM.Wallet.Internall.Api/Web.AppSettings.config
 /EPM.Wallet.WinForms/App.AppSettings.config
 /EPM.Wallet.Web.Api/Web.AppSettings.config
+/EPM.Wallet.Internall.Api/Web.Connections.config
+/EPM.Wallet.Web.Api/Web.Connections.config

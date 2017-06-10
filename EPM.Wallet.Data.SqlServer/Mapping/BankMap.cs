@@ -17,6 +17,14 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
                 .IsRequired()
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName, new IndexAnnotation(new IndexAttribute("IX_Name", 1) { IsUnique = true }))
                 ;
+
+            Property(e => e.BankAddress)
+                .HasMaxLength(128)
+                ;
+            Property(e => e.Bic)
+                .HasMaxLength(128)
+                ;
+
             ToTable($"{tableName}");
         }
     }

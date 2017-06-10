@@ -6,6 +6,7 @@ namespace WalletWebApi.Model
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public string BeneficiaryAddress { get; set; }
         public Guid BankId { get; set; }
         public string CurrencyId { get; set; }
     }

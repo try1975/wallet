@@ -8,6 +8,9 @@ namespace EPM.Wallet.WinForms.Interfaces
         #region Details
 
         string BankName { get; set; }
+        string BankAddress { get; set; }
+        string Bic { get; set; }
+
 
         #endregion //Details
     }
