@@ -21,6 +21,7 @@ namespace EPM.Wallet.WinForms.Data
         private readonly string _apiCurrencies;
         private readonly string _apiMessages;
         private readonly string _apiRequests;
+        private readonly string _apiTransactions;
         private readonly HttpClient _walletHttpClient;
 
         public DataMаnager()
@@ -37,6 +38,7 @@ namespace EPM.Wallet.WinForms.Data
             _apiCards = $"{baseApi}{WalletConstants.ClientAppApi.Cards}/";
             _apiRequests = $"{baseApi}{WalletConstants.ClientAppApi.Requests}/";
             _apiMessages = $"{baseApi}{WalletConstants.ClientAppApi.Messages}/";
+            _apiTransactions = $"{baseApi}{WalletConstants.ClientAppApi.Transactions}/";
 
             #endregion
 
@@ -421,5 +423,17 @@ namespace EPM.Wallet.WinForms.Data
         }
 
         #endregion
+
+        #region Transactions
+        public async Task<TransactionDto> PostTransaction(TransactionDto item)
+        {
+            using (var response = await _walletHttpClient.PostAsJsonAsync($"{_apiTransactions}", item))
+            {
+                if (!response.IsSuccessStatusCode) return null;
+                var result = await response.Content.ReadAsAsync<TransactionDto>();
+                return result;
+            }
+        }
+        #endregion //Transactions
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
-using EPM.Wallet.WinForms.Presenters;
 
 namespace EPM.Wallet.WinForms.Forms
 {

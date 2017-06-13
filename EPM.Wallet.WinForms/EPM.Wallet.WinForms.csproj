@@ -194,11 +194,17 @@
     <Compile Include="Forms\MessageByRequestForm.Designer.cs">
       <DependentUpon>MessageByRequestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TransactionByRequestForm.cs">
+    <Compile Include="Forms\RefillForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TransactionByRequestForm.Designer.cs">
-      <DependentUpon>TransactionByRequestForm.cs</DependentUpon>
+    <Compile Include="Forms\RefillForm.Designer.cs">
+      <DependentUpon>RefillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TransactionRequestTransferOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TransactionRequestTransferOutForm.Designer.cs">
+      <DependentUpon>TransactionRequestTransferOutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Data\IBankAccountDataManager.cs" />
     <Compile Include="Interfaces\Data\IMessageDataManager.cs" />
@@ -323,8 +329,11 @@
     <EmbeddedResource Include="Forms\MessageByRequestForm.resx">
       <DependentUpon>MessageByRequestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TransactionByRequestForm.resx">
-      <DependentUpon>TransactionByRequestForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RefillForm.resx">
+      <DependentUpon>RefillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TransactionRequestTransferOutForm.resx">
+      <DependentUpon>TransactionRequestTransferOutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -66,7 +66,9 @@ namespace EPM.Wallet.WinForms.Controls
 
         public Guid? BeneficiaryAccountId { get; set; }
 
-        public string BeneficiaryAccountName
+        public string BeneficiaryAccountName { get; set; }
+
+        public string VisibleBeneficiaryAccountName
         {
             get { return tbBeneficiaryAccountName.Text; }
             set { tbBeneficiaryAccountName.Text = value; }
@@ -223,6 +225,7 @@ namespace EPM.Wallet.WinForms.Controls
             DisableInput();
 
             VisibleAccountName = $"{AccountName} [{ClientName}][{AccountCurrencyId}]";
+            VisibleBeneficiaryAccountName = $"{BeneficiaryAccountName} [{ClientName}][{BeneficiaryCurrencyId}]";
 
             pnlCurrency.Visible = !string.IsNullOrEmpty(CurrencyId);
 
@@ -407,43 +410,57 @@ namespace EPM.Wallet.WinForms.Controls
             // Payment requests
             if (RequestType == RequestType.Payment && SubType.Equals(nameof(AccountRequestType.TransferOut)))
             {
-                var form = new TransactionByRequestForm(CompositionRoot.Resolve<ITransactionDataManager>(),
-                    CompositionRoot.Resolve<IDataMаnager>());
-
+                var form = new TransactionRequestTransferOutForm(CompositionRoot.Resolve<IDataMаnager>())
+                {
+                    ValueDate = ValueDate ?? DateTime.UtcNow.Date,
+                    AccountName = VisibleAccountName,
+                    AmountInCurrency = -AmountOut,
+                    CurrencyId = CurrencyId,
+                    RequestId = Id,
+                    FromTo = $"{BankName}/{BankAddress}",
+                    Note = $"REF: {OwnerName}"
+                };
                 if (ClientAccountId.HasValue) form.AccountId = ClientAccountId.Value;
-                form.ValueDate = ValueDate ?? DateTime.UtcNow;
-                form.AccountName = VisibleAccountName;
-                form.Amount = -AmountOut;
-                form.AmountInCurrency = -AmountOut;
-                form.CurrencyId = CurrencyId;
-                form.RequestId = Id;
-                form.FromTo = $"{BankName}/{BankAddress}";
-                form.Note = $"REF: {OwnerName}";
 
                 if (form.ShowDialog() != DialogResult.OK) return;
             }
 
             if (RequestType == RequestType.Payment && SubType.Equals(nameof(AccountRequestType.TransferToCard)))
             {
-                var form = new TransactionByRequestForm(CompositionRoot.Resolve<ITransactionDataManager>(),
-                    CompositionRoot.Resolve<IDataMаnager>());
-
-                if (ClientAccountId.HasValue) form.AccountId = ClientAccountId.Value;
-                form.ValueDate = ValueDate ?? DateTime.UtcNow;
-                form.AccountName = VisibleAccountName;
-                form.Amount = -AmountOut;
-                form.AmountInCurrency = -AmountOut;
-                form.CurrencyId = CurrencyId;
-                form.RequestId = Id;
-                form.FromTo =
+                var fromTo =
                     $"{nameof(AccountRequestType.TransferToCard)}: ****{CardNumber.Substring(Math.Max(0, CardNumber.Length - 8))}";
+                var form = new TransactionRequestTransferOutForm(CompositionRoot.Resolve<IDataMаnager>())
+                {
+                    ValueDate = ValueDate ?? DateTime.UtcNow.Date,
+                    AccountName = VisibleAccountName,
+                    AmountInCurrency = -AmountOut,
+                    CurrencyId = CurrencyId,
+                    RequestId = Id,
+                    FromTo = fromTo
+                };
+                if (ClientAccountId.HasValue) form.AccountId = ClientAccountId.Value;
 
                 if (form.ShowDialog() != DialogResult.OK) return;
             }
 
             if (RequestType == RequestType.Payment && SubType.Equals(nameof(AccountRequestType.Refill)))
             {
-                return;
+                var fromToOut = $"Refill to {VisibleBeneficiaryAccountName}";
+                var fromToIn = $"Refill from {VisibleAccountName}";
+                var form = new RefillForm(CompositionRoot.Resolve<IDataMаnager>())
+                {
+                    ValueDate = ValueDate ?? DateTime.UtcNow.Date,
+                    AccountName = VisibleAccountName,
+                    BeneficiaryAccountName = VisibleBeneficiaryAccountName,
+                    AmountCurrencyOut = -AmountOut,
+                    CurrencyId = CurrencyId,
+                    RequestId = Id,
+                    FromToOut = fromToOut,
+                    FromToIn = fromToIn
+                };
+                if (ClientAccountId.HasValue) form.AccountId = ClientAccountId.Value;
+                if (BeneficiaryAccountId.HasValue) form.BeneficiaryAccountId = BeneficiaryAccountId.Value;
+                if (form.ShowDialog() != DialogResult.OK) return;
             }
 
 

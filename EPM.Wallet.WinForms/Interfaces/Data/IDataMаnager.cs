@@ -83,5 +83,9 @@ namespace EPM.Wallet.WinForms.Interfaces
         Task<bool> DeleteMessage(Guid id);
 
         #endregion
+
+        #region Transactions
+        Task<TransactionDto> PostTransaction(TransactionDto item);
+        #endregion //Transactions
     }
 }
