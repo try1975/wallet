@@ -19,7 +19,6 @@ namespace EPM.Wallet.WinForms.Forms
         public string Comment { private get; set; }
 
         public string ClientId { private get; set; }
-        public DateTime Date { private get; set; }
         public string Subject { private get; set; }
         public string Body
         {
@@ -46,7 +45,7 @@ namespace EPM.Wallet.WinForms.Forms
                 var messageDto = new MessageDto()
                 {
                     ClientId = ClientId,
-                    Date = Date,
+                    Date = DateTime.UtcNow,
                     Subject = Subject,
                     Body = Body
                 };

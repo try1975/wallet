@@ -1,86 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
 
 namespace EPM.Wallet.WinForms.Forms
 {
-    public partial class MessageByRequestForm : Form, IMessageView
+    public partial class MessageByRequestForm : Form
     {
-        private readonly MessagePresenter _messagePresenter;
-        private bool _isEventHandlerSets;
+        private readonly IDataMаnager _dataManager;
 
-        public MessageByRequestForm(IMessageDataManager messageDataManager, IDataMаnager dataMаnager)
+        public MessageByRequestForm(IDataMаnager dataMаnager)
         {
             InitializeComponent();
-            _messagePresenter = new MessagePresenter(this, messageDataManager, dataMаnager, PresenterMode.AddNew);
+            _dataManager = dataMаnager;
         }
 
         #region Details
 
-        public Guid Id { get; set; }
-        public List<KeyValuePair<string, string>> ClientList { get; set; }
-        public string Subject { get; set; }
+        public string Subject { private get; set; }
 
-        public string Body
-        {
-            get { return tbMessageBody.Text; }
-            set { tbMessageBody.Text = value; }
-        }
+        private string Body => tbMessageBody.Text;
 
-        public string ClientId { get; set; }
-        public DateTime Date { get; set; }
-        public DateTime? ReadDate { get; set; }
-        public bool IsOutgoing { get; set; }
+        public string ClientId { private get; set; }
 
         #endregion //Details
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Body))
-            {
-                _messagePresenter.Save();
-            }
-            else
-            {
-                _messagePresenter.Cancel();
-            }
+            CreateNewMessage();
         }
 
-        public void RefreshItems() { }
-
-        public void SetEventHandlers()
+        private async void CreateNewMessage()
         {
-            if (_isEventHandlerSets) return;
-            _isEventHandlerSets = true;
-        }
-
-        public void EnterAddNewMode() { }
-
-        public void EnterEditMode() { }
-
-        public void EnterDetailsMode() { }
-
-        public void EnterReadMode()
-        {
-            if (!string.IsNullOrEmpty(Body))
+            try
             {
-                if (Id.Equals(Guid.Empty))
+                if (!string.IsNullOrEmpty(Body))
                 {
-                    DialogResult = DialogResult.Cancel;
-                    return;
+                    var messageDto = new MessageDto
+                    {
+                        ClientId = ClientId,
+                        Date = DateTime.UtcNow,
+                        Subject = Subject,
+                        Body = Body
+                    };
+                    await _dataManager.PostMessage(messageDto);
                 }
+                DialogResult = DialogResult.OK;
             }
-            DialogResult = DialogResult.OK;
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
-
-        public void EnterMultiSelectMode() { }
-
-        public void ClearInputFields() { }
-
-        public void EnableInput() { }
-
-        public void DisableInput() { }
     }
 }

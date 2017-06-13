@@ -41,6 +41,8 @@ namespace EPM.Wallet.WinForms.Interfaces
         decimal AmountOut { get; set; }
 
         int Limit { get; set; }
+        string CardReissueType { get; set; }
+        string CardReissueReason { get; set; }
 
         #endregion // Details
 

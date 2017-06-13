@@ -61,8 +61,6 @@ namespace EPM.Wallet.WinForms.Forms
 
         #region MessageDto
 
-        public DateTime Date { private get; set; }
-
         public string Subject { private get; set; }
 
         private string Body => tbMessageBody.Text;
@@ -100,7 +98,7 @@ namespace EPM.Wallet.WinForms.Forms
                     var messageDto = new MessageDto()
                     {
                         ClientId = ClientId,
-                        Date = Date,
+                        Date = DateTime.UtcNow,
                         Subject = Subject,
                         Body = Body
                     };

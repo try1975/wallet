@@ -271,7 +271,7 @@
             this.udLimit.Size = new System.Drawing.Size(120, 20);
             this.udLimit.TabIndex = 1;
             this.udLimit.Value = new decimal(new int[] {
-            2017,
+            5000,
             0,
             0,
             0});

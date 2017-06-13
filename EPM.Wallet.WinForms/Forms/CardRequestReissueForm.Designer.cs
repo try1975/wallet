@@ -117,6 +117,7 @@
             this.btnOk.TabIndex = 0;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // pnlFields
             // 
@@ -303,7 +304,7 @@
             this.udLimit.Size = new System.Drawing.Size(120, 20);
             this.udLimit.TabIndex = 1;
             this.udLimit.Value = new decimal(new int[] {
-            2017,
+            5000,
             0,
             0,
             0});
@@ -523,7 +524,9 @@
             this.Controls.Add(this.pnlFields);
             this.Controls.Add(this.panel2);
             this.Name = "CardRequestReissueForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AccountRequestReissue";
+            this.Load += new System.EventHandler(this.CardRequestReissueForm_Load);
             this.panel2.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
             this.gbMessage.ResumeLayout(false);

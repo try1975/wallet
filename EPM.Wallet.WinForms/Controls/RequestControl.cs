@@ -56,7 +56,7 @@ namespace EPM.Wallet.WinForms.Controls
 
         public string AccountName { get; set; }
 
-        public string VisibleAccountName
+        private string VisibleAccountName
         {
             get { return tbAccountName.Text; }
             set { tbAccountName.Text = value; }
@@ -156,6 +156,17 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbLimit.Text = value.ToString("N2", new CultureInfo("en-GB")); }
         }
 
+        public string CardReissueType
+        {
+            get { return tbReissueType.Text; }
+            set { tbReissueType.Text = value; }
+        }
+        public string CardReissueReason
+        {
+            get { return tbReissueReason.Text; }
+            set { tbReissueReason.Text = value; }
+        }
+
         #endregion //Details
 
         #region DetailsLists
@@ -223,9 +234,11 @@ namespace EPM.Wallet.WinForms.Controls
             if (cardSetLimit) pnlCurrency.Visible = false;
             pnlLimit.Visible = cardSetLimit;
 
+            var cardReissue = RequestType == RequestType.Card &&
+                                     SubType.Equals(nameof(CardRequestType.Reissue));
 
-            var cardNew = RequestType == RequestType.Card &&
-                                     SubType.Equals(nameof(CardRequestType.New));
+            pnlReissueType.Visible = cardReissue;
+            pnlReissueReason.Visible = cardReissue;
 
             var payment = RequestType == RequestType.Payment;
             pnlAccountName.Visible = payment;
@@ -307,11 +320,9 @@ namespace EPM.Wallet.WinForms.Controls
         {
             if (RequestStatus != RequestStatus.Pending) return;
 
-            var form = new MessageByRequestForm(CompositionRoot.Resolve<IMessageDataManager>(),
-                CompositionRoot.Resolve<IDataMаnager>())
+            var form = new MessageByRequestForm(CompositionRoot.Resolve<IDataMаnager>())
             {
                 ClientId = ClientId,
-                Date = DateTime.UtcNow,
                 Subject = "Reject message"
             };
             if (form.ShowDialog() != DialogResult.OK) return;
@@ -334,7 +345,6 @@ namespace EPM.Wallet.WinForms.Controls
                     ClientName = $"{ClientId} [{ClientName}]",
                     CardHolder = ClientName,
                     Limit = 5000,
-                    Date = DateTime.UtcNow,
                     Subject = "New card request processed"
                 };
                 if (form.ShowDialog() != DialogResult.OK) return;
@@ -344,7 +354,13 @@ namespace EPM.Wallet.WinForms.Controls
             {
                 var form = new CardRequestReissueForm(CompositionRoot.Resolve<IDataMаnager>())
                 {
-                    
+                    CardId = CardId,
+                    ReissueType = CardReissueType,
+                    ReissueReason = CardReissueReason,
+                    ClientId = ClientId,
+                    CurrencyId = CurrencyId,
+                    ClientName = $"{ClientId} [{ClientName}]",
+                    Subject = "Reissue card request processed"
                 };
                 if (form.ShowDialog() != DialogResult.OK) return;
             }
@@ -357,7 +373,6 @@ namespace EPM.Wallet.WinForms.Controls
                     CardId = CardId.Value,
                     Limit = Limit,
                     ClientId = ClientId,
-                    Date = DateTime.UtcNow,
                     Subject = "Card Set Limit request processed",
                     Body = $"Card #{CardNumber} limit set to {Limit}"
                 };
@@ -372,7 +387,6 @@ namespace EPM.Wallet.WinForms.Controls
                     CardId = CardId.Value,
                     Comment = $"Blocked {DateTime.UtcNow}",
                     ClientId = ClientId,
-                    Date = DateTime.UtcNow,
                     Subject = "Card Block request processed",
                     Body = $"Card #{CardNumber} blocked"
                 };
@@ -386,7 +400,6 @@ namespace EPM.Wallet.WinForms.Controls
                     ClientId = ClientId,
                     ClientName = $"{ClientId} [{ClientName}]",
                     CurrencyId = CurrencyId,
-                    Date = DateTime.UtcNow,
                     Subject = "Account New request processed"
                 };
                 if (form.ShowDialog() != DialogResult.OK) return;

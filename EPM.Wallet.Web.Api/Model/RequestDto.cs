@@ -30,6 +30,7 @@ namespace WalletWebApi.Model
             {
                 if (SubTypeOld.Equals(nameof(AccountRequestType.TransferOut))) return "Transfer Out";
                 if (SubTypeOld.Equals(nameof(AccountRequestType.TransferToCard))) return "Transfer To Card";
+                if (SubTypeOld.Equals(nameof(AccountRequestType.Refill))) return "Inter Account Transfer";
                 if (SubTypeOld.Equals(nameof(AccountRequestType.AccountTopUp))) return "Account TopUp";
                 return SubTypeOld;
             }
