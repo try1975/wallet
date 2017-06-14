@@ -92,6 +92,20 @@ namespace EPM.Wallet.WinForms.Data
                 ;
             cfg.CreateMap<IRequestView, RequestInfoDto>()
                 ;
+
+            cfg.CreateMap<StandingOrderDto, StandingOrderDto>()
+                ;
+            cfg.CreateMap<StandingOrderDto, IStandingOrderView>()
+                ;
+            cfg.CreateMap<IStandingOrderView, StandingOrderDto>()
+                ;
+
+            cfg.CreateMap<DirectDebitDto, DirectDebitDto>()
+                ;
+            cfg.CreateMap<DirectDebitDto, IDirectDebitView>()
+                ;
+            cfg.CreateMap<IDirectDebitView, DirectDebitDto>()
+                ;
         }
     }
 }

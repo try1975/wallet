@@ -33,7 +33,6 @@ namespace EPM.Wallet.WinForms.Ninject
             Bind<IMessageView>().To<MessageControl>();
             Bind<IMessageDataManager>().To<MessageDataManager>().InSingletonScope();
 
-
             Bind<ITransferOutInfoView>().To<TransferOutInfoControl>();
             Bind<ITransferOutInfoDataManager>().To<TransferOutInfoDataManager>().InSingletonScope();
 
@@ -42,6 +41,12 @@ namespace EPM.Wallet.WinForms.Ninject
 
             Bind<IStatementView>().To<StatementControl>();
             Bind<IStatementDataManager>().To<StatementDataManager>().InSingletonScope();
+
+            Bind<IStandingOrderView>().To<StandingOrderControl>();
+            Bind<IStandingOrderDataManager>().To<StandingOrderDataManager>().InSingletonScope();
+
+            Bind<IDirectDebitView>().To<DirectDebitControl>();
+            Bind<IDirectDebitDataManager>().To<DirectDebitDataManager>().InSingletonScope();
         }
     }
 }

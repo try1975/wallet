@@ -92,9 +92,9 @@
             this.pnlDetails.Controls.Add(this.pnlFields);
             this.pnlDetails.Controls.Add(this.pnlButtons);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetails.Location = new System.Drawing.Point(365, 0);
+            this.pnlDetails.Location = new System.Drawing.Point(274, 0);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(396, 483);
+            this.pnlDetails.Size = new System.Drawing.Size(396, 550);
             this.pnlDetails.TabIndex = 7;
             // 
             // pnlFields
@@ -111,7 +111,7 @@
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFields.Location = new System.Drawing.Point(0, 41);
             this.pnlFields.Name = "pnlFields";
-            this.pnlFields.Size = new System.Drawing.Size(396, 442);
+            this.pnlFields.Size = new System.Drawing.Size(396, 509);
             this.pnlFields.TabIndex = 1;
             // 
             // panel6
@@ -439,9 +439,9 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(362, 0);
+            this.splitter1.Location = new System.Drawing.Point(271, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 483);
+            this.splitter1.Size = new System.Drawing.Size(3, 550);
             this.splitter1.TabIndex = 9;
             this.splitter1.TabStop = false;
             // 
@@ -452,7 +452,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(362, 483);
+            this.pnlGrid.Size = new System.Drawing.Size(271, 550);
             this.pnlGrid.TabIndex = 10;
             // 
             // dgvItems
@@ -468,7 +468,7 @@
             this.dgvItems.Location = new System.Drawing.Point(0, 41);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(362, 442);
+            this.dgvItems.Size = new System.Drawing.Size(271, 509);
             this.dgvItems.TabIndex = 1;
             // 
             // panel7
@@ -477,7 +477,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(362, 41);
+            this.panel7.Size = new System.Drawing.Size(271, 41);
             this.panel7.TabIndex = 2;
             // 
             // btnRefresh
@@ -497,7 +497,7 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
             this.Name = "TransactionControl";
-            this.Size = new System.Drawing.Size(761, 483);
+            this.Size = new System.Drawing.Size(670, 550);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
             this.panel6.ResumeLayout(false);

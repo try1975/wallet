@@ -62,6 +62,7 @@ namespace EPM.Wallet.WinForms.Controls
             this.tbCurrencyId = new System.Windows.Forms.TextBox();
             this.lblCurrency = new System.Windows.Forms.Label();
             this.pnlClient = new System.Windows.Forms.Panel();
+            this.tbClientName = new System.Windows.Forms.TextBox();
             this.tbAccountCurrency = new System.Windows.Forms.TextBox();
             this.tbClientId = new System.Windows.Forms.TextBox();
             this.lblClient = new System.Windows.Forms.Label();
@@ -82,7 +83,6 @@ namespace EPM.Wallet.WinForms.Controls
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
-            this.tbClientName = new System.Windows.Forms.TextBox();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -108,9 +108,9 @@ namespace EPM.Wallet.WinForms.Controls
             this.pnlDetails.Controls.Add(this.pnlFields);
             this.pnlDetails.Controls.Add(this.pnlButtons);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetails.Location = new System.Drawing.Point(241, 0);
+            this.pnlDetails.Location = new System.Drawing.Point(274, 0);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(396, 525);
+            this.pnlDetails.Size = new System.Drawing.Size(396, 550);
             this.pnlDetails.TabIndex = 7;
             // 
             // pnlFields
@@ -131,7 +131,7 @@ namespace EPM.Wallet.WinForms.Controls
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFields.Location = new System.Drawing.Point(0, 41);
             this.pnlFields.Name = "pnlFields";
-            this.pnlFields.Size = new System.Drawing.Size(396, 484);
+            this.pnlFields.Size = new System.Drawing.Size(396, 509);
             this.pnlFields.TabIndex = 1;
             // 
             // panel7
@@ -407,6 +407,13 @@ namespace EPM.Wallet.WinForms.Controls
             this.pnlClient.Size = new System.Drawing.Size(396, 33);
             this.pnlClient.TabIndex = 6;
             // 
+            // tbClientName
+            // 
+            this.tbClientName.Location = new System.Drawing.Point(164, 7);
+            this.tbClientName.Name = "tbClientName";
+            this.tbClientName.Size = new System.Drawing.Size(120, 20);
+            this.tbClientName.TabIndex = 3;
+            // 
             // tbAccountCurrency
             // 
             this.tbAccountCurrency.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -577,9 +584,9 @@ namespace EPM.Wallet.WinForms.Controls
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(238, 0);
+            this.splitter1.Location = new System.Drawing.Point(271, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 525);
+            this.splitter1.Size = new System.Drawing.Size(3, 550);
             this.splitter1.TabIndex = 9;
             this.splitter1.TabStop = false;
             // 
@@ -589,7 +596,7 @@ namespace EPM.Wallet.WinForms.Controls
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(238, 525);
+            this.pnlGrid.Size = new System.Drawing.Size(271, 550);
             this.pnlGrid.TabIndex = 10;
             // 
             // dgvItems
@@ -605,15 +612,8 @@ namespace EPM.Wallet.WinForms.Controls
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(238, 525);
+            this.dgvItems.Size = new System.Drawing.Size(271, 550);
             this.dgvItems.TabIndex = 0;
-            // 
-            // tbClientName
-            // 
-            this.tbClientName.Location = new System.Drawing.Point(164, 7);
-            this.tbClientName.Name = "tbClientName";
-            this.tbClientName.Size = new System.Drawing.Size(120, 20);
-            this.tbClientName.TabIndex = 3;
             // 
             // TransferOutInfoControl
             // 
@@ -623,7 +623,7 @@ namespace EPM.Wallet.WinForms.Controls
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
             this.Name = "TransferOutInfoControl";
-            this.Size = new System.Drawing.Size(637, 525);
+            this.Size = new System.Drawing.Size(670, 550);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

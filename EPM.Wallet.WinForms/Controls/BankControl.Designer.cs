@@ -31,6 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
+            this.pnlBic = new System.Windows.Forms.Panel();
+            this.tbBic = new System.Windows.Forms.TextBox();
+            this.lblBic = new System.Windows.Forms.Label();
+            this.pnlBankAddress = new System.Windows.Forms.Panel();
+            this.tbBankAddress = new System.Windows.Forms.TextBox();
+            this.lblBankAddress = new System.Windows.Forms.Label();
             this.pnlBankName = new System.Windows.Forms.Panel();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblBankName = new System.Windows.Forms.Label();
@@ -46,21 +52,15 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.pnlBankAddress = new System.Windows.Forms.Panel();
-            this.tbBankAddress = new System.Windows.Forms.TextBox();
-            this.lblBankAddress = new System.Windows.Forms.Label();
-            this.pnlBic = new System.Windows.Forms.Panel();
-            this.tbBic = new System.Windows.Forms.TextBox();
-            this.lblBic = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
+            this.pnlBic.SuspendLayout();
+            this.pnlBankAddress.SuspendLayout();
             this.pnlBankName.SuspendLayout();
             this.pnlId.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
-            this.pnlBankAddress.SuspendLayout();
-            this.pnlBic.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -68,9 +68,9 @@
             this.pnlDetails.Controls.Add(this.pnlFields);
             this.pnlDetails.Controls.Add(this.pnlButtons);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetails.Location = new System.Drawing.Point(264, 0);
+            this.pnlDetails.Location = new System.Drawing.Point(274, 0);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(396, 428);
+            this.pnlDetails.Size = new System.Drawing.Size(396, 550);
             this.pnlDetails.TabIndex = 3;
             // 
             // pnlFields
@@ -82,8 +82,66 @@
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFields.Location = new System.Drawing.Point(0, 41);
             this.pnlFields.Name = "pnlFields";
-            this.pnlFields.Size = new System.Drawing.Size(396, 387);
+            this.pnlFields.Size = new System.Drawing.Size(396, 509);
             this.pnlFields.TabIndex = 1;
+            // 
+            // pnlBic
+            // 
+            this.pnlBic.Controls.Add(this.tbBic);
+            this.pnlBic.Controls.Add(this.lblBic);
+            this.pnlBic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBic.Location = new System.Drawing.Point(0, 101);
+            this.pnlBic.Name = "pnlBic";
+            this.pnlBic.Size = new System.Drawing.Size(396, 34);
+            this.pnlBic.TabIndex = 6;
+            // 
+            // tbBic
+            // 
+            this.tbBic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBic.Enabled = false;
+            this.tbBic.Location = new System.Drawing.Point(97, 5);
+            this.tbBic.Name = "tbBic";
+            this.tbBic.Size = new System.Drawing.Size(283, 20);
+            this.tbBic.TabIndex = 1;
+            // 
+            // lblBic
+            // 
+            this.lblBic.AutoSize = true;
+            this.lblBic.Location = new System.Drawing.Point(6, 8);
+            this.lblBic.Name = "lblBic";
+            this.lblBic.Size = new System.Drawing.Size(22, 13);
+            this.lblBic.TabIndex = 0;
+            this.lblBic.Text = "Bic";
+            // 
+            // pnlBankAddress
+            // 
+            this.pnlBankAddress.Controls.Add(this.tbBankAddress);
+            this.pnlBankAddress.Controls.Add(this.lblBankAddress);
+            this.pnlBankAddress.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBankAddress.Location = new System.Drawing.Point(0, 67);
+            this.pnlBankAddress.Name = "pnlBankAddress";
+            this.pnlBankAddress.Size = new System.Drawing.Size(396, 34);
+            this.pnlBankAddress.TabIndex = 5;
+            // 
+            // tbBankAddress
+            // 
+            this.tbBankAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBankAddress.Enabled = false;
+            this.tbBankAddress.Location = new System.Drawing.Point(97, 5);
+            this.tbBankAddress.Name = "tbBankAddress";
+            this.tbBankAddress.Size = new System.Drawing.Size(283, 20);
+            this.tbBankAddress.TabIndex = 1;
+            // 
+            // lblBankAddress
+            // 
+            this.lblBankAddress.AutoSize = true;
+            this.lblBankAddress.Location = new System.Drawing.Point(6, 8);
+            this.lblBankAddress.Name = "lblBankAddress";
+            this.lblBankAddress.Size = new System.Drawing.Size(72, 13);
+            this.lblBankAddress.TabIndex = 0;
+            this.lblBankAddress.Text = "Bank address";
             // 
             // pnlBankName
             // 
@@ -207,7 +265,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(261, 428);
+            this.pnlGrid.Size = new System.Drawing.Size(271, 550);
             this.pnlGrid.TabIndex = 4;
             // 
             // dgvItems
@@ -223,75 +281,17 @@
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(261, 428);
+            this.dgvItems.Size = new System.Drawing.Size(271, 550);
             this.dgvItems.TabIndex = 1;
             // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(261, 0);
+            this.splitter1.Location = new System.Drawing.Point(271, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 428);
+            this.splitter1.Size = new System.Drawing.Size(3, 550);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
-            // 
-            // pnlBankAddress
-            // 
-            this.pnlBankAddress.Controls.Add(this.tbBankAddress);
-            this.pnlBankAddress.Controls.Add(this.lblBankAddress);
-            this.pnlBankAddress.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBankAddress.Location = new System.Drawing.Point(0, 67);
-            this.pnlBankAddress.Name = "pnlBankAddress";
-            this.pnlBankAddress.Size = new System.Drawing.Size(396, 34);
-            this.pnlBankAddress.TabIndex = 5;
-            // 
-            // tbBankAddress
-            // 
-            this.tbBankAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBankAddress.Enabled = false;
-            this.tbBankAddress.Location = new System.Drawing.Point(97, 5);
-            this.tbBankAddress.Name = "tbBankAddress";
-            this.tbBankAddress.Size = new System.Drawing.Size(283, 20);
-            this.tbBankAddress.TabIndex = 1;
-            // 
-            // lblBankAddress
-            // 
-            this.lblBankAddress.AutoSize = true;
-            this.lblBankAddress.Location = new System.Drawing.Point(6, 8);
-            this.lblBankAddress.Name = "lblBankAddress";
-            this.lblBankAddress.Size = new System.Drawing.Size(72, 13);
-            this.lblBankAddress.TabIndex = 0;
-            this.lblBankAddress.Text = "Bank address";
-            // 
-            // pnlBic
-            // 
-            this.pnlBic.Controls.Add(this.tbBic);
-            this.pnlBic.Controls.Add(this.lblBic);
-            this.pnlBic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBic.Location = new System.Drawing.Point(0, 101);
-            this.pnlBic.Name = "pnlBic";
-            this.pnlBic.Size = new System.Drawing.Size(396, 34);
-            this.pnlBic.TabIndex = 6;
-            // 
-            // tbBic
-            // 
-            this.tbBic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBic.Enabled = false;
-            this.tbBic.Location = new System.Drawing.Point(97, 5);
-            this.tbBic.Name = "tbBic";
-            this.tbBic.Size = new System.Drawing.Size(283, 20);
-            this.tbBic.TabIndex = 1;
-            // 
-            // lblBic
-            // 
-            this.lblBic.AutoSize = true;
-            this.lblBic.Location = new System.Drawing.Point(6, 8);
-            this.lblBic.Name = "lblBic";
-            this.lblBic.Size = new System.Drawing.Size(22, 13);
-            this.lblBic.TabIndex = 0;
-            this.lblBic.Text = "Bic";
             // 
             // BankControl
             // 
@@ -301,9 +301,13 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
             this.Name = "BankControl";
-            this.Size = new System.Drawing.Size(660, 428);
+            this.Size = new System.Drawing.Size(670, 550);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
+            this.pnlBic.ResumeLayout(false);
+            this.pnlBic.PerformLayout();
+            this.pnlBankAddress.ResumeLayout(false);
+            this.pnlBankAddress.PerformLayout();
             this.pnlBankName.ResumeLayout(false);
             this.pnlBankName.PerformLayout();
             this.pnlId.ResumeLayout(false);
@@ -311,10 +315,6 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
-            this.pnlBankAddress.ResumeLayout(false);
-            this.pnlBankAddress.PerformLayout();
-            this.pnlBic.ResumeLayout(false);
-            this.pnlBic.PerformLayout();
             this.ResumeLayout(false);
 
         }

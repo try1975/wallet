@@ -5,6 +5,5 @@ namespace WalletInternalApi.Maintenance
 {
     public interface ITransactionApi : ITypedApi<TransactionDto, Guid>
     {
-        
     }
 }

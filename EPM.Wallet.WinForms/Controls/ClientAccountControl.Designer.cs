@@ -80,9 +80,9 @@
             this.pnlDetails.Controls.Add(this.pnlFields);
             this.pnlDetails.Controls.Add(this.pnlButtons);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetails.Location = new System.Drawing.Point(278, 0);
+            this.pnlDetails.Location = new System.Drawing.Point(274, 0);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(396, 462);
+            this.pnlDetails.Size = new System.Drawing.Size(396, 550);
             this.pnlDetails.TabIndex = 6;
             // 
             // pnlFields
@@ -97,7 +97,7 @@
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFields.Location = new System.Drawing.Point(0, 41);
             this.pnlFields.Name = "pnlFields";
-            this.pnlFields.Size = new System.Drawing.Size(396, 421);
+            this.pnlFields.Size = new System.Drawing.Size(396, 509);
             this.pnlFields.TabIndex = 1;
             // 
             // panel2
@@ -365,9 +365,9 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(275, 0);
+            this.splitter1.Location = new System.Drawing.Point(271, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 462);
+            this.splitter1.Size = new System.Drawing.Size(3, 550);
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
             // 
@@ -377,7 +377,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(275, 462);
+            this.pnlGrid.Size = new System.Drawing.Size(271, 550);
             this.pnlGrid.TabIndex = 9;
             // 
             // dgvItems
@@ -393,7 +393,7 @@
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(275, 462);
+            this.dgvItems.Size = new System.Drawing.Size(271, 550);
             this.dgvItems.TabIndex = 1;
             // 
             // ClientAccountControl
@@ -404,7 +404,7 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
             this.Name = "ClientAccountControl";
-            this.Size = new System.Drawing.Size(674, 462);
+            this.Size = new System.Drawing.Size(670, 550);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

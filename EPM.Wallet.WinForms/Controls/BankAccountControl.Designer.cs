@@ -31,6 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
+            this.pnplBeneficiaryAddress = new System.Windows.Forms.Panel();
+            this.tbBeneficiaryAddress = new System.Windows.Forms.TextBox();
+            this.lblBeneficiaryAddress = new System.Windows.Forms.Label();
             this.pnlCurrency = new System.Windows.Forms.Panel();
             this.cmbCurrency = new System.Windows.Forms.ComboBox();
             this.lblCurrency = new System.Windows.Forms.Label();
@@ -52,11 +55,9 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
-            this.pnplBeneficiaryAddress = new System.Windows.Forms.Panel();
-            this.tbBeneficiaryAddress = new System.Windows.Forms.TextBox();
-            this.lblBeneficiaryAddress = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
+            this.pnplBeneficiaryAddress.SuspendLayout();
             this.pnlCurrency.SuspendLayout();
             this.pnlBank.SuspendLayout();
             this.pnlAccountName.SuspendLayout();
@@ -64,7 +65,6 @@
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
-            this.pnplBeneficiaryAddress.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -72,9 +72,9 @@
             this.pnlDetails.Controls.Add(this.pnlFields);
             this.pnlDetails.Controls.Add(this.pnlButtons);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetails.Location = new System.Drawing.Point(232, 0);
+            this.pnlDetails.Location = new System.Drawing.Point(274, 0);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(396, 471);
+            this.pnlDetails.Size = new System.Drawing.Size(396, 550);
             this.pnlDetails.TabIndex = 4;
             // 
             // pnlFields
@@ -87,8 +87,37 @@
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFields.Location = new System.Drawing.Point(0, 41);
             this.pnlFields.Name = "pnlFields";
-            this.pnlFields.Size = new System.Drawing.Size(396, 430);
+            this.pnlFields.Size = new System.Drawing.Size(396, 509);
             this.pnlFields.TabIndex = 1;
+            // 
+            // pnplBeneficiaryAddress
+            // 
+            this.pnplBeneficiaryAddress.Controls.Add(this.tbBeneficiaryAddress);
+            this.pnplBeneficiaryAddress.Controls.Add(this.lblBeneficiaryAddress);
+            this.pnplBeneficiaryAddress.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnplBeneficiaryAddress.Location = new System.Drawing.Point(0, 135);
+            this.pnplBeneficiaryAddress.Name = "pnplBeneficiaryAddress";
+            this.pnplBeneficiaryAddress.Size = new System.Drawing.Size(396, 34);
+            this.pnplBeneficiaryAddress.TabIndex = 7;
+            // 
+            // tbBeneficiaryAddress
+            // 
+            this.tbBeneficiaryAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBeneficiaryAddress.Enabled = false;
+            this.tbBeneficiaryAddress.Location = new System.Drawing.Point(97, 5);
+            this.tbBeneficiaryAddress.Name = "tbBeneficiaryAddress";
+            this.tbBeneficiaryAddress.Size = new System.Drawing.Size(283, 20);
+            this.tbBeneficiaryAddress.TabIndex = 1;
+            // 
+            // lblBeneficiaryAddress
+            // 
+            this.lblBeneficiaryAddress.AutoSize = true;
+            this.lblBeneficiaryAddress.Location = new System.Drawing.Point(7, 8);
+            this.lblBeneficiaryAddress.Name = "lblBeneficiaryAddress";
+            this.lblBeneficiaryAddress.Size = new System.Drawing.Size(99, 13);
+            this.lblBeneficiaryAddress.TabIndex = 0;
+            this.lblBeneficiaryAddress.Text = "Beneficiary address";
             // 
             // pnlCurrency
             // 
@@ -270,9 +299,9 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(229, 0);
+            this.splitter1.Location = new System.Drawing.Point(271, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 471);
+            this.splitter1.Size = new System.Drawing.Size(3, 550);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
             // 
@@ -282,7 +311,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(229, 471);
+            this.pnlGrid.Size = new System.Drawing.Size(271, 550);
             this.pnlGrid.TabIndex = 7;
             // 
             // dgvItems
@@ -298,37 +327,8 @@
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(229, 471);
+            this.dgvItems.Size = new System.Drawing.Size(271, 550);
             this.dgvItems.TabIndex = 1;
-            // 
-            // pnplBeneficiaryAddress
-            // 
-            this.pnplBeneficiaryAddress.Controls.Add(this.tbBeneficiaryAddress);
-            this.pnplBeneficiaryAddress.Controls.Add(this.lblBeneficiaryAddress);
-            this.pnplBeneficiaryAddress.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnplBeneficiaryAddress.Location = new System.Drawing.Point(0, 135);
-            this.pnplBeneficiaryAddress.Name = "pnplBeneficiaryAddress";
-            this.pnplBeneficiaryAddress.Size = new System.Drawing.Size(396, 34);
-            this.pnplBeneficiaryAddress.TabIndex = 7;
-            // 
-            // tbBeneficiaryAddress
-            // 
-            this.tbBeneficiaryAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBeneficiaryAddress.Enabled = false;
-            this.tbBeneficiaryAddress.Location = new System.Drawing.Point(97, 5);
-            this.tbBeneficiaryAddress.Name = "tbBeneficiaryAddress";
-            this.tbBeneficiaryAddress.Size = new System.Drawing.Size(283, 20);
-            this.tbBeneficiaryAddress.TabIndex = 1;
-            // 
-            // lblBeneficiaryAddress
-            // 
-            this.lblBeneficiaryAddress.AutoSize = true;
-            this.lblBeneficiaryAddress.Location = new System.Drawing.Point(7, 8);
-            this.lblBeneficiaryAddress.Name = "lblBeneficiaryAddress";
-            this.lblBeneficiaryAddress.Size = new System.Drawing.Size(99, 13);
-            this.lblBeneficiaryAddress.TabIndex = 0;
-            this.lblBeneficiaryAddress.Text = "Beneficiary address";
             // 
             // BankAccountControl
             // 
@@ -338,9 +338,11 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
             this.Name = "BankAccountControl";
-            this.Size = new System.Drawing.Size(628, 471);
+            this.Size = new System.Drawing.Size(670, 550);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
+            this.pnplBeneficiaryAddress.ResumeLayout(false);
+            this.pnplBeneficiaryAddress.PerformLayout();
             this.pnlCurrency.ResumeLayout(false);
             this.pnlCurrency.PerformLayout();
             this.pnlBank.ResumeLayout(false);
@@ -352,8 +354,6 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
-            this.pnplBeneficiaryAddress.ResumeLayout(false);
-            this.pnplBeneficiaryAddress.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -89,6 +89,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppGlobal.cs" />
+    <Compile Include="Controls\DirectDebitControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DirectDebitControl.Designer.cs">
+      <DependentUpon>DirectDebitControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StandingOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StandingOrderControl.Designer.cs">
+      <DependentUpon>StandingOrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DirectDebitDataManager.cs" />
+    <Compile Include="Data\StandingOrderDataManager.cs" />
     <Compile Include="Forms\AccountRequestNewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,8 +221,10 @@
       <DependentUpon>TransactionRequestTransferOutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Data\IBankAccountDataManager.cs" />
+    <Compile Include="Interfaces\Data\IDirectDebitDataManager.cs" />
     <Compile Include="Interfaces\Data\IMessageDataManager.cs" />
     <Compile Include="Interfaces\Data\IRequestDataManager.cs" />
+    <Compile Include="Interfaces\Data\IStandingOrderDataManager.cs" />
     <Compile Include="Interfaces\Data\IStatementDataManager.cs" />
     <Compile Include="Interfaces\Data\ITransactionDataManager.cs" />
     <Compile Include="Interfaces\Data\ITransferOutInfoDataManager.cs" />
@@ -218,19 +234,23 @@
     <Compile Include="Data\TypedDataMаnager.cs" />
     <Compile Include="Interfaces\Data\IClientAccountDataManager.cs" />
     <Compile Include="Interfaces\Data\IClientDataManager.cs" />
+    <Compile Include="Interfaces\IDirectDebitView.cs" />
     <Compile Include="Interfaces\IMessageView.cs" />
     <Compile Include="Interfaces\IRequestView.cs" />
     <Compile Include="Interfaces\ICardView.cs" />
+    <Compile Include="Interfaces\IStandingOrderView.cs" />
     <Compile Include="Interfaces\IStatementView.cs" />
     <Compile Include="Interfaces\ITransactionView.cs" />
     <Compile Include="Interfaces\ITransferOutInfoView.cs" />
     <Compile Include="Interfaces\Common\ITypedView.cs" />
     <Compile Include="Interfaces\Data\ITypedDataMаnager.cs" />
     <Compile Include="Interfaces\Common\IPresenter.cs" />
+    <Compile Include="Presenters\DirectDebitPresenter.cs" />
     <Compile Include="Presenters\MessagePresenter.cs" />
     <Compile Include="Presenters\RequestPresenter.cs" />
     <Compile Include="Presenters\PresenterMode.cs" />
     <Compile Include="Presenters\CardPresenter.cs" />
+    <Compile Include="Presenters\StandingOrderPresenter.cs" />
     <Compile Include="Presenters\StatementPresenter.cs" />
     <Compile Include="Presenters\TransactionPresenter.cs" />
     <Compile Include="Presenters\TransferOutInfoPresenter.cs" />
@@ -287,11 +307,17 @@
     <EmbeddedResource Include="Controls\ClientControl.resx">
       <DependentUpon>ClientControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DirectDebitControl.resx">
+      <DependentUpon>DirectDebitControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\MessageControl.resx">
       <DependentUpon>MessageControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RequestControl.resx">
       <DependentUpon>RequestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StandingOrderControl.resx">
+      <DependentUpon>StandingOrderControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\StatementControl.resx">
       <DependentUpon>StatementControl.cs</DependentUpon>

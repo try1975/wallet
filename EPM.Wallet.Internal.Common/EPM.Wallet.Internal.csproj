@@ -59,6 +59,7 @@
     <Compile Include="Model\CardRequestDto.cs" />
     <Compile Include="Model\ClientDto.cs" />
     <Compile Include="Model\CurrencyDto.cs" />
+    <Compile Include="Model\DirectDebitDto.cs" />
     <Compile Include="Model\MessageDto.cs" />
     <Compile Include="Model\MessageInternalDto.cs" />
     <Compile Include="Model\AccountStatementDataDto.cs" />

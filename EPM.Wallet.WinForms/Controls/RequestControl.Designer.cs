@@ -31,6 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
+            this.pnlReissueReason = new System.Windows.Forms.Panel();
+            this.tbReissueReason = new System.Windows.Forms.TextBox();
+            this.lblReissueReason = new System.Windows.Forms.Label();
+            this.pnlReissueType = new System.Windows.Forms.Panel();
+            this.tbReissueType = new System.Windows.Forms.TextBox();
+            this.lblReissueType = new System.Windows.Forms.Label();
             this.pnlLimit = new System.Windows.Forms.Panel();
             this.tbLimit = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -79,14 +85,10 @@
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.pnlReissueType = new System.Windows.Forms.Panel();
-            this.tbReissueType = new System.Windows.Forms.TextBox();
-            this.lblReissueType = new System.Windows.Forms.Label();
-            this.pnlReissueReason = new System.Windows.Forms.Panel();
-            this.tbReissueReason = new System.Windows.Forms.TextBox();
-            this.lblReissueReason = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
+            this.pnlReissueReason.SuspendLayout();
+            this.pnlReissueType.SuspendLayout();
             this.pnlLimit.SuspendLayout();
             this.pnlCardNumber.SuspendLayout();
             this.pnlOwnerName.SuspendLayout();
@@ -104,8 +106,6 @@
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.panel7.SuspendLayout();
-            this.pnlReissueType.SuspendLayout();
-            this.pnlReissueReason.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -113,7 +113,7 @@
             this.pnlDetails.Controls.Add(this.pnlFields);
             this.pnlDetails.Controls.Add(this.panel8);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetails.Location = new System.Drawing.Point(543, 0);
+            this.pnlDetails.Location = new System.Drawing.Point(274, 0);
             this.pnlDetails.Name = "pnlDetails";
             this.pnlDetails.Size = new System.Drawing.Size(396, 578);
             this.pnlDetails.TabIndex = 5;
@@ -140,6 +140,64 @@
             this.pnlFields.Name = "pnlFields";
             this.pnlFields.Size = new System.Drawing.Size(396, 539);
             this.pnlFields.TabIndex = 1;
+            // 
+            // pnlReissueReason
+            // 
+            this.pnlReissueReason.Controls.Add(this.tbReissueReason);
+            this.pnlReissueReason.Controls.Add(this.lblReissueReason);
+            this.pnlReissueReason.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlReissueReason.Location = new System.Drawing.Point(0, 504);
+            this.pnlReissueReason.Name = "pnlReissueReason";
+            this.pnlReissueReason.Size = new System.Drawing.Size(396, 34);
+            this.pnlReissueReason.TabIndex = 22;
+            // 
+            // tbReissueReason
+            // 
+            this.tbReissueReason.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReissueReason.Location = new System.Drawing.Point(97, 6);
+            this.tbReissueReason.Name = "tbReissueReason";
+            this.tbReissueReason.ReadOnly = true;
+            this.tbReissueReason.Size = new System.Drawing.Size(283, 20);
+            this.tbReissueReason.TabIndex = 2;
+            // 
+            // lblReissueReason
+            // 
+            this.lblReissueReason.AutoSize = true;
+            this.lblReissueReason.Location = new System.Drawing.Point(7, 9);
+            this.lblReissueReason.Name = "lblReissueReason";
+            this.lblReissueReason.Size = new System.Drawing.Size(85, 13);
+            this.lblReissueReason.TabIndex = 0;
+            this.lblReissueReason.Text = "Reissue Reason";
+            // 
+            // pnlReissueType
+            // 
+            this.pnlReissueType.Controls.Add(this.tbReissueType);
+            this.pnlReissueType.Controls.Add(this.lblReissueType);
+            this.pnlReissueType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlReissueType.Location = new System.Drawing.Point(0, 470);
+            this.pnlReissueType.Name = "pnlReissueType";
+            this.pnlReissueType.Size = new System.Drawing.Size(396, 34);
+            this.pnlReissueType.TabIndex = 21;
+            // 
+            // tbReissueType
+            // 
+            this.tbReissueType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReissueType.Location = new System.Drawing.Point(97, 6);
+            this.tbReissueType.Name = "tbReissueType";
+            this.tbReissueType.ReadOnly = true;
+            this.tbReissueType.Size = new System.Drawing.Size(283, 20);
+            this.tbReissueType.TabIndex = 2;
+            // 
+            // lblReissueType
+            // 
+            this.lblReissueType.AutoSize = true;
+            this.lblReissueType.Location = new System.Drawing.Point(7, 9);
+            this.lblReissueType.Name = "lblReissueType";
+            this.lblReissueType.Size = new System.Drawing.Size(72, 13);
+            this.lblReissueType.TabIndex = 0;
+            this.lblReissueType.Text = "Reissue Type";
             // 
             // pnlLimit
             // 
@@ -533,7 +591,7 @@
             // btnPending
             // 
             this.btnPending.Location = new System.Drawing.Point(178, 5);
-            this.btnPending.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPending.Margin = new System.Windows.Forms.Padding(2);
             this.btnPending.Name = "btnPending";
             this.btnPending.Size = new System.Drawing.Size(77, 23);
             this.btnPending.TabIndex = 11;
@@ -543,7 +601,7 @@
             // btnProcessed
             // 
             this.btnProcessed.Location = new System.Drawing.Point(15, 5);
-            this.btnProcessed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProcessed.Margin = new System.Windows.Forms.Padding(2);
             this.btnProcessed.Name = "btnProcessed";
             this.btnProcessed.Size = new System.Drawing.Size(77, 23);
             this.btnProcessed.TabIndex = 10;
@@ -553,7 +611,7 @@
             // btnReject
             // 
             this.btnReject.Location = new System.Drawing.Point(96, 5);
-            this.btnReject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReject.Margin = new System.Windows.Forms.Padding(2);
             this.btnReject.Name = "btnReject";
             this.btnReject.Size = new System.Drawing.Size(77, 23);
             this.btnReject.TabIndex = 9;
@@ -563,7 +621,7 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(540, 0);
+            this.splitter1.Location = new System.Drawing.Point(271, 0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 578);
             this.splitter1.TabIndex = 7;
@@ -576,7 +634,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(540, 578);
+            this.pnlGrid.Size = new System.Drawing.Size(271, 578);
             this.pnlGrid.TabIndex = 11;
             // 
             // dgvItems
@@ -592,7 +650,7 @@
             this.dgvItems.Location = new System.Drawing.Point(0, 41);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(540, 537);
+            this.dgvItems.Size = new System.Drawing.Size(271, 537);
             this.dgvItems.TabIndex = 1;
             // 
             // panel7
@@ -601,7 +659,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(540, 41);
+            this.panel7.Size = new System.Drawing.Size(271, 41);
             this.panel7.TabIndex = 2;
             // 
             // btnRefresh
@@ -613,64 +671,6 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
-            // pnlReissueType
-            // 
-            this.pnlReissueType.Controls.Add(this.tbReissueType);
-            this.pnlReissueType.Controls.Add(this.lblReissueType);
-            this.pnlReissueType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlReissueType.Location = new System.Drawing.Point(0, 470);
-            this.pnlReissueType.Name = "pnlReissueType";
-            this.pnlReissueType.Size = new System.Drawing.Size(396, 34);
-            this.pnlReissueType.TabIndex = 21;
-            // 
-            // tbReissueType
-            // 
-            this.tbReissueType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbReissueType.Location = new System.Drawing.Point(97, 6);
-            this.tbReissueType.Name = "tbReissueType";
-            this.tbReissueType.ReadOnly = true;
-            this.tbReissueType.Size = new System.Drawing.Size(283, 20);
-            this.tbReissueType.TabIndex = 2;
-            // 
-            // lblReissueType
-            // 
-            this.lblReissueType.AutoSize = true;
-            this.lblReissueType.Location = new System.Drawing.Point(7, 9);
-            this.lblReissueType.Name = "lblReissueType";
-            this.lblReissueType.Size = new System.Drawing.Size(72, 13);
-            this.lblReissueType.TabIndex = 0;
-            this.lblReissueType.Text = "Reissue Type";
-            // 
-            // pnlReissueReason
-            // 
-            this.pnlReissueReason.Controls.Add(this.tbReissueReason);
-            this.pnlReissueReason.Controls.Add(this.lblReissueReason);
-            this.pnlReissueReason.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlReissueReason.Location = new System.Drawing.Point(0, 504);
-            this.pnlReissueReason.Name = "pnlReissueReason";
-            this.pnlReissueReason.Size = new System.Drawing.Size(396, 34);
-            this.pnlReissueReason.TabIndex = 22;
-            // 
-            // tbReissueReason
-            // 
-            this.tbReissueReason.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbReissueReason.Location = new System.Drawing.Point(97, 6);
-            this.tbReissueReason.Name = "tbReissueReason";
-            this.tbReissueReason.ReadOnly = true;
-            this.tbReissueReason.Size = new System.Drawing.Size(283, 20);
-            this.tbReissueReason.TabIndex = 2;
-            // 
-            // lblReissueReason
-            // 
-            this.lblReissueReason.AutoSize = true;
-            this.lblReissueReason.Location = new System.Drawing.Point(7, 9);
-            this.lblReissueReason.Name = "lblReissueReason";
-            this.lblReissueReason.Size = new System.Drawing.Size(85, 13);
-            this.lblReissueReason.TabIndex = 0;
-            this.lblReissueReason.Text = "Reissue Reason";
-            // 
             // RequestControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,9 +679,13 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
             this.Name = "RequestControl";
-            this.Size = new System.Drawing.Size(939, 578);
+            this.Size = new System.Drawing.Size(670, 578);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
+            this.pnlReissueReason.ResumeLayout(false);
+            this.pnlReissueReason.PerformLayout();
+            this.pnlReissueType.ResumeLayout(false);
+            this.pnlReissueType.PerformLayout();
             this.pnlLimit.ResumeLayout(false);
             this.pnlLimit.PerformLayout();
             this.pnlCardNumber.ResumeLayout(false);
@@ -712,10 +716,6 @@
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.panel7.ResumeLayout(false);
-            this.pnlReissueType.ResumeLayout(false);
-            this.pnlReissueType.PerformLayout();
-            this.pnlReissueReason.ResumeLayout(false);
-            this.pnlReissueReason.PerformLayout();
             this.ResumeLayout(false);
 
         }

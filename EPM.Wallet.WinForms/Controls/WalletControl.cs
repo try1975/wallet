@@ -26,12 +26,10 @@ namespace EPM.Wallet.WinForms.Controls
                 {
                     btnRequests.Text = @"Requests";
                     pnlCards.Visible = true;
+                    return;
                 }
-                if (_clientAppVariant == ClientAppVariant.Dpa)
-                {
-                    btnRequests.Text = @"Transfer Outs";
-                    pnlCards.Visible = false;
-                }
+                btnRequests.Text = @"Transfer Outs";
+                pnlCards.Visible = false;
             }
         }
 
@@ -64,13 +62,13 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnBanks_Click(object sender, EventArgs e)
         {
             var bankControl = CompositionRoot.Resolve<IBankView>();
-            AddControlToWorkArea((Control) bankControl);
+            AddControlToWorkArea((Control) bankControl, ModifierKeys.HasFlag(Keys.Control));
         }
 
         private void btnBankAccounts_Click(object sender, EventArgs e)
         {
             var bankAccountControl = CompositionRoot.Resolve<IBankAccountView>();
-            AddControlToWorkArea((Control) bankAccountControl);
+            AddControlToWorkArea((Control) bankAccountControl, ModifierKeys.HasFlag(Keys.Control));
         }
 
         private void btnClients_Click(object sender, EventArgs e)
@@ -94,7 +92,7 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnMessages_Click(object sender, EventArgs e)
         {
             var messageControl = CompositionRoot.Resolve<IMessageView>();
-            AddControlToWorkArea((Control) messageControl);
+            AddControlToWorkArea((Control) messageControl, ModifierKeys.HasFlag(Keys.Control));
         }
 
         private void btnTransactions_Click(object sender, EventArgs e)
@@ -106,7 +104,19 @@ namespace EPM.Wallet.WinForms.Controls
         private void btnStatements_Click(object sender, EventArgs e)
         {
             var statementControl = CompositionRoot.Resolve<IStatementView>();
-            AddControlToWorkArea((Control) statementControl);
+            AddControlToWorkArea((Control) statementControl, ModifierKeys.HasFlag(Keys.Control));
+        }
+
+        private void btnStandingOrders_Click(object sender, EventArgs e)
+        {
+            var standingOrderControl = CompositionRoot.Resolve<IStandingOrderView>();
+            AddControlToWorkArea((Control) standingOrderControl, ModifierKeys.HasFlag(Keys.Control));
+        }
+
+        private void btnDirectDebits_Click(object sender, EventArgs e)
+        {
+            var directDebitControl = CompositionRoot.Resolve<IDirectDebitView>();
+            AddControlToWorkArea((Control) directDebitControl, ModifierKeys.HasFlag(Keys.Control));
         }
     }
 }

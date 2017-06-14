@@ -187,6 +187,10 @@ namespace EPM.Wallet.WinForms.Controls
             }
             var visibleColumn = dgvItems.Columns[nameof(RequestInfoDto.Date)];
             if (visibleColumn != null) visibleColumn.Visible = true;
+            //visibleColumn = dgvItems.Columns[nameof(RequestInfoDto.ValueDate)];
+            //if (visibleColumn != null) visibleColumn.Visible = true;
+            //visibleColumn = dgvItems.Columns[nameof(RequestInfoDto.ColorType)];
+            //if (visibleColumn != null) visibleColumn.Visible = true;
             visibleColumn = dgvItems.Columns[nameof(RequestInfoDto.ClientId)];
             if (visibleColumn != null) visibleColumn.Visible = true;
             visibleColumn = dgvItems.Columns[nameof(RequestInfoDto.Type)];

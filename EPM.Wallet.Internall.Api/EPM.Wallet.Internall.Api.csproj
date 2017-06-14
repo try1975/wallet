@@ -173,12 +173,15 @@
     <Compile Include="AutoMappers\CardAutoMapper.cs" />
     <Compile Include="AutoMappers\ClientAutoMapper.cs" />
     <Compile Include="AutoMappers\CurrencyAutoMapper.cs" />
+    <Compile Include="AutoMappers\DirectDebitAutoMapper.cs" />
     <Compile Include="AutoMappers\MessageAutoMapper.cs" />
     <Compile Include="AutoMappers\RequestAutoMapper.cs" />
     <Compile Include="AutoMappers\RequisiteAutoMapper.cs" />
     <Compile Include="AutoMappers\StandingOrderAutoMapper.cs" />
     <Compile Include="AutoMappers\StatementAutoMapper.cs" />
     <Compile Include="AutoMappers\TransactionAutoMapper.cs" />
+    <Compile Include="Controllers\DirectDebitsController.cs" />
+    <Compile Include="Controllers\StandingOrdersController.cs" />
     <Compile Include="Controllers\StatementsController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="GetFiles\GetStatementFile.ashx.cs">
@@ -188,7 +191,9 @@
       <DependentUpon>ImportTransactions.ashx</DependentUpon>
     </Compile>
     <Compile Include="Logging\LogHandler.cs" />
+    <Compile Include="Maintenance\Classes\DirectDebitApi.cs" />
     <Compile Include="Maintenance\Classes\TransactionApi.cs" />
+    <Compile Include="Maintenance\Interfaces\IDirectDebitApi.cs" />
     <Compile Include="Maintenance\Interfaces\ITransactionApi.cs" />
     <Compile Include="Ninject\Configurator.cs" />
     <Compile Include="Controllers\AccountsController.cs" />

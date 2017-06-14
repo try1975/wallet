@@ -9,6 +9,9 @@ namespace EPM.Wallet.Internal.Model
     {
         public Guid Id { get; set; }
         public DateTime Date { get; set; }
+        public DateTime? ValueDate { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ColorType ColorType { get; set; }
         public string ClientId { get; set; }
         public string ClientName { get; set; }
         public string CurrencyId { get; set; }
@@ -40,12 +43,9 @@ namespace EPM.Wallet.Internal.Model
         public Guid? BeneficiaryAccountId { get; set; }
         public string BeneficiaryAccountName { get; set; }
         public string BeneficiaryCurrencyId { get; set; }
-        public DateTime? ValueDate { get; set; }
-
-
+        
         public int Limit { get; set; }
         public string CardReissueType { get; set; }
         public string CardReissueReason { get; set; }
-
     }
 }

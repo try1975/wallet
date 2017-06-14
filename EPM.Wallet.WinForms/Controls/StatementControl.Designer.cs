@@ -89,9 +89,9 @@
             this.pnlDetails.Controls.Add(this.pnlFields);
             this.pnlDetails.Controls.Add(this.pnlButtons);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetails.Location = new System.Drawing.Point(403, 0);
+            this.pnlDetails.Location = new System.Drawing.Point(274, 0);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(396, 427);
+            this.pnlDetails.Size = new System.Drawing.Size(396, 550);
             this.pnlDetails.TabIndex = 8;
             // 
             // pnlFields
@@ -109,7 +109,7 @@
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFields.Location = new System.Drawing.Point(0, 41);
             this.pnlFields.Name = "pnlFields";
-            this.pnlFields.Size = new System.Drawing.Size(396, 386);
+            this.pnlFields.Size = new System.Drawing.Size(396, 509);
             this.pnlFields.TabIndex = 1;
             // 
             // panel8
@@ -146,7 +146,7 @@
             // btnLoadPdf
             // 
             this.btnLoadPdf.Location = new System.Drawing.Point(97, 3);
-            this.btnLoadPdf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadPdf.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadPdf.Name = "btnLoadPdf";
             this.btnLoadPdf.Size = new System.Drawing.Size(93, 29);
             this.btnLoadPdf.TabIndex = 3;
@@ -450,9 +450,9 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(400, 0);
+            this.splitter1.Location = new System.Drawing.Point(271, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 427);
+            this.splitter1.Size = new System.Drawing.Size(3, 550);
             this.splitter1.TabIndex = 10;
             this.splitter1.TabStop = false;
             // 
@@ -469,7 +469,7 @@
             this.dgvItems.Location = new System.Drawing.Point(0, 0);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(400, 427);
+            this.dgvItems.Size = new System.Drawing.Size(271, 550);
             this.dgvItems.TabIndex = 11;
             // 
             // StatementControl
@@ -479,9 +479,9 @@
             this.Controls.Add(this.dgvItems);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StatementControl";
-            this.Size = new System.Drawing.Size(799, 427);
+            this.Size = new System.Drawing.Size(670, 550);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
