@@ -6,5 +6,6 @@
         public const string ClientId = nameof(ClientId);
         public const string CardId = nameof(CardId);
         public const string AccountId = nameof(AccountId);
+        public const string StandingOrderId = nameof(StandingOrderId);
     }
 }

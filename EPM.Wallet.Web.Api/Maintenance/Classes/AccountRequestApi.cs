@@ -90,6 +90,7 @@ namespace WalletWebApi.Maintenance
             var expireProcessed = DateTime.UtcNow.AddDays(-2);
             var list = _query.GetEntities()
                .Where(m => m.ClientId == clientId && m.RequestType == RequestType.Payment 
+                        && !m.StandingOrderId.HasValue
                         && ((m.RequestStatus == RequestStatus.Pending) || (m.RequestStatus == RequestStatus.Rejected) 
                         || (m.RequestStatus == RequestStatus.Processed && m.ValueDate >= expireProcessed) ))
                .Include(nameof(AccountRequestDto.Requisite))
@@ -122,7 +123,8 @@ namespace WalletWebApi.Maintenance
                     if (accountRequestEntity.RequisiteId.HasValue)
                     {
                         var requisiteId = accountRequestEntity.RequisiteId.Value;
-                        dto.BeneficiaryAccount = _requisiteQuery.GetEntity(requisiteId).Name;
+                        //dto.BeneficiaryAccount = _requisiteQuery.GetEntity(requisiteId).Name;
+                        dto.BeneficiaryAccount = _requisiteQuery.GetEntity(requisiteId).OwnerName;
                     }
                 }
                 if (accountRequestEntity.AccountRequestType == AccountRequestType.TransferToCard)

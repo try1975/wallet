@@ -121,6 +121,7 @@ namespace WalletInternalApi.Ninject
         private void ConfigureOrm(IKernel container)
         {
             container.Bind<WalletContext>().ToSelf().InRequestScope();
+            container.Bind<ExchangeServiceMailSender>().ToSelf().InSingletonScope();
         }
     }
 }
