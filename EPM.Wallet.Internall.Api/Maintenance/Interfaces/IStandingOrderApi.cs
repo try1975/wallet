@@ -7,6 +7,6 @@ namespace WalletInternalApi.Maintenance
     public interface IStandingOrderApi : ITypedApi<StandingOrderDto, Guid> {
         IEnumerable<StandingOrderDto> GetStandingOrdersByClient(string clientId);
 
-        Guid CreateRequestByStandingOrder(Guid id);
+        AccountRequestDto CreateRequestByStandingOrder(Guid id);
     }
 }

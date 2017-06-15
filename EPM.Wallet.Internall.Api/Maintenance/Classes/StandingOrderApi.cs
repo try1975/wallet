@@ -33,44 +33,50 @@ namespace WalletInternalApi.Maintenance
             return Mapper.Map<List<StandingOrderDto>>(list);
         }
 
-        public Guid CreateRequestByStandingOrder(Guid id)
+        public AccountRequestDto CreateRequestByStandingOrder(Guid id)
         {
             var standingOrder = Query.GetEntities()
                 .Include(z => z.ClientAccount.Client)
-                .FirstOrDefault(z => z.Id.Equals(id))
+                .FirstOrDefault(z => z.Id.Equals(id) && z.StandingOrderStatus==StandingOrderStatus.Active)
                 ;
-            if (standingOrder == null) return Guid.Empty;
-            standingOrder.LastRequestDate = DateTime.UtcNow.Date.AddDays(1);
+            if (standingOrder == null) return null;
+
+            if (standingOrder.LastDate.HasValue && standingOrder.LastDate.Value.Date <= DateTime.UtcNow.Date) return null;
+            if (!standingOrder.NextRequestDate.HasValue) standingOrder.NextRequestDate = standingOrder.FirstDate.Date;
+            if (!(standingOrder.NextRequestDate.Value.Date <= DateTime.UtcNow.Date.AddDays(1))) return null;
+            var valueDate = standingOrder.NextRequestDate.Value.Date;
+
             switch (standingOrder.Frequency)
             {
                 case Frequency.Weekly:
-                    standingOrder.NextRequestDate = standingOrder.LastRequestDate.Value.Date.AddDays(7);
+                    standingOrder.NextRequestDate = standingOrder.NextRequestDate.Value.Date.AddDays(7);
                     break;
                 case Frequency.Monthly:
-                    standingOrder.NextRequestDate = standingOrder.LastRequestDate.Value.Date.AddMonths(1);
+                    standingOrder.NextRequestDate = standingOrder.NextRequestDate.Value.Date.AddMonths(1);
                     break;
                 case Frequency.Every4Weeks:
-                    standingOrder.NextRequestDate = standingOrder.LastRequestDate.Value.Date.AddDays(28);
+                    standingOrder.NextRequestDate = standingOrder.NextRequestDate.Value.Date.AddDays(28);
                     break;
                 case Frequency.Every2Month:
-                    standingOrder.NextRequestDate = standingOrder.LastRequestDate.Value.Date.AddMonths(2);
+                    standingOrder.NextRequestDate = standingOrder.NextRequestDate.Value.Date.AddMonths(2);
                     break;
                 case Frequency.Quarterly:
-                    standingOrder.NextRequestDate = standingOrder.LastRequestDate.Value.Date.AddMonths(3);
+                    standingOrder.NextRequestDate = standingOrder.NextRequestDate.Value.Date.AddMonths(3);
                     break;
                 case Frequency.HalfYearly:
-                    standingOrder.NextRequestDate = standingOrder.LastRequestDate.Value.Date.AddMonths(6);
+                    standingOrder.NextRequestDate = standingOrder.NextRequestDate.Value.Date.AddMonths(6);
                     break;
                 case Frequency.Annually:
-                    standingOrder.NextRequestDate = standingOrder.LastRequestDate.Value.Date.AddYears(1);
+                    standingOrder.NextRequestDate = standingOrder.NextRequestDate.Value.Date.AddYears(1);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
             var request = _accountRequestQuery.GetEntities()
-                .FirstOrDefault(z=>z.StandingOrderId==standingOrder.Id && z.ValueDate==standingOrder.LastRequestDate)
+                .FirstOrDefault(z => z.StandingOrderId == standingOrder.Id && z.ValueDate == valueDate)
                 ;
-            if(request!=null) return Guid.Empty;
+            if (request != null) return null;
 
             using (var dbContextTransaction = Query.GetDbContext().Database.BeginTransaction(IsolationLevel.RepeatableRead))
             {
@@ -88,20 +94,25 @@ namespace WalletInternalApi.Maintenance
                         ClientAccountId = standingOrder.ClientAccountId,
                         CurrencyId = standingOrder.CurrencyId,
                         AmountOut = standingOrder.Amount,
-                        ValueDate = standingOrder.LastRequestDate,
+                        ValueDate = valueDate,
                         Note = standingOrder.Note
                     };
+                    if (transferOut.ValueDate != null && transferOut.ValueDate.Value.Date < DateTime.UtcNow.Date)
+                    {
+                        transferOut.RequestStatus = RequestStatus.Rejected;
+                        transferOut.Note = @"The request is rejected because the value date is in the past";
+                    }
                     Query.GetDbContext().Set<AccountRequestEntity>().Add(transferOut);
                     Query.GetDbContext().SaveChanges();
                     dbContextTransaction.Commit();
-                    return transferOut.Id;
+                    return Mapper.Map<AccountRequestDto>(transferOut);
                 }
                 catch (Exception e)
                 {
                     dbContextTransaction.Rollback();
                     Debug.WriteLine(e);
                     Log.Error(e);
-                    return Guid.Empty;
+                    return null;
                 }
             }
         }

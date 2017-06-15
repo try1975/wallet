@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using CreateRequests.Data;
+using EPM.Wallet.Common.Enums;
 
 namespace CreateRequests
 {
@@ -8,16 +10,25 @@ namespace CreateRequests
         public static async void Execute()
         {
             var dataManager = new DataMаnager();
-            var dtos = await dataManager.GetStandingOrders();
-            foreach (var dto in dtos)
+            var isRepeate = true;
+            while (isRepeate)
             {
-                if (dto.LastDate.HasValue && dto.LastDate.Value.Date > DateTime.UtcNow.Date) continue;
-                var nextRequestDate = dto.NextRequestDate?.Date ?? dto.FirstDate;
-
-                if (nextRequestDate <= DateTime.UtcNow.Date)
+                var dtos = await dataManager.GetStandingOrders();
+                foreach (var dto in dtos)
                 {
-                    Console.WriteLine($"{dto.Id} {nextRequestDate.Date}");
+                    isRepeate = false;
+                    if (dto.LastDate.HasValue && dto.LastDate.Value.Date > DateTime.UtcNow.Date) continue;
+                    if (dto.StandingOrderStatus != StandingOrderStatus.Active) continue;
+                    var nextRequestDate = dto.NextRequestDate?.Date ?? dto.FirstDate.Date;
+                    if (nextRequestDate.Date > DateTime.UtcNow.Date.AddDays(1)) continue;
+                    var line = $"{dto.Id} {nextRequestDate.Date}";
+                    Console.WriteLine(line);
+                    Debug.WriteLine(line);
                     // отправить запрос на создание реквеста
+                    var result = dataManager.CreateRequest(dto.Id).Result;
+                    if (result.Equals(Guid.Empty)) continue;
+                    isRepeate = true;
+                    break;
                 }
             }
         }

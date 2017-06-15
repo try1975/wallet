@@ -88,6 +88,17 @@ namespace CreateRequests.Data
             }
         }
 
+        public async Task<Guid> CreateRequest(Guid standingOrderId)
+        {
+            using (var response = await _walletHttpClient.PostAsync($"{_apiStandingOrders}/{nameof(CreateRequest)}/{standingOrderId}", null))
+            {
+                if (!response.IsSuccessStatusCode) return Guid.Empty;
+                var result = await response.Content.ReadAsAsync<Guid>();
+                return result;
+            }
+        }
+        //api/StandingOrders/CreateRequest/
+
         #endregion //StandingOrders
 
         #region ClientAccounts

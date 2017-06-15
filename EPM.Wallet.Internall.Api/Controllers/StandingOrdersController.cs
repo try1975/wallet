@@ -3,6 +3,7 @@ using EPM.Wallet.Common;
 using EPM.Wallet.Internal.Model;
 using WalletInternalApi.Maintenance;
 using System.Web.Http;
+using EPM.Wallet.Common.Enums;
 
 namespace WalletInternalApi.Controllers
 {
@@ -18,18 +19,18 @@ namespace WalletInternalApi.Controllers
         }
 
         [HttpPost]
-        [Route("api/StandingOrders/CreateRequest/{" + Ro.StandingOrderId + ":guid}",Name = nameof(CreateRequest) + Ro.Route)]
+        [Route("api/StandingOrders/CreateRequest/{" + Ro.StandingOrderId + ":guid}", Name = nameof(CreateRequest) + Ro.Route)]
         public Guid CreateRequest(Guid standingOrderId)
         {
-            var id = ((IStandingOrderApi)_api).CreateRequestByStandingOrder(standingOrderId);
+            var accountRequestDto = ((IStandingOrderApi)_api).CreateRequestByStandingOrder(standingOrderId);
+            if (accountRequestDto == null) return Guid.Empty;
+            if (accountRequestDto.RequestStatus == RequestStatus.Rejected) return accountRequestDto.Id;
             // send email
-            if (id.Equals(Guid.Empty)) return id;
-            var request = _accountRequestApi.GetItem(id);
-            var clientId = request.ClientId;
+            var clientId = accountRequestDto.ClientId;
             var subject = $"[{clientId}]";
             const string body = "Transfer Out request by Standing Order";
             _mailSender.SendMail(subject, body, AppGlobal.EmailAccountTransferOut);
-            return id;
+            return accountRequestDto.Id;
         }
     }
 }

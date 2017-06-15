@@ -13,7 +13,6 @@ namespace EPM.Wallet.Data.Entities
         public CurrencyEntity Currency { get; set; }
         public DateTime FirstDate { get; set; }
         public DateTime? LastDate { get; set; }
-        public DateTime? LastRequestDate { get; set; }
         public DateTime? NextRequestDate { get; set; }
         public Frequency Frequency { get; set; }
         public StandingOrderStatus StandingOrderStatus { get; set; }
