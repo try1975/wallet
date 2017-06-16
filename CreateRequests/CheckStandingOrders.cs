@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using CreateRequests.Data;
-using EPM.Wallet.Common.Enums;
 using EPM.Wallet.Internal.Model;
 
 namespace CreateRequests
@@ -18,7 +16,7 @@ namespace CreateRequests
                 isRepeate = false;
                 var dtos = await dataManager.GetStandingOrders();
                 var standingOrderDtos = dtos as StandingOrderDto[] ?? dtos.ToArray();
-                Console.WriteLine($"Standing orders count: {standingOrderDtos.Count()}");
+                Console.WriteLine($"Standing orders count: {standingOrderDtos.Length}");
                 foreach (var dto in standingOrderDtos)
                 {
                     if (dto.IsInactive)
@@ -26,9 +24,9 @@ namespace CreateRequests
                         Console.WriteLine("Skip by IsInactive...");
                         continue;
                     }
-                    if (dto.LastDate.HasValue && dto.LastDate.Value.Date > DateTime.UtcNow.Date)
+                    if (dto.LastDate.HasValue && dto.LastDate.Value.Date <= DateTime.UtcNow.Date)
                     {
-                        Console.WriteLine("Skip by LastDate...");
+                        Console.WriteLine($"Skip by LastDate {dto.LastDate.Value.Date}...");
                         continue;
                     }
                     var nextRequestDate = dto.NextRequestDate?.Date ?? dto.FirstDate.Date;
@@ -38,16 +36,14 @@ namespace CreateRequests
                         continue;
                     }
                     // отправить запрос на создание реквеста
-                    Console.WriteLine($"Create request {nextRequestDate.Date}...");
+                    Console.WriteLine($"Create request {nextRequestDate.Date} {dto.Id}...");
                     var result = dataManager.CreateRequest(dto.Id).Result;
                     if (result.Equals(Guid.Empty)) continue;
                     isRepeate = true;
                     break;
                 }
             }
-            #if DEBUG
-            Console.WriteLine($"{nameof(Execute)} completed. Press any key.");
-            #endif
+            Console.WriteLine("Completed...");
         }
     }
 }

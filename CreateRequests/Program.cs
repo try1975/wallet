@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Threading;
 
 namespace CreateRequests
 {
@@ -7,10 +7,7 @@ namespace CreateRequests
         private static void Main()
         {
             CheckStandingOrders.Execute();
-            
-            #if DEBUG
-            Console.ReadKey();
-            #endif
+            Thread.Sleep(10000);
         }
     }
 }
