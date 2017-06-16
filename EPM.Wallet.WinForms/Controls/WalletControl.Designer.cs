@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnDirectDebits = new System.Windows.Forms.Button();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.pnlStandingOrders = new System.Windows.Forms.Panel();
             this.btnStandingOrders = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -56,7 +56,7 @@
             this.btnRequests = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.pnlStandingOrders.SuspendLayout();
             this.panel10.SuspendLayout();
             this.pnlBanks.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -90,7 +90,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.panel12);
-            this.panel1.Controls.Add(this.panel11);
+            this.panel1.Controls.Add(this.pnlStandingOrders);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.pnlBanks);
@@ -128,14 +128,14 @@
             this.btnDirectDebits.UseVisualStyleBackColor = true;
             this.btnDirectDebits.Click += new System.EventHandler(this.btnDirectDebits_Click);
             // 
-            // panel11
+            // pnlStandingOrders
             // 
-            this.panel11.Controls.Add(this.btnStandingOrders);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(980, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(95, 32);
-            this.panel11.TabIndex = 17;
+            this.pnlStandingOrders.Controls.Add(this.btnStandingOrders);
+            this.pnlStandingOrders.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlStandingOrders.Location = new System.Drawing.Point(980, 0);
+            this.pnlStandingOrders.Name = "pnlStandingOrders";
+            this.pnlStandingOrders.Size = new System.Drawing.Size(95, 32);
+            this.pnlStandingOrders.TabIndex = 17;
             // 
             // btnStandingOrders
             // 
@@ -335,7 +335,7 @@
             this.Size = new System.Drawing.Size(1188, 576);
             this.panel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
+            this.pnlStandingOrders.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.pnlBanks.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -374,7 +374,7 @@
         private System.Windows.Forms.Button btnStatements;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button btnDirectDebits;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel pnlStandingOrders;
         private System.Windows.Forms.Button btnStandingOrders;
         private System.Windows.Forms.Panel panel6;
     }

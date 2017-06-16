@@ -169,6 +169,11 @@ namespace EPM.Wallet.WinForms.Controls
             set { tbReissueReason.Text = value; }
         }
 
+        public string Note {
+            get { return tbNote.Text; }
+            set { tbNote.Text = value; }
+        }
+
         #endregion //Details
 
         #region DetailsLists

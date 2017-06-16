@@ -52,24 +52,24 @@
   <ItemGroup>
     <Compile Include="Entities\CommonEntity.cs" />
     <Compile Include="Entities\IMetaDataEntity.cs" />
-    <Compile Include="Entities\p01\BankEntity.cs" />
-    <Compile Include="Entities\p01\BankAccountEntity.cs" />
-    <Compile Include="Entities\basic\ClientEntity.cs" />
-    <Compile Include="Entities\p01\ClientAccountEntity.cs" />
+    <Compile Include="Entities\BankEntity.cs" />
+    <Compile Include="Entities\BankAccountEntity.cs" />
+    <Compile Include="Entities\ClientEntity.cs" />
+    <Compile Include="Entities\ClientAccountEntity.cs" />
     <Compile Include="Entities\IVersionedEntity.cs" />
-    <Compile Include="Entities\basic\CurrencyEntity.cs" />
-    <Compile Include="Entities\p02\CardEntity.cs" />
-    <Compile Include="Entities\p03\MessageEntity.cs" />
-    <Compile Include="Entities\p03\RequisiteEntity.cs" />
-    <Compile Include="Entities\p04\CardRequestEntity.cs" />
-    <Compile Include="Entities\p04\AccountRequestEntity.cs" />
-    <Compile Include="Entities\p04\RequestEntity.cs" />
-    <Compile Include="Entities\p04\StandingOrderEntity.cs" />
+    <Compile Include="Entities\CurrencyEntity.cs" />
+    <Compile Include="Entities\CardEntity.cs" />
+    <Compile Include="Entities\MessageEntity.cs" />
+    <Compile Include="Entities\RequisiteEntity.cs" />
+    <Compile Include="Entities\CardRequestEntity.cs" />
+    <Compile Include="Entities\AccountRequestEntity.cs" />
+    <Compile Include="Entities\RequestEntity.cs" />
+    <Compile Include="Entities\StandingOrderEntity.cs" />
     <Compile Include="Entities\IEntity.cs" />
-    <Compile Include="Entities\p05\StatementEntity.cs" />
-    <Compile Include="Entities\p05\TransactionEntity.cs" />
-    <Compile Include="Entities\p05\TransactionTypeEntity.cs" />
-    <Compile Include="Entities\p04\DirectDebitEntity.cs" />
+    <Compile Include="Entities\StatementEntity.cs" />
+    <Compile Include="Entities\TransactionEntity.cs" />
+    <Compile Include="Entities\TransactionTypeEntity.cs" />
+    <Compile Include="Entities\DirectDebitEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryProcessors\basic\IClientQuery.cs" />
     <Compile Include="QueryProcessors\basic\ICurrencyQuery.cs" />
@@ -96,10 +96,6 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Entities\p01\_Read.me" />
-    <None Include="Entities\p02\_Read.me" />
-    <None Include="Entities\p03\_Read.me" />
-    <None Include="Entities\p04\_Read.me" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EPM.Wallet.Common\EPM.Wallet.Common.csproj">

@@ -85,6 +85,9 @@
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.pnlNote = new System.Windows.Forms.Panel();
+            this.tbNote = new System.Windows.Forms.TextBox();
+            this.lblNote = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
             this.pnlReissueReason.SuspendLayout();
@@ -106,6 +109,7 @@
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.panel7.SuspendLayout();
+            this.pnlNote.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -115,11 +119,12 @@
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlDetails.Location = new System.Drawing.Point(274, 0);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(396, 578);
+            this.pnlDetails.Size = new System.Drawing.Size(396, 627);
             this.pnlDetails.TabIndex = 5;
             // 
             // pnlFields
             // 
+            this.pnlFields.Controls.Add(this.pnlNote);
             this.pnlFields.Controls.Add(this.pnlReissueReason);
             this.pnlFields.Controls.Add(this.pnlReissueType);
             this.pnlFields.Controls.Add(this.pnlLimit);
@@ -138,7 +143,7 @@
             this.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFields.Location = new System.Drawing.Point(0, 39);
             this.pnlFields.Name = "pnlFields";
-            this.pnlFields.Size = new System.Drawing.Size(396, 539);
+            this.pnlFields.Size = new System.Drawing.Size(396, 588);
             this.pnlFields.TabIndex = 1;
             // 
             // pnlReissueReason
@@ -623,7 +628,7 @@
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter1.Location = new System.Drawing.Point(271, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 578);
+            this.splitter1.Size = new System.Drawing.Size(3, 627);
             this.splitter1.TabIndex = 7;
             this.splitter1.TabStop = false;
             // 
@@ -634,7 +639,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(271, 578);
+            this.pnlGrid.Size = new System.Drawing.Size(271, 627);
             this.pnlGrid.TabIndex = 11;
             // 
             // dgvItems
@@ -650,7 +655,7 @@
             this.dgvItems.Location = new System.Drawing.Point(0, 41);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
-            this.dgvItems.Size = new System.Drawing.Size(271, 537);
+            this.dgvItems.Size = new System.Drawing.Size(271, 586);
             this.dgvItems.TabIndex = 1;
             // 
             // panel7
@@ -671,6 +676,35 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
+            // pnlNote
+            // 
+            this.pnlNote.Controls.Add(this.tbNote);
+            this.pnlNote.Controls.Add(this.lblNote);
+            this.pnlNote.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlNote.Location = new System.Drawing.Point(0, 538);
+            this.pnlNote.Name = "pnlNote";
+            this.pnlNote.Size = new System.Drawing.Size(396, 34);
+            this.pnlNote.TabIndex = 23;
+            // 
+            // tbNote
+            // 
+            this.tbNote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbNote.Location = new System.Drawing.Point(97, 6);
+            this.tbNote.Name = "tbNote";
+            this.tbNote.ReadOnly = true;
+            this.tbNote.Size = new System.Drawing.Size(283, 20);
+            this.tbNote.TabIndex = 2;
+            // 
+            // lblNote
+            // 
+            this.lblNote.AutoSize = true;
+            this.lblNote.Location = new System.Drawing.Point(7, 9);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(30, 13);
+            this.lblNote.TabIndex = 0;
+            this.lblNote.Text = "Note";
+            // 
             // RequestControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,7 +713,7 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlDetails);
             this.Name = "RequestControl";
-            this.Size = new System.Drawing.Size(670, 578);
+            this.Size = new System.Drawing.Size(670, 627);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
             this.pnlReissueReason.ResumeLayout(false);
@@ -716,6 +750,8 @@
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.panel7.ResumeLayout(false);
+            this.pnlNote.ResumeLayout(false);
+            this.pnlNote.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -778,5 +814,8 @@
         private System.Windows.Forms.Panel pnlReissueType;
         private System.Windows.Forms.TextBox tbReissueType;
         private System.Windows.Forms.Label lblReissueType;
+        private System.Windows.Forms.Panel pnlNote;
+        private System.Windows.Forms.TextBox tbNote;
+        private System.Windows.Forms.Label lblNote;
     }
 }

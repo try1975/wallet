@@ -57,7 +57,7 @@
     <Compile Include="Interfaces\Data\IDataMаnager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.cs" />
+    <Compile Include="CheckStandingOrders.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.AppSettings.config">

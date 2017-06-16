@@ -40,7 +40,6 @@
     <Compile Include="Enums\ClientAppVariant.cs" />
     <Compile Include="Enums\ColorType.cs" />
     <Compile Include="Enums\Frequency.cs" />
-    <Compile Include="Enums\StandingOrderStatus.cs" />
     <Compile Include="Ro.cs" />
     <Compile Include="Enums\AccountRequestType.cs" />
     <Compile Include="Enums\CardReissueType.cs" />

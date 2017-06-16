@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using EPM.Wallet.Internal.Model;
 using EPM.Wallet.WinForms.Interfaces;
 using EPM.Wallet.WinForms.Presenters;
 
@@ -31,6 +32,19 @@ namespace EPM.Wallet.WinForms.Controls
         public void RefreshItems()
         {
             dgvItems.DataSource = _presenter.BindingSource;
+            var column = dgvItems.Columns[nameof(StandingOrderDto.Id)];
+            if (column != null) column.Visible = false;
+            column = dgvItems.Columns[nameof(StandingOrderDto.Amount)];
+            if (column != null)
+            {
+                column.DefaultCellStyle.Format = "N2";
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
+            column = dgvItems.Columns[nameof(StandingOrderDto.ClientAccountId)];
+            if (column != null) column.Visible = false;
+            column = dgvItems.Columns[nameof(StandingOrderDto.RequisiteId)];
+            if (column != null) column.Visible = false;
+
         }
 
         public void SetEventHandlers()

@@ -6,10 +6,9 @@ namespace CreateRequests
     {
         private static void Main()
         {
-            Test.Execute();
+            CheckStandingOrders.Execute();
             
             #if DEBUG
-            Console.WriteLine("Execute completed. Press any key.");
             Console.ReadKey();
             #endif
         }

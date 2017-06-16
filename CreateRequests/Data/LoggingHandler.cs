@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,11 +22,12 @@ namespace CreateRequests.Data
             CancellationToken cancellationToken)
         {
             Debug.WriteLine(request.ToString());
+            //Console.WriteLine(request.ToString());
             if (request.Content != null)
             {
-                Debug.WriteLine(await request.Content
-                    .ReadAsStringAsync()
-                    .ConfigureAwait(false));
+                var line = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
+                Debug.WriteLine(line);
+                //Console.WriteLine(line);
             }
             var response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
 

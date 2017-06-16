@@ -30,6 +30,7 @@ namespace EPM.Wallet.WinForms.Controls
                 }
                 btnRequests.Text = @"Transfer Outs";
                 pnlCards.Visible = false;
+                pnlStandingOrders.Visible = false;
             }
         }
 

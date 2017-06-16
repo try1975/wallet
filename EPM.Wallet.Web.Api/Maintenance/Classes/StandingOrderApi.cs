@@ -23,7 +23,7 @@ namespace WalletWebApi.Maintenance
         public IEnumerable<StandingOrderInfoDto> GetStandingOrdersByClient(string clientId)
         {
             var standingOrders = _query.GetEntities()
-                .Where(m => m.ClientAccount.ClientId==clientId)
+                .Where(m => m.ClientAccount.ClientId==clientId && !m.IsInactive)
                 ;
             
             var list = standingOrders.Join(_requisiteQuery.GetEntities(), o => o.RequisiteId, i => i.Id
@@ -98,7 +98,11 @@ namespace WalletWebApi.Maintenance
         public bool DeleteStandingOrderByClient(string clientId, Guid id)
         {
             var entity = _query.GetEntities().FirstOrDefault(z => z.Id.Equals(id) && z.ClientAccount.ClientId.Equals(clientId));
-            return entity != null && _query.DeleteEntity(id);
+            if (entity == null) return false;
+            if (entity.IsInactive) return entity.IsInactive;
+            entity.IsInactive = true;
+            entity = _query.UpdateEntity(entity);
+            return entity.IsInactive;
         }
     }
 }

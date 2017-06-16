@@ -43,6 +43,7 @@ namespace EPM.Wallet.WinForms.Interfaces
         int Limit { get; set; }
         string CardReissueType { get; set; }
         string CardReissueReason { get; set; }
+        string Note { get; set; }
 
         #endregion // Details
 

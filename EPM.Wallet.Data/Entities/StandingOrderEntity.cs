@@ -15,7 +15,7 @@ namespace EPM.Wallet.Data.Entities
         public DateTime? LastDate { get; set; }
         public DateTime? NextRequestDate { get; set; }
         public Frequency Frequency { get; set; }
-        public StandingOrderStatus StandingOrderStatus { get; set; }
+        public bool IsInactive { get; set; }
         public string Note { get; set; }
         public Guid RequisiteId { get; set; }
         public RequisiteEntity Requisite { get; set; }

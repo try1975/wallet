@@ -23,6 +23,36 @@ namespace WalletInternalApi.Maintenance
             _accountRequestQuery = accountRequestQuery;
         }
 
+        public override IEnumerable<StandingOrderDto> GetItems()
+        {
+            return Query.GetEntities()
+                .Include(z => z.ClientAccount.Client)
+                .Include(z => z.Requisite)
+                .Select(z => new StandingOrderDto()
+                {
+                    Id = z.Id,
+                    ClientAccountId = z.ClientAccountId,
+                    Amount = z.Amount,
+                    CurrencyId = z.CurrencyId,
+                    FirstDate = z.FirstDate,
+                    LastDate = z.LastDate,
+                    NextRequestDate = z.NextRequestDate,
+                    Frequency = z.Frequency,
+                    Note = z.Note,
+                    RequisiteId = z.RequisiteId,
+                    IsInactive = z.IsInactive,
+                    AccountName = z.ClientAccount.Name,
+                    ClientId = z.ClientAccount.ClientId,
+                    ClientName = z.ClientAccount.Client.Name,
+                    BankName = z.Requisite.BankName,
+                    Iban = z.Requisite.Iban,
+                    BankAddress = z.Requisite.BankAddress,
+                    Bic = z.Requisite.Bic,
+                    OwnerName = z.Requisite.OwnerName
+                })
+                .ToList();
+        }
+
         public IEnumerable<StandingOrderDto> GetStandingOrdersByClient(string clientId)
         {
             var list = Query.GetEntities()
@@ -37,7 +67,7 @@ namespace WalletInternalApi.Maintenance
         {
             var standingOrder = Query.GetEntities()
                 .Include(z => z.ClientAccount.Client)
-                .FirstOrDefault(z => z.Id.Equals(id) && z.StandingOrderStatus==StandingOrderStatus.Active)
+                .FirstOrDefault(z => z.Id.Equals(id) && !z.IsInactive)
                 ;
             if (standingOrder == null) return null;
 
