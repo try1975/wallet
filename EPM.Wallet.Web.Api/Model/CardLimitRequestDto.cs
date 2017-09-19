@@ -8,7 +8,7 @@ namespace WalletWebApi.Model
         [JsonIgnore]
         public Guid Id { get; set; }
         public Guid CardId { get; set; }
-        public int Limit { get; set; }
+        public decimal Limit { get; set; }
         
     }
 }
