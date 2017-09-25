@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -24,7 +25,9 @@ namespace WalletWebApi.Controllers
         [Route("", Name = nameof(GetDirectDebitsByClient) + Ro.Route)]
         public IEnumerable<DirectDebitDto> GetDirectDebitsByClient(string clientId)
         {
-            return _directDebitApi.GetDirectDebitsByClient(clientId);
+            var list = _directDebitApi.GetDirectDebitsByClient(clientId);
+            var dtos = list as DirectDebitDto[] ?? list.ToArray();
+            return dtos;
         }
 
         [HttpPost]

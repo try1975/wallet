@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -24,7 +25,9 @@ namespace WalletWebApi.Controllers
         [Route("", Name = nameof(GetStandingOrdersByClient) + Ro.Route)]
         public IEnumerable<StandingOrderInfoDto> GetStandingOrdersByClient(string clientId)
         {
-            return _standingOrderApi.GetStandingOrdersByClient(clientId);
+            var list = _standingOrderApi.GetStandingOrdersByClient(clientId);
+            var dtos = list as StandingOrderInfoDto[] ?? list.ToArray();
+            return dtos;
         }
 
         [HttpPost]

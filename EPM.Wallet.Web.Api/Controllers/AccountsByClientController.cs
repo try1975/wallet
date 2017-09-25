@@ -40,16 +40,16 @@ namespace WalletWebApi.Controllers
         public IEnumerable<AccountDto> GetAccountsByClient(string clientId)
         {
             var list = _accountApi.GetAccountsByClient(clientId);
+            var dtos = list as AccountDto[] ?? list.ToArray();
             var baseUri = $"{Request.RequestUri.Scheme}://{Request.RequestUri.Host}:{Request.RequestUri.Port}";
-            var accountsByClient = list as AccountDto[] ?? list.ToArray();
-            foreach (var account in accountsByClient)
+            foreach (var account in dtos)
             {
                 if (!account.StatementId.HasValue) continue;
 
                 var uri = $"{baseUri}/GetFiles/{nameof(GetStatementFile)}.ashx?id={account.StatementId}";
                 account.LastStatementLink = new Uri(uri);
             }
-            return accountsByClient;
+            return dtos;
         }
 
         [HttpGet]
@@ -72,7 +72,9 @@ namespace WalletWebApi.Controllers
             Name = nameof(GetTransactionsByAccount) + Ro.Route)]
         public IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId, int from = 0, int count = 0)
         {
-            return _transactionApi.GetTransactionsByAccount(clientId, accountId, from, count);
+            var list = _transactionApi.GetTransactionsByAccount(clientId, accountId, from, count);
+            var dtos = list as TransactionDto[] ?? list.ToArray();
+            return dtos;
         }
 
         //[HttpGet]

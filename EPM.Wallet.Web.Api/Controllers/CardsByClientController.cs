@@ -43,16 +43,16 @@ namespace WalletWebApi.Controllers
         public IEnumerable<CardDto> GetCardByClient(string clientId)
         {
             var list = _apiCard.GetCardsByClient(clientId);
+            var dtos = list as CardDto[] ?? list.ToArray();
             var baseUri = $"{Request.RequestUri.Scheme}://{Request.RequestUri.Host}:{Request.RequestUri.Port}";
-            var cardsByClient = list as CardDto[] ?? list.ToArray();
-            foreach (var cardDto in cardsByClient)
+            foreach (var cardDto in dtos)
             {
                 if (!cardDto.StatementId.HasValue) continue;
 
                 var uri = $"{baseUri}/GetFiles/{nameof(GetStatementFile)}.ashx?id={cardDto.StatementId}";
                 cardDto.LastStatementLink = new Uri(uri);
             }
-            return cardsByClient;
+            return dtos;
         }
 
 

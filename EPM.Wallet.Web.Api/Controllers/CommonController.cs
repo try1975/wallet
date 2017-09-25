@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EPM.Wallet.Common;
@@ -25,7 +26,9 @@ namespace WalletWebApi.Controllers
         [Route(WalletConstants.ClientAppApi.Currencies, Name = nameof(GetCurrencies) + Ro.Route)]
         public IEnumerable<CurrencyDto> GetCurrencies()
         {
-            return _currencyApi.GetItems();
+            var list = _currencyApi.GetItems();
+            var dtos = list as CurrencyDto[] ?? list.ToArray();
+            return dtos;
         }
 
         [HttpGet]

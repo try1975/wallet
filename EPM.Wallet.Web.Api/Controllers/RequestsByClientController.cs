@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using EPM.Wallet.Common;
 using WalletWebApi.Maintenance;
@@ -21,7 +22,9 @@ namespace WalletWebApi.Controllers
         [Route("", Name = nameof(GetRequestsByClient)+  Ro.Route)]
         public IEnumerable<AccountRequestDto> GetRequestsByClient(string clientId, int from = 0, int count = 0)
         {
-            return _accountRequestApi.RequestsByClient(clientId, from, count);
+            var list = _accountRequestApi.RequestsByClient(clientId, from, count);
+            var dtos = list as AccountRequestDto[] ?? list.ToArray();
+            return dtos;
         }
 
         [HttpGet]

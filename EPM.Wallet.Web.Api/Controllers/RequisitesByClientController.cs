@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -24,7 +25,9 @@ namespace WalletWebApi.Controllers
         [Route("", Name = nameof(GetRequisitesByClient) + Ro.Route)]
         public IEnumerable<RequisiteDto> GetRequisitesByClient(string clientId)
         {
-            return _requisiteApi.GetRequisitesByClient(clientId);
+            var list = _requisiteApi.GetRequisitesByClient(clientId);
+            var dtos = list as RequisiteDto[] ?? list.ToArray();
+            return dtos;
         }
 
         [HttpGet]

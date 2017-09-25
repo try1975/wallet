@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EPM.Wallet.Common;
@@ -46,7 +47,9 @@ namespace WalletWebApi.Controllers
         [Route("", Name = nameof(GetMessagesByClient) + Ro.Route)]
         public IEnumerable<MessageDto> GetMessagesByClient(string clientId, int from = 0, int count = 0)
         {
-            return _messageApi.GetMessagesByClient(clientId, from, count);
+            var list = _messageApi.GetMessagesByClient(clientId, from, count);
+            var dtos = list as MessageDto[] ?? list.ToArray();
+            return dtos;
         }
 
         /// <summary>
@@ -60,7 +63,9 @@ namespace WalletWebApi.Controllers
         [Route(WalletConstants.MessagesByClientRoutes.Outgoing, Name = nameof(GetMessagesByClientOutgoing) + Ro.Route)]
         public IEnumerable<MessageDto> GetMessagesByClientOutgoing(string clientId, int from = 0, int count = 0)
         {
-            return _messageApi.GetOutgoingMessagesByClient(clientId, from, count);
+            var list = _messageApi.GetOutgoingMessagesByClient(clientId, from, count);
+            var dtos = list as MessageDto[] ?? list.ToArray();
+            return dtos;
         }
 
         /// <summary>
@@ -75,7 +80,9 @@ namespace WalletWebApi.Controllers
         [Route(WalletConstants.MessagesByClientRoutes.Incomming, Name = nameof(GetMessagesByClientIncoming) + Ro.Route)]
         public IEnumerable<MessageDto> GetMessagesByClientIncoming(string clientId, DateTime fromDate, int from=0, int count=0)
         {
-            return _messageApi.GetIncomingMessagesByClient(clientId, fromDate, from, count);
+            var list = _messageApi.GetIncomingMessagesByClient(clientId, fromDate, from, count);
+            var dtos = list as MessageDto[] ?? list.ToArray();
+            return dtos;
         }
 
 
