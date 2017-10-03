@@ -27,7 +27,7 @@ namespace WalletWebApi.Controllers
         public IEnumerable<CurrencyDto> GetCurrencies()
         {
             var list = _currencyApi.GetItems();
-            var dtos = list as CurrencyDto[] ?? list.ToArray();
+            var dtos = list ?? new List<CurrencyDto>();
             return dtos;
         }
 

@@ -26,7 +26,7 @@ namespace WalletWebApi.Controllers
         public IEnumerable<DirectDebitDto> GetDirectDebitsByClient(string clientId)
         {
             var list = _directDebitApi.GetDirectDebitsByClient(clientId);
-            var dtos = list as DirectDebitDto[] ?? list.ToArray();
+            var dtos = list ?? new List<DirectDebitDto>();
             return dtos;
         }
 

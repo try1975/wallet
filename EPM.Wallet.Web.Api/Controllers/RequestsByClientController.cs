@@ -23,7 +23,7 @@ namespace WalletWebApi.Controllers
         public IEnumerable<AccountRequestDto> GetRequestsByClient(string clientId, int from = 0, int count = 0)
         {
             var list = _accountRequestApi.RequestsByClient(clientId, from, count);
-            var dtos = list as AccountRequestDto[] ?? list.ToArray();
+            var dtos = list ?? new List<AccountRequestDto>();
             return dtos;
         }
 

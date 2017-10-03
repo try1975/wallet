@@ -40,7 +40,7 @@ namespace WalletWebApi.Controllers
         public IEnumerable<AccountDto> GetAccountsByClient(string clientId)
         {
             var list = _accountApi.GetAccountsByClient(clientId);
-            var dtos = list as AccountDto[] ?? list.ToArray();
+            var dtos = list ?? new List<AccountDto>();
             var baseUri = $"{Request.RequestUri.Scheme}://{Request.RequestUri.Host}:{Request.RequestUri.Port}";
             foreach (var account in dtos)
             {
@@ -73,7 +73,7 @@ namespace WalletWebApi.Controllers
         public IEnumerable<TransactionDto> GetTransactionsByAccount(string clientId, Guid accountId, int from = 0, int count = 0)
         {
             var list = _transactionApi.GetTransactionsByAccount(clientId, accountId, from, count);
-            var dtos = list as TransactionDto[] ?? list.ToArray();
+            var dtos = list ?? new List<TransactionDto>();
             return dtos;
         }
 

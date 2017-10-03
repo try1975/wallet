@@ -26,7 +26,7 @@ namespace WalletWebApi.Controllers
         public IEnumerable<RequisiteDto> GetRequisitesByClient(string clientId)
         {
             var list = _requisiteApi.GetRequisitesByClient(clientId);
-            var dtos = list as RequisiteDto[] ?? list.ToArray();
+            var dtos = list ?? new List<RequisiteDto>();
             return dtos;
         }
 

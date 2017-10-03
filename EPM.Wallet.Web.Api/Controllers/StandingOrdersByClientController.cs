@@ -26,7 +26,7 @@ namespace WalletWebApi.Controllers
         public IEnumerable<StandingOrderInfoDto> GetStandingOrdersByClient(string clientId)
         {
             var list = _standingOrderApi.GetStandingOrdersByClient(clientId);
-            var dtos = list as StandingOrderInfoDto[] ?? list.ToArray();
+            var dtos = list ?? new List<StandingOrderInfoDto>();
             return dtos;
         }
 

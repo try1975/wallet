@@ -1,14 +1,21 @@
 ﻿using System.Data.Entity;
-using System.Net.Configuration;
 using EPM.Wallet.Data.Entities;
 using EPM.Wallet.Data.SqlServer.Mapping;
 using EPM.Wallet.Data.SqlServer.Migrations;
+using Z.EntityFramework.Plus;
 
 namespace EPM.Wallet.Data.SqlServer
 {
     [DbConfigurationType(typeof(ConfigContext))]
     public sealed class WalletContext : DbContext
     {
+        static WalletContext()
+        {
+            AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
+                // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
+                ((WalletContext)context).AuditEntries.AddRange(audit.Entries);
+        }
+
         public WalletContext(): base("name=WalletModel")
         {
             Database.Log += s => System.Diagnostics.Debug.WriteLine(s);
@@ -38,6 +45,9 @@ namespace EPM.Wallet.Data.SqlServer
         private DbSet<TransactionTypeEntity> TransactionTypes { get; set; }
         private DbSet<TransactionEntity> Transactions { get; set; }
         private DbSet<DirectDebitEntity> DirectDebits { get; set; }
+
+        public DbSet<AuditEntry> AuditEntries { get; set; }
+        public DbSet<AuditEntryProperty> AuditEntryProperties { get; set; }
 
         #endregion
 

@@ -43,7 +43,7 @@ namespace WalletWebApi.Controllers
         public IEnumerable<CardDto> GetCardByClient(string clientId)
         {
             var list = _apiCard.GetCardsByClient(clientId);
-            var dtos = list as CardDto[] ?? list.ToArray();
+            var dtos = list ?? new List<CardDto>();
             var baseUri = $"{Request.RequestUri.Scheme}://{Request.RequestUri.Host}:{Request.RequestUri.Port}";
             foreach (var cardDto in dtos)
             {
