@@ -50,6 +50,15 @@ namespace EPM.Wallet.Data.SqlServer.Mapping
               .HasForeignKey(s => s.CurrencyId)
               .WillCascadeOnDelete(false)
               ;
+            Property(e => e.BeneficiaryName)
+                .HasMaxLength(250)
+                ;
+            Property(e => e.BeneficiaryAddress)
+                .HasMaxLength(250)
+                ;
+            Property(e => e.Reference)
+                .HasMaxLength(250)
+                ;
             Property(e => e.CreatedBy)
                 .HasMaxLength(10)
                 ;

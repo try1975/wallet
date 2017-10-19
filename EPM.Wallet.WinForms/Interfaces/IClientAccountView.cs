@@ -16,6 +16,9 @@ namespace EPM.Wallet.WinForms.Interfaces
         ClientAccountStatus ClientAccountStatus { get; set; }
         decimal CurrentBalance { get; set; }
         string Comment { get; set; }
+        string BeneficiaryName { get; set; }
+        string BeneficiaryAddress { get; set; }
+        string Reference { get; set; }
 
         #endregion //Details
 

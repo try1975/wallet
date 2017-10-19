@@ -42,25 +42,25 @@ namespace EPM.Wallet.WinForms.Controls
 
         public string ClientId
         {
-            get { return (string) cmbClient.SelectedValue; }
+            get { return (string)cmbClient.SelectedValue; }
             set { cmbClient.SelectedValue = value; }
         }
 
         public string CurrencyId
         {
-            get { return (string) cmbCurrency.SelectedValue; }
+            get { return (string)cmbCurrency.SelectedValue; }
             set { cmbCurrency.SelectedValue = value; }
         }
 
         public Guid BankAccountId
         {
-            get { return (Guid) cmbBankAccount.SelectedValue; }
+            get { return (Guid)cmbBankAccount.SelectedValue; }
             set { cmbBankAccount.SelectedValue = value; }
         }
 
         public ClientAccountStatus ClientAccountStatus
         {
-            get { return (ClientAccountStatus) cmbClientAccountStatus.SelectedValue; }
+            get { return (ClientAccountStatus)cmbClientAccountStatus.SelectedValue; }
             set { cmbClientAccountStatus.SelectedValue = value; }
         }
 
@@ -70,6 +70,23 @@ namespace EPM.Wallet.WinForms.Controls
         {
             get { return tbComment.Text; }
             set { tbComment.Text = value; }
+        }
+
+        public string BeneficiaryName
+        {
+            get { return tbBeneficiaryName.Text; }
+            set { tbBeneficiaryName.Text = value; }
+        }
+        public string BeneficiaryAddress
+        {
+            get { return tbBeneficiaryAddress.Text; }
+            set { tbBeneficiaryAddress.Text = value; }
+        }
+
+        public string Reference
+        {
+            get { return tbReference.Text; }
+            set { tbReference.Text = value; }
         }
 
         #endregion //Details
@@ -122,9 +139,13 @@ namespace EPM.Wallet.WinForms.Controls
 
         #region IRefreshedView
 
-        public void RefreshItems()
+        private void AfterGridDataChange()
         {
-            dgvItems.DataSource = _presenter.BindingSource;
+            ColumnSettings();
+        }
+
+        private void ColumnSettings()
+        {
             // hide columns
             var column = dgvItems.Columns[nameof(AccountDto.Id)];
             if (column != null) column.Visible = false;
@@ -137,7 +158,14 @@ namespace EPM.Wallet.WinForms.Controls
             if (column != null)
             {
                 column.DefaultCellStyle.Format = "N2";
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
+        }
+
+        public void RefreshItems()
+        {
+            dgvItems.DataSource = _presenter.BindingSource;
+            AfterGridDataChange();
         }
 
         public void SetEventHandlers()
@@ -203,6 +231,8 @@ namespace EPM.Wallet.WinForms.Controls
             btnSave.Enabled = false;
             btnEdit.Enabled = false;
             btnAddNew.Enabled = true;
+
+            AfterGridDataChange();
         }
 
         public void EnterMultiSelectMode()
@@ -225,6 +255,11 @@ namespace EPM.Wallet.WinForms.Controls
             cmbCurrency.SelectedIndex = -1;
             cmbClientAccountStatus.SelectedIndex = -1;
             cmbBankAccount.SelectedIndex = -1;
+            CurrentBalance = 0;
+            tbComment.Clear();
+            tbBeneficiaryName.Clear();
+            tbBeneficiaryAddress.Clear();
+            tbReference.Clear();
         }
 
         public void EnableInput()
@@ -238,6 +273,9 @@ namespace EPM.Wallet.WinForms.Controls
             cmbClientAccountStatus.Enabled = true;
             cmbBankAccount.Enabled = true;
             tbComment.Enabled = true;
+            tbBeneficiaryName.Enabled = true;
+            tbBeneficiaryAddress.Enabled = true;
+            tbReference.Enabled = true;
         }
 
         public void DisableInput()
@@ -249,6 +287,9 @@ namespace EPM.Wallet.WinForms.Controls
             cmbClientAccountStatus.Enabled = false;
             cmbBankAccount.Enabled = false;
             tbComment.Enabled = false;
+            tbBeneficiaryName.Enabled = false;
+            tbBeneficiaryAddress.Enabled = false;
+            tbReference.Enabled = false;
         }
 
         #endregion //IEnterMode
@@ -283,6 +324,7 @@ namespace EPM.Wallet.WinForms.Controls
         private void dgvItems_FilterStringChanged(object sender, EventArgs e)
         {
             _presenter.BindingSource.Filter = dgvItems.FilterString;
+            AfterGridDataChange();
         }
 
         private void dgvItems_SortStringChanged(object sender, EventArgs e)

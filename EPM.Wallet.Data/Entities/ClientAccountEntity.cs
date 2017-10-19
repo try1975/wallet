@@ -26,6 +26,10 @@ namespace EPM.Wallet.Data.Entities
         public Guid? RequisiteId { get; set; }
         public virtual RequisiteEntity Requisite { get; set; }
 
+        public string BeneficiaryName { get; set; }
+        public string BeneficiaryAddress { get; set; }
+        public string Reference { get; set; }
+
         public ICollection<AccountRequestEntity> Requests { get; set; }
         public ICollection<AccountRequestEntity> BeneficiaryRequests { get; set; }
         public ICollection<StatementEntity> Statements { get; set; }

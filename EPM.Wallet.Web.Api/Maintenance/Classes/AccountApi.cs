@@ -22,23 +22,21 @@ namespace WalletWebApi.Maintenance
         {
             var list = _query.GetEntities()
                 .Where(z => z.ClientId.Equals(clientId, StringComparison.InvariantCultureIgnoreCase))
-                .Include(z=>z.BankAccount)
-                .Include(z=>z.BankAccount.Bank)
+                .Include(z => z.BankAccount)
+                .Include(z => z.BankAccount.Bank)
                 .ToList()
                 ;
             foreach (var accountEntity in list)
             {
-                //var transactions = _transactionQuery.GetEntities().Where(z => z.AccountId == accountEntity.Id).Sum(z => z.Amount);
-                //accountEntity.CurrentBalance = balance;
-                var requisiteEntity = new RequisiteEntity()
+                var requisiteEntity = new RequisiteEntity
                 {
-                    Name = accountEntity.Name,
+                    Name = string.IsNullOrEmpty(accountEntity.Reference) ? accountEntity.Name : accountEntity.Reference,
                     BankName = accountEntity.BankAccount.Bank.Name,
                     BankAddress = accountEntity.BankAccount.Bank.BankAddress,
                     Bic = accountEntity.BankAccount.Bank.Bic,
                     Iban = accountEntity.BankAccount.Name,
-                    BeneficiaryAddress = accountEntity.BankAccount.BeneficiaryAddress,
-                    OwnerName = "WALLET"/*accountEntity.Name*/
+                    BeneficiaryAddress = accountEntity.BeneficiaryAddress,
+                    OwnerName = accountEntity.BeneficiaryName
                 };
                 accountEntity.Requisite = requisiteEntity;
             }

@@ -31,6 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.pnlFields = new System.Windows.Forms.Panel();
+            this.pnlBeneficiaryAddress = new System.Windows.Forms.Panel();
+            this.tbBeneficiaryAddress = new System.Windows.Forms.TextBox();
+            this.lblBeneficiaryAddress = new System.Windows.Forms.Label();
+            this.pnlBeneficiaryName = new System.Windows.Forms.Panel();
+            this.tbBeneficiaryName = new System.Windows.Forms.TextBox();
+            this.lblBeneficiaryName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbComment = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,8 +67,13 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvItems = new Zuby.ADGV.AdvancedDataGridView();
+            this.pnlReference = new System.Windows.Forms.Panel();
+            this.tbReference = new System.Windows.Forms.TextBox();
+            this.lblReference = new System.Windows.Forms.Label();
             this.pnlDetails.SuspendLayout();
             this.pnlFields.SuspendLayout();
+            this.pnlBeneficiaryAddress.SuspendLayout();
+            this.pnlBeneficiaryName.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlClientAccountStatus.SuspendLayout();
@@ -73,6 +84,7 @@
             this.pnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            this.pnlReference.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetails
@@ -87,6 +99,9 @@
             // 
             // pnlFields
             // 
+            this.pnlFields.Controls.Add(this.pnlReference);
+            this.pnlFields.Controls.Add(this.pnlBeneficiaryAddress);
+            this.pnlFields.Controls.Add(this.pnlBeneficiaryName);
             this.pnlFields.Controls.Add(this.panel2);
             this.pnlFields.Controls.Add(this.panel1);
             this.pnlFields.Controls.Add(this.pnlClientAccountStatus);
@@ -99,6 +114,64 @@
             this.pnlFields.Name = "pnlFields";
             this.pnlFields.Size = new System.Drawing.Size(396, 509);
             this.pnlFields.TabIndex = 1;
+            // 
+            // pnlBeneficiaryAddress
+            // 
+            this.pnlBeneficiaryAddress.Controls.Add(this.tbBeneficiaryAddress);
+            this.pnlBeneficiaryAddress.Controls.Add(this.lblBeneficiaryAddress);
+            this.pnlBeneficiaryAddress.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBeneficiaryAddress.Location = new System.Drawing.Point(0, 267);
+            this.pnlBeneficiaryAddress.Name = "pnlBeneficiaryAddress";
+            this.pnlBeneficiaryAddress.Size = new System.Drawing.Size(396, 34);
+            this.pnlBeneficiaryAddress.TabIndex = 12;
+            // 
+            // tbBeneficiaryAddress
+            // 
+            this.tbBeneficiaryAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBeneficiaryAddress.Enabled = false;
+            this.tbBeneficiaryAddress.Location = new System.Drawing.Point(97, 5);
+            this.tbBeneficiaryAddress.Name = "tbBeneficiaryAddress";
+            this.tbBeneficiaryAddress.Size = new System.Drawing.Size(283, 20);
+            this.tbBeneficiaryAddress.TabIndex = 1;
+            // 
+            // lblBeneficiaryAddress
+            // 
+            this.lblBeneficiaryAddress.AutoSize = true;
+            this.lblBeneficiaryAddress.Location = new System.Drawing.Point(7, 8);
+            this.lblBeneficiaryAddress.Name = "lblBeneficiaryAddress";
+            this.lblBeneficiaryAddress.Size = new System.Drawing.Size(100, 13);
+            this.lblBeneficiaryAddress.TabIndex = 0;
+            this.lblBeneficiaryAddress.Text = "Beneficiary Address";
+            // 
+            // pnlBeneficiaryName
+            // 
+            this.pnlBeneficiaryName.Controls.Add(this.tbBeneficiaryName);
+            this.pnlBeneficiaryName.Controls.Add(this.lblBeneficiaryName);
+            this.pnlBeneficiaryName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBeneficiaryName.Location = new System.Drawing.Point(0, 233);
+            this.pnlBeneficiaryName.Name = "pnlBeneficiaryName";
+            this.pnlBeneficiaryName.Size = new System.Drawing.Size(396, 34);
+            this.pnlBeneficiaryName.TabIndex = 11;
+            // 
+            // tbBeneficiaryName
+            // 
+            this.tbBeneficiaryName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBeneficiaryName.Enabled = false;
+            this.tbBeneficiaryName.Location = new System.Drawing.Point(97, 5);
+            this.tbBeneficiaryName.Name = "tbBeneficiaryName";
+            this.tbBeneficiaryName.Size = new System.Drawing.Size(283, 20);
+            this.tbBeneficiaryName.TabIndex = 1;
+            // 
+            // lblBeneficiaryName
+            // 
+            this.lblBeneficiaryName.AutoSize = true;
+            this.lblBeneficiaryName.Location = new System.Drawing.Point(7, 8);
+            this.lblBeneficiaryName.Name = "lblBeneficiaryName";
+            this.lblBeneficiaryName.Size = new System.Drawing.Size(90, 13);
+            this.lblBeneficiaryName.TabIndex = 0;
+            this.lblBeneficiaryName.Text = "Beneficiary Name";
             // 
             // panel2
             // 
@@ -396,6 +469,35 @@
             this.dgvItems.Size = new System.Drawing.Size(271, 550);
             this.dgvItems.TabIndex = 1;
             // 
+            // pnlReference
+            // 
+            this.pnlReference.Controls.Add(this.tbReference);
+            this.pnlReference.Controls.Add(this.lblReference);
+            this.pnlReference.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlReference.Location = new System.Drawing.Point(0, 301);
+            this.pnlReference.Name = "pnlReference";
+            this.pnlReference.Size = new System.Drawing.Size(396, 34);
+            this.pnlReference.TabIndex = 13;
+            // 
+            // tbReference
+            // 
+            this.tbReference.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReference.Enabled = false;
+            this.tbReference.Location = new System.Drawing.Point(97, 5);
+            this.tbReference.Name = "tbReference";
+            this.tbReference.Size = new System.Drawing.Size(283, 20);
+            this.tbReference.TabIndex = 1;
+            // 
+            // lblReference
+            // 
+            this.lblReference.AutoSize = true;
+            this.lblReference.Location = new System.Drawing.Point(7, 8);
+            this.lblReference.Name = "lblReference";
+            this.lblReference.Size = new System.Drawing.Size(57, 13);
+            this.lblReference.TabIndex = 0;
+            this.lblReference.Text = "Reference";
+            // 
             // ClientAccountControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +509,10 @@
             this.Size = new System.Drawing.Size(670, 550);
             this.pnlDetails.ResumeLayout(false);
             this.pnlFields.ResumeLayout(false);
+            this.pnlBeneficiaryAddress.ResumeLayout(false);
+            this.pnlBeneficiaryAddress.PerformLayout();
+            this.pnlBeneficiaryName.ResumeLayout(false);
+            this.pnlBeneficiaryName.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -424,6 +530,8 @@
             this.pnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            this.pnlReference.ResumeLayout(false);
+            this.pnlReference.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -462,5 +570,14 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tbComment;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlBeneficiaryAddress;
+        private System.Windows.Forms.TextBox tbBeneficiaryAddress;
+        private System.Windows.Forms.Label lblBeneficiaryAddress;
+        private System.Windows.Forms.Panel pnlBeneficiaryName;
+        private System.Windows.Forms.TextBox tbBeneficiaryName;
+        private System.Windows.Forms.Label lblBeneficiaryName;
+        private System.Windows.Forms.Panel pnlReference;
+        private System.Windows.Forms.TextBox tbReference;
+        private System.Windows.Forms.Label lblReference;
     }
 }
