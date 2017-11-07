@@ -13,5 +13,6 @@ namespace EPM.Wallet.Data.Entities
         public string CurrencyId { get; set; }
         public CurrencyEntity Currency { get; set; }
         public bool DebitFromOtherIfIncefitient { get; set; }
+        public decimal Amount { get; set; }
     }
 }

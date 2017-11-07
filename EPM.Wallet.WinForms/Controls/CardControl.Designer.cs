@@ -263,23 +263,13 @@
             0});
             this.udLimit.Location = new System.Drawing.Point(97, 7);
             this.udLimit.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.udLimit.Minimum = new decimal(new int[] {
-            1000,
+            500000,
             0,
             0,
             0});
             this.udLimit.Name = "udLimit";
             this.udLimit.Size = new System.Drawing.Size(120, 20);
             this.udLimit.TabIndex = 1;
-            this.udLimit.Value = new decimal(new int[] {
-            2017,
-            0,
-            0,
-            0});
             // 
             // lblLimit
             // 
@@ -317,7 +307,7 @@
             this.udExpYear.Size = new System.Drawing.Size(120, 20);
             this.udExpYear.TabIndex = 1;
             this.udExpYear.Value = new decimal(new int[] {
-            2017,
+            2018,
             0,
             0,
             0});

@@ -36,7 +36,8 @@ namespace WalletWebApi.Maintenance
                 CardId = z.CardId,
                 CardNumber = z.Card.CardNumber,
                 CurrencyId = z.CurrencyId,
-                DebitFromOtherIfIncefitient = z.DebitFromOtherIfIncefitient
+                DebitFromOtherIfIncefitient = z.DebitFromOtherIfIncefitient,
+                Amount = z.Amount
             }).ToList();
             return list;
         }
