@@ -200,7 +200,8 @@ namespace WalletWebApi.Maintenance
                 ClientAccountId = account.Id,
                 BeneficiaryAccountId = beneficiary.Id,
                 CurrencyId = currencyId,
-                AmountOut = dto.Amount
+                AmountOut = dto.Amount,
+                ValueDate = DateTime.UtcNow
             };
             try
             {
@@ -235,7 +236,8 @@ namespace WalletWebApi.Maintenance
                 ClientAccountId = account.Id,
                 CardId = card.Id,
                 CurrencyId = currencyId,
-                AmountOut = dto.Amount
+                AmountOut = dto.Amount,
+                ValueDate = DateTime.UtcNow
             };
             try
             {
