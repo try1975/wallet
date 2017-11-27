@@ -145,10 +145,11 @@ namespace WalletInternalApi.Maintenance
                 entity = Query.UpdateEntity(entity);
                 return Mapper.Map<TransactionDto>(entity);
             }
+            var recalcMoment = new DateTime(Math.Min(entity.RegisterDate.Ticks, dto.RegisterDate.Ticks));
 
             var lastTransaction =
                 Query.GetEntities()
-                    .Where(z => z.AccountId == dto.AccountId && z.RegisterDate < dto.RegisterDate)
+                    .Where(z => z.AccountId == dto.AccountId && z.RegisterDate < recalcMoment)
                     .OrderByDescending(z => z.RegisterDate)
                     .ThenByDescending(z => z.Id)
                     .FirstOrDefault();
@@ -166,7 +167,7 @@ namespace WalletInternalApi.Maintenance
 
                     var latestTransactions =
                         Query.GetEntities()
-                            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate >= dto.RegisterDate)
+                            .Where(z => z.AccountId == dto.AccountId && z.RegisterDate >= recalcMoment)
                             .OrderBy(z => z.RegisterDate)
                             .ThenBy(z => z.Id)
                             .ToList();
